@@ -4,10 +4,14 @@
     "declaration": true,
     "declarationDir": "lib",
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": [
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
