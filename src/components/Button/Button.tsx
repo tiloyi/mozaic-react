@@ -1,6 +1,5 @@
-import React, { FC, ButtonHTMLAttributes } from 'react';
-
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+import React, { FC } from 'react';
+import { IButtonProps } from './Button.types';
 
 const Button: FC<IButtonProps> = ({ children, ...props }) => {
     return (
