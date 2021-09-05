@@ -4,6 +4,7 @@
   "description": "React implementation of the Mozaic Design System",
   "main": "index.js",
   "scripts": {
+    "build": "rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/adeo/bigfish-wms--mozaic-react/issues"
   },
-  "homepage": "https://github.com/adeo/bigfish-wms--mozaic-react#readme"
+  "homepage": "https://github.com/adeo/bigfish-wms--mozaic-react#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.19",
+    "rollup": "^2.56.3"
+  }
 }
