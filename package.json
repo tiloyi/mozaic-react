@@ -16,7 +16,7 @@
     "react",
     "components"
   ],
-  "author": "@adeo/lmru-bigfish-wms-inbound",
+  "author": "Team @adeo/lmru-bigfish-wms-inbound",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/adeo/bigfish-wms--mozaic-react/issues"
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.19",
+    "prettier": "^2.3.2",
     "rollup": "^2.56.3"
   }
 }
