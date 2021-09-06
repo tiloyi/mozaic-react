@@ -7,7 +7,10 @@ export default [
         input: ['src/index.ts'],
         output: {
             exports: 'named',
-            dir: 'lib'
+            format: 'cjs',
+            dir: 'lib',
+            preserveModules: true,
+            preserveModulesRoot: 'src'
         },
         plugins: [resolve(), commonjs(), typescript()]
     }
