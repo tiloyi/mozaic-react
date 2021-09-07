@@ -9,9 +9,11 @@ module.exports = ({ config }) => {
             'css-loader',
             {
                 loader: 'postcss-loader',
-                postcssOptions: {
-                    syntax,
-                    plugins
+                options: {
+                    postcssOptions: {
+                        syntax,
+                        plugins
+                    }
                 }
             }
         ]
