@@ -69,6 +69,7 @@
     "@mozaic-ds/icons": "^1.14.0",
     "@mozaic-ds/styles": "^1.16.0",
     "@mozaic-ds/tokens": "^1.14.0",
-    "@mozaic-ds/web-fonts": "^1.0.1"
+    "@mozaic-ds/web-fonts": "^1.0.1",
+    "classnames": "^2.3.1"
   }
 }
