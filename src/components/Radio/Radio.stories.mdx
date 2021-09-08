@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
+import Radio from './Radio';
+
+<Meta title="Radio" component={Radio} />
+
+# Radio
+
+The `Radio` component is the **React.js** implementation of the **Mozaic Radio** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Form/Radio/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+  language="javascript"
+  code="import { Radio } from 'mozaic-react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+  <Story id="radio--radio-story" />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Radio} />

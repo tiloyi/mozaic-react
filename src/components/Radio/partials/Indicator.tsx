@@ -2,9 +2,9 @@ import React from 'react';
 import cn from 'classnames';
 import { IRadioProps } from '../Radio.types';
 
-const RadioIndicator = ({ className, isChecked, isDisabled, ...props }: IRadioProps) => (
+const RadioIndicator = ({ className, isChecked, isDisabled, isInvalid, ...props }: IRadioProps) => (
     <input
-        className={cn('mc-radio__input', className)}
+        className={cn('mc-radio__input', isInvalid && 'is-invalid', className)}
         {...props}
         type="radio"
         checked={isChecked}
