@@ -1,19 +1,15 @@
-import React, { FC } from 'react';
+import React from 'react';
 import cn from 'classnames';
-import { useRadioContext } from './Context';
+import { IRadioProps } from '../Radio.types';
 
-export interface IRadioIndicatorProps {
-    className?: string;
-}
-
-const RadioIndicator: FC<IRadioIndicatorProps> = ({ className }: IRadioIndicatorProps) => {
-    const { isChecked, isDisabled } = useRadioContext();
-
-    if (!isChecked) {
-        return null;
-    }
-
-    return <input className={cn(className)} type="radio" checked={isChecked} disabled={isDisabled} />;
-};
+const RadioIndicator = ({ className, isChecked, isDisabled, ...props }: IRadioProps) => (
+    <input
+        className={cn('mc-radio__input', className)}
+        {...props}
+        type="radio"
+        checked={isChecked}
+        disabled={isDisabled}
+    />
+);
 
 export default RadioIndicator;

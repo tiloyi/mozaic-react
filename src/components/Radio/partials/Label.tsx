@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+import { IRadioPartialProps } from '../Radio.types';
 
-export interface IRadioLabelProps {
-    className?: string;
-}
-
-const RadioLabel: FC<IRadioLabelProps> = ({ className, children }) => <div className={cn(className)}>{children}</div>;
+const RadioLabel: FC<IRadioPartialProps> = ({ className, children }) => (
+    <div className={cn('mc-radio__label', className)}>{children}</div>
+);
 
 export default RadioLabel;
