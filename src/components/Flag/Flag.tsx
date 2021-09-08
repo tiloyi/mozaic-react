@@ -23,12 +23,10 @@ const Flag: FC<IFlagProps> = ({
     theme = FlagTheme.Primary,
     variant = FlagVariant.Solid,
     ...props
-}) => {
-    return (
-        <div className={cn(blockClassName, className, getModifier(theme, variant))} {...props}>
-            {children}
-        </div>
-    );
-};
+}) => (
+    <div className={cn(blockClassName, className, getModifier(theme, variant))} {...props}>
+        {children}
+    </div>
+);
 
 export default Flag;
