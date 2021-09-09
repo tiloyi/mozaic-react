@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useCallback } from 'react';
 import cn from 'classnames';
 import { useRadioGroup } from '../../RadioGroup';
 import { IRadioProps } from '../Radio.types';
@@ -8,10 +8,13 @@ const RadioIndicator = ({ className, isChecked, isDisabled, isInvalid, ...props 
 
     const inputClassName = cn('mc-radio__input', isInvalid && 'is-invalid', className);
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        props.onChange?.(event);
-        radioGroupContext?.onChange(event);
-    };
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            props.onChange?.(event);
+            radioGroupContext?.onChange?.(event);
+        },
+        [props.onChange, radioGroupContext]
+    );
 
     if (radioGroupContext) {
         return (
