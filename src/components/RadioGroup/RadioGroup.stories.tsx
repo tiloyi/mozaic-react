@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Radio from '../Radio';
 import RadioGroup from './RadioGroup';
 import { IRadioGroupProps } from './RadioGroup.types';
@@ -8,9 +9,9 @@ import './RadioGroup.stories.scss';
 const languages = ['Kotlin', 'Rust', 'Go', 'Ruby', 'PHP', 'Java'];
 
 const Template: Story<IRadioGroupProps> = args => (
-    <RadioGroup {...args}>
+    <RadioGroup {...args} onChange={action('Change')}>
         {languages.map(language => (
-            <Radio className="radio-group-item" value={language.toLowerCase()}>
+            <Radio className="radio-group-item" key={language.toLowerCase()} value={language.toLowerCase()}>
                 {language}
             </Radio>
         ))}
