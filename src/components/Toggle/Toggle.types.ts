@@ -10,3 +10,8 @@ export interface IToggleProps extends Omit<InputHTMLAttributes<HTMLInputElement>
 export interface ITogglePartialProps {
     className?: string;
 }
+
+export enum ToggleSize {
+    S = 's',
+    M = 'm'
+}
