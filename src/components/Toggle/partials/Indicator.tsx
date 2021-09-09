@@ -2,10 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import { IToggleProps } from '../Toggle.types';
 
-const ToggleIndicator = ({ className, isChecked, isDisabled, isInvalid, ...props }: IToggleProps) => {
+const ToggleIndicator = ({ className, isChecked, isDisabled, ...props }: IToggleProps) => {
     return (
         <input
-            className={cn('mc-toggle__input', isInvalid && 'is-invalid', className)}
+            className={cn('mc-toggle__input', className)}
             {...props}
             type="checkbox"
             checked={isChecked}
