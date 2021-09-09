@@ -4,9 +4,8 @@ import { action } from '@storybook/addon-actions';
 import Radio from '../Radio';
 import RadioGroup from './RadioGroup';
 import { IRadioGroupProps } from './RadioGroup.types';
+import { languages } from './RadioGroup.fixtures';
 import './RadioGroup.stories.scss';
-
-const languages = ['Kotlin', 'Rust', 'Go', 'Ruby', 'PHP', 'Java'];
 
 const Template: Story<IRadioGroupProps> = args => (
     <RadioGroup {...args} onChange={action('Change')}>
