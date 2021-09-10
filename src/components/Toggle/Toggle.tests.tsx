@@ -32,4 +32,16 @@ describe('components/Toggle', () => {
 
         expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
+
+    test('renders disabled correctly', () => {
+        const onChange = jest.fn();
+
+        render(
+            <Toggle isDisabled onChange={onChange}>
+                Toggle label
+            </Toggle>
+        );
+
+        expect(screen.getByRole('checkbox')).toBeDisabled();
+    });
 });
