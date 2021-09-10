@@ -26,11 +26,17 @@ describe('components/Radio', () => {
 
         render(
             <Radio isChecked={false} onChange={onChange}>
-                Radio
+                Radio label
             </Radio>
         );
 
         expect(screen.getByRole('radio')).not.toBeChecked();
+    });
+
+    test('renders disabled correctly', () => {
+        render(<Radio isDisabled>Radio label</Radio>);
+
+        expect(screen.getByRole('radio')).toBeDisabled();
     });
 
     test('renders invalid correctly', () => {
