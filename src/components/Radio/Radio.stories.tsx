@@ -3,17 +3,15 @@ import { Story } from '@storybook/react';
 import Radio from './Radio';
 import { IRadioProps } from './Radio.types';
 
-const Template: Story<IRadioProps> = args => <Radio {...args}>Radio label</Radio>;
+const ControlsTemplate: Story<IRadioProps> = args => <Radio {...args}>Radio label</Radio>;
 
-export const RadioStory = Template.bind({});
+export const Controls = ControlsTemplate.bind({});
 
-RadioStory.args = {
+Controls.args = {
     isChecked: false,
     isDisabled: false,
     isInvalid: false
 };
-
-RadioStory.storyName = 'Radio';
 
 export default {
     title: 'Radio',

@@ -1,9 +1,9 @@
 import React, { FC, createContext, useContext, useMemo } from 'react';
 import { IRadioGroupProps } from './RadioGroup.types';
 
-const RadioGroupContext = createContext<IRadioGroupProps>({} as IRadioGroupProps);
+const RadioGroupContext = createContext<IRadioGroupProps | null>(null);
 
-export function useRadioGroup(): IRadioGroupProps {
+export function useRadioGroup(): IRadioGroupProps | null {
     return useContext(RadioGroupContext);
 }
 
