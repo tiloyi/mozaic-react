@@ -46,8 +46,8 @@ describe('components/CheckBox', () => {
     });
 
     test('renders indeterminate correctly', () => {
-        render(<CheckBox isInvalid>Invalid check box label</CheckBox>);
+        render(<CheckBox isIndeterminate>Indeterminate check box label</CheckBox>);
 
-        expect(screen.getByRole('checkbox')).toHaveClass('is-invalid');
+        expect(screen.getByRole('checkbox')).toBePartiallyChecked();
     });
 });
