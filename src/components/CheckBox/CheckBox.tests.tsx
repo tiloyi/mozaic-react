@@ -44,4 +44,10 @@ describe('components/CheckBox', () => {
 
         expect(screen.getByRole('checkbox')).toHaveClass('is-invalid');
     });
+
+    test('renders indeterminate correctly', () => {
+        render(<CheckBox isInvalid>Invalid check box label</CheckBox>);
+
+        expect(screen.getByRole('checkbox')).toHaveClass('is-invalid');
+    });
 });

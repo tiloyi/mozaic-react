@@ -6,6 +6,7 @@ export interface ICheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElemen
     isChecked?: boolean;
     isDisabled?: boolean;
     isInvalid?: boolean;
+    isIndeterminate?: boolean;
 }
 
 export interface ICheckBoxPartialProps {

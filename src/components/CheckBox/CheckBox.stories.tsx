@@ -10,10 +10,11 @@ export const Controls = ControlsTemplate.bind({});
 Controls.args = {
     isChecked: false,
     isDisabled: false,
-    isInvalid: false
+    isInvalid: false,
+    isIndeterminate: false
 };
 
-const ExampleTemplate: Story<ICheckBoxProps> = ({ isDisabled, isInvalid }) => {
+const ExampleTemplate: Story<ICheckBoxProps> = ({ isDisabled, isInvalid, isIndeterminate }) => {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
@@ -21,6 +22,7 @@ const ExampleTemplate: Story<ICheckBoxProps> = ({ isDisabled, isInvalid }) => {
             isDisabled={isDisabled}
             isChecked={isChecked}
             isInvalid={isInvalid}
+            isIndeterminate={isIndeterminate}
             onChange={() => setIsChecked(previous => !previous)}
         >
             Check box label
@@ -32,7 +34,8 @@ export const Example = ExampleTemplate.bind({});
 
 Example.args = {
     isDisabled: false,
-    isInvalid: false
+    isInvalid: false,
+    isIndeterminate: false
 };
 
 Example.argTypes = {
