@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
+import CheckBox from './CheckBox';
+
+<Meta title="CheckBox" component={CheckBox} />
+
+# CheckBox
+
+The `CheckBox` component is the **React.js** implementation of the **Mozaic CheckBox** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Form/Checkbox/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+  language="javascript"
+  code="import { CheckBox } from 'mozaic-react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+  <Story id="checkbox--controls" />
+</Canvas>
+
+## Props
+
+<ArgsTable of={CheckBox} />
