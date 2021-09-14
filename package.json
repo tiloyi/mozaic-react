@@ -1,6 +1,6 @@
 {
   "name": "bigfish-wms--mozaic-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React implementation of the Mozaic Design System",
   "main": "lib/index.js",
   "scripts": {
