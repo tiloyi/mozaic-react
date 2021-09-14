@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm run clean && rollup --config",
     "clean": "rimraf lib",
+    "lint": "echo \"Linting\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
