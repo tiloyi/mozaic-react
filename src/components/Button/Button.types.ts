@@ -27,6 +27,7 @@ export enum ButtonSize {
 }
 
 export enum ButtonShape {
+    Fit = 'fit',
     Square = 'square',
     Full = 'full'
 }
