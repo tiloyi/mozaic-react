@@ -23,6 +23,7 @@ export default [
                 plugins: postcssPlugins,
                 syntax: postcssSyntax,
                 extract: true,
+                minimize: true,
                 use: [
                     [
                         'sass',
