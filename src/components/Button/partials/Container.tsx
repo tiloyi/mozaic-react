@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { ButtonWidth, ButtonSize, ButtonTheme, ButtonVariant, IButtonProps } from '../Button.types';
-import './Button.scss';
+import cn from 'classnames';
+import { ButtonSize, ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps } from '../Button.types';
 
 const blockClassName = 'mc-button';
 
@@ -16,6 +16,14 @@ function getButtonModifier(theme: ButtonTheme, variant: ButtonVariant): string {
     return parts.join('-');
 }
 
+function getButtonSizeModifier(size: ButtonSize): string {
+    return size !== ButtonSize.M ? `${blockClassName}--${size}` : '';
+}
+
+function getButtonWidthModifier(width: ButtonWidth): string {
+    return width === ButtonWidth.Full ? `${blockClassName}--full` : '';
+}
+
 const ButtonContainer: FC<IButtonProps> = ({
     className,
     children,
@@ -24,12 +32,19 @@ const ButtonContainer: FC<IButtonProps> = ({
     size = ButtonSize.M,
     width = ButtonWidth.Fit,
     ...props
-}) => {
-    return (
-        <button className="mc-button" {...props}>
-            {children}
-        </button>
-    );
-};
+}) => (
+    <button
+        className={cn(
+            blockClassName,
+            getButtonModifier(theme, variant),
+            getButtonWidthModifier(width),
+            getButtonSizeModifier(size),
+            className
+        )}
+        {...props}
+    >
+        {children}
+    </button>
+);
 
 export default ButtonContainer;

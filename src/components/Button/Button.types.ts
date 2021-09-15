@@ -1,18 +1,20 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactElement } from 'react';
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant?: ButtonVariant;
     theme?: ButtonTheme;
     size?: ButtonSize;
+}
+
+export interface IButtonContainerProps extends IIconButtonProps {
     width?: ButtonWidth;
 }
 
-export interface IIconButtonProps {}
-
-export interface IButtonLabelProps {}
-
-export interface IButtonIconProps {}
+export interface IButtonProps extends IButtonContainerProps {
+    leftIcon?: ReactElement;
+    rightIcon?: ReactElement;
+}
 
 export interface IButtonPartialProps {
     className?: string;

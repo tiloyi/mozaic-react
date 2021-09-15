@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import ButtonContainer from './partials/Container';
 import ButtonLabel from './partials/Label';
 import { IButtonProps } from './Button.types';
+import './Button.scss';
 
 const Button: FC<IButtonProps> = ({ children, ...props }) => {
     return (
