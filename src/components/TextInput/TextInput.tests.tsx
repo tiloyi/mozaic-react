@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TextInput from './TextInput';
+import { TextInputSize } from './TextInput.types';
 
 describe('components/TextInput', () => {
     test('renders correctly', () => {
@@ -26,6 +27,12 @@ describe('components/TextInput', () => {
         render(<TextInput isDisabled />);
 
         expect(screen.getByRole('textbox')).toBeDisabled();
+    });
+
+    test('renders in small size', () => {
+        render(<TextInput size={TextInputSize.S} />);
+
+        expect(screen.getByRole('textbox')).toHaveClass('mc-text-input--s');
     });
 
     test('throws an error if `isValid` and `isInvalid` are specified as true', () => {
