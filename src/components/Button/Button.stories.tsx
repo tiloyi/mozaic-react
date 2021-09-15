@@ -1,12 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { default as ButtonComponent } from '../Button';
+import Button from '../Button';
 
-const Template: Story = () => <ButtonComponent>Click!</ButtonComponent>;
+const Template: Story = () => <Button>Click!</Button>;
 
-export const Button = Template.bind({});
+export const ButtonStory = Template.bind({});
+
+ButtonStory.storyName = 'Button';
 
 export default {
     title: 'Button',
-    component: ButtonComponent
+    component: Button
 };

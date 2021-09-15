@@ -5,7 +5,17 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
     theme?: ButtonTheme;
     size?: ButtonSize;
-    shape?: ButtonShape;
+    width?: ButtonWidth;
+}
+
+export interface IIconButtonProps {}
+
+export interface IButtonLabelProps {}
+
+export interface IButtonIconProps {}
+
+export interface IButtonPartialProps {
+    className?: string;
 }
 
 export enum ButtonVariant {
@@ -26,8 +36,7 @@ export enum ButtonSize {
     L = 'l'
 }
 
-export enum ButtonShape {
+export enum ButtonWidth {
     Fit = 'fit',
-    Square = 'square',
     Full = 'full'
 }
