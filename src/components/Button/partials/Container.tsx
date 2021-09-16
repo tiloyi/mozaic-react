@@ -31,9 +31,11 @@ const ButtonContainer: FC<IButtonProps> = ({
     variant = ButtonVariant.Solid,
     size = ButtonSize.M,
     width = ButtonWidth.Fit,
+    isDisabled,
     ...props
 }) => (
     <button
+        {...props}
         className={cn(
             blockClassName,
             getButtonModifier(theme, variant),
@@ -41,7 +43,7 @@ const ButtonContainer: FC<IButtonProps> = ({
             getButtonSizeModifier(size),
             className
         )}
-        {...props}
+        disabled={isDisabled}
     >
         {children}
     </button>

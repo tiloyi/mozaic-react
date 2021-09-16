@@ -1,10 +1,13 @@
 import { ButtonHTMLAttributes, ReactElement } from 'react';
 
-export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type TOmittedProps = 'disabled';
+
+export interface IIconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedProps> {
     className?: string;
     variant?: ButtonVariant;
     theme?: ButtonTheme;
     size?: ButtonSize;
+    isDisabled?: boolean;
 }
 
 export interface IButtonContainerProps extends IIconButtonProps {
