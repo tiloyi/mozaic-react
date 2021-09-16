@@ -9,6 +9,12 @@ describe('components/TextArea', () => {
         expect(screen.getByRole('textbox')).toHaveDisplayValue('text');
     });
 
+    test('renders with placeholder correctly', () => {
+        render(<TextArea placeholder="text" />);
+
+        expect(screen.getByPlaceholderText('text')).toBeInTheDocument();
+    });
+
     test('renders valid correctly', () => {
         render(<TextArea isValid />);
 
