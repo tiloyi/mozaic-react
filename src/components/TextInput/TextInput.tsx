@@ -30,7 +30,9 @@ const TextInput: FC<ITextInputProps> = ({
         throw new Error('The properties `isValid` and `isInvalid` can not be true in the same time');
     }
 
-    return <input className={textAreaClassName} {...props} aria-invalid={isInvalid} disabled={isDisabled} />;
+    return (
+        <input className={textAreaClassName} {...props} type={type} aria-invalid={isInvalid} disabled={isDisabled} />
+    );
 };
 
 export default TextInput;
