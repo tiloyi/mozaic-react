@@ -72,8 +72,8 @@
   "dependencies": {
     "@mozaic-ds/css-dev-tools": "^1.16.0",
     "@mozaic-ds/icons": "^1.14.0",
-    "@mozaic-ds/styles": "^1.16.0",
-    "@mozaic-ds/tokens": "^1.14.0",
+    "@mozaic-ds/styles": "^1.17.1",
+    "@mozaic-ds/tokens": "^1.17.0",
     "@mozaic-ds/web-fonts": "^1.0.1"
   }
 }
