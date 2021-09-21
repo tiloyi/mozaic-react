@@ -1,0 +1,34 @@
+@import 'settings-tools/_all-settings';
+
+@include import-font-families();
+
+$font-colors: get-token('color', 'font');
+$alignments: left, center, right;
+
+.mt-text {
+    font-family: inherit;
+
+    @each $key, $value in $font-colors {
+        &--#{$key} {
+            @include set-color($key);
+        }
+    }
+
+    @each $alignment in $alignments {
+        &--#{$alignment} {
+            text-align: $alignment;
+        }
+    }
+
+    &--l {
+        @include set-font-scale('06');
+    }
+
+    &--m {
+        @include set-font-scale('05');
+    }
+
+    &--s {
+        @include set-font-scale('04');
+    }
+}
