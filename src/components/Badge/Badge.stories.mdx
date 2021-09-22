@@ -1,0 +1,38 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
+import Badge from './Badge';
+
+<Meta title="Badge" component={Badge} />
+
+# Badge
+
+The `Badge` component is the **React.js** implementation of the **Mozaic Badge** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Badge/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+  language="javascript"
+  code="import { Badge } from 'mozaic-react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+  <Story id="badge--badge-story" />
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={Badge} />
