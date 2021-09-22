@@ -3,7 +3,7 @@ export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag } from './Flag';
 export { default as Radio } from './Radio';
-export { RadioGroup, useRadioGroup } from './RadioGroup';
+export { default as RadioGroup, useRadioGroup } from './RadioGroup';
 export { default as Text } from './Text';
 export { default as TextArea } from './TextArea';
 export { default as TextInput } from './TextInput';
