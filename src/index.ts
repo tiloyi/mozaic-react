@@ -1,4 +1,4 @@
-export { default as Button } from './components/Button';
+export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
 export { default as Flag } from './components/Flag';
