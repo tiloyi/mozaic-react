@@ -1,5 +1,3 @@
-import { Size } from '../../constants/Size';
-
 export const tags = [
     'p',
     'span',
@@ -55,10 +53,16 @@ export const themes = [
     TextTheme.Success
 ];
 
+export enum TextSize {
+    L = 'l',
+    M = 'm',
+    S = 's'
+}
+
 export interface ITextProps {
     className?: string;
     as?: TTextTag;
     align?: TextAlign;
     theme?: TextTheme;
-    size?: Size;
+    size?: TextSize;
 }
