@@ -1,11 +1,11 @@
 export { default as Badge, BadgeTheme } from './Badge';
-export { default as Button, IconButton } from './Button';
+export { default as Button, IconButton, ButtonSize, ButtonTheme, ButtonVariant, ButtonWidth } from './Button';
 export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
-export { default as Flag } from './Flag';
+export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
-export { default as Text } from './Text';
+export { default as Text, TextAlign, TextTheme, TextSize } from './Text';
 export { default as TextArea } from './TextArea';
-export { default as TextInput } from './TextInput';
-export { default as Toggle } from './Toggle';
+export { default as TextInput, TextInputSize } from './TextInput';
+export { default as Toggle, ToggleSize } from './Toggle';
