@@ -4,7 +4,7 @@ $font-colors: get-token('color', 'font');
 $alignments: left, center, right;
 
 .mt-text {
-    font-family: inherit;
+    @include set-font-face('regular');
 
     @each $key, $value in $font-colors {
         &--#{$key} {
