@@ -11,7 +11,7 @@ export default [
         input: ['src/index.ts'],
         output: {
             exports: 'named',
-            format: 'esm',
+            format: 'cjs',
             dir: 'lib',
             preserveModules: true,
             preserveModulesRoot: 'src'
