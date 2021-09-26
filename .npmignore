@@ -1,5 +1,6 @@
 .jest
 .storybook
+.templates
 src
 Jenkinsfile
 jest.config.js
