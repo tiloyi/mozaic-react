@@ -29,4 +29,16 @@ $alignments: left, center, right;
     &--s {
         @include set-font-scale('04');
     }
+
+    &--light-weight {
+        @include set-font-weight('light');
+    }
+
+    &--regular-weight {
+        @include set-font-weight('regular');
+    }
+
+    &--semi-bold-weight {
+        @include set-font-weight('semi-bold');
+    }
 }
