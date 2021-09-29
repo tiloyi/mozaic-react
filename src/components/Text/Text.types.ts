@@ -59,10 +59,17 @@ export enum TextSize {
     S = 's'
 }
 
+export enum TextWeight {
+    Light = 'light-weight',
+    Regular = 'regular-weight',
+    SemiBold = 'semi-bold-weight'
+}
+
 export interface ITextProps {
     className?: string;
     as?: TTextTag;
     align?: TextAlign;
     theme?: TextTheme;
     size?: TextSize;
+    weight?: TextWeight;
 }

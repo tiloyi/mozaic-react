@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Text from './Text';
-import { tags, TextAlign, TextSize, themes } from './Text.types';
+import { tags, TextAlign, TextSize, TextWeight, themes } from './Text.types';
 
 describe('components/Text', () => {
     test.each(tags)('renders as `%s` tag correctly', tag => {
@@ -33,4 +33,13 @@ describe('components/Text', () => {
 
         expect(screen.getByText('text')).toHaveClass(`mt-text--${size}`);
     });
+
+    test.each([TextWeight.Light, TextWeight.Regular, TextWeight.SemiBold])(
+        'renders with `%s` weight correctly',
+        weight => {
+            render(<Text weight={weight}>text</Text>);
+
+            expect(screen.getByText('text')).toHaveClass(`mt-text--${weight}`);
+        }
+    );
 });
