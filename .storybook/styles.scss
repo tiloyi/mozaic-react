@@ -1,2 +1,9 @@
-@import "settings-tools/all-settings";
-@import "generic/g.reset";
+$local-config: (
+    font-path: '~@mozaic-ds/web-fonts/'
+);
+
+@import 'settings-tools/all-settings';
+
+@import 'generic/g.reset';
+
+@include import-font-families();
