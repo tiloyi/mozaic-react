@@ -12,7 +12,7 @@
     "test:cov": "jest --coverage",
     "prettier:check": "prettier --check \"src/**/*.{ts, tsx, css}\"",
     "prettier:write": "prettier --write \"src/**/*.{ts, tsx, css}\"",
-    "storybook:start": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "storybook:build": "build-storybook"
   },
   "repository": {

@@ -5,7 +5,7 @@ export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
-export { default as Text, TextAlign, TextTheme, TextSize } from './Text';
+export { default as Text, TextAlign, TextTheme, TextSize, TextWeight } from './Text';
 export { default as TextArea } from './TextArea';
 export { default as TextInput, TextInputSize } from './TextInput';
 export { default as Toggle, ToggleSize } from './Toggle';
