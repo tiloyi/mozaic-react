@@ -31,6 +31,11 @@ export default {
             control: {
                 type: 'select'
             }
+        },
+        underline: {
+            control: {
+                type: 'select'
+            }
         }
     }
 };
