@@ -14,9 +14,16 @@ export enum HeadingAlign {
     Right = 'right'
 }
 
+export enum HeadingWeight {
+    Light = 'light',
+    Regular = 'regular',
+    SemiBold = 'semi-bold'
+}
+
 export interface IHeadingProps {
     className?: string;
     as?: THeadingTag;
     size?: HeadingSize;
     align?: HeadingAlign;
+    weight?: HeadingWeight;
 }
