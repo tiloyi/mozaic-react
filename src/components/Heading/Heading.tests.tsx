@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { tags, HeadingAlign, HeadingSize } from './Heading.types';
+import { HeadingAlign, HeadingSize, HeadingWeight, tags } from './Heading.types';
 import Heading from './Heading';
 
 describe('components/Heading', () => {
@@ -28,6 +28,15 @@ describe('components/Heading', () => {
             render(<Heading align={align}>Heading</Heading>);
 
             expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${align}`);
+        }
+    );
+
+    test.each([HeadingWeight.Light, HeadingWeight.Regular, HeadingWeight.SemiBold])(
+        'renders with `%s` weight correctly',
+        weight => {
+            render(<Heading weight={weight}>Heading</Heading>);
+
+            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${weight}`);
         }
     );
 });
