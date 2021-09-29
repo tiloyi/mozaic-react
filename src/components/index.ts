@@ -3,7 +3,7 @@ export { default as Button, IconButton, ButtonSize, ButtonTheme, ButtonVariant, 
 export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
-export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight } from './Heading';
+export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
 export { default as Text, TextAlign, TextTheme, TextSize, TextWeight } from './Text';
