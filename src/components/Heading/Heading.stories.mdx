@@ -1,0 +1,38 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
+import Heading from './Heading';
+
+<Meta title="Heading" component={Heading} />
+
+# Heading
+
+The `Heading` component is the **React.js** implementation of the **Mozaic Heading styles**.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Foundations/Typography/HeadingStyles/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+  language="javascript"
+  code="import { Heading } from 'mozaic-react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+  <Story id="heading--controls" />
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={Heading} />
