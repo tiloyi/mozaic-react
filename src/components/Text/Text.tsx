@@ -1,6 +1,6 @@
 import React, { FC, createElement } from 'react';
 import cn from 'classnames';
-import { ITextProps, TextSize, TextWeight } from './Text.types';
+import { ITextProps, TextSize } from './Text.types';
 import './Text.scss';
 
 const blockClassName = 'mt-text';
@@ -12,7 +12,7 @@ const Text: FC<ITextProps> = ({
     align,
     theme,
     size = TextSize.M,
-    weight = TextWeight.Regular,
+    weight,
     ...props
 }) => {
     const elementClassName = cn(
