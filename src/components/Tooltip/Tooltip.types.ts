@@ -1,6 +1,6 @@
 export interface ITooltipProps {
     appearance: TTooltipAppearance;
-    tooltipText: string;
+    text: string;
 }
 
 export type TTooltipAppearance = 'top' | 'right' | 'bottom' | 'left';

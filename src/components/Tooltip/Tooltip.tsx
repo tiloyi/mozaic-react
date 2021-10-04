@@ -3,13 +3,13 @@ import cn from 'classnames';
 import { ITooltipProps, TooltipAppearance } from './Tooltip.types';
 import './Tooltip.scss';
 
-const Tooltip: FC<ITooltipProps> = ({ children, appearance, tooltipText }) => {
+const Tooltip: FC<ITooltipProps> = ({ children, appearance, text }) => {
     return (
         <div className={cn('mc-tooltip', `mc-tooltip--${appearance}`)} aria-describedby={TooltipAppearance[appearance]}>
             <div>{children}</div>
 
             <span id={TooltipAppearance[appearance]} className="mc-tooltip__content" role="tooltip">
-                {tooltipText}
+                {text}
             </span>
         </div>
     );
