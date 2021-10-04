@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs/blocks';
+import DateInput from './DateInput';
+
+<Meta title="DateInput" component={DateInput} />
+
+# DateInput
+
+The `DateInput` component is the **React.js** implementation of the **Mozaic Datepicker** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Form/Datepicker/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+  language="javascript"
+  code="import { DateInput } from 'mozaic-react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+  <Story id="dateinput--controls" />
+</Canvas>
+
+## Props
+
+<ArgsTable of={DateInput} />

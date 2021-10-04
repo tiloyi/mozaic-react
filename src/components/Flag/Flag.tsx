@@ -5,7 +5,7 @@ import './Flag.scss';
 
 const blockClassName = 'mc-flag';
 
-function getModifier(theme: FlagTheme, variant: FlagVariant): string {
+function getFlagModifier(theme: FlagTheme, variant: FlagVariant): string {
     const parts = [`${blockClassName}-`];
 
     parts.push(variant);
@@ -24,7 +24,7 @@ const Flag: FC<IFlagProps> = ({
     variant = FlagVariant.Solid,
     ...props
 }) => (
-    <div className={cn(blockClassName, className, getModifier(theme, variant))} {...props}>
+    <div className={cn(blockClassName, className, getFlagModifier(theme, variant))} {...props}>
         {children}
     </div>
 );
