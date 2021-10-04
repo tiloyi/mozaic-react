@@ -21,7 +21,7 @@ const Overlay: FC<IOverlayProps> = ({ children, className, isVisible }): JSX.Ele
 
     return (
         <>
-            <div className={cn('mc-overlay', isVisible && 'is-visible')} />
+            <div className={cn('mc-overlay', isVisible && 'is-visible')} role="dialog" tabIndex={-1} />
             {isVisible && children && <div className={className}>{children}</div>}
         </>
     );
