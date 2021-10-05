@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITooltipProps, TooltipAppearance } from './Tooltip.types';
+import { ITooltipProps, TooltipPlacement } from './Tooltip.types';
 import './Tooltip.scss';
 
-const Tooltip: FC<ITooltipProps> = ({ children, appearance, text }) => {
+const Tooltip: FC<ITooltipProps> = ({ children, id, placement, text }) => {
     return (
-        <div className={cn('mc-tooltip', `mc-tooltip--${appearance}`)} aria-describedby={TooltipAppearance[appearance]}>
+        <div
+            className={cn('mc-tooltip', `mc-tooltip--${placement}`)}
+            aria-describedby={id || TooltipPlacement[placement]}
+        >
             <div>{children}</div>
 
-            <span id={TooltipAppearance[appearance]} className="mc-tooltip__content" role="tooltip">
+            <span id={id || TooltipPlacement[placement]} className="mc-tooltip__content" role="tooltip">
                 {text}
             </span>
         </div>

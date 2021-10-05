@@ -1,11 +1,12 @@
 export interface ITooltipProps {
-    appearance: TTooltipAppearance;
+    id?: string;
+    placement: TTooltipPlacement;
     text: string;
 }
 
-export type TTooltipAppearance = 'top' | 'right' | 'bottom' | 'left';
+export type TTooltipPlacement = 'top' | 'right' | 'bottom' | 'left';
 
-export enum TooltipAppearance {
+export enum TooltipPlacement {
     top = 'tooltipTop',
     right = 'tooltipRight',
     bottom = 'tooltipBottom',

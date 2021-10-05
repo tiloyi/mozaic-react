@@ -10,7 +10,7 @@ const TooltipTemplateTop: Story<ITooltipProps> = args => <Tooltip {...args}>Top<
 export const Top = TooltipTemplateTop.bind({});
 
 Top.args = {
-    appearance: 'top',
+    placement: 'top',
     text: 'Tooltip text'
 };
 
@@ -21,7 +21,7 @@ const TooltipTemplateRight: Story<ITooltipProps> = args => <Tooltip {...args}>Ri
 export const Right = TooltipTemplateRight.bind({});
 
 Right.args = {
-    appearance: 'right',
+    placement: 'right',
     text: 'Tooltip text'
 };
 
@@ -32,7 +32,7 @@ const TooltipTemplateBottom: Story<ITooltipProps> = args => <Tooltip {...args}>B
 export const Bottom = TooltipTemplateBottom.bind({});
 
 Bottom.args = {
-    appearance: 'bottom',
+    placement: 'bottom',
     text: 'Tooltip text'
 };
 
@@ -43,7 +43,7 @@ const TooltipTemplateLeft: Story<ITooltipProps> = args => <Tooltip {...args}>Lef
 export const Left = TooltipTemplateLeft.bind({});
 
 Left.args = {
-    appearance: 'left',
+    placement: 'left',
     text: 'Tooltip text'
 };
 
@@ -66,7 +66,7 @@ const TooltipTemplateWithIcon: Story<ITooltipProps> = args => (
 export const WithIcon = TooltipTemplateWithIcon.bind({});
 
 WithIcon.args = {
-    appearance: 'top',
+    placement: 'top',
     text: 'Tooltip text'
 };
 
@@ -77,7 +77,7 @@ export default {
         layout: 'centered'
     },
     argTypes: {
-        appearance: {
+        placement: {
             control: {
                 type: 'select'
             }
