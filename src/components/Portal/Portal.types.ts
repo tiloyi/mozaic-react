@@ -1,1 +1,3 @@
-export interface IPortalProps {}
+export interface IPortalProps {
+    id?: string;
+}

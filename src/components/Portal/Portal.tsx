@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { createPortal } from 'react-dom';
+import usePortal from './usePortal';
+import { IPortalProps } from './Portal.types';
 
-const Portal = () => {
-    return <div />;
+const Portal: FC<IPortalProps> = ({ children, id }) => {
+    const { container } = usePortal({ id });
+
+    return createPortal(children, container);
 };
 
 export default Portal;
