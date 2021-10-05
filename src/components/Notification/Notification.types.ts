@@ -17,6 +17,6 @@ export enum NotificationTheme {
 }
 
 export enum NotificationSize {
-    L = 'l',
-    M = 'm'
+    M = 'm',
+    S = 's'
 }
