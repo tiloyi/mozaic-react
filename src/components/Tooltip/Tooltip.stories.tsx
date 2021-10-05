@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Tooltip from './Tooltip';
-import { ITooltipProps } from './Tooltip.types';
+import { ITooltipProps, TooltipPlacement } from './Tooltip.types';
 
 // Top
 
@@ -10,8 +10,8 @@ const TooltipTemplateTop: Story<ITooltipProps> = args => <Tooltip {...args}>Top<
 export const Top = TooltipTemplateTop.bind({});
 
 Top.args = {
-    placement: 'top',
-    text: 'Tooltip text'
+    placement: TooltipPlacement.top,
+    text: 'Tooltip\ntext'
 };
 
 // Right
@@ -21,7 +21,7 @@ const TooltipTemplateRight: Story<ITooltipProps> = args => <Tooltip {...args}>Ri
 export const Right = TooltipTemplateRight.bind({});
 
 Right.args = {
-    placement: 'right',
+    placement: TooltipPlacement.right,
     text: 'Tooltip text'
 };
 
@@ -32,7 +32,7 @@ const TooltipTemplateBottom: Story<ITooltipProps> = args => <Tooltip {...args}>B
 export const Bottom = TooltipTemplateBottom.bind({});
 
 Bottom.args = {
-    placement: 'bottom',
+    placement: TooltipPlacement.bottom,
     text: 'Tooltip text'
 };
 
@@ -43,7 +43,7 @@ const TooltipTemplateLeft: Story<ITooltipProps> = args => <Tooltip {...args}>Lef
 export const Left = TooltipTemplateLeft.bind({});
 
 Left.args = {
-    placement: 'left',
+    placement: TooltipPlacement.left,
     text: 'Tooltip text'
 };
 
@@ -66,8 +66,20 @@ const TooltipTemplateWithIcon: Story<ITooltipProps> = args => (
 export const WithIcon = TooltipTemplateWithIcon.bind({});
 
 WithIcon.args = {
-    placement: 'top',
+    placement: TooltipPlacement.top,
     text: 'Tooltip text'
+};
+
+// With custom content
+
+const TooltipTemplateWithCustomContent: Story<ITooltipProps> = args => <Tooltip {...args}>Button component</Tooltip>;
+
+export const WithCustomContent = TooltipTemplateWithCustomContent.bind({});
+
+WithCustomContent.args = {
+    placement: TooltipPlacement.top,
+    text: 'Tooltip text',
+    content: <button>Button</button>
 };
 
 export default {

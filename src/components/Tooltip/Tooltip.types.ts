@@ -1,14 +1,13 @@
 export interface ITooltipProps {
     id?: string;
-    placement: TTooltipPlacement;
-    text: string;
+    placement: TooltipPlacement;
+    text?: string;
+    content?: JSX.Element;
 }
 
-export type TTooltipPlacement = 'top' | 'right' | 'bottom' | 'left';
-
 export enum TooltipPlacement {
-    top = 'tooltipTop',
-    right = 'tooltipRight',
-    bottom = 'tooltipBottom',
-    left = 'tooltipLeft'
+    top = 'top',
+    right = 'right',
+    bottom = 'bottom',
+    left = 'left'
 }
