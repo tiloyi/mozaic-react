@@ -17,3 +17,4 @@ export { default as Text, TextTheme, TextAlign, TextSize, TextWeight } from './c
 export { default as TextArea } from './components/TextArea';
 export { default as TextInput, TextInputSize } from './components/TextInput';
 export { default as Toggle, ToggleSize } from './components/Toggle';
+export { default as Tooltip } from './components/Tooltip';
