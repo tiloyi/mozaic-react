@@ -12,6 +12,7 @@ export { default as DateInput } from './components/DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './components/Heading';
 export { default as Overlay } from './components/Overlay';
+export { default as Portal } from './components/Portal';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';
 export { default as Text, TextTheme, TextAlign, TextSize, TextWeight } from './components/Text';
