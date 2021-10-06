@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Tags from './Tags';
-import { ITagsProps, TagSize } from './Tags.types';
+import { ITag, ITagsProps, TagSize } from './Tags.types';
 import './Tags.stories.scss';
 
 const WhiteTemlate: Story<ITagsProps> = args => (
@@ -22,21 +22,21 @@ TextTags.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Horror'
             }
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Sci-Fi'
             }
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Detective'
             }
@@ -50,7 +50,7 @@ SmallTags.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Horror',
                 size: TagSize.s
@@ -58,7 +58,7 @@ SmallTags.args = {
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Sci-Fi',
                 size: TagSize.s
@@ -66,7 +66,7 @@ SmallTags.args = {
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Detective',
                 size: TagSize.s
@@ -81,7 +81,7 @@ TextTagsDark.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Horror',
                 size: TagSize.m,
@@ -90,7 +90,7 @@ TextTagsDark.args = {
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Sci-Fi',
                 size: TagSize.m,
@@ -99,7 +99,7 @@ TextTagsDark.args = {
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Detective',
                 size: TagSize.m,
@@ -115,7 +115,7 @@ SmallTextTagsDark.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Horror',
                 size: TagSize.s,
@@ -124,7 +124,7 @@ SmallTextTagsDark.args = {
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Sci-Fi',
                 size: TagSize.s,
@@ -133,7 +133,7 @@ SmallTextTagsDark.args = {
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'text',
                 text: 'Detective',
                 size: TagSize.s,
@@ -149,7 +149,7 @@ LinkTags.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Horror',
                 link: 'http://google.com'
@@ -157,7 +157,7 @@ LinkTags.args = {
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Sci-Fi',
                 link: 'http://google.com'
@@ -165,7 +165,7 @@ LinkTags.args = {
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Detective',
                 link: 'http://google.com'
@@ -180,7 +180,7 @@ DarkLinkTags.args = {
     tags: [
         {
             id: '123',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Horror',
                 link: 'http://google.com',
@@ -189,7 +189,7 @@ DarkLinkTags.args = {
         },
         {
             id: '124',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Sci-Fi',
                 link: 'http://google.com',
@@ -198,11 +198,150 @@ DarkLinkTags.args = {
         },
         {
             id: '125',
-            tag: {
+            tagData: {
                 type: 'link',
                 text: 'Detective',
                 link: 'http://google.com',
                 isDark: true
+            }
+        }
+    ]
+};
+
+export const SelectableTags = WhiteTemlate.bind({});
+
+SelectableTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'selectable',
+                text: 'Horror'
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'selectable',
+                text: 'Sci-Fi'
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'selectable',
+                text: 'Detective'
+            }
+        }
+    ]
+};
+
+const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
+    const [tags, setTags] = React.useState<ITag[]>([
+        {
+            id: '123',
+            tagData: {
+                type: 'selectable',
+                text: 'Horror',
+                isSelected: false
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'selectable',
+                text: 'Sci-Fi',
+                isSelected: false
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'selectable',
+                text: 'Detective',
+                isSelected: false
+            }
+        }
+    ]);
+
+    const tagSelectHandler = (selectedTagId: string) => {
+        setTags(prevTags => {
+            return prevTags.map(tag => {
+                if (tag.id === selectedTagId && tag.tagData.type === 'selectable') {
+                    return { ...tag, tagData: { ...tag.tagData, isSelected: !tag.tagData.isSelected } };
+                }
+
+                return tag;
+            });
+        });
+    };
+
+    return (
+        <div className="tagStoryContainerWhite">
+            <Tags tags={tags} onSelectTag={tagSelectHandler}>
+                Radio label
+            </Tags>
+        </div>
+    );
+};
+
+export const ControllableSelectedTags = ControllableSelectedTagsTemplate.bind({});
+
+export const SelectableTagsDisabled = WhiteTemlate.bind({});
+
+SelectableTagsDisabled.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'selectable',
+                text: 'Horror',
+                isDisabled: true
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'selectable',
+                text: 'Sci-Fi'
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'selectable',
+                text: 'Detective'
+            }
+        }
+    ]
+};
+
+export const SelectableSmallTags = WhiteTemlate.bind({});
+
+SelectableSmallTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'selectable',
+                text: 'Horror',
+                size: TagSize.s
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'selectable',
+                text: 'Sci-Fi',
+                size: TagSize.s
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'selectable',
+                text: 'Detective',
+                size: TagSize.s
             }
         }
     ]

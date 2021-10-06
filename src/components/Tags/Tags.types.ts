@@ -1,12 +1,15 @@
-import { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, InputHTMLAttributes } from 'react';
+
+export type TOnSelectTag = (tagId: string) => void;
 
 export interface ITagsProps {
     tags: ITag[];
+    onSelectTag?: TOnSelectTag;
 }
 
 export interface ITag {
     id: string;
-    tag: ITagText | ITagLink;
+    tagData: ITagText | ITagLink | ITagSelectable;
 }
 
 export enum TagSize {
@@ -28,9 +31,9 @@ export interface ITagTextProps extends ITagText, ITagOptions {
     id: string;
 }
 
-type TOmittedProps = 'id' | 'href';
+type TOmittedLinkProps = 'id' | 'href';
 
-export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, TOmittedProps> {
+export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, TOmittedLinkProps> {
     type: 'link';
     text: string;
     link: string;
@@ -38,4 +41,17 @@ export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 
 
 export interface ITagLinkProps extends ITagLink, ITagOptions {
     id: string;
+}
+
+type TOmmitedSelectableProps = 'id' | 'size' | 'type';
+export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmmitedSelectableProps> {
+    type: 'selectable';
+    text: string;
+    isSelected?: boolean;
+    isDisabled?: boolean;
+}
+
+export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
+    id: string;
+    onSelectTag?: TOnSelectTag;
 }
