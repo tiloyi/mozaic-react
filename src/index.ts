@@ -17,7 +17,9 @@ export {
     NotificationTheme,
     NotificationMessage,
     NotificationFooter,
-    NotificationTitle
+    NotificationTitle,
+    useNotifications,
+    NotificationsProvider
 } from './components/Notification';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';

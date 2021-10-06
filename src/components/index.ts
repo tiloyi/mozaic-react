@@ -10,7 +10,9 @@ export {
     NotificationTheme,
     NotificationMessage,
     NotificationFooter,
-    NotificationTitle
+    NotificationTitle,
+    useNotifications,
+    NotificationsProvider
 } from './Notification';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
