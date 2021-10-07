@@ -14,6 +14,8 @@ export {
     useNotifications,
     NotificationsProvider
 } from './Notification';
+export { default as Overlay } from './Overlay';
+export { default as Portal } from './Portal';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
 export { default as Text, TextAlign, TextTheme, TextSize, TextWeight } from './Text';
