@@ -19,7 +19,8 @@ export {
     NotificationFooter,
     NotificationTitle,
     useNotifications,
-    NotificationsProvider
+    NotificationsProvider,
+    NotificationsRenderer
 } from './components/Notification';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';
