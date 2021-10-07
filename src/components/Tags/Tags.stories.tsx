@@ -347,6 +347,130 @@ SelectableSmallTags.args = {
     ]
 };
 
+export const RemovableTags = WhiteTemlate.bind({});
+
+RemovableTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'removable',
+                text: 'Horror'
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'removable',
+                text: 'Sci-Fi'
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'removable',
+                text: 'Detective'
+            }
+        }
+    ]
+};
+
+export const SmallRemovableTags = WhiteTemlate.bind({});
+
+SmallRemovableTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'removable',
+                text: 'Horror',
+                size: TagSize.s
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'removable',
+                text: 'Sci-Fi',
+                size: TagSize.s
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'removable',
+                text: 'Detective',
+                size: TagSize.s
+            }
+        }
+    ]
+};
+
+export const DarkRemovableTags = DarkTemplate.bind({});
+
+DarkRemovableTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'removable',
+                text: 'Horror',
+                isDark: true
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'removable',
+                text: 'Sci-Fi',
+                isDark: true
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'removable',
+                text: 'Detective',
+                isDark: true
+            }
+        }
+    ]
+};
+
+export const SmallDarkRemovableTags = DarkTemplate.bind({});
+
+SmallDarkRemovableTags.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'removable',
+                text: 'Horror',
+                isDark: true,
+                size: TagSize.s
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'removable',
+                text: 'Sci-Fi',
+                isDark: true,
+                size: TagSize.s
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'removable',
+                text: 'Detective',
+                isDark: true,
+                size: TagSize.s
+            }
+        }
+    ]
+};
+
 export default {
     title: 'Tags',
     component: Tags

@@ -5,8 +5,9 @@ import './Tags.scss';
 import TagText from './partials/TagText';
 import TagLink from './partials/TagLink';
 import TagSelectable from './partials/TagSelectable';
+import TagRemovable from './partials/TagRemovable';
 
-const Tags: FC<ITagsProps> = ({ tags, onSelectTag }) => {
+const Tags: FC<ITagsProps> = ({ tags, onSelectTag, onRemove }) => {
     return (
         <ul className="mc-tag-list">
             {tags.map(tagProps => {
@@ -29,6 +30,12 @@ const Tags: FC<ITagsProps> = ({ tags, onSelectTag }) => {
                     return (
                         <li className="mc-tag-list__item" key={tagId}>
                             <TagSelectable id={tagId} {...tagData} onSelectTag={onSelectTag} />
+                        </li>
+                    );
+                } else if (type === 'removable') {
+                    return (
+                        <li className="mc-tag-list__item" key={tagId}>
+                            <TagRemovable id={tagId} {...tagData} onRemove={onRemove} />
                         </li>
                     );
                 }

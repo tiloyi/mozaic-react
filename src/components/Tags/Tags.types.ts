@@ -11,7 +11,7 @@ export interface ITagsProps {
 
 export interface ITag {
     id: string;
-    tagData: ITagText | ITagLink | ITagSelectable;
+    tagData: ITagText | ITagLink | ITagSelectable | ITagRemovable;
 }
 
 export enum TagSize {
@@ -61,7 +61,7 @@ export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
 export interface ITagRemovable {
     type: 'removable';
     text: string;
-    onRemove: TOnRemove;
+    onRemove?: TOnRemove;
 }
 
 export interface ITagRemovableProps extends ITagRemovable, ITagOptions {
