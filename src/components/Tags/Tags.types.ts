@@ -1,10 +1,12 @@
 import React, { AnchorHTMLAttributes, InputHTMLAttributes } from 'react';
 
 export type TOnSelectTag = (tagId: string) => void;
+export type TOnRemove = (tagId: string) => void;
 
 export interface ITagsProps {
     tags: ITag[];
     onSelectTag?: TOnSelectTag;
+    onRemove?: TOnRemove;
 }
 
 export interface ITag {
@@ -54,4 +56,14 @@ export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElemen
 export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
     id: string;
     onSelectTag?: TOnSelectTag;
+}
+
+export interface ITagRemovable {
+    type: 'removable';
+    text: string;
+    onRemove: TOnRemove;
+}
+
+export interface ITagRemovableProps extends ITagRemovable, ITagOptions {
+    id: string;
 }
