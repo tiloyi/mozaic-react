@@ -1,0 +1,10 @@
+.notificationsContextStory {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 15rem;
+
+    &__button + &__button {
+        margin-top: 1rem;
+    }
+}
