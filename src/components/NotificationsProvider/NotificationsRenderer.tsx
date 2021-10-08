@@ -1,6 +1,6 @@
 import React from 'react';
 import Portal from '../Portal';
-import { INotificationsRendererProps } from './Notification.types';
+import { INotificationsRendererProps } from './NotificationsProvider.types';
 import './NotificationsRenderer.scss';
 import { useNotificationsState } from './NotificationsContext';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Button, { ButtonSize } from '../Button';
-import { NotificationTheme } from './Notification.types';
+import { NotificationTheme } from '../Notification';
 import { NotificationsProvider, useNotifications } from './NotificationsContext';
 import NotificationsRenderer from './NotificationsRenderer';
 import './NotificationsContext.stories.scss';
@@ -62,6 +62,6 @@ const Template: Story = () => (
 export const Notifications = Template.bind({});
 
 export default {
-    title: 'Notifications',
+    title: 'NotificationsProvider',
     component: NotificationsProvider
 };

@@ -3,7 +3,7 @@ import {
     IAddNotificationParams,
     INotificationsActionsContextProps,
     INotificationsStateContextProps
-} from './Notification.types';
+} from './NotificationsProvider.types';
 
 const NotificationsActionsContext = createContext<INotificationsActionsContextProps>(
     {} as INotificationsActionsContextProps
