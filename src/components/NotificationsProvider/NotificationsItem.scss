@@ -1,0 +1,9 @@
+@import 'settings-tools/_all-settings';
+
+.mc-notifications-item {
+    @include set-box-shadow('m');
+
+    & + & {
+        margin-top: $mu100;
+    }
+}
