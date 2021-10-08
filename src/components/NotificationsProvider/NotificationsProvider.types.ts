@@ -1,5 +1,7 @@
 import { NotificationTheme } from '../Notification';
 
+export interface INotificationsItem {}
+
 export interface IAddNotificationParams {
     theme: NotificationTheme;
 }

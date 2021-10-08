@@ -1,8 +1,8 @@
 import React from 'react';
 import Portal from '../Portal';
 import { INotificationsRendererProps } from './NotificationsProvider.types';
-import './NotificationsRenderer.scss';
 import { useNotificationsState } from './NotificationsContext';
+import './NotificationsRenderer.scss';
 
 const NotificationsRenderer = ({}: INotificationsRendererProps): JSX.Element | null => {
     const { notifications } = useNotificationsState();
