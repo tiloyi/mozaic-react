@@ -31,6 +31,8 @@ export interface ITagText {
 
 export interface ITagTextProps extends ITagText, ITagOptions {
     id: string;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
 }
 
 type TOmittedLinkProps = 'id' | 'href';

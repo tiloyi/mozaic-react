@@ -6,10 +6,12 @@ import { classNames } from '../../constants';
 
 const TEXT_CLASSNAME = classNames.text;
 
-const TagText: FC<ITagTextProps> = ({ id, text, size = TagSize.m, isDark = false }) => {
+const TagText: FC<ITagTextProps> = ({ id, text, size = TagSize.m, isDark = false, leftIcon, rightIcon }) => {
     return (
         <span id={id} className={cn(TEXT_CLASSNAME, `${TEXT_CLASSNAME}--${size}`, isDark && `${TEXT_CLASSNAME}--dark`)}>
+            {leftIcon}
             <span className={`${TEXT_CLASSNAME}__label`}>{text}</span>
+            {rightIcon}
         </span>
     );
 };

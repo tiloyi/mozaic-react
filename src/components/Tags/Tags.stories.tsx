@@ -44,6 +44,42 @@ TextTags.args = {
     ]
 };
 
+export const TextTagsWithIcons = WhiteTemlate.bind({});
+
+const IconWithEmoji = ({ emoji, className }: { emoji: string; className: string }) => (
+    <span className={className}>{emoji}</span>
+);
+
+TextTagsWithIcons.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'text',
+                text: 'Horror',
+                leftIcon: <IconWithEmoji className="leftIcon" emoji={'😱'} />
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'text',
+                text: 'Sci-Fi',
+                rightIcon: <IconWithEmoji className="rightIcon" emoji={'👽'} />
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'text',
+                text: 'Detective',
+                leftIcon: <IconWithEmoji className="leftIcon" emoji={'🕵️‍♂️'} />,
+                rightIcon: <IconWithEmoji className="rightIcon" emoji={'🔥'} />
+            }
+        }
+    ]
+};
+
 export const SmallTags = WhiteTemlate.bind({});
 
 SmallTags.args = {
@@ -70,6 +106,41 @@ SmallTags.args = {
                 type: 'text',
                 text: 'Detective',
                 size: TagSize.s
+            }
+        }
+    ]
+};
+
+export const TextSmallTagsWithIcons = WhiteTemlate.bind({});
+
+TextSmallTagsWithIcons.args = {
+    tags: [
+        {
+            id: '123',
+            tagData: {
+                type: 'text',
+                text: 'Horror',
+                size: TagSize.s,
+                leftIcon: <IconWithEmoji className="leftIcon" emoji={'😱'} />
+            }
+        },
+        {
+            id: '124',
+            tagData: {
+                type: 'text',
+                text: 'Sci-Fi',
+                size: TagSize.s,
+                rightIcon: <IconWithEmoji className="rightIcon" emoji={'👽'} />
+            }
+        },
+        {
+            id: '125',
+            tagData: {
+                type: 'text',
+                text: 'Detective',
+                size: TagSize.s,
+                leftIcon: <IconWithEmoji className="leftIcon" emoji={'🕵️‍♂️'} />,
+                rightIcon: <IconWithEmoji className="rightIcon" emoji={'🔥'} />
             }
         }
     ]
