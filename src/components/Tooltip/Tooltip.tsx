@@ -6,7 +6,7 @@ import './Tooltip.scss';
 const Tooltip: FC<ITooltipProps> = ({ children, id, placement, text, content }) => {
     return (
         <div className={cn('mc-tooltip', `mc-tooltip--${placement}`)} aria-describedby={id}>
-            <div>{children}</div>
+            <div aria-label="tooltip-container">{children}</div>
 
             <span id={id} className={cn('mc-tooltip__content')} role="tooltip">
                 {content || text}
