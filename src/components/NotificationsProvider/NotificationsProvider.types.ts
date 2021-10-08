@@ -1,18 +1,18 @@
-import { NotificationTheme } from '../Notification';
+import { INotificationProps } from '../Notification/Notification.types';
 
-export interface INotificationsItem {}
-
-export interface IAddNotificationParams {
-    theme: NotificationTheme;
+export interface INotificationsItem extends INotificationProps {
+    id?: string;
+    title?: string;
+    message?: string;
 }
 
 export interface INotificationsActionsContextProps {
-    addNotification: (params: IAddNotificationParams) => void;
-    removeNotification: () => void;
+    addNotification: (notification: INotificationsItem) => void;
+    removeNotification: (notificationId: string) => void;
 }
 
 export interface INotificationsStateContextProps {
-    notifications: Array<unknown>;
+    notifications: Array<INotificationsItem>;
 }
 
 export interface INotificationsRendererProps {}

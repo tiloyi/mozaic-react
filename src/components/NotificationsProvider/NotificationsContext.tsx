@@ -1,7 +1,7 @@
-import React, { FC, createContext, useContext } from 'react';
+import React, { FC, createContext, useContext, useState } from 'react';
 import {
-    IAddNotificationParams,
     INotificationsActionsContextProps,
+    INotificationsItem,
     INotificationsStateContextProps
 } from './NotificationsProvider.types';
 
@@ -32,17 +32,20 @@ export function useNotificationsState(): INotificationsStateContextProps {
 }
 
 export const NotificationsProvider: FC = ({ children }) => {
+    const [notifications, setNotifications] = useState<Array<INotificationsItem>>([]);
+
     const actionsContextValue = {
-        addNotification(params: IAddNotificationParams) {
-            console.log('add notification: ', params);
+        addNotification(notification: INotificationsItem) {
+            console.log('add notification: ', notification);
+            setNotifications(prevNotifications => [...prevNotifications, notification]);
         },
-        removeNotification() {
-            console.log('remove notification');
+        removeNotification(notificationId: string) {
+            console.log('remove notification', notificationId);
         }
     };
 
     const stateContextValue = {
-        notifications: []
+        notifications
     };
 
     return (

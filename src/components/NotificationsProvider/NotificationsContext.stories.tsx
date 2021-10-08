@@ -11,22 +11,26 @@ const Example = () => {
 
     const addInfoNotification = () =>
         addNotification({
-            theme: NotificationTheme.Info
+            theme: NotificationTheme.Info,
+            title: 'Info notification'
         });
 
     const addSuccessNotification = () =>
         addNotification({
-            theme: NotificationTheme.Success
+            theme: NotificationTheme.Success,
+            title: 'Success notification'
         });
 
     const addDangerNotification = () =>
         addNotification({
-            theme: NotificationTheme.Danger
+            theme: NotificationTheme.Danger,
+            title: 'Danger notification'
         });
 
     const addWarningNotification = () =>
         addNotification({
-            theme: NotificationTheme.Warning
+            theme: NotificationTheme.Warning,
+            title: 'Warning notification'
         });
 
     const buttonProps = {
