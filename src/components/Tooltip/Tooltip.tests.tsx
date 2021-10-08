@@ -18,7 +18,7 @@ describe('components/Tooltip', () => {
     });
 
     test('Tooltip able to render content as component instead of text', () => {
-        render(<Tooltip placement={TooltipPlacement.top} text={TEST_TOOLTIP_TEXT} content={TEST_TOOLTIP_CONTENT} />);
+        render(<Tooltip placement={TooltipPlacement.top} content={TEST_TOOLTIP_CONTENT} />);
 
         const tooltip = screen.getByRole('tooltip');
 
