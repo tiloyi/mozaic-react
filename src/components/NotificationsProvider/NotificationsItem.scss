@@ -1,6 +1,7 @@
 @import 'settings-tools/_all-settings';
 
 .mc-notifications-item {
+    width: 25rem;
     @include set-box-shadow('m');
 
     & + & {
