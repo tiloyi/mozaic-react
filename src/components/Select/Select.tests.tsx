@@ -7,7 +7,7 @@ import Select from './Select';
 const setup = (props: Partial<ISelectProps>) => render(<Select {...props} options={languages} />);
 
 describe('components/Select', () => {
-    test('renders correctly with languages', () => {
+    test('renders correctly with list of options', () => {
         const [language] = languages;
 
         setup({ defaultValue: language.value });
@@ -19,6 +19,18 @@ describe('components/Select', () => {
         });
 
         expect(screen.getByRole('option', { name: language.label })).toHaveAttribute('selected', '');
+    });
+
+    test('renders correctly with groups of options', () => {
+        render(<Select options={food} defaultValue={food[0].options[0].value} />);
+
+        food.forEach(group => {
+            expect(screen.getByRole('group', { name: group.label })).toBeInTheDocument();
+
+            group.options.forEach(option => {
+                expect(screen.getByRole('option', { name: option.label })).toBeInTheDocument();
+            });
+        });
     });
 
     test('renders valid correctly', () => {
