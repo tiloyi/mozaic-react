@@ -10,7 +10,7 @@ export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
     placeholder: 'Select an language',
-    value: 'ruby',
+    defaultValue: 'ruby',
     size: SelectSize.M,
     isInvalid: false,
     isValid: false,
@@ -58,7 +58,7 @@ export const Groups = GroupsTemplate.bind({});
 
 Groups.args = {
     placeholder: 'Select an food',
-    value: 'apple',
+    defaultValue: 'apple',
     size: SelectSize.M,
     isInvalid: false,
     isValid: false,
