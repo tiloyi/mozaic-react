@@ -5,7 +5,7 @@ import './TextInput.scss';
 
 const blockClassName = 'mc-text-input';
 
-function getTextInputSizeClassName(size: TextInputSize): string {
+function getSizeClassName(size: TextInputSize): string {
     return size !== TextInputSize.M ? `${blockClassName}--${size}` : '';
 }
 
@@ -18,17 +18,17 @@ const TextInput: FC<ITextInputProps> = ({
     isValid,
     ...props
 }: ITextInputProps) => {
-    const textAreaClassName = cn(
-        'mc-text-input',
-        className,
-        getTextInputSizeClassName(size),
-        isInvalid && 'is-invalid',
-        isValid && 'is-valid'
-    );
-
     if (isInvalid && isValid) {
         throw new Error('The properties `isValid` and `isInvalid` can not be true in the same time');
     }
+
+    const textAreaClassName = cn(
+        'mc-text-input',
+        className,
+        getSizeClassName(size),
+        isInvalid && 'is-invalid',
+        isValid && 'is-valid'
+    );
 
     return (
         <input className={textAreaClassName} {...props} type={type} aria-invalid={isInvalid} disabled={isDisabled} />
