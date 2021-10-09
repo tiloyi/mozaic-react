@@ -1,6 +1,6 @@
 import { OptionHTMLAttributes, SelectHTMLAttributes } from 'react';
 
-export interface ISelectOption extends OptionHTMLAttributes<HTMLOptionElement> {
+export interface ISelectOption extends Omit<OptionHTMLAttributes<HTMLOptionElement>, 'disabled'> {
     isDisabled?: boolean;
 }
 
