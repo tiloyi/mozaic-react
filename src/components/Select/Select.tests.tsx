@@ -1,24 +1,24 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { options } from './Select.fixtures';
+import { languages, food } from './Select.fixtures';
 import { ISelectProps, SelectSize } from './Select.types';
 import Select from './Select';
 
-const setup = (props: Partial<ISelectProps>) => render(<Select {...props} options={options} />);
+const setup = (props: Partial<ISelectProps>) => render(<Select {...props} options={languages} />);
 
 describe('components/Select', () => {
-    test('renders correctly with options', () => {
-        const [option] = options;
+    test('renders correctly with languages', () => {
+        const [language] = languages;
 
-        setup({ defaultValue: option.value });
+        setup({ defaultValue: language.value });
 
         expect(screen.getByRole('combobox')).toBeInTheDocument();
 
-        options.forEach(o => {
-            expect(screen.getByRole('option', { name: o.label })).toBeInTheDocument();
+        languages.forEach(lang => {
+            expect(screen.getByRole('option', { name: lang.label })).toBeInTheDocument();
         });
 
-        expect(screen.getByRole('option', { name: option.label })).toHaveAttribute('selected', '');
+        expect(screen.getByRole('option', { name: language.label })).toHaveAttribute('selected', '');
     });
 
     test('renders valid correctly', () => {
