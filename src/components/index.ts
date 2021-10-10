@@ -5,6 +5,7 @@ export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
 export { default as Notification, NotificationSize, NotificationTheme } from './Notification';
+export { NotificationsRenderer, NotificationsProvider, useNotifications } from './NotificationsProvider';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
 export { default as Radio } from './Radio';
