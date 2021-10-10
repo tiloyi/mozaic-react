@@ -14,7 +14,7 @@ const Notification = ({ title, message, footer, isClosable, onClose, ...props }:
         {title && <NotificationTitle>{title}</NotificationTitle>}
         {message && <NotificationMessage>{message}</NotificationMessage>}
         {footer && <NotificationFooter>{footer}</NotificationFooter>}
-        {isClosable && <NotificationCloseButton onClick={() => onClose?.()} />}
+        {isClosable && <NotificationCloseButton aria-label="Close" onClick={() => onClose?.()} />}
     </NotificationContainer>
 );
 

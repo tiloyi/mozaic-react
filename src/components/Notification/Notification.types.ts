@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 
 export enum NotificationTheme {
     Info = 'info',
@@ -12,7 +12,7 @@ export enum NotificationSize {
     S = 's'
 }
 
-export interface INotificationPartialProps {
+export interface INotificationPartialProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
 
