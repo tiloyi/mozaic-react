@@ -11,11 +11,18 @@ Controls.args = {
     title: 'Information notification',
     theme: NotificationTheme.Info,
     size: NotificationSize.M,
-    message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.'
+    message:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+    isClosable: true
 };
 
 Controls.argTypes = {
     footer: {
+        table: {
+            disable: true
+        }
+    },
+    onClose: {
         table: {
             disable: true
         }

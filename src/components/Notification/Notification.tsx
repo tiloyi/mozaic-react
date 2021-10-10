@@ -1,13 +1,20 @@
 import React from 'react';
-import { NotificationContainer, NotificationFooter, NotificationMessage, NotificationTitle } from './partials';
+import {
+    NotificationCloseButton,
+    NotificationContainer,
+    NotificationFooter,
+    NotificationMessage,
+    NotificationTitle
+} from './partials';
 import { INotificationProps } from './Notification.types';
 import './Notification.scss';
 
-const Notification = ({ className, theme, size, title, message, footer }: INotificationProps): JSX.Element => (
-    <NotificationContainer className={className} theme={theme} size={size}>
+const Notification = ({ title, message, footer, isClosable, onClose, ...props }: INotificationProps): JSX.Element => (
+    <NotificationContainer {...props} isClosable={isClosable}>
         {title && <NotificationTitle>{title}</NotificationTitle>}
         {message && <NotificationMessage>{message}</NotificationMessage>}
         {footer && <NotificationFooter>{footer}</NotificationFooter>}
+        {isClosable && <NotificationCloseButton onClick={() => onClose?.()} />}
     </NotificationContainer>
 );
 
