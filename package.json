@@ -74,6 +74,7 @@
     "@mozaic-ds/icons": "^1.14.0",
     "@mozaic-ds/styles": "^1.18.0",
     "@mozaic-ds/tokens": "^1.18.0",
-    "@mozaic-ds/web-fonts": "^1.18.0"
+    "@mozaic-ds/web-fonts": "^1.18.0",
+    "nanoid": "^3.1.29"
   }
 }
