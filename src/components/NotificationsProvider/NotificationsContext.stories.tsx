@@ -1,37 +1,59 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Button, { ButtonSize } from '../Button';
+import Button, { ButtonSize, ButtonTheme, ButtonVariant } from '../Button';
 import { NotificationTheme } from '../Notification';
 import { NotificationsProvider, useNotifications } from './NotificationsContext';
 import NotificationsRenderer from './NotificationsRenderer';
 import './NotificationsContext.stories.scss';
 
 const Example = () => {
-    const { addNotification } = useNotifications();
+    const { add, update, remove, clear } = useNotifications();
 
-    const addInfoNotification = () =>
-        addNotification({
+    const addInfoNotification = () => {
+        const notificationId = add({
             theme: NotificationTheme.Info,
-            title: 'Info notification'
+            title: 'Info notification',
+            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
+        console.log('Add notifications with id', notificationId);
+    };
+
     const addSuccessNotification = () =>
-        addNotification({
+        add({
             theme: NotificationTheme.Success,
-            title: 'Success notification'
+            title: 'Success notification',
+            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
     const addDangerNotification = () =>
-        addNotification({
+        add({
             theme: NotificationTheme.Danger,
-            title: 'Danger notification'
+            title: 'Danger notification',
+            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
     const addWarningNotification = () =>
-        addNotification({
+        add({
             theme: NotificationTheme.Warning,
-            title: 'Warning notification'
+            title: 'Warning notification',
+            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
+
+    const addHelloNotification = () =>
+        add({
+            id: 'hello',
+            theme: NotificationTheme.Warning,
+            title: 'Hello!'
+        });
+
+    const updateHelloNotification = () =>
+        update('hello', {
+            theme: NotificationTheme.Success,
+            title: 'Hello, World!'
+        });
+
+    const removeHelloNotification = () => remove('hello');
 
     const buttonProps = {
         className: 'notificationsContextStory__button',
@@ -43,14 +65,41 @@ const Example = () => {
             <Button {...buttonProps} onClick={addInfoNotification}>
                 Add "info" notification
             </Button>
-            <Button {...buttonProps} onClick={addSuccessNotification}>
+            <Button {...buttonProps} theme={ButtonTheme.Primary02} onClick={addSuccessNotification}>
                 Add "success" notification
             </Button>
-            <Button {...buttonProps} onClick={addDangerNotification}>
+            <Button {...buttonProps} theme={ButtonTheme.Danger} onClick={addDangerNotification}>
                 Add "danger" notification
             </Button>
-            <Button {...buttonProps} onClick={addWarningNotification}>
+            <Button {...buttonProps} theme={ButtonTheme.Neutral} onClick={addWarningNotification}>
                 Add "warning" notification
+            </Button>
+            <Button {...buttonProps} variant={ButtonVariant.Bordered} theme={ButtonTheme.Danger} onClick={clear}>
+                Delete all notifications
+            </Button>
+            <Button
+                {...buttonProps}
+                variant={ButtonVariant.Bordered}
+                theme={ButtonTheme.Neutral}
+                onClick={addHelloNotification}
+            >
+                Add "Hello" notification
+            </Button>
+            <Button
+                {...buttonProps}
+                variant={ButtonVariant.Bordered}
+                theme={ButtonTheme.Neutral}
+                onClick={updateHelloNotification}
+            >
+                Update "Hello" notification
+            </Button>
+            <Button
+                {...buttonProps}
+                variant={ButtonVariant.Bordered}
+                theme={ButtonTheme.Neutral}
+                onClick={removeHelloNotification}
+            >
+                Remove "Hello" notification
             </Button>
         </div>
     );

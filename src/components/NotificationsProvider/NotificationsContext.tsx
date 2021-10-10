@@ -1,28 +1,13 @@
-import React, { FC, createContext, useContext, useState } from 'react';
-import {
-    INotificationsActionsContextProps,
-    INotificationsItem,
-    INotificationsStateContextProps
-} from './NotificationsProvider.types';
+import React, { FC, createContext, useContext } from 'react';
+import { INotificationsActions, INotificationsItems } from './NotificationsProvider.types';
+import useNotificationsState from './useNotificationsState';
 
-const NotificationsActionsContext = createContext<INotificationsActionsContextProps>(
-    {} as INotificationsActionsContextProps
-);
+const NotificationsActionsContext = createContext<INotificationsActions>({} as INotificationsActions);
 
-const NotificationsStateContext = createContext<INotificationsStateContextProps>({} as INotificationsStateContextProps);
+const NotificationsStateContext = createContext<INotificationsItems>({} as INotificationsItems);
 
-export function useNotifications(): INotificationsActionsContextProps {
+export function useNotifications(): INotificationsActions {
     const context = useContext(NotificationsActionsContext);
-
-    if (context === undefined) {
-        throw new Error('useNotifications must be used within the NotificationsProvider');
-    }
-
-    return context;
-}
-
-export function useNotificationsState(): INotificationsStateContextProps {
-    const context = useContext(NotificationsStateContext);
 
     if (context === undefined) {
         throw new Error('useNotificationsState must be used within the NotificationsProvider');
@@ -31,18 +16,18 @@ export function useNotificationsState(): INotificationsStateContextProps {
     return context;
 }
 
-export const NotificationsProvider: FC = ({ children }) => {
-    const [notifications, setNotifications] = useState<Array<INotificationsItem>>([]);
+export function useNotificationsItems(): INotificationsItems {
+    const context = useContext(NotificationsStateContext);
 
-    const actionsContextValue = {
-        addNotification(notification: INotificationsItem) {
-            console.log('add notification: ', notification);
-            setNotifications(prevNotifications => [...prevNotifications, notification]);
-        },
-        removeNotification(notificationId: string) {
-            console.log('remove notification', notificationId);
-        }
-    };
+    if (context === undefined) {
+        throw new Error('useNotificationsItems must be used within the NotificationsProvider');
+    }
+
+    return context;
+}
+
+export const NotificationsProvider: FC = ({ children }) => {
+    const [notifications, actions] = useNotificationsState();
 
     const stateContextValue = {
         notifications
@@ -50,9 +35,7 @@ export const NotificationsProvider: FC = ({ children }) => {
 
     return (
         <NotificationsStateContext.Provider value={stateContextValue}>
-            <NotificationsActionsContext.Provider value={actionsContextValue}>
-                {children}
-            </NotificationsActionsContext.Provider>
+            <NotificationsActionsContext.Provider value={actions}>{children}</NotificationsActionsContext.Provider>
         </NotificationsStateContext.Provider>
     );
 };
