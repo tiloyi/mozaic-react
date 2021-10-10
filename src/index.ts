@@ -11,7 +11,7 @@ export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './components/Heading';
-export { default as Notification, NotificationSize, NotificationTheme } from './components/Notification';
+export { default as Notification, NotificationSize, NotificationTheme, INotification } from './components/Notification';
 export { NotificationsRenderer, NotificationsProvider, useNotifications } from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';

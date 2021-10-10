@@ -1,18 +1,28 @@
 import { useCallback, useMemo, useState } from 'react';
-import { INotificationsActions, INotificationsItem } from './NotificationsProvider.types';
 import { nanoid } from 'nanoid';
+import { INotificationsActions, INotificationsItem } from './NotificationsProvider.types';
+
+const NOTIFICATION_DURATION = 5000;
 
 export type TUseNotificationsState = [Array<INotificationsItem>, INotificationsActions];
 
 export default function useNotificationsState(): TUseNotificationsState {
     const [notifications, setNotifications] = useState<Array<INotificationsItem>>([]);
 
-    const add = useCallback((notification: INotificationsItem) => {
-        const notificationId = notification.id ?? nanoid();
+    const add = useCallback((partial: Partial<INotificationsItem>) => {
+        const notification: INotificationsItem = {
+            id: partial.id ?? nanoid(),
+            duration: partial.duration ?? NOTIFICATION_DURATION,
+            title: partial.title,
+            message: partial.message,
+            footer: partial.footer,
+            size: partial.size,
+            theme: partial.theme
+        };
 
-        setNotifications(prevNotifications => [...prevNotifications, { ...notification, id: notificationId }]);
+        setNotifications(prevNotifications => [...prevNotifications, notification]);
 
-        return notificationId;
+        return notification.id;
     }, []);
 
     const remove = useCallback((notificationId: string) => {

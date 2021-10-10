@@ -12,6 +12,14 @@ export enum NotificationSize {
     S = 's'
 }
 
+export interface INotification {
+    theme?: NotificationTheme;
+    size?: NotificationSize;
+    title?: string;
+    message?: ReactNode;
+    footer?: ReactNode;
+}
+
 export interface INotificationPartialProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
@@ -26,9 +34,8 @@ export interface INotificationContainerProps extends INotificationPartialProps {
     isClosable?: boolean;
 }
 
-export interface INotificationProps extends INotificationContainerProps {
-    title?: string;
-    message?: ReactNode;
-    footer?: ReactNode;
+export interface INotificationProps extends INotification, HTMLAttributes<HTMLDivElement> {
+    className?: string;
+    isClosable?: boolean;
     onClose?: () => void;
 }

@@ -17,9 +17,21 @@ const NotificationsRenderer = ({}: INotificationsRendererProps): JSX.Element | n
     return (
         <Portal id="notifications">
             <div className="mc-notifications-renderer">
-                {notifications.map(({ ...notification }) => (
-                    <NotificationsItem key={`notification-${notification.id}`}>
-                        <Notification {...notification} isClosable onClose={() => remove(notification.id!)} />
+                {notifications.map(notification => (
+                    <NotificationsItem
+                        key={`notification-${notification.id}`}
+                        id={notification.id}
+                        duration={notification.duration}
+                    >
+                        <Notification
+                            theme={notification.theme}
+                            size={notification.size}
+                            title={notification.title}
+                            message={notification.message}
+                            footer={notification.footer}
+                            isClosable
+                            onClose={() => remove(notification.id)}
+                        />
                     </NotificationsItem>
                 ))}
             </div>

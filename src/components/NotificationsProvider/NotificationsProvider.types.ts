@@ -1,12 +1,20 @@
-import { INotificationProps } from '../Notification/Notification.types';
+import { INotification } from '../Notification';
 
 export type TNotificationItemId = string;
 
-export interface INotificationsItem extends INotificationProps {
-    id?: TNotificationItemId;
+export interface INotificationsItem extends INotification {
+    id: TNotificationItemId;
+    duration: number;
 }
 
-export type TNotificationAddAction = (notification: INotificationsItem) => TNotificationItemId;
+export interface INotificationItemProps extends INotificationsItem {
+    id: TNotificationItemId;
+    duration: number;
+    isClosable?: boolean;
+    onClose?: () => void;
+}
+
+export type TNotificationAddAction = (notification: Partial<INotificationsItem>) => TNotificationItemId;
 
 export type TNotificationRemoveAction = (notificationId: TNotificationItemId) => void;
 
