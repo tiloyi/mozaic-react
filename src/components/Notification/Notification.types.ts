@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export enum NotificationTheme {
     Info = 'info',
     Success = 'success',
@@ -19,4 +21,8 @@ export interface INotificationContainerProps extends INotificationPartialProps {
     size?: NotificationSize;
 }
 
-export interface INotificationProps extends INotificationContainerProps {}
+export interface INotificationProps extends INotificationContainerProps {
+    title?: string;
+    message?: ReactNode;
+    footer?: ReactNode;
+}

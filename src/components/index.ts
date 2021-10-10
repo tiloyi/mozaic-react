@@ -4,17 +4,7 @@ export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
-export {
-    default as Notification,
-    NotificationSize,
-    NotificationTheme,
-    NotificationMessage,
-    NotificationFooter,
-    NotificationTitle,
-    useNotifications,
-    NotificationsProvider,
-    NotificationsRenderer
-} from './Notification';
+export { default as Notification, NotificationSize, NotificationTheme } from './Notification';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
 export { default as Radio } from './Radio';
