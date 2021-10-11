@@ -4,7 +4,7 @@ import Button, { ButtonSize, ButtonTheme, ButtonVariant } from '../Button';
 import { NotificationTheme } from '../Notification';
 import { NotificationsProvider, useNotifications } from './NotificationsContext';
 import NotificationsRenderer from './NotificationsRenderer';
-import './NotificationsContext.stories.scss';
+import './NotificationsProvider.stories.scss';
 
 const Example = () => {
     const { add, update, remove, clear } = useNotifications();
@@ -65,7 +65,7 @@ const Example = () => {
     };
 
     return (
-        <div className="notificationsContextStory">
+        <div className="notificationsProviderStory">
             <Button {...buttonProps} onClick={addInfoNotification}>
                 Add "info" notification
             </Button>
