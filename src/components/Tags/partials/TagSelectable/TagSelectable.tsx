@@ -14,6 +14,8 @@ const TagSelectable: FC<ITagSelectableProps> = ({
     isDisabled,
     size,
     isDark,
+    leftIcon,
+    rightIcon,
     ...props
 }) => {
     const onSelectTagHandler = () => {
@@ -40,7 +42,9 @@ const TagSelectable: FC<ITagSelectableProps> = ({
                 onChange={onSelectTagHandler}
             />
             <label className={`${SELECTABLE_CLASSNAME}__pill`} htmlFor={id}>
+                {leftIcon}
                 <span className={`${SELECTABLE_CLASSNAME}__label`}>{text}</span>
+                {rightIcon}
             </label>
         </span>
     );

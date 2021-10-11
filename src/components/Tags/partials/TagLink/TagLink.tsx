@@ -5,7 +5,16 @@ import { classNames } from '../../constants';
 
 const LINK_CLASSNAME = classNames.link;
 
-const TagLink: FC<ITagLinkProps> = ({ id, text, link, size = TagSize.m, isDark = false, ...props }) => {
+const TagLink: FC<ITagLinkProps> = ({
+    id,
+    text,
+    link,
+    size = TagSize.m,
+    isDark = false,
+    leftIcon,
+    rightIcon,
+    ...props
+}) => {
     return (
         <a
             {...props}
@@ -14,7 +23,9 @@ const TagLink: FC<ITagLinkProps> = ({ id, text, link, size = TagSize.m, isDark =
             className={cn(LINK_CLASSNAME, `${LINK_CLASSNAME}--${size}`, isDark && `${LINK_CLASSNAME}--dark`)}
             id={id}
         >
+            {leftIcon}
             <span className={`${LINK_CLASSNAME}__label`}>{text}</span>
+            {rightIcon}
         </a>
     );
 };

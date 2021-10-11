@@ -45,6 +45,8 @@ export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 
 
 export interface ITagLinkProps extends ITagLink, ITagOptions {
     id: string;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
 }
 
 type TOmmitedSelectableProps = 'id' | 'size' | 'type';
@@ -57,6 +59,8 @@ export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElemen
 
 export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
     id: string;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
     onSelectTag?: TOnSelectTag;
 }
 
@@ -68,4 +72,6 @@ export interface ITagRemovable {
 
 export interface ITagRemovableProps extends ITagRemovable, ITagOptions {
     id: string;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
 }
