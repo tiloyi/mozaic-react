@@ -1,6 +1,6 @@
 {
   "name": "bigfish-wms--mozaic-react",
-  "version": "0.4.1",
+  "version": "0.6.0",
   "description": "React implementation of the Mozaic Design System",
   "main": "lib/index.js",
   "scripts": {
@@ -74,6 +74,7 @@
     "@mozaic-ds/icons": "^1.14.0",
     "@mozaic-ds/styles": "^1.18.0",
     "@mozaic-ds/tokens": "^1.18.0",
-    "@mozaic-ds/web-fonts": "^1.18.0"
+    "@mozaic-ds/web-fonts": "^1.18.0",
+    "nanoid": "^3.1.29"
   }
 }
