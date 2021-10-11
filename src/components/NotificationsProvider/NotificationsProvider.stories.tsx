@@ -60,7 +60,7 @@ const Example = () => {
     const removeHelloNotification = () => remove('hello');
 
     const buttonProps = {
-        className: 'notificationsContextStory__button',
+        className: 'notificationsProviderStory__button',
         size: ButtonSize.S
     };
 
