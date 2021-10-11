@@ -5,13 +5,14 @@ export type TNotificationItemId = string;
 export interface INotificationsItem extends INotification {
     id: TNotificationItemId;
     duration: number;
+    isClosable?: boolean;
+    isAutoClosable?: boolean;
 }
 
-export interface INotificationItemProps extends INotificationsItem {
+export interface INotificationItemProps {
     id: TNotificationItemId;
     duration: number;
-    isClosable?: boolean;
-    onClose?: () => void;
+    isAutoClosable?: boolean;
 }
 
 export type TNotificationAddAction = (notification: Partial<INotificationsItem>) => TNotificationItemId;

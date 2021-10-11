@@ -3,16 +3,22 @@ import { INotificationItemProps } from './NotificationsProvider.types';
 import './NotificationsItem.scss';
 import { useNotifications } from './NotificationsContext';
 
-const NotificationsItem: FC<INotificationItemProps> = ({ children, id, duration }) => {
+const NotificationsItem: FC<INotificationItemProps> = ({ children, id, duration, isAutoClosable }) => {
     const { remove } = useNotifications();
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => remove(id), duration);
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+        if (isAutoClosable) {
+            timeoutId = setTimeout(() => remove(id), duration);
+        }
 
         return () => {
-            clearTimeout(timeoutId);
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+            }
         };
-    }, [duration]);
+    }, [duration, isAutoClosable]);
 
     return <div className="mc-notifications-item">{children}</div>;
 };

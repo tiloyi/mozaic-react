@@ -44,13 +44,17 @@ const Example = () => {
         add({
             id: 'hello',
             theme: NotificationTheme.Warning,
-            title: 'Hello!'
+            title: 'Hello!',
+            isClosable: false,
+            isAutoClosable: false
         });
 
     const updateHelloNotification = () =>
         update('hello', {
             theme: NotificationTheme.Success,
-            title: 'Hello, World!'
+            title: 'Hello, World!',
+            isClosable: true,
+            isAutoClosable: true
         });
 
     const removeHelloNotification = () => remove('hello');

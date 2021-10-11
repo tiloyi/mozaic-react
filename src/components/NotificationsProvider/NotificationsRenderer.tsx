@@ -22,6 +22,7 @@ const NotificationsRenderer = ({}: INotificationsRendererProps): JSX.Element | n
                         key={`notification-${notification.id}`}
                         id={notification.id}
                         duration={notification.duration}
+                        isAutoClosable={notification.isAutoClosable}
                     >
                         <Notification
                             theme={notification.theme}
@@ -29,7 +30,7 @@ const NotificationsRenderer = ({}: INotificationsRendererProps): JSX.Element | n
                             title={notification.title}
                             message={notification.message}
                             footer={notification.footer}
-                            isClosable
+                            isClosable={notification.isClosable}
                             onClose={() => remove(notification.id)}
                         />
                     </NotificationsItem>
