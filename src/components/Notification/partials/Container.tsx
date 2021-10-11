@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { INotificationContainerProps } from '../Notification.types';
+import { INotificationContainerProps, NotificationTheme } from '../Notification.types';
 
 const blockClassName = 'mc-notification';
 
@@ -9,6 +9,7 @@ const NotificationContainer: FC<INotificationContainerProps> = ({
     children,
     theme,
     size,
+    role,
     isClosable,
     ...props
 }) => {
@@ -20,8 +21,10 @@ const NotificationContainer: FC<INotificationContainerProps> = ({
         isClosable && `${blockClassName}-closable`
     );
 
+    const containerRole = theme === NotificationTheme.Danger ? 'alert' : 'status';
+
     return (
-        <div className={containerClassName} {...props}>
+        <div className={containerClassName} role={role ?? containerRole} {...props}>
             <div className={`${blockClassName}__content`}>{children}</div>
         </div>
     );
