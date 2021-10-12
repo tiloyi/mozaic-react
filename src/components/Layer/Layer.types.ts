@@ -7,3 +7,7 @@ export interface ILayerProps {
 export interface ILayerPartialProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
+
+export interface ILayerCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
+}
