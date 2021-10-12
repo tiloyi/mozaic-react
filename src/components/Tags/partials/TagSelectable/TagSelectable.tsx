@@ -8,7 +8,6 @@ const SELECTABLE_CLASSNAME = classNames.selectable;
 
 const TagSelectable: FC<ITagSelectableProps> = ({
     id,
-    type = 'selectable',
     text,
     isSelected,
     onSelectTag,
