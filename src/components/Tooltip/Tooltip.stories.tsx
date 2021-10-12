@@ -11,7 +11,7 @@ export const Top = TooltipTemplateTop.bind({});
 
 Top.args = {
     placement: TooltipPlacement.top,
-    text: 'Tooltip\ntext'
+    label: 'Tooltip\ntext'
 };
 
 // Right
@@ -22,7 +22,7 @@ export const Right = TooltipTemplateRight.bind({});
 
 Right.args = {
     placement: TooltipPlacement.right,
-    text: 'Tooltip text'
+    label: 'Tooltip text'
 };
 
 // Bottom
@@ -33,7 +33,7 @@ export const Bottom = TooltipTemplateBottom.bind({});
 
 Bottom.args = {
     placement: TooltipPlacement.bottom,
-    text: 'Tooltip text'
+    label: 'Tooltip text'
 };
 
 // Left
@@ -44,7 +44,7 @@ export const Left = TooltipTemplateLeft.bind({});
 
 Left.args = {
     placement: TooltipPlacement.left,
-    text: 'Tooltip text'
+    label: 'Tooltip text'
 };
 
 // With Icon
@@ -67,7 +67,7 @@ export const WithIcon = TooltipTemplateWithIcon.bind({});
 
 WithIcon.args = {
     placement: TooltipPlacement.top,
-    text: 'Tooltip text'
+    label: 'Tooltip text'
 };
 
 // With custom content
@@ -78,8 +78,7 @@ export const WithCustomContent = TooltipTemplateWithCustomContent.bind({});
 
 WithCustomContent.args = {
     placement: TooltipPlacement.top,
-    text: 'Tooltip text',
-    content: <button>Button</button>
+    label: <button>Button</button>
 };
 
 export default {
@@ -94,7 +93,7 @@ export default {
                 type: 'select'
             }
         },
-        text: {
+        label: {
             control: {
                 type: 'text'
             }

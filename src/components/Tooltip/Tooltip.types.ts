@@ -1,8 +1,7 @@
 export interface ITooltipProps {
     id?: string;
     placement: TooltipPlacement;
-    text?: string;
-    content?: JSX.Element;
+    label?: string | JSX.Element;
 }
 
 export enum TooltipPlacement {
