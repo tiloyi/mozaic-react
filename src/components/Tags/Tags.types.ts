@@ -9,6 +9,13 @@ export interface ITagsProps {
     onRemove?: TOnRemove;
 }
 
+export enum TagType {
+    'Text' = 'text',
+    'Link' = 'link',
+    'Removable' = 'removable',
+    'Selectable' = 'selectable'
+}
+
 export interface ITag {
     id: string;
     tagData: ITagText | ITagLink | ITagSelectable | ITagRemovable;
@@ -25,36 +32,37 @@ export interface ITagOptions {
 }
 
 export interface ITagText {
-    type?: 'text';
+    type?: TagType.Text;
     text: string;
+    content?: JSX.Element;
 }
 
 export interface ITagTextProps extends ITagText, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
-    content?: JSX.Element;
 }
 
 type TOmittedLinkProps = 'id' | 'href';
 
 export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, TOmittedLinkProps> {
-    type?: 'link';
+    type?: TagType.Link;
     text: string;
-    link: string;
+    content?: JSX.Element;
+    link?: string;
 }
 
 export interface ITagLinkProps extends ITagLink, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
-    content?: JSX.Element;
 }
 
 type TOmmitedSelectableProps = 'id' | 'size' | 'type';
 export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmmitedSelectableProps> {
-    type?: 'selectable';
+    type?: TagType.Selectable;
     text: string;
+    content?: JSX.Element;
     isSelected?: boolean;
     isDisabled?: boolean;
 }
@@ -63,13 +71,13 @@ export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
-    content?: JSX.Element;
     onSelectTag?: TOnSelectTag;
 }
 
 export interface ITagRemovable {
-    type?: 'removable';
+    type?: TagType.Removable;
     text: string;
+    content?: JSX.Element;
     onRemove?: TOnRemove;
 }
 
@@ -77,5 +85,4 @@ export interface ITagRemovableProps extends ITagRemovable, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
-    content?: JSX.Element;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Tags from './Tags';
-import { ITag, ITagsProps, TagSize } from './Tags.types';
+import { ITag, ITagsProps, TagSize, TagType } from './Tags.types';
 import './Tags.stories.scss';
 
 const WhiteTemlate: Story<ITagsProps> = args => (
@@ -23,21 +23,21 @@ TextTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror'
             }
         },
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi'
             }
         },
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective'
             }
         }
@@ -55,7 +55,7 @@ TextTagsWithIcons.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror',
                 leftIcon: <IconWithEmoji className="leftIcon" emoji={'😱'} />
             }
@@ -63,7 +63,7 @@ TextTagsWithIcons.args = {
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi',
                 rightIcon: <IconWithEmoji className="rightIcon" emoji={'👽'} />
             }
@@ -71,7 +71,7 @@ TextTagsWithIcons.args = {
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective',
                 leftIcon: <IconWithEmoji className="leftIcon" emoji={'🕵️‍♂️'} />,
                 rightIcon: <IconWithEmoji className="rightIcon" emoji={'🔥'} />
@@ -87,7 +87,7 @@ SmallTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror',
                 size: TagSize.s
             }
@@ -95,7 +95,7 @@ SmallTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi',
                 size: TagSize.s
             }
@@ -103,7 +103,7 @@ SmallTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective',
                 size: TagSize.s
             }
@@ -118,7 +118,7 @@ TextSmallTagsWithIcons.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror',
                 size: TagSize.s,
                 leftIcon: <IconWithEmoji className="leftIcon" emoji={'😱'} />
@@ -127,7 +127,7 @@ TextSmallTagsWithIcons.args = {
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi',
                 size: TagSize.s,
                 rightIcon: <IconWithEmoji className="rightIcon" emoji={'👽'} />
@@ -136,7 +136,7 @@ TextSmallTagsWithIcons.args = {
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective',
                 size: TagSize.s,
                 leftIcon: <IconWithEmoji className="leftIcon" emoji={'🕵️‍♂️'} />,
@@ -153,7 +153,7 @@ TextTagsDark.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror',
                 size: TagSize.m,
                 isDark: true
@@ -162,7 +162,7 @@ TextTagsDark.args = {
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi',
                 size: TagSize.m,
                 isDark: true
@@ -171,7 +171,7 @@ TextTagsDark.args = {
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective',
                 size: TagSize.m,
                 isDark: true
@@ -187,7 +187,7 @@ SmallTextTagsDark.args = {
         {
             id: '123',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Horror',
                 size: TagSize.s,
                 isDark: true
@@ -196,7 +196,7 @@ SmallTextTagsDark.args = {
         {
             id: '124',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Sci-Fi',
                 size: TagSize.s,
                 isDark: true
@@ -205,7 +205,7 @@ SmallTextTagsDark.args = {
         {
             id: '125',
             tagData: {
-                type: 'text',
+                type: TagType.Text,
                 text: 'Detective',
                 size: TagSize.s,
                 isDark: true
@@ -221,7 +221,7 @@ LinkTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Horror',
                 link: 'http://google.com'
             }
@@ -229,7 +229,7 @@ LinkTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Sci-Fi',
                 link: 'http://google.com'
             }
@@ -237,7 +237,7 @@ LinkTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Detective',
                 link: 'http://google.com'
             }
@@ -252,7 +252,7 @@ DarkLinkTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Horror',
                 link: 'http://google.com',
                 isDark: true
@@ -261,7 +261,7 @@ DarkLinkTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Sci-Fi',
                 link: 'http://google.com',
                 isDark: true
@@ -270,7 +270,7 @@ DarkLinkTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'link',
+                type: TagType.Link,
                 text: 'Detective',
                 link: 'http://google.com',
                 isDark: true
@@ -286,21 +286,21 @@ SelectableTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Horror'
             }
         },
         {
             id: '124',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Sci-Fi'
             }
         },
         {
             id: '125',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Detective'
             }
         }
@@ -312,7 +312,7 @@ const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
         {
             id: '123',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Horror',
                 isSelected: false
             }
@@ -320,7 +320,7 @@ const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
         {
             id: '124',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Sci-Fi',
                 isSelected: false
             }
@@ -328,7 +328,7 @@ const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
         {
             id: '125',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Detective',
                 isSelected: false
             }
@@ -365,7 +365,7 @@ SelectableTagsDisabled.args = {
         {
             id: '123',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Horror',
                 isDisabled: true
             }
@@ -373,14 +373,14 @@ SelectableTagsDisabled.args = {
         {
             id: '124',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Sci-Fi'
             }
         },
         {
             id: '125',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Detective'
             }
         }
@@ -394,7 +394,7 @@ SelectableSmallTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Horror',
                 size: TagSize.s
             }
@@ -402,7 +402,7 @@ SelectableSmallTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Sci-Fi',
                 size: TagSize.s
             }
@@ -410,7 +410,7 @@ SelectableSmallTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'selectable',
+                type: TagType.Selectable,
                 text: 'Detective',
                 size: TagSize.s
             }
@@ -425,21 +425,21 @@ RemovableTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Horror'
             }
         },
         {
             id: '124',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Sci-Fi'
             }
         },
         {
             id: '125',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Detective'
             }
         }
@@ -453,7 +453,7 @@ SmallRemovableTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Horror',
                 size: TagSize.s
             }
@@ -461,7 +461,7 @@ SmallRemovableTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Sci-Fi',
                 size: TagSize.s
             }
@@ -469,7 +469,7 @@ SmallRemovableTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Detective',
                 size: TagSize.s
             }
@@ -484,7 +484,7 @@ DarkRemovableTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Horror',
                 isDark: true
             }
@@ -492,7 +492,7 @@ DarkRemovableTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Sci-Fi',
                 isDark: true
             }
@@ -500,7 +500,7 @@ DarkRemovableTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Detective',
                 isDark: true
             }
@@ -515,7 +515,7 @@ SmallDarkRemovableTags.args = {
         {
             id: '123',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Horror',
                 isDark: true,
                 size: TagSize.s
@@ -524,7 +524,7 @@ SmallDarkRemovableTags.args = {
         {
             id: '124',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Sci-Fi',
                 isDark: true,
                 size: TagSize.s
@@ -533,7 +533,7 @@ SmallDarkRemovableTags.args = {
         {
             id: '125',
             tagData: {
-                type: 'removable',
+                type: TagType.Removable,
                 text: 'Detective',
                 isDark: true,
                 size: TagSize.s

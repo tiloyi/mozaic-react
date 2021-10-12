@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 
 import Tags from './Tags';
 import TagText from './partials/TagText';
@@ -7,11 +7,15 @@ import TagLink from './partials/TagLink';
 import TagRemovable from './partials/TagRemovable';
 import TagSelectable from './partials/TagSelectable';
 
+import { ITag, TagType } from './Tags.types';
+
 const TEST_ID = '123';
 const SECOND_TEST_ID = '124';
 const TEST_TEXT = 'Test text';
 const SECOND_TEST_TEXT = 'Test text 2';
+
 const TEST_LINK = 'http://google.com';
+
 const TEST_JSX_DATA_ID = 'test-jsx-text';
 const TEST_JSX_WOUDLNT_RENDER_TEXT = 'Test JSX wouldnt render';
 
@@ -25,14 +29,14 @@ describe('components/Tags', () => {
                     {
                         id: TEST_ID,
                         tagData: {
-                            type: 'text',
+                            type: TagType.Text,
                             text: TEST_TEXT
                         }
                     },
                     {
                         id: SECOND_TEST_ID,
                         tagData: {
-                            type: 'text',
+                            type: TagType.Text,
                             text: SECOND_TEST_TEXT
                         }
                     }
@@ -71,27 +75,47 @@ describe('components/Tags', () => {
         expect(textProperty).toBeInTheDocument();
     });
 
-    test('partial/Selectable renders', () => {
-        render(<TagSelectable id="test" text={TEST_TEXT} />);
+    test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
+        '%s has placeholder text instead content',
+        type => {
+            render(
+                <Tags
+                    tags={[
+                        {
+                            id: TEST_ID,
+                            tagData: {
+                                type: type,
+                                text: TEST_JSX_WOUDLNT_RENDER_TEXT,
+                                content: <TestJsx />
+                            }
+                        }
+                    ]}
+                />
+            );
 
-        const textProperty = screen.getByText(TEST_TEXT);
+            const testJsxComponent = screen.getByTestId(TEST_JSX_DATA_ID);
+            expect(testJsxComponent).toBeInTheDocument();
+        }
+    );
 
-        expect(textProperty).toBeInTheDocument();
-    });
+    test.each([TagType.Text] as TagType[])('%s has placeholder text instead content', async type => {
+        await act(async () => {
+            render(
+                <Tags
+                    tags={[
+                        {
+                            id: TEST_ID,
+                            tagData: {
+                                type: type,
+                                text: TEST_JSX_WOUDLNT_RENDER_TEXT
+                            }
+                        }
+                    ]}
+                />
+            );
+        });
 
-    test('partial/Text replace text with content', () => {
-        render(<TagText id="test" text={TEST_JSX_WOUDLNT_RENDER_TEXT} content={<TestJsx />} />);
-
-        const TestJSXElement = screen.getByTestId(TEST_JSX_DATA_ID);
-
-        expect(TestJSXElement).toBeInTheDocument();
-    });
-
-    test('partial/Text display text if JSX content is undefined', () => {
-        render(<TagText id="test" text={TEST_JSX_WOUDLNT_RENDER_TEXT} content={undefined} />);
-
-        const renderPlaceholder = screen.getByText(TEST_JSX_WOUDLNT_RENDER_TEXT);
-
-        expect(renderPlaceholder).toBeInTheDocument();
+        const placeholderText = await screen.getByText(TEST_JSX_WOUDLNT_RENDER_TEXT);
+        expect(placeholderText).toBeInTheDocument();
     });
 });
