@@ -7,14 +7,13 @@ import TagLink from './partials/TagLink';
 import TagRemovable from './partials/TagRemovable';
 import TagSelectable from './partials/TagSelectable';
 
-import { classNames } from './constants';
-
 const TEST_ID = '123';
 const SECOND_TEST_ID = '124';
 const TEST_TEXT = 'Test text';
 const SECOND_TEST_TEXT = 'Test text 2';
 const TEST_LINK = 'http://google.com';
 const TEST_JSX_DATA_ID = 'test-jsx-text';
+const TEST_JSX_WOUDLNT_RENDER_TEXT = 'Test JSX wouldnt render';
 
 const TestJsx = () => <div data-testid={TEST_JSX_DATA_ID}>Test JSX</div>;
 
@@ -81,10 +80,18 @@ describe('components/Tags', () => {
     });
 
     test('partial/Text replace text with content', () => {
-        render(<TagText id="test" text="Test JSX wouldnt render" content={<TestJsx />} />);
+        render(<TagText id="test" text={TEST_JSX_WOUDLNT_RENDER_TEXT} content={<TestJsx />} />);
 
         const TestJSXElement = screen.getByTestId(TEST_JSX_DATA_ID);
 
         expect(TestJSXElement).toBeInTheDocument();
+    });
+
+    test('partial/Text display text if JSX content is undefined', () => {
+        render(<TagText id="test" text={TEST_JSX_WOUDLNT_RENDER_TEXT} content={undefined} />);
+
+        const renderPlaceholder = screen.getByText(TEST_JSX_WOUDLNT_RENDER_TEXT);
+
+        expect(renderPlaceholder).toBeInTheDocument();
     });
 });
