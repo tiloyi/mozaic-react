@@ -8,6 +8,7 @@ const SELECTABLE_CLASSNAME = classNames.selectable;
 
 const TagSelectable: FC<ITagSelectableProps> = ({
     id,
+    content,
     text,
     isSelected,
     onSelectTag,
@@ -43,7 +44,7 @@ const TagSelectable: FC<ITagSelectableProps> = ({
             />
             <label className={`${SELECTABLE_CLASSNAME}__pill`} htmlFor={id}>
                 {leftIcon}
-                <span className={`${SELECTABLE_CLASSNAME}__label`}>{text}</span>
+                <span className={`${SELECTABLE_CLASSNAME}__label`}>{content || text}</span>
                 {rightIcon}
             </label>
         </span>

@@ -33,6 +33,7 @@ export interface ITagTextProps extends ITagText, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
+    content?: JSX.Element;
 }
 
 type TOmittedLinkProps = 'id' | 'href';
@@ -47,6 +48,7 @@ export interface ITagLinkProps extends ITagLink, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
+    content?: JSX.Element;
 }
 
 type TOmmitedSelectableProps = 'id' | 'size' | 'type';
@@ -61,6 +63,7 @@ export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
+    content?: JSX.Element;
     onSelectTag?: TOnSelectTag;
 }
 
@@ -74,4 +77,5 @@ export interface ITagRemovableProps extends ITagRemovable, ITagOptions {
     id: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
+    content?: JSX.Element;
 }

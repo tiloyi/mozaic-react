@@ -7,6 +7,7 @@ const LINK_CLASSNAME = classNames.link;
 
 const TagLink: FC<ITagLinkProps> = ({
     id,
+    content,
     text,
     link,
     size = TagSize.m,
@@ -24,7 +25,7 @@ const TagLink: FC<ITagLinkProps> = ({
             id={id}
         >
             {leftIcon}
-            <span className={`${LINK_CLASSNAME}__label`}>{text}</span>
+            <span className={`${LINK_CLASSNAME}__label`}>{content || text}</span>
             {rightIcon}
         </a>
     );
