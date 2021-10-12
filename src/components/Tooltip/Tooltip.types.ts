@@ -1,4 +1,6 @@
-export interface ITooltipProps {
+import { HTMLAttributes } from 'react';
+
+export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
     id?: string;
     placement: TooltipPlacement;
     label?: string | JSX.Element;
