@@ -51,30 +51,6 @@ describe('components/Tags', () => {
         expect(secondTextProperty).toBeInTheDocument();
     });
 
-    test('partial/Text renders', () => {
-        render(<TagText id="test" text={TEST_TEXT} />);
-
-        const textProperty = screen.getByText(TEST_TEXT);
-
-        expect(textProperty).toBeInTheDocument();
-    });
-
-    test('partial/Links renders', () => {
-        render(<TagLink id="test" link={TEST_LINK} text={TEST_TEXT} />);
-
-        const textProperty = screen.getByText(TEST_TEXT);
-
-        expect(textProperty).toBeInTheDocument();
-    });
-
-    test('partial/Removable renders', () => {
-        render(<TagRemovable id="test" text={TEST_TEXT} />);
-
-        const textProperty = screen.getByText(TEST_TEXT);
-
-        expect(textProperty).toBeInTheDocument();
-    });
-
     test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
         '%s has placeholder text instead content',
         type => {
@@ -98,24 +74,57 @@ describe('components/Tags', () => {
         }
     );
 
-    test.each([TagType.Text] as TagType[])('%s has placeholder text instead content', async type => {
-        await act(async () => {
-            render(
-                <Tags
-                    tags={[
-                        {
-                            id: TEST_ID,
-                            tagData: {
-                                type: type,
-                                text: TEST_JSX_WOUDLNT_RENDER_TEXT
+    test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
+        '%s has placeholder text instead content',
+        async type => {
+            await act(async () => {
+                render(
+                    <Tags
+                        tags={[
+                            {
+                                id: TEST_ID,
+                                tagData: {
+                                    type: type,
+                                    text: TEST_JSX_WOUDLNT_RENDER_TEXT
+                                }
                             }
-                        }
-                    ]}
-                />
-            );
-        });
+                        ]}
+                    />
+                );
+            });
 
-        const placeholderText = await screen.getByText(TEST_JSX_WOUDLNT_RENDER_TEXT);
-        expect(placeholderText).toBeInTheDocument();
+            const placeholderText = await screen.getByText(TEST_JSX_WOUDLNT_RENDER_TEXT);
+            expect(placeholderText).toBeInTheDocument();
+        }
+    );
+});
+
+describe('partial/Text', () => {
+    test('Text renders', () => {
+        render(<TagText id="test" text={TEST_TEXT} />);
+
+        const textProperty = screen.getByText(TEST_TEXT);
+
+        expect(textProperty).toBeInTheDocument();
+    });
+});
+
+describe('partial/Removable', () => {
+    test('Text renders', () => {
+        render(<TagRemovable id="test" text={TEST_TEXT} />);
+
+        const textProperty = screen.getByText(TEST_TEXT);
+
+        expect(textProperty).toBeInTheDocument();
+    });
+});
+
+describe('partial/Link', () => {
+    test('Text renders', () => {
+        render(<TagLink id="test" link={TEST_LINK} text={TEST_TEXT} />);
+
+        const textProperty = screen.getByText(TEST_TEXT);
+
+        expect(textProperty).toBeInTheDocument();
     });
 });
