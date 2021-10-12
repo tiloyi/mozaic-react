@@ -25,7 +25,7 @@ export interface ITagOptions {
 }
 
 export interface ITagText {
-    type: 'text';
+    type?: 'text';
     text: string;
 }
 
@@ -38,7 +38,7 @@ export interface ITagTextProps extends ITagText, ITagOptions {
 type TOmittedLinkProps = 'id' | 'href';
 
 export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, TOmittedLinkProps> {
-    type: 'link';
+    type?: 'link';
     text: string;
     link: string;
 }
@@ -51,7 +51,7 @@ export interface ITagLinkProps extends ITagLink, ITagOptions {
 
 type TOmmitedSelectableProps = 'id' | 'size' | 'type';
 export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmmitedSelectableProps> {
-    type: 'selectable';
+    type?: 'selectable';
     text: string;
     isSelected?: boolean;
     isDisabled?: boolean;
@@ -65,7 +65,7 @@ export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
 }
 
 export interface ITagRemovable {
-    type: 'removable';
+    type?: 'removable';
     text: string;
     onRemove?: TOnRemove;
 }

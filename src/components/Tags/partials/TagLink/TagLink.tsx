@@ -7,6 +7,7 @@ const LINK_CLASSNAME = classNames.link;
 
 const TagLink: FC<ITagLinkProps> = ({
     id,
+    type = 'link',
     text,
     link,
     size = TagSize.m,

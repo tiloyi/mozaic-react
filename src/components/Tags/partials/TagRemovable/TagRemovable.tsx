@@ -6,7 +6,16 @@ import { classNames } from '../../constants';
 
 const REMOVABLE_CLASSNAME = classNames.removable;
 
-const TagRemovable: FC<ITagRemovableProps> = ({ id, text, isDark, size, leftIcon, rightIcon, onRemove }) => {
+const TagRemovable: FC<ITagRemovableProps> = ({
+    id,
+    type = 'removable',
+    text,
+    isDark,
+    size,
+    leftIcon,
+    rightIcon,
+    onRemove
+}) => {
     const onRemoveHandler = () => {
         if (onRemove) {
             onRemove(id);
