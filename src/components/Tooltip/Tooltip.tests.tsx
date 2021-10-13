@@ -33,9 +33,8 @@ describe('components/Tooltip', () => {
             </Tooltip>
         );
 
-        const tooltipContainer = screen.getByLabelText('tooltip-container');
+        const tooltipContentText = screen.getByText(TEST_TOOLTIP_CONTENT_TEXT);
 
-        expect(tooltipContainer).toBeInTheDocument();
-        expect(within(tooltipContainer).getByText(TEST_TOOLTIP_CONTENT_TEXT)).toBeInTheDocument();
+        expect(tooltipContentText).toBeInTheDocument();
     });
 });
