@@ -52,7 +52,7 @@ describe('components/Tags', () => {
     });
 
     test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
-        '%s has placeholder text instead content',
+        '%s has content',
         type => {
             render(
                 <TagGroup
