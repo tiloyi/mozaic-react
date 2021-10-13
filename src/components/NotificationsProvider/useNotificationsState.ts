@@ -40,7 +40,7 @@ export default function useNotificationsState(): TUseNotificationsState {
     );
 
     const danger = useCallback(
-        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Warning }),
+        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Danger }),
         [add]
     );
 
