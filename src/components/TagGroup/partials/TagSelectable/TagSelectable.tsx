@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITagSelectableProps, TagSize } from '../../Tags.types';
+import { ITagSelectableProps } from '../../TagGroup.types';
 
 import { classNames } from '../../constants';
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Tags from './Tags';
-import { ITag, ITagsProps, TagSize, TagType } from './Tags.types';
-import './Tags.stories.scss';
+import TagGroup from './TagGroup';
+import { ITag, ITagGroupProps, TagSize, TagType } from './TagGroup.types';
+import './TagGroup.stories.scss';
 
-const WhiteTemlate: Story<ITagsProps> = args => (
+const WhiteTemlate: Story<ITagGroupProps> = args => (
     <div className="tagStoryContainerWhite">
-        <Tags {...args}>Radio label</Tags>
+        <TagGroup {...args}>Radio label</TagGroup>
     </div>
 );
 
-const DarkTemplate: Story<ITagsProps> = args => (
+const DarkTemplate: Story<ITagGroupProps> = args => (
     <div className="tagStoryContainerBlack">
-        <Tags {...args}>Radio label</Tags>
+        <TagGroup {...args}>Radio label</TagGroup>
     </div>
 );
 
@@ -307,7 +307,7 @@ SelectableTags.args = {
     ]
 };
 
-const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
+const ControllableSelectedTagsTemplate: Story<ITagGroupProps> = () => {
     const [tags, setTags] = React.useState<ITag[]>([
         {
             id: '123',
@@ -349,9 +349,9 @@ const ControllableSelectedTagsTemplate: Story<ITagsProps> = () => {
 
     return (
         <div className="tagStoryContainerWhite">
-            <Tags tags={tags} onSelectTag={tagSelectHandler}>
+            <TagGroup tags={tags} onSelectTag={tagSelectHandler}>
                 Radio label
-            </Tags>
+            </TagGroup>
         </div>
     );
 };
@@ -543,6 +543,6 @@ SmallDarkRemovableTags.args = {
 };
 
 export default {
-    title: 'Tags',
-    component: Tags
+    title: 'TagGroup',
+    component: TagGroup
 };

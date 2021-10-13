@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITagTextProps, TagSize } from '../../Tags.types';
+import { ITagTextProps, TagSize } from '../../TagGroup.types';
 
 import { classNames } from '../../constants';
 

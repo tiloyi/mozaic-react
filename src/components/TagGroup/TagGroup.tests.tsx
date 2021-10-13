@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 
-import Tags from './Tags';
+import TagGroup from './TagGroup';
 import TagText from './partials/TagText';
 import TagLink from './partials/TagLink';
 import TagRemovable from './partials/TagRemovable';
 import TagSelectable from './partials/TagSelectable';
 
-import { ITag, TagType } from './Tags.types';
+import { ITag, TagType } from './TagGroup.types';
 
 const TEST_ID = '123';
 const SECOND_TEST_ID = '124';
@@ -24,7 +24,7 @@ const TestJsx = () => <div data-testid={TEST_JSX_DATA_ID}>Test JSX</div>;
 describe('components/Tags', () => {
     test('Tags render list of tags', () => {
         render(
-            <Tags
+            <TagGroup
                 tags={[
                     {
                         id: TEST_ID,
@@ -55,7 +55,7 @@ describe('components/Tags', () => {
         '%s has placeholder text instead content',
         type => {
             render(
-                <Tags
+                <TagGroup
                     tags={[
                         {
                             id: TEST_ID,
@@ -79,7 +79,7 @@ describe('components/Tags', () => {
         async type => {
             await act(async () => {
                 render(
-                    <Tags
+                    <TagGroup
                         tags={[
                             {
                                 id: TEST_ID,

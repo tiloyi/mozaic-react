@@ -3,7 +3,7 @@ import React, { AnchorHTMLAttributes, InputHTMLAttributes } from 'react';
 export type TOnSelectTag = (tagId: string) => void;
 export type TOnRemove = (tagId: string) => void;
 
-export interface ITagsProps {
+export interface ITagGroupProps {
     tags: ITag[];
     onSelectTag?: TOnSelectTag;
     onRemove?: TOnRemove;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITagRemovableProps } from '../../Tags.types';
+import { ITagRemovableProps } from '../../TagGroup.types';
 
 import { classNames } from '../../constants';
 

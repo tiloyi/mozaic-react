@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { ITagsProps } from './Tags.types';
-import './Tags.scss';
+import { ITagGroupProps } from './TagGroup.types';
+import './TagGroup.scss';
 
 import TagText from './partials/TagText';
 import TagLink from './partials/TagLink';
 import TagSelectable from './partials/TagSelectable';
 import TagRemovable from './partials/TagRemovable';
 
-const Tags: FC<ITagsProps> = ({ tags, onSelectTag, onRemove }) => {
+const TagGroup: FC<ITagGroupProps> = ({ tags, onSelectTag, onRemove }) => {
     return (
         <ul className="mc-tag-list">
             {tags.map(tagProps => {
@@ -46,4 +46,4 @@ const Tags: FC<ITagsProps> = ({ tags, onSelectTag, onRemove }) => {
     );
 };
 
-export default Tags;
+export default TagGroup;

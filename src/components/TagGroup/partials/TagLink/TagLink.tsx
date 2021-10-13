@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITagLinkProps, TagSize } from '../../Tags.types';
+import { ITagLinkProps, TagSize } from '../../TagGroup.types';
 import { classNames } from '../../constants';
 
 const LINK_CLASSNAME = classNames.link;
