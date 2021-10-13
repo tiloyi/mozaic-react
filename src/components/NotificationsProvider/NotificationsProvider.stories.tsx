@@ -7,11 +7,10 @@ import NotificationsRenderer from './NotificationsRenderer';
 import './NotificationsProvider.stories.scss';
 
 const Example = () => {
-    const { add, update, remove, clear } = useNotifications();
+    const { add, info, success, warning, danger, update, remove, clear } = useNotifications();
 
     const addInfoNotification = () => {
-        const notificationId = add({
-            theme: NotificationTheme.Info,
+        const notificationId = info({
             title: 'Info notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
@@ -20,22 +19,19 @@ const Example = () => {
     };
 
     const addSuccessNotification = () =>
-        add({
-            theme: NotificationTheme.Success,
+        success({
             title: 'Success notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
     const addDangerNotification = () =>
-        add({
-            theme: NotificationTheme.Danger,
+        danger({
             title: 'Danger notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
     const addWarningNotification = () =>
-        add({
-            theme: NotificationTheme.Warning,
+        warning({
             title: 'Warning notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });

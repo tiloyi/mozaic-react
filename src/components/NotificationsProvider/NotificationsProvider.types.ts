@@ -15,9 +15,11 @@ export interface INotificationItemProps {
     isAutoClosable?: boolean;
 }
 
-export type TThemedNotificationParams = Omit<INotificationsItem, 'theme'>;
+export type TThemedNotificationParams = Omit<Partial<INotificationsItem>, 'theme'>;
 
 export type TNotificationAddAction = (notification: Partial<INotificationsItem>) => TNotificationItemId;
+
+export type TThemedNotificationAction = (params: TThemedNotificationParams) => TNotificationItemId;
 
 export type TNotificationRemoveAction = (notificationId: TNotificationItemId) => void;
 
@@ -30,6 +32,10 @@ export type TNotificationClearAction = () => void;
 
 export interface INotificationsActions {
     add: TNotificationAddAction;
+    info: TThemedNotificationAction;
+    success: TThemedNotificationAction;
+    warning: TThemedNotificationAction;
+    danger: TThemedNotificationAction;
     remove: TNotificationRemoveAction;
     update: TNotificationUpdateAction;
     clear: TNotificationClearAction;
