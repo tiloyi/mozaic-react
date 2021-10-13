@@ -97,6 +97,52 @@ describe('components/Tags', () => {
             expect(placeholderText).toBeInTheDocument();
         }
     );
+
+    test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
+        '%s has left icon content set',
+        type => {
+            render(
+                <TagGroup
+                    tags={[
+                        {
+                            id: TEST_ID,
+                            tagData: {
+                                type: type,
+                                text: TEST_TEXT,
+                                leftIcon: <TestJsx />
+                            }
+                        }
+                    ]}
+                />
+            );
+
+            const testJsxComponent = screen.getByTestId(TEST_JSX_DATA_ID);
+            expect(testJsxComponent).toBeInTheDocument();
+        }
+    );
+
+    test.each([TagType.Text, TagType.Link, TagType.Removable, TagType.Selectable] as TagType[])(
+        '%s has right icon content set',
+        type => {
+            render(
+                <TagGroup
+                    tags={[
+                        {
+                            id: TEST_ID,
+                            tagData: {
+                                type: type,
+                                text: TEST_TEXT,
+                                rightIcon: <TestJsx />
+                            }
+                        }
+                    ]}
+                />
+            );
+
+            const testJsxComponent = screen.getByTestId(TEST_JSX_DATA_ID);
+            expect(testJsxComponent).toBeInTheDocument();
+        }
+    );
 });
 
 describe('partial/Text', () => {

@@ -35,6 +35,8 @@ export interface ITagText {
     type?: TagType.Text;
     text: string;
     content?: JSX.Element;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
 }
 
 export interface ITagTextProps extends ITagText, ITagOptions {
@@ -49,6 +51,8 @@ export interface ITagLink extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 
     type?: TagType.Link;
     text: string;
     content?: JSX.Element;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
     link?: string;
 }
 
@@ -63,6 +67,8 @@ export interface ITagSelectable extends Omit<InputHTMLAttributes<HTMLInputElemen
     type?: TagType.Selectable;
     text: string;
     content?: JSX.Element;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
     isSelected?: boolean;
     isDisabled?: boolean;
 }
@@ -78,6 +84,8 @@ export interface ITagRemovable {
     type?: TagType.Removable;
     text: string;
     content?: JSX.Element;
+    leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
     onRemove?: TOnRemove;
 }
 
