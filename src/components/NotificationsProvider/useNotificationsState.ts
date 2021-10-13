@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { INotificationsActions, INotificationsItem } from './NotificationsProvider.types';
+import { INotificationsActions, INotificationsItem, TThemedNotificationParams } from './NotificationsProvider.types';
+import { NotificationTheme } from '../Notification';
 
 const NOTIFICATION_DURATION = 5000;
 
@@ -22,6 +23,26 @@ export default function useNotificationsState(): TUseNotificationsState {
 
         return notification.id;
     }, []);
+
+    const info = useCallback(
+        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Info }),
+        [add]
+    );
+
+    const success = useCallback(
+        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Success }),
+        [add]
+    );
+
+    const warning = useCallback(
+        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Warning }),
+        [add]
+    );
+
+    const danger = useCallback(
+        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Warning }),
+        [add]
+    );
 
     const remove = useCallback((notificationId: string) => {
         setNotifications(prevNotifications =>
@@ -49,7 +70,10 @@ export default function useNotificationsState(): TUseNotificationsState {
 
     const clear = useCallback(() => setNotifications([]), []);
 
-    const actions = useMemo(() => ({ add, remove, update, clear }), [add, remove, update, clear]);
+    const actions = useMemo(
+        () => ({ add, info, success, warning, danger, remove, update, clear }),
+        [add, info, success, warning, danger, remove, update, clear]
+    );
 
     return [notifications, actions];
 }

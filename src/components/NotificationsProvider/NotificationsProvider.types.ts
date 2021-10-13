@@ -15,6 +15,8 @@ export interface INotificationItemProps {
     isAutoClosable?: boolean;
 }
 
+export type TThemedNotificationParams = Omit<INotificationsItem, 'theme'>;
+
 export type TNotificationAddAction = (notification: Partial<INotificationsItem>) => TNotificationItemId;
 
 export type TNotificationRemoveAction = (notificationId: TNotificationItemId) => void;
