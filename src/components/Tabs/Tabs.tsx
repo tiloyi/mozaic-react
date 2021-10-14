@@ -23,13 +23,21 @@ const Tabs: FC<ITabsProps> = ({ name, type, tabs, initialTab, isShadowEnabled, o
                                     setSelectedTab(tabIndex);
                                     onChangeTab?.(tabIndex);
                                 }}
-                            ></TabButtonItem>
+                            >
+                                {tab.content}
+                            </TabButtonItem>
                         );
                     } else if (type === TabType.Link && tab.link) {
-                        console.log(location);
-                        console.log(tab.link);
                         return (
-                            <TabLinkItem key={tabIndex} isSelected={location === tab.link} link={tab.link}>
+                            <TabLinkItem
+                                key={tabIndex}
+                                isSelected={selectedTab === tabIndex || location === tab.link}
+                                link={tab.link}
+                                onClick={() => {
+                                    setSelectedTab(tabIndex);
+                                    onChangeTab?.(tabIndex);
+                                }}
+                            >
                                 {tab.content}
                             </TabLinkItem>
                         );
