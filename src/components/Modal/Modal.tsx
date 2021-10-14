@@ -1,11 +1,9 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { IModalProps } from './Modal.types';
-import './Modal.css'
+import './Modal.scss';
 
 const Modal: FC<IModalProps> = ({ children }): JSX.Element => {
-    return (
-        <div>{ children }</div>
-    );
+    return <div>{children}</div>;
 };
 
 export default Modal;
