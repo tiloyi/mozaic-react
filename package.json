@@ -46,6 +46,7 @@
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
+    "@types/react-transition-group": "^4.4.3",
     "babel-loader": "^8.2.2",
     "classnames": "^2.3.1",
     "identity-obj-proxy": "^3.0.0",
@@ -75,6 +76,7 @@
     "@mozaic-ds/styles": "^1.18.0",
     "@mozaic-ds/tokens": "^1.18.0",
     "@mozaic-ds/web-fonts": "^1.18.0",
-    "nanoid": "^3.1.29"
+    "nanoid": "^3.1.29",
+    "react-transition-group": "^4.4.2"
   }
 }
