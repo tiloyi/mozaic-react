@@ -13,8 +13,8 @@ export default function useNotificationsState(): TUseNotificationsState {
     const add = useCallback((partial: Partial<INotificationsItem>) => {
         const notification: INotificationsItem = {
             ...partial,
-            id: partial.id ?? nanoid(),
-            duration: partial.duration ?? NOTIFICATION_DURATION,
+            id: partial.id ? partial.id : nanoid(),
+            duration: partial.duration === undefined ? NOTIFICATION_DURATION : partial.duration,
             isClosable: partial.isClosable === undefined ? true : partial.isClosable,
             isAutoClosable: partial.isAutoClosable === undefined ? true : partial.isAutoClosable
         };
