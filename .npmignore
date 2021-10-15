@@ -1,8 +1,10 @@
+.coverage
 .jest
 .storybook
 .templates
 src
 Jenkinsfile
+.hygen.js
 jest.config.js
 mozaic.config.js
 prettier.config.js
