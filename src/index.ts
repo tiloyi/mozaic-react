@@ -14,7 +14,11 @@ export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUn
 export { default as Layer } from './components/Layer';
 export { default as Modal } from './components/Modal';
 export { default as Notification, NotificationSize, NotificationTheme, INotification } from './components/Notification';
-export { NotificationsRenderer, NotificationsProvider, useNotifications } from './components/NotificationsProvider';
+export {
+    default as NotificationsProvider,
+    NotificationsRenderer,
+    useNotifications
+} from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';
 export { default as Radio } from './components/Radio';
