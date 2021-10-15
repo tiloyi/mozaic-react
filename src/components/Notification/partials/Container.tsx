@@ -24,7 +24,7 @@ const NotificationContainer: FC<INotificationContainerProps> = ({
     const containerRole = theme === NotificationTheme.Danger ? 'alert' : 'status';
 
     return (
-        <div className={containerClassName} role={role ?? containerRole} {...props}>
+        <div className={containerClassName} role={role || containerRole} {...props}>
             <div className={`${blockClassName}__content`}>{children}</div>
         </div>
     );
