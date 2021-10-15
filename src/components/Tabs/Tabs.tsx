@@ -6,8 +6,7 @@ import './Tabs.scss';
 import TabLinkItem from './partials/TabLinkItem/TabLinkItem';
 import TabButtonItem from './partials/TabButtonItem/TabButtonItem';
 
-const Tabs: FC<ITabsProps> = ({ name, type, tabs, initialTab, isShadowEnabled, onChangeTab }) => {
-    const [selectedTab, setSelectedTab] = useState<number>(initialTab ?? 0);
+const Tabs: FC<ITabsProps> = ({ name, type, tabs, selectedTab, isShadowEnabled, onSelectTab }) => {
     const [location] = useState<string>(window?.location?.href);
 
     return (
@@ -19,23 +18,21 @@ const Tabs: FC<ITabsProps> = ({ name, type, tabs, initialTab, isShadowEnabled, o
                             <TabButtonItem
                                 key={tabIndex}
                                 isSelected={selectedTab === tabIndex}
-                                onClick={() => {
-                                    setSelectedTab(tabIndex);
-                                    onChangeTab?.(tabIndex);
+                                onClick={e => {
+                                    onSelectTab?.(tabIndex, e);
                                 }}
                             >
                                 {tab.content}
                             </TabButtonItem>
                         );
-                    } else if (type === TabType.Link && tab.link) {
+                    } else if (type === TabType.Link) {
                         return (
                             <TabLinkItem
                                 key={tabIndex}
                                 isSelected={selectedTab === tabIndex || location === tab.link}
                                 link={tab.link}
-                                onClick={() => {
-                                    setSelectedTab(tabIndex);
-                                    onChangeTab?.(tabIndex);
+                                onClick={e => {
+                                    onSelectTab?.(tabIndex, e);
                                 }}
                             >
                                 {tab.content}
