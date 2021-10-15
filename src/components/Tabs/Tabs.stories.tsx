@@ -74,14 +74,50 @@ LinkTabsStory.args = {
 
 LinkTabsStory.storyName = 'Link Tabs';
 
+export const TabsFullWidthStory = Template.bind({});
+
+TabsFullWidthStory.args = {
+    type: TabType.Button,
+    name: 'TabsStory',
+    isFullWidth: true,
+    tabs: [
+        {
+            content: 'First tab'
+        },
+        {
+            content: 'Second tab'
+        },
+        {
+            content: 'Third tab'
+        }
+    ]
+};
+
+TabsFullWidthStory.storyName = 'Full Width Tabs';
+
+export const TabsWithNoShadowStory = Template.bind({});
+
+TabsWithNoShadowStory.args = {
+    type: TabType.Button,
+    name: 'TabsStory',
+    isShadowEnabled: false,
+    tabs: [
+        {
+            content: 'First tab'
+        },
+        {
+            content: 'Second tab'
+        },
+        {
+            content: 'Third tab'
+        }
+    ]
+};
+
+TabsWithNoShadowStory.storyName = 'No Shadow Tabs';
+
 export default {
     title: 'TabsStory',
     component: TabsStory,
-    argTypes: {
-        // theme: {
-        //     control: {
-        //         type: 'select'
-        //     }
-        // }
-    }
+    argTypes: {}
 };

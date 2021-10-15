@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useState } from 'react';
 import cn from 'classnames';
 import { ITabsProps, TabType } from './Tabs.types';
 
@@ -6,11 +6,17 @@ import './Tabs.scss';
 import TabLinkItem from './partials/TabLinkItem/TabLinkItem';
 import TabButtonItem from './partials/TabButtonItem/TabButtonItem';
 
-const Tabs: FC<ITabsProps> = ({ name, type, tabs, selectedTab, isShadowEnabled, onSelectTab }) => {
+const Tabs: FC<ITabsProps> = ({ name, type, tabs, selectedTab, isShadowEnabled, isFullWidth, onSelectTab }) => {
     const [location] = useState<string>(window?.location?.href);
 
     return (
-        <div className={cn('mc-tabs', isShadowEnabled && 'mc-tabs--no-shadow')}>
+        <div
+            className={cn(
+                'mc-tabs',
+                isShadowEnabled === false && 'mc-tabs--no-shadow',
+                isFullWidth && 'mc-tabs--full-centered'
+            )}
+        >
             <ul className="mc-tabs__nav" role="tablist" aria-label={name}>
                 {tabs.map((tab, tabIndex) => {
                     if (type === TabType.Button) {

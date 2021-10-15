@@ -17,6 +17,7 @@ export interface ITabsProps {
     tabs: ITabItem[];
     selectedTab: number;
     isShadowEnabled?: boolean;
+    isFullWidth?: boolean;
     onSelectTab?: (tabIndex: number, e?: TOnClickButtonEvent | TOnClickLinkEvent) => void;
 }
 
