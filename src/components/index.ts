@@ -6,6 +6,8 @@ export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
 export { default as Layer } from './Layer';
 export { default as Modal } from './Modal';
+export { default as Notification, NotificationSize, NotificationTheme, INotification } from './Notification';
+export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
 export { default as Radio } from './Radio';

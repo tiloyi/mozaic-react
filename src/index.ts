@@ -13,6 +13,12 @@ export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './components/Heading';
 export { default as Layer } from './components/Layer';
 export { default as Modal } from './components/Modal';
+export { default as Notification, NotificationSize, NotificationTheme, INotification } from './components/Notification';
+export {
+    default as NotificationsProvider,
+    NotificationsRenderer,
+    useNotifications
+} from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';
 export { default as Radio } from './components/Radio';
