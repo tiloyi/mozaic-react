@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { createPortal } from 'react-dom';
 import usePortal from './usePortal';
 import { IPortalProps } from './Portal.types';

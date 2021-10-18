@@ -6,10 +6,10 @@ import { NotificationsProvider, useNotifications } from './NotificationsContext'
 import NotificationsRenderer from './NotificationsRenderer';
 import './NotificationsProvider.stories.scss';
 
-const Example = () => {
+const Example = (): JSX.Element => {
     const { add, info, success, warning, danger, update, remove, clear } = useNotifications();
 
-    const addInfoNotification = () => {
+    const addInfoNotification = (): void => {
         const notificationId = info({
             title: 'Info notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
@@ -18,25 +18,25 @@ const Example = () => {
         console.log('Add notifications with id', notificationId);
     };
 
-    const addSuccessNotification = () =>
+    const addSuccessNotification = (): string =>
         success({
             title: 'Success notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
-    const addDangerNotification = () =>
+    const addDangerNotification = (): string =>
         danger({
             title: 'Danger notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
-    const addWarningNotification = () =>
+    const addWarningNotification = (): string =>
         warning({
             title: 'Warning notification',
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
-    const addHelloNotification = () =>
+    const addHelloNotification = (): string =>
         add({
             id: 'hello',
             theme: NotificationTheme.Warning,
@@ -45,7 +45,7 @@ const Example = () => {
             isAutoClosable: false
         });
 
-    const updateHelloNotification = () =>
+    const updateHelloNotification = (): void =>
         update('hello', {
             theme: NotificationTheme.Success,
             title: 'Hello, World!',
@@ -53,7 +53,7 @@ const Example = () => {
             isAutoClosable: true
         });
 
-    const removeHelloNotification = () => remove('hello');
+    const removeHelloNotification = (): void => remove('hello');
 
     const buttonProps = {
         className: 'notificationsProviderStory__button',
