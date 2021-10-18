@@ -5,12 +5,10 @@ import ButtonIcon from './partials/Icon';
 import { IIconButtonProps } from './Button.types';
 import './Button.scss';
 
-const IconButton: FC<IIconButtonProps> = ({ className, children, ...props }) => {
-    return (
-        <ButtonContainer {...props} className={cn(className, 'mc-button--square')}>
-            <ButtonIcon>{children}</ButtonIcon>
-        </ButtonContainer>
-    );
-};
+const IconButton: FC<IIconButtonProps> = ({ className, children, ...props }) => (
+    <ButtonContainer {...props} className={cn(className, 'mc-button--square')}>
+        <ButtonIcon>{children}</ButtonIcon>
+    </ButtonContainer>
+);
 
 export default IconButton;
