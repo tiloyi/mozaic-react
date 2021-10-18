@@ -1,0 +1,6 @@
+{
+  "extends": "@byndyusoft/eslint-config/frontend",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  }
+}
