@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { ITagGroupProps } from './TagGroup.types';
 import './TagGroup.scss';
 
@@ -7,9 +8,9 @@ import TagLink from './partials/TagLink';
 import TagSelectable from './partials/TagSelectable';
 import TagRemovable from './partials/TagRemovable';
 
-const TagGroup: FC<ITagGroupProps> = ({ tags, onSelectTag, onRemove }) => {
+const TagGroup: FC<ITagGroupProps> = ({ className, tags, onSelectTag, onRemove }) => {
     return (
-        <ul className="mc-tag-list">
+        <ul className={cn('mc-tag-list', className)}>
             {tags.map(tagProps => {
                 const { id: tagId, tagData } = tagProps;
                 const { type } = tagData;

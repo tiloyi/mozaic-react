@@ -4,6 +4,7 @@ export type TOnSelectTag = (tagId: string) => void;
 export type TOnRemove = (tagId: string) => void;
 
 export interface ITagGroupProps {
+    className?: string;
     tags: ITag[];
     onSelectTag?: TOnSelectTag;
     onRemove?: TOnRemove;
