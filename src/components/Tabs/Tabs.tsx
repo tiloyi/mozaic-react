@@ -6,7 +6,15 @@ import './Tabs.scss';
 import TabLinkItem from './partials/TabLinkItem/TabLinkItem';
 import TabButtonItem from './partials/TabButtonItem/TabButtonItem';
 
-const Tabs: FC<ITabsProps> = ({ name, type, tabs, selectedTab, isShadowEnabled, isFullWidth, onSelectTab }) => {
+const Tabs: FC<ITabsProps> = ({
+    name,
+    type = TabType.Link,
+    tabs,
+    selectedTab,
+    isShadowEnabled,
+    isFullWidth,
+    onSelectTab
+}) => {
     const [location] = useState<string>(window?.location?.href);
 
     return (

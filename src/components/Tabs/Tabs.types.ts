@@ -13,7 +13,7 @@ export type TOnClickTabLink = (e: TOnClickLinkEvent) => void;
 
 export interface ITabsProps {
     name: string;
-    type: TabType;
+    type?: TabType;
     tabs: ITabItem[];
     selectedTab: number;
     isShadowEnabled?: boolean;
