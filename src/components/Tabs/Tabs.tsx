@@ -7,6 +7,7 @@ import TabLinkItem from './partials/TabLinkItem/TabLinkItem';
 import TabButtonItem from './partials/TabButtonItem/TabButtonItem';
 
 const Tabs: FC<ITabsProps> = ({
+    className,
     name,
     type = TabType.Link,
     tabs,
@@ -22,7 +23,8 @@ const Tabs: FC<ITabsProps> = ({
             className={cn(
                 'mc-tabs',
                 isShadowEnabled === false && 'mc-tabs--no-shadow',
-                isFullWidth && 'mc-tabs--full-centered'
+                isFullWidth && 'mc-tabs--full-centered',
+                className
             )}
         >
             <ul className="mc-tabs__nav" role="tablist" aria-label={name}>

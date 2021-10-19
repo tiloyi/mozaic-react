@@ -12,6 +12,7 @@ export type TOnClickTabButton = (e: TOnClickButtonEvent) => void;
 export type TOnClickTabLink = (e: TOnClickLinkEvent) => void;
 
 export interface ITabsProps {
+    className?:string;
     name: string;
     type?: TabType;
     tabs: ITabItem[];
