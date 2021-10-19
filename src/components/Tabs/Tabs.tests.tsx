@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import Tabs from './Tabs';
 import { TabType } from './Tabs.types';
@@ -92,5 +92,77 @@ describe('components/Tabs', () => {
 
         const buttonTab = screen.getAllByRole('tab');
         expect(buttonTab[initialTabSelected]).toHaveAttribute('aria-selected', 'true');
+    });
+
+    test('onSelectTab returns tabIndex', () => {
+        let lastTabSelected = 0;
+        const tabToSelect = 1;
+
+        const onSelectHandler = (tabIndex: number) => {
+            lastTabSelected = tabIndex;
+        };
+
+        render(
+            <Tabs
+                onSelectTab={onSelectHandler}
+                name="test tabs"
+                type={TabType.Button}
+                tabs={[
+                    {
+                        content: '123'
+                    },
+                    {
+                        content: '456'
+                    }
+                ]}
+                selectedTab={0}
+            />
+        );
+
+        const buttonTab = screen.getAllByRole('tab');
+        expect(buttonTab[tabToSelect]).toBeDefined();
+
+        act(() => {
+            fireEvent.click(buttonTab[tabToSelect]);
+        });
+
+        expect(lastTabSelected).toBe(tabToSelect);
+    });
+
+    test('onSelectTab returns sets aria-selected', () => {
+        const TestComponent = () => {
+            const [selectedTab, setSelectedTab] = useState<number>(0);
+            return (
+                <Tabs
+                    onSelectTab={tabIndex => {
+                        setSelectedTab(tabIndex);
+                    }}
+                    name="test tabs"
+                    type={TabType.Button}
+                    tabs={[
+                        {
+                            content: '123'
+                        },
+                        {
+                            content: '456'
+                        }
+                    ]}
+                    selectedTab={selectedTab}
+                />
+            );
+        };
+
+        const tabToSelect = 1;
+
+        render(<TestComponent />);
+
+        const buttonTab = screen.getAllByRole('tab');
+        expect(buttonTab[tabToSelect]).toBeDefined();
+
+        act(() => {
+            fireEvent.click(buttonTab[tabToSelect]);
+        });
+
+        expect(buttonTab[tabToSelect]).toHaveAttribute('aria-selected', 'true');
     });
 });
