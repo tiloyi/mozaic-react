@@ -44,5 +44,3 @@ export interface INotificationsActions {
 export interface INotificationsItems {
     notifications: Array<INotificationsItem>;
 }
-
-export interface INotificationsRendererProps {}
