@@ -1,0 +1,10 @@
+@import "settings-tools/_all-settings";
+
+@import "components/_c.text-input";
+@import "components/_c.button";
+@import "components/_c.quantity-selector";
+@import "components/_c.fields";
+
+.mc-field__label {
+    margin-bottom: 0.5rem;
+}
