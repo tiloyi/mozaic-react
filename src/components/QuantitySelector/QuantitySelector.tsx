@@ -17,6 +17,8 @@ const QuantitySelector: FC<IQuantitySelectorProps> = ({
     min,
     max,
     labelComponent,
+    decrementButton,
+    incrementButton,
     inputComponent,
     onChange
 }) => {
@@ -41,9 +43,9 @@ const QuantitySelector: FC<IQuantitySelectorProps> = ({
             {labelComponent}
             {labelComponent === undefined && label && <div className={'mc-field__label'}>{label}</div>}
             <div className={cn('mc-quantity-selector', className)}>
-                <DecrementButton size={size} onClick={onDecrement} />
+                {decrementButton || <DecrementButton size={size} onClick={onDecrement} />}
                 {inputComponent || <Input min={min} max={max} onChange={onChange} value={value} size={size} />}
-                <IncrementButton size={size} onClick={onIncrement} />
+                {incrementButton || <IncrementButton size={size} onClick={onIncrement} />}
             </div>
         </>
     );

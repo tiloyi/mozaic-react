@@ -14,6 +14,8 @@ export interface IQuantitySelectorProps {
     label?: string;
     min?: number;
     max?: number;
+    decrementButton?: ReactNode;
+    incrementButton?: ReactNode;
     inputComponent?: ReactNode;
     labelComponent?: ReactNode;
     onChange: TOnChangeType;

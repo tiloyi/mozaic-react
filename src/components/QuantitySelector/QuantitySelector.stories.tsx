@@ -87,13 +87,15 @@ const CustomInput: FC<{ value: number; onChange: (newValue: number) => void; col
 const CustomQuantitySelectorTemplate: Story<IQuantitySelectorProps> = args => {
     const [value, setValue] = useState<number>(args.value || 0);
 
+    const { onIncrement, onDecrement } = useQuantitySelector({ min: 0, max: 3, onChange: setValue, value });
+
     const calculateColor = useCallback(() => {
         if (value === 0) {
-            return 'red';
+            return 'cornflowerblue';
         } else if (value === 1) {
-            return 'orange';
+            return 'blue';
         } else if (value === 2) {
-            return 'yellow';
+            return 'purple';
         } else if (value === 3) {
             return 'green';
         }
@@ -105,6 +107,8 @@ const CustomQuantitySelectorTemplate: Story<IQuantitySelectorProps> = args => {
             min={0}
             max={3}
             value={value}
+            decrementButton={<button onClick={onDecrement}>➖</button>}
+            incrementButton={<button onClick={onIncrement}>➕</button>}
             inputComponent={<CustomInput color={calculateColor()} value={value} onChange={setValue} />}
             onChange={targetValue => {
                 setValue(targetValue);
