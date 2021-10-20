@@ -1,16 +1,21 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, ReactNode, ChangeEvent } from 'react';
+import React, { InputHTMLAttributes, ButtonHTMLAttributes, ReactNode, ChangeEvent } from 'react';
 
 export enum QuantitySelectorSize {
     'Small' = 's',
     'Medium' = 'm'
 }
 
-export type TOnChangeType = (value: string, event: ChangeEvent<HTMLInputElement>) => void;
+export type TOnChangeType = (value: number, event?: ChangeEvent<HTMLInputElement>) => void;
 
 export interface IQuantitySelectorProps {
+    className?: string;
     value: number;
     size?: QuantitySelectorSize;
     label?: string;
+    min?: number;
+    max?: number;
+    inputComponent?: ReactNode;
+    labelComponent?: ReactNode;
     onChange: TOnChangeType;
 }
 
