@@ -15,6 +15,7 @@ const Example = (): JSX.Element => {
             message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
         });
 
+        // eslint-disable-next-line no-console
         console.log('Add notifications with id', notificationId);
     };
 
@@ -63,16 +64,16 @@ const Example = (): JSX.Element => {
     return (
         <div className="notificationsProviderStory">
             <Button {...buttonProps} onClick={addInfoNotification}>
-                Add "info" notification
+                Add info notification
             </Button>
             <Button {...buttonProps} theme={ButtonTheme.Primary02} onClick={addSuccessNotification}>
-                Add "success" notification
+                Add success notification
             </Button>
             <Button {...buttonProps} theme={ButtonTheme.Danger} onClick={addDangerNotification}>
-                Add "danger" notification
+                Add danger notification
             </Button>
             <Button {...buttonProps} theme={ButtonTheme.Neutral} onClick={addWarningNotification}>
-                Add "warning" notification
+                Add warning notification
             </Button>
             <Button {...buttonProps} variant={ButtonVariant.Bordered} theme={ButtonTheme.Danger} onClick={clear}>
                 Delete all notifications
@@ -83,7 +84,7 @@ const Example = (): JSX.Element => {
                 theme={ButtonTheme.Neutral}
                 onClick={addHelloNotification}
             >
-                Add "Hello" notification
+                Add Hello notification
             </Button>
             <Button
                 {...buttonProps}
@@ -91,7 +92,7 @@ const Example = (): JSX.Element => {
                 theme={ButtonTheme.Neutral}
                 onClick={updateHelloNotification}
             >
-                Update "Hello" notification
+                Update Hello notification
             </Button>
             <Button
                 {...buttonProps}
@@ -99,7 +100,7 @@ const Example = (): JSX.Element => {
                 theme={ButtonTheme.Neutral}
                 onClick={removeHelloNotification}
             >
-                Remove "Hello" notification
+                Remove Hello notification
             </Button>
         </div>
     );
