@@ -5,13 +5,13 @@ import { IQuantitySelectorProps } from './QuantitySelector.types';
 import useQuantitySelector from '../../hooks/useQuantitySelector';
 
 const Scene = ({ args }: { args?: Partial<IQuantitySelectorProps> }) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(args.value || 0);
 
     return <QuantitySelector {...args} value={value} onChange={setValue} />;
 };
 
 const SceneCustomButtons = ({ args }: { args?: Partial<IQuantitySelectorProps> }) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(args.value || 0);
     const { onDecrement, onIncrement } = useQuantitySelector({ value, onChange: setValue });
 
     return (
