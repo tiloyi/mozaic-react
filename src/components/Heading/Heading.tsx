@@ -1,4 +1,4 @@
-import React, { createElement, FC } from 'react';
+import { createElement, FC } from 'react';
 import cn from 'classnames';
 import { HeadingSize, HeadingUnderline, HeadingWeight, IHeadingProps } from './Heading.types';
 import './Heading.scss';
@@ -19,8 +19,8 @@ const Heading: FC<IHeadingProps> = ({
         blockClassName,
         className,
         align && `${blockClassName}--${align}`,
-        size && `${blockClassName}--${size}`,
-        weight && `${blockClassName}--${weight}`,
+        `${blockClassName}--${size}`,
+        `${blockClassName}--${weight}`,
         underline && `${blockClassName}--underline`,
         underline && underline !== HeadingUnderline.Primary01_500 && `${blockClassName}--${underline}`
     );

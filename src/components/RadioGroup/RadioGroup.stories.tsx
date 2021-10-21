@@ -27,13 +27,13 @@ Controls.args = {
 const ExampleTemplate: Story = () => {
     const [language, setLanguage] = useState(languages[0].toLowerCase());
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => setLanguage(event.target.value);
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => setLanguage(event.target.value);
 
     return (
         <RadioGroup name="languages" value={language} onChange={handleChange}>
-            {languages.map(language => (
-                <Radio className="radio-group-item" key={language.toLowerCase()} value={language.toLowerCase()}>
-                    {language}
+            {languages.map(lang => (
+                <Radio className="radio-group-item" key={lang.toLowerCase()} value={lang.toLowerCase()}>
+                    {lang}
                 </Radio>
             ))}
         </RadioGroup>

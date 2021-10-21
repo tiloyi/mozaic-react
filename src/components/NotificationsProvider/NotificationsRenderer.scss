@@ -1,0 +1,9 @@
+@import 'settings-tools/_all-settings';
+
+.mc-notifications-renderer {
+    position: fixed;
+    bottom: $mu100;
+    left: 50%;
+    width: 26rem;
+    margin-left: -13rem;
+}
