@@ -1,12 +1,11 @@
 import React from 'react';
 import Portal from '../Portal';
-import { INotificationsRendererProps } from './NotificationsProvider.types';
 import { useNotifications, useNotificationsItems } from './NotificationsContext';
 import './NotificationsRenderer.scss';
 import NotificationsItem from './NotificationsItem';
 import Notification from '../Notification';
 
-const NotificationsRenderer = ({}: INotificationsRendererProps): JSX.Element | null => {
+const NotificationsRenderer = (): JSX.Element | null => {
     const { notifications } = useNotificationsItems();
     const { remove } = useNotifications();
 

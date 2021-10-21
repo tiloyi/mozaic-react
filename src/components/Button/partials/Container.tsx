@@ -34,6 +34,7 @@ const ButtonContainer: FC<IButtonProps> = ({
     isDisabled,
     ...props
 }) => (
+    // eslint-disable-next-line react/button-has-type
     <button
         {...props}
         className={cn(

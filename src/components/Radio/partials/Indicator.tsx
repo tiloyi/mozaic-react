@@ -3,17 +3,24 @@ import cn from 'classnames';
 import { useRadioGroup } from '../../RadioGroup';
 import { IRadioProps } from '../Radio.types';
 
-const RadioIndicator = ({ className, isChecked, isDisabled, isInvalid, ...props }: IRadioProps) => {
+const RadioIndicator = ({
+    className,
+    isChecked,
+    isDisabled,
+    isInvalid,
+    onChange,
+    ...props
+}: IRadioProps): JSX.Element => {
     const radioGroupContext = useRadioGroup();
 
     const inputClassName = cn('mc-radio__input', isInvalid && 'is-invalid', className);
 
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            props.onChange?.(event);
+            onChange?.(event);
             radioGroupContext?.onChange?.(event);
         },
-        [props.onChange, radioGroupContext]
+        [onChange, radioGroupContext]
     );
 
     if (radioGroupContext) {

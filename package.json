@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm run clean && rollup --config",
     "clean": "rimraf lib",
-    "lint": "echo \"Linting\"",
+    "lint": "npm run lint:scripts",
+    "lint:scripts": "eslint ./src",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/adeo/bigfish-wms--mozaic-react#readme",
   "devDependencies": {
     "@babel/core": "^7.15.5",
+    "@byndyusoft/eslint-config": "^1.1.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-typescript": "^8.2.5",
@@ -49,6 +51,7 @@
     "@types/react-transition-group": "^4.4.3",
     "babel-loader": "^8.2.2",
     "classnames": "^2.3.1",
+    "eslint": "^7.32.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.1.0",
     "postcss": "^8.3.6",
