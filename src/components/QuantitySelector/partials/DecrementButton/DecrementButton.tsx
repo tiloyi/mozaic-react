@@ -17,7 +17,7 @@ const DecrementButton: FC<IDecrementButtonProps> = ({ className, content, size, 
                 isDisabled && 'is-disabled',
                 className
             )}
-            aria-label={restProps['aria-label'] || 'Decrement'}
+            aria-label={restProps['aria-label'] || 'decrement-button'}
             aria-controls={restProps['aria-controls'] || 'qty-selector'}
             {...restProps}
         >

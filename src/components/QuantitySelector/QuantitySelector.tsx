@@ -41,7 +41,11 @@ const QuantitySelector: FC<IQuantitySelectorProps> = ({
     return (
         <>
             {labelComponent}
-            {labelComponent === undefined && label && <div className={'mc-field__label'}>{label}</div>}
+            {labelComponent === undefined && label && (
+                <div className={'mc-field__label'} aria-label="quantity-selector-label">
+                    {label}
+                </div>
+            )}
             <div className={cn('mc-quantity-selector', className)}>
                 {decrementButton || <DecrementButton size={size} onClick={onDecrement} />}
                 {inputComponent || <Input min={min} max={max} onChange={onChange} value={value} size={size} />}

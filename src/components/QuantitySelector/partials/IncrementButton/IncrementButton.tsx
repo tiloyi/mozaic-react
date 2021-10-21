@@ -17,7 +17,7 @@ const IncrementButton: FC<IIncrementButtonProps> = ({ className, content, size, 
                 isDisabled && 'is-disabled',
                 className
             )}
-            aria-label={restProps['aria-label'] || 'Increment'}
+            aria-label={restProps['aria-label'] || 'increment-button'}
             aria-controls={restProps['aria-controls'] || 'qty-selector'}
             {...restProps}
         >
