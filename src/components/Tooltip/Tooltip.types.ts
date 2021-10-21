@@ -8,8 +8,8 @@ export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export enum TooltipPlacement {
-    top = 'top',
-    right = 'right',
-    bottom = 'bottom',
-    left = 'left'
+    Top = 'top',
+    Right = 'right',
+    Bottom = 'bottom',
+    Left = 'left'
 }
