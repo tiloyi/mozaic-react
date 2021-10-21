@@ -18,7 +18,7 @@ const NotificationsItem: FC<INotificationItemProps> = ({ children, id, duration,
                 clearTimeout(timeoutId);
             }
         };
-    }, [duration, isAutoClosable]);
+    }, [duration, isAutoClosable, id, remove]);
 
     return <div className="mc-notifications-item">{children}</div>;
 };
