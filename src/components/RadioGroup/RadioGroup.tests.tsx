@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Radio from '../Radio';
 import RadioGroup from './RadioGroup';
 import { languages } from './RadioGroup.fixtures';
 
-const setup = (value: string, onChange?: (event: ChangeEvent<HTMLInputElement>) => void) =>
+const setup = (value: string, onChange?: (event: ChangeEvent<HTMLInputElement>) => void): RenderResult =>
     render(
         <RadioGroup name="languages" value={value} onChange={onChange}>
             {languages.map(language => (
