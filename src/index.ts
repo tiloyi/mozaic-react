@@ -36,3 +36,4 @@ export {
     QuantitySelectorSize
 } from './components/QuantitySelector';
 export { default as Tooltip, TooltipPlacement } from './components/Tooltip';
+export { useQuantitySelector } from './hooks';
