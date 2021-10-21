@@ -24,3 +24,4 @@ export {
     Input,
     QuantitySelectorSize
 } from './QuantitySelector';
+export { default as Tooltip, TooltipPlacement } from './Tooltip';

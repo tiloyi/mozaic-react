@@ -17,7 +17,7 @@ Controls.args = {
 const ExampleTemplate: Story<ITextAreaProps> = args => {
     const [value, setValue] = useState('');
 
-    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => setValue(event.target.value);
+    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
 
     return <TextArea {...args} value={value} onChange={handleChange} />;
 };

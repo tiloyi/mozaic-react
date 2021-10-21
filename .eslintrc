@@ -1,0 +1,21 @@
+{
+  "extends": "@byndyusoft/eslint-config/frontend",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/prefer-nullish-coalescing": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.tests.*",
+        "*.stories.*"
+      ],
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "@typescript-eslint/no-empty-function": "off"
+      }
+    }
+  ]
+}
