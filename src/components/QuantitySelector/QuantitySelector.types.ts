@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ButtonHTMLAttributes, ReactNode, ChangeEvent } from 'react';
+import { InputHTMLAttributes, ButtonHTMLAttributes, ReactNode, ChangeEvent } from 'react';
 
 export enum QuantitySelectorSize {
     'Small' = 's',
