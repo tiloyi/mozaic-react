@@ -9,7 +9,7 @@ const CheckBoxIndicator = ({
     isInvalid,
     isIndeterminate,
     ...props
-}: ICheckBoxProps) => {
+}: ICheckBoxProps): JSX.Element => {
     const input = useRef<HTMLInputElement>(null);
 
     const inputClassName = cn('mc-checkbox__input', isInvalid && 'is-invalid', className);
