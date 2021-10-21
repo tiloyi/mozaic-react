@@ -2,10 +2,13 @@ import { InputHTMLAttributes } from 'react';
 
 type TOmittedProps = 'checked' | 'disabled' | 'size';
 
-export interface IToggleProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
-    size?: ToggleSize;
+export interface IToggleIndicatorProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     isChecked?: boolean;
     isDisabled?: boolean;
+}
+
+export interface IToggleProps extends IToggleIndicatorProps {
+    size?: ToggleSize;
 }
 
 export interface ITogglePartialProps {

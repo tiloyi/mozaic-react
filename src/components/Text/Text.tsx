@@ -1,4 +1,4 @@
-import React, { FC, createElement } from 'react';
+import { FC, createElement } from 'react';
 import cn from 'classnames';
 import { ITextProps, TextSize } from './Text.types';
 import './Text.scss';
@@ -19,7 +19,7 @@ const Text: FC<ITextProps> = ({
         blockClassName,
         className,
         align && `${blockClassName}--${align}`,
-        size && `${blockClassName}--${size}`,
+        `${blockClassName}--${size}`,
         theme && `${blockClassName}--${theme}`,
         weight && `${blockClassName}--${weight}`
     );
