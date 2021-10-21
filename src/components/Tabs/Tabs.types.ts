@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 
 export enum TabType {
     'Link' = 'Link',
@@ -11,8 +11,8 @@ type TOnClickLinkEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent>;
 export type TOnClickTabButton = (e: TOnClickButtonEvent) => void;
 export type TOnClickTabLink = (e: TOnClickLinkEvent) => void;
 
-export interface ITabsProps {
-    className?:string;
+export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
+    className?: string;
     name: string;
     type?: TabType;
     tabs: ITabItem[];
