@@ -9,7 +9,7 @@ const TEST_TOOLTIP_CONTENT = <span>{TEST_TOOLTIP_CONTENT_TEXT}</span>;
 
 describe('components/Tooltip', () => {
     test('Tooltip text renders in the right place', () => {
-        render(<Tooltip placement={TooltipPlacement.top} label={TEST_TOOLTIP_TEXT} />);
+        render(<Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_TEXT} />);
 
         const tooltip = screen.getByRole('tooltip');
 
@@ -18,7 +18,7 @@ describe('components/Tooltip', () => {
     });
 
     test('Tooltip able to render content as component instead of text', () => {
-        render(<Tooltip placement={TooltipPlacement.top} label={TEST_TOOLTIP_CONTENT} />);
+        render(<Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_CONTENT} />);
 
         const tooltip = screen.getByRole('tooltip');
 
@@ -28,7 +28,7 @@ describe('components/Tooltip', () => {
 
     test('Tooltip content renders in the right place', () => {
         render(
-            <Tooltip placement={TooltipPlacement.top} label={TEST_TOOLTIP_TEXT}>
+            <Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_TEXT}>
                 {TEST_TOOLTIP_CONTENT}
             </Tooltip>
         );
