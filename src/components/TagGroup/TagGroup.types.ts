@@ -1,9 +1,11 @@
-import React, { AnchorHTMLAttributes, InputHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, InputHTMLAttributes, HTMLAttributes } from 'react';
 
 export type TOnSelectTag = (tagId: string) => void;
 export type TOnRemove = (tagId: string) => void;
 
-export interface ITagGroupProps {
+type TOmmitedTagGroupProps = 'className';
+
+export interface ITagGroupProps extends Omit<HTMLAttributes<HTMLUListElement>, TOmmitedTagGroupProps> {
     className?: string;
     tags: ITag[];
     onSelectTag?: TOnSelectTag;
@@ -32,7 +34,7 @@ export interface ITagOptions {
     isDark?: boolean;
 }
 
-export interface ITagText {
+export interface ITagText extends HTMLAttributes<HTMLSpanElement> {
     type?: TagType.Text;
     text: string;
     content?: JSX.Element;
@@ -81,7 +83,7 @@ export interface ITagSelectableProps extends ITagSelectable, ITagOptions {
     onSelectTag?: TOnSelectTag;
 }
 
-export interface ITagRemovable {
+export interface ITagRemovable extends HTMLAttributes<HTMLSpanElement> {
     type?: TagType.Removable;
     text: string;
     content?: JSX.Element;

@@ -8,9 +8,9 @@ import TagLink from './partials/TagLink';
 import TagSelectable from './partials/TagSelectable';
 import TagRemovable from './partials/TagRemovable';
 
-const TagGroup: FC<ITagGroupProps> = ({ className, tags, onSelectTag, onRemove }) => {
+const TagGroup: FC<ITagGroupProps> = ({ className, tags, onSelectTag, onRemove, ...restProps }) => {
     return (
-        <ul className={cn('mc-tag-list', className)}>
+        <ul className={cn('mc-tag-list', className)} {...restProps}>
             {tags.map(tagProps => {
                 const { id: tagId, tagData } = tagProps;
                 const { type } = tagData;
