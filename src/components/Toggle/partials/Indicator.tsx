@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import { IToggleProps } from '../Toggle.types';
+import { IToggleIndicatorProps } from '../Toggle.types';
 
-const ToggleIndicator = ({ className, isChecked, isDisabled, size, ...props }: IToggleProps): JSX.Element => (
+const ToggleIndicator = ({ className, isChecked, isDisabled, ...props }: IToggleIndicatorProps): JSX.Element => (
     <input
         className={cn('mc-toggle__input', className)}
         {...props}
