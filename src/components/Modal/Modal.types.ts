@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
+export type TModalId = string;
+
 export interface IModalProps {
     className?: string;
 }
