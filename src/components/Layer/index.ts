@@ -1,4 +1,4 @@
 import Layer from './Layer';
 
-export { LayerCloseButton, LayerFooter, LayerHeader } from './partials';
+export { LayerCloseButton, LayerContainer, LayerFooter, LayerHeader } from './partials';
 export default Layer;
