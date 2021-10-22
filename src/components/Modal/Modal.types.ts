@@ -13,3 +13,7 @@ export interface IModalPartialProps extends HTMLAttributes<HTMLDivElement> {
 export interface IModalCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
 }
+
+export interface IModalContainerProps extends HTMLAttributes<HTMLDivElement> {
+    id: TModalId;
+}

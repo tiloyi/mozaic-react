@@ -1,11 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
+import { ILayerContainerProps } from '../Layer.types';
 
-const LayerContainer: FC = ({ children }): JSX.Element => {
+const LayerContainer: FC<ILayerContainerProps> = ({ children, id }): JSX.Element | null => {
     const { register } = useModals();
     const modals = useModalsState();
 
-    return <div>{children}</div>;
+    useEffect(() => register(id), [register, id]);
+
+    if (modals[id].isOpen) {
+        return <div>{children}</div>;
+    }
+
+    return null;
 };
 
 export default LayerContainer;
