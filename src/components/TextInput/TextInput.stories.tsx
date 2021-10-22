@@ -18,7 +18,7 @@ Controls.args = {
 const ExampleTemplate: Story<ITextInputProps> = args => {
     const [value, setValue] = useState('');
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value);
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
 
     return <TextInput {...args} value={value} onChange={handleChange} />;
 };

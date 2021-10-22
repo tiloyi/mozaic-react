@@ -9,6 +9,7 @@ const NotificationsStateContext = createContext<INotificationsItems>({} as INoti
 export function useNotifications(): INotificationsActions {
     const context = useContext(NotificationsActionsContext);
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (context === undefined) {
         throw new Error('useNotificationsState must be used within the NotificationsProvider');
     }
@@ -19,6 +20,7 @@ export function useNotifications(): INotificationsActions {
 export function useNotificationsItems(): INotificationsItems {
     const context = useContext(NotificationsStateContext);
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (context === undefined) {
         throw new Error('useNotificationsItems must be used within the NotificationsProvider');
     }

@@ -29,7 +29,7 @@ Controls.argTypes = {
 const ExampleTemplate: Story<ISelectProps> = args => {
     const [value, setValue] = useState('');
 
-    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => setValue(event.target.value);
+    const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => setValue(event.target.value);
 
     return <Select {...args} options={languages} value={value} onChange={handleChange} />;
 };

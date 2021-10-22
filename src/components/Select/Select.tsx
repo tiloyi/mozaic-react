@@ -29,6 +29,7 @@ const Select = ({
         isValid && 'is-valid'
     );
 
+    /* eslint-disable react/no-array-index-key */
     return (
         <select className={selectClassName} {...props} aria-invalid={isInvalid} disabled={isDisabled}>
             {placeholder.length > 0 && <option>-- {placeholder} --</option>}
@@ -40,9 +41,9 @@ const Select = ({
                             label={option.label}
                             disabled={option.isDisabled}
                         >
-                            {(option as ISelectOptionGroup).options.map(nestedOption => (
+                            {(option as ISelectOptionGroup).options.map((nestedOption, nestedIndex) => (
                                 <option
-                                    key={`select-${nameRef.current}-option-${nestedOption.value}`}
+                                    key={`select-${nameRef.current}-group-${index}-option-${nestedIndex}`}
                                     value={nestedOption.value}
                                     disabled={nestedOption.isDisabled}
                                 >
@@ -55,7 +56,7 @@ const Select = ({
 
                 return (
                     <option
-                        key={`select-option-${(option as ISelectOption).value}`}
+                        key={`select-${nameRef.current}-option-${index}`}
                         value={(option as ISelectOption).value}
                         disabled={option.isDisabled}
                     >
@@ -65,6 +66,7 @@ const Select = ({
             })}
         </select>
     );
+    /* eslint-enable react/no-array-index-key */
 };
 
 export default Select;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import { languages, food } from './Select.fixtures';
 import { ISelectProps, SelectSize } from './Select.types';
 import Select from './Select';
 
-const setup = (props: Partial<ISelectProps>) => render(<Select {...props} options={languages} />);
+const setup = (props: Partial<ISelectProps>): RenderResult => render(<Select {...props} options={languages} />);
 
 describe('components/Select', () => {
     test('renders correctly with list of options', () => {
