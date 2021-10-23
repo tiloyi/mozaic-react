@@ -3,9 +3,6 @@
   "parserOptions": {
     "project": "tsconfig.json"
   },
-  "rules": {
-    "@typescript-eslint/prefer-nullish-coalescing": "off"
-  },
   "overrides": [
     {
       "files": [
