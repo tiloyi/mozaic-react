@@ -1,0 +1,18 @@
+@import 'settings-tools/all-settings';
+
+.view-outer {
+    overflow: hidden;
+    background-color: $color-success-100;
+}
+
+.view-container {
+    background-color: $color-success-200;
+}
+
+.view-inner {
+    background-color: $color-success-400;
+    padding: $mu100;
+    color: $color-success-100;
+    text-align: center;
+    font-size: $mu150;
+}
