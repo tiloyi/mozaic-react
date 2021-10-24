@@ -3,6 +3,7 @@ export { default as Button, IconButton, ButtonSize, ButtonTheme, ButtonVariant, 
 export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
+export { default as Flex, FlexDirection } from './Flex';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
 export { default as Layer } from './Layer';
 export { default as Modal } from './Modal';
@@ -18,3 +19,4 @@ export { default as TextArea } from './TextArea';
 export { default as TextInput, TextInputSize } from './TextInput';
 export { default as Toggle, ToggleSize } from './Toggle';
 export { default as Tooltip, TooltipPlacement } from './Tooltip';
+export { default as View } from './View';
