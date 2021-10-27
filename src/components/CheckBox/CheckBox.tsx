@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import CheckBoxContainer from './partials/Container';
-import CheckBoxIndicator from './partials/Indicator';
-import CheckBoxLabel from './partials/Label';
+import { CheckBoxContainer, CheckBoxIndicator, CheckBoxLabel } from './partials';
 import { ICheckBoxProps } from './CheckBox.types';
 import './CheckBox.scss';
 
