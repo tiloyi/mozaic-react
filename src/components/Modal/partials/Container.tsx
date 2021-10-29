@@ -16,7 +16,6 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element
             <div className="mc-modal" role="dialog" tabIndex={-1}>
                 <div className="mc-modal__dialog is-open" role="document">
                     {children}
-                    {/*<ModalCloseButton />*/}
                 </div>
             </div>
             <Overlay isVisible />
