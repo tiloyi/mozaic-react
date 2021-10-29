@@ -1,10 +1,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import { THeadingTag } from '../Heading/Heading.types';
 
 export type TModalId = string;
-
-export interface IModalProps {
-    className?: string;
-}
 
 export interface IModalPartialProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -17,3 +14,10 @@ export interface IModalCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonE
 export interface IModalContainerProps extends HTMLAttributes<HTMLDivElement> {
     id: TModalId;
 }
+
+export interface IModalTitleProps extends HTMLAttributes<HTMLHeadingElement> {
+    className?: string;
+    as?: THeadingTag;
+}
+
+export interface IModalProps extends IModalContainerProps {}
