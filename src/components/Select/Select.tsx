@@ -15,7 +15,7 @@ const Select = ({
     isDisabled,
     ...props
 }: ISelectProps): JSX.Element => {
-    const nameRef = useRef(name || nanoid());
+    const nameRef = useRef(name ?? nanoid());
 
     if (isInvalid && isValid) {
         throw new Error('The properties `isValid` and `isInvalid` can not be true in the same time');

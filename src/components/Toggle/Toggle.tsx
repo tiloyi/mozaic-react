@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import ToggleContainer from './partials/Container';
-import ToggleIndicator from './partials/Indicator';
-import ToggleLabel from './partials/Label';
+import { ToggleContainer, ToggleIndicator, ToggleLabel } from './partials';
 import { IToggleProps, ToggleSize } from './Toggle.types';
 import './Toggle.scss';
 
