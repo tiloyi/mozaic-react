@@ -13,19 +13,6 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element
 
     const isOpen = modals[id]?.isOpen;
 
-    if (modals[id]?.isOpen) {
-        return (
-            <Portal id={`portal-modal-${id}`}>
-                <div className="mc-modal" role="dialog" tabIndex={-1}>
-                    <div className="mc-modal__dialog is-open" role="document">
-                        {children}
-                    </div>
-                </div>
-                <Overlay isVisible />
-            </Portal>
-        );
-    }
-
     return (
         <Portal id={`portal-modal-${id}`}>
             <div className="mc-modal" role="dialog" tabIndex={-1}>
