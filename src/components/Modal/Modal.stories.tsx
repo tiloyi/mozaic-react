@@ -6,11 +6,11 @@ import Text from '../Text';
 import { ModalBody, ModalFooter, ModalHeader, ModalTitle } from './partials';
 import Modal from './Modal';
 
-const ShortBodyTemplate: Story = () => {
+const ShortBodyExample = (): JSX.Element => {
     const { open } = useModals();
 
     return (
-        <ModalsProvider>
+        <>
             <Button size={ButtonSize.S} onClick={() => open('shortBody')}>
                 Open modal
             </Button>
@@ -29,18 +29,24 @@ const ShortBodyTemplate: Story = () => {
                     <Button>Action button</Button>
                 </ModalFooter>
             </Modal>
-        </ModalsProvider>
+        </>
     );
 };
 
+const ShortBodyTemplate: Story = () => (
+    <ModalsProvider>
+        <ShortBodyExample />
+    </ModalsProvider>
+);
+
 export const ShortBody = ShortBodyTemplate.bind({});
 
-const LongBodyTemplate: Story = () => {
+const LongBodyExample = (): JSX.Element => {
     const { open } = useModals();
 
     return (
-        <ModalsProvider>
-            <Button size={ButtonSize.S} onClick={() => open('shortBody')}>
+        <>
+            <Button size={ButtonSize.S} onClick={() => open('longBody')}>
                 Open modal
             </Button>
             <Modal id="longBody">
@@ -100,9 +106,15 @@ const LongBodyTemplate: Story = () => {
                     <Button>Action button</Button>
                 </ModalFooter>
             </Modal>
-        </ModalsProvider>
+        </>
     );
 };
+
+const LongBodyTemplate: Story = () => (
+    <ModalsProvider>
+        <LongBodyExample />
+    </ModalsProvider>
+);
 
 export const LongBody = LongBodyTemplate.bind({});
 
