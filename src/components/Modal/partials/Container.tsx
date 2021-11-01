@@ -8,7 +8,7 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element
     const { register } = useModals();
     const modals = useModalsState();
 
-    useEffect(() => register(id), [register, id]);
+    useEffect(() => register(id), [id]);
 
     if (modals[id]?.isOpen) {
         return (

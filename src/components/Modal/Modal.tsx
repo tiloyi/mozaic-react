@@ -3,10 +3,10 @@ import { ModalContainer, ModalCloseButton } from './partials';
 import { IModalProps } from './Modal.types';
 import './Modal.scss';
 
-const Modal: FC<IModalProps> = ({ children, ...props }): JSX.Element => (
-    <ModalContainer {...props}>
+const Modal: FC<IModalProps> = ({ children, id, ...props }): JSX.Element => (
+    <ModalContainer {...props} id={id}>
         {children}
-        <ModalCloseButton />
+        <ModalCloseButton id={id} />
     </ModalContainer>
 );
 
