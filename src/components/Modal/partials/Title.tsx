@@ -2,8 +2,7 @@ import { createElement, FC } from 'react';
 import cn from 'classnames';
 import { IModalTitleProps } from '../Modal.types';
 
-const ModalTitle: FC<IModalTitleProps> = ({ className, children, as = 'h2', ...props }): JSX.Element => {
-    return createElement(as, { className: cn('mc-modal__title', className), ...props }, children);
-};
+const ModalTitle: FC<IModalTitleProps> = ({ className, children, as = 'h2', ...props }): JSX.Element =>
+    createElement(as, { className: cn('mc-modal__title', className), ...props }, children);
 
 export default ModalTitle;
