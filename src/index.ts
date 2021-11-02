@@ -11,8 +11,25 @@ export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './components/Heading';
-export { default as Layer, LayerCloseButton, LayerContainer, LayerFooter, LayerHeader } from './components/Layer';
-export { default as Modal, ModalCloseButton, ModalContainer, ModalFooter, ModalHeader } from './components/Modal';
+export {
+    default as Layer,
+    LayerBody,
+    LayerCloseButton,
+    LayerContainer,
+    LayerFooter,
+    LayerHeader,
+    LayerTitle
+} from './components/Layer';
+export {
+    default as Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContainer,
+    ModalFooter,
+    ModalHeader,
+    ModalHeading,
+    ModalTitle
+} from './components/Modal';
 export { default as ModalsProvider, useModals } from './components/ModalsProvider';
 export { default as Notification, NotificationSize, NotificationTheme, INotification } from './components/Notification';
 export {

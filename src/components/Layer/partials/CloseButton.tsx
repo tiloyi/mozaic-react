@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import cn from 'classnames';
+import { useModals } from '../../ModalsProvider';
 import { ILayerCloseButtonProps } from '../Layer.types';
 
-const LayerCloseButton = ({ className, title = 'Close', ...props }: ILayerCloseButtonProps): JSX.Element => (
-    <button type="button" className={cn('mc-layer__close', className)} {...props}>
-        <span className="mc-layer__close-text">{title}</span>
-    </button>
-);
+const LayerCloseButton = ({ className, id, title = 'Close', ...props }: ILayerCloseButtonProps): JSX.Element => {
+    const { close } = useModals();
+
+    const handleClick = useCallback(() => close(id), [id, close]);
+
+    return (
+        <button type="button" className={cn('mc-layer__close', className)} {...props} onClick={handleClick}>
+            <span className="mc-layer__close-text">{title}</span>
+        </button>
+    );
+};
 
 export default LayerCloseButton;
