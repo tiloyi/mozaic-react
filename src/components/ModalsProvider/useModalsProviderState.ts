@@ -13,35 +13,41 @@ export type TUseModalsProviderState = [TModalsProviderState, IModalsProviderActi
 export default function useModalsProviderState(): TUseModalsProviderState {
     const [state, setState] = useState<TModalsProviderState>({});
 
-    const register = useCallback((modalId: TModalId) => {
-        debugger;
+    const register = useCallback(
+        (modalId: TModalId) =>
+            setState(prevState => {
+                if (modalId in prevState) {
+                    throw new Error(`Modal with id ${modalId} already exists!`);
+                }
 
-        // if (modalId in state) {
-        //     throw new Error(`Modal with id ${modalId} already exists!`);
-        // }
+                return { ...prevState, [modalId]: createModalState() };
+            }),
+        []
+    );
 
-        setState(prevState => ({ ...prevState, [modalId]: createModalState() }));
-    }, []);
+    const open = useCallback(
+        (modalId: TModalId) =>
+            setState(prevState => {
+                if (modalId in prevState) {
+                    return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: true } };
+                }
 
-    const open = useCallback((modalId: TModalId) => {
-        // debugger;
+                throw new Error(`Modal with id ${modalId} does not exist!`);
+            }),
+        []
+    );
 
-        // if (modalId in state) {
-        setState(prevState => ({ ...prevState, [modalId]: { ...prevState[modalId], isOpen: true } }));
-        // }
+    const close = useCallback(
+        (modalId: TModalId) =>
+            setState(prevState => {
+                if (modalId in prevState) {
+                    return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: false } };
+                }
 
-        // throw new Error(`Modal with id ${modalId} does not exist!`);
-    }, []);
-
-    const close = useCallback((modalId: TModalId) => {
-        // debugger;
-
-        // if (modalId in state) {
-        setState(prevState => ({ ...prevState, [modalId]: { ...prevState[modalId], isOpen: false } }));
-        // }
-
-        // throw new Error(`Modal with id ${modalId} does not exist!`);
-    }, []);
+                throw new Error(`Modal with id ${modalId} does not exist!`);
+            }),
+        []
+    );
 
     const actions = useMemo(() => ({ register, open, close }), [register, open, close]);
 
