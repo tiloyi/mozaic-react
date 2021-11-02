@@ -4,7 +4,15 @@ export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
-export { default as Layer, LayerCloseButton, LayerContainer, LayerFooter, LayerHeader } from './Layer';
+export {
+    default as Layer,
+    LayerBody,
+    LayerCloseButton,
+    LayerContainer,
+    LayerFooter,
+    LayerHeader,
+    LayerTitle
+} from './Layer';
 export {
     default as Modal,
     ModalBody,
