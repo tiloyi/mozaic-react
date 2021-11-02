@@ -11,10 +11,10 @@ const ShortBodyExample = (): JSX.Element => {
 
     return (
         <>
-            <Button size={ButtonSize.S} onClick={() => open('shortBody')}>
+            <Button size={ButtonSize.S} onClick={() => open('shortBodyModal')}>
                 Open modal
             </Button>
-            <Modal id="shortBody">
+            <Modal id="shortBodyModal">
                 <ModalHeader>
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>
@@ -47,10 +47,10 @@ const LongBodyExample = (): JSX.Element => {
 
     return (
         <>
-            <Button size={ButtonSize.S} onClick={() => open('longBody')}>
+            <Button size={ButtonSize.S} onClick={() => open('longBodyModal')}>
                 Open modal
             </Button>
-            <Modal id="longBody">
+            <Modal id="longBodyModal">
                 <ModalHeader>
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>
