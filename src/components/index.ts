@@ -5,7 +5,16 @@ export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
 export { default as Layer, LayerCloseButton, LayerContainer, LayerFooter, LayerHeader } from './Layer';
-export { default as Modal, ModalCloseButton, ModalContainer, ModalFooter, ModalHeader } from './Modal';
+export {
+    default as Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContainer,
+    ModalFooter,
+    ModalHeader,
+    ModalHeading,
+    ModalTitle
+} from './Modal';
 export { default as ModalsProvider, useModals } from './ModalsProvider';
 export { default as Notification, NotificationSize, NotificationTheme, INotification } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';

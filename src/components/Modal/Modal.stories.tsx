@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import Button, { ButtonSize } from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import Text from '../Text';
-import { ModalBody, ModalFooter, ModalHeader, ModalTitle } from './partials';
+import { ModalBody, ModalFooter, ModalHeader, ModalHeading, ModalTitle } from './partials';
 import Modal from './Modal';
 
 const ShortBodyExample = (): JSX.Element => {
@@ -19,7 +19,8 @@ const ShortBodyExample = (): JSX.Element => {
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>
                 <ModalBody>
-                    <Text>
+                    <ModalHeading>Modal heading</ModalHeading>
+                    <Text as="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
                         magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae
                         pulvinar mi. Morbi nisi enim, tincidunt et sapien at, viverra facilisis nisi.
@@ -54,7 +55,8 @@ const LongBodyExample = (): JSX.Element => {
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>
                 <ModalBody>
-                    <Text>
+                    <ModalHeading>Modal heading</ModalHeading>
+                    <Text as="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
                         magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae
                         pulvinar mi. Morbi nisi enim, tincidunt et sapien at, viverra facilisis nisi. Fusce sed suscipit
@@ -65,7 +67,7 @@ const LongBodyExample = (): JSX.Element => {
                         congue egestas ante, at malesuada diam consequat non. Etiam et ultrices eros. Proin in efficitur
                         arcu. Suspendisse interdum lorem quis placerat mattis.
                     </Text>
-                    <Text>
+                    <Text as="p">
                         Nunc sed orci augue. Praesent interdum viverra lacinia. Quisque a est accumsan, maximus diam
                         vitae, tempor metus. Nam congue nec urna sed mollis. Suspendisse a lectus vel turpis accumsan
                         bibendum interdum sed nisl. Nam efficitur tincidunt ornare. In sagittis a ex quis blandit. Donec
@@ -74,7 +76,7 @@ const LongBodyExample = (): JSX.Element => {
                         rutrum a pellentesque elit. Praesent pharetra leo quam, sed sodales leo consectetur ut. Cras
                         luctus nulla ac urna consectetur feugiat.
                     </Text>
-                    <Text>
+                    <Text as="p">
                         Proin augue ex, tempus id luctus eget, ultrices id augue. Aenean eu dui at orci dignissim
                         viverra venenatis at lectus. In hac habitasse platea dictumst. Nullam facilisis congue sodales.
                         Aliquam malesuada lacus vel libero laoreet aliquam. Nunc gravida velit dapibus est interdum
@@ -83,14 +85,14 @@ const LongBodyExample = (): JSX.Element => {
                         non nisi turpis. Pellentesque pulvinar ipsum quis augue consectetur ultricies. Nulla venenatis,
                         quam eu suscipit facilisis, leo nibh aliquam quam, at ullamcorper nisi sapien at lectus.
                     </Text>
-                    <Text>
+                    <Text as="p">
                         Nulla vulputate justo a orci condimentum aliquet. Mauris vestibulum metus id semper posuere.
                         Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer
                         dictum facilisis leo, at viverra ligula congue non. Etiam euismod fermentum turpis ut semper.
                         Aliquam pellentesque ante vitae leo tempus, vitae ullamcorper ex eleifend. Integer porta dapibus
                         nisi, ut egestas odio tincidunt eu.
                     </Text>
-                    <Text>
+                    <Text as="p">
                         Cras vitae feugiat magna, vel rhoncus odio. Cras et consequat tortor, id placerat orci.
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras vel
                         mi malesuada, mattis dui quis, faucibus lorem. Vestibulum ac pulvinar enim, ut dictum sem. Donec

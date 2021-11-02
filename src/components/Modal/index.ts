@@ -1,4 +1,12 @@
 import Modal from './Modal';
 
-export { ModalCloseButton, ModalContainer, ModalFooter, ModalHeader } from './partials';
+export {
+    ModalBody,
+    ModalCloseButton,
+    ModalContainer,
+    ModalFooter,
+    ModalHeader,
+    ModalHeading,
+    ModalTitle
+} from './partials';
 export default Modal;
