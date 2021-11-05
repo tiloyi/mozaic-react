@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { createElement, useMemo, FC } from 'react';
 import cn from 'classnames';
 import { MagicUnit } from '../../constants';
 import { IViewProps } from './View.types';
@@ -39,6 +39,7 @@ function getSpacingClassNames(
 
 const View: FC<IViewProps> = ({
     className,
+    as = 'div',
     children,
     margin,
     marginTop,
@@ -52,17 +53,17 @@ const View: FC<IViewProps> = ({
     paddingLeft,
     ...props
 }): JSX.Element => {
-    const viewClassName = cn(
-        className,
-        ...getSpacingClassNames('m', margin, marginTop, marginRight, marginBottom, marginLeft),
-        ...getSpacingClassNames('p', padding, paddingTop, paddingRight, paddingBottom, paddingLeft)
+    const margins = useMemo(
+        () => getSpacingClassNames('m', margin, marginTop, marginRight, marginBottom, marginLeft),
+        [margin, marginTop, marginRight, marginBottom, marginLeft]
     );
 
-    return (
-        <div className={viewClassName} {...props}>
-            {children}
-        </div>
+    const paddings = useMemo(
+        () => getSpacingClassNames('p', padding, paddingTop, paddingRight, paddingBottom, paddingLeft),
+        [padding, paddingTop, paddingRight, paddingBottom, paddingLeft]
     );
+
+    return createElement(as, { className: cn(className, ...margins, ...paddings), ...props }, children);
 };
 
 export default View;
