@@ -13,9 +13,9 @@ const Template: Story<IViewProps> = args => (
     </div>
 );
 
-export const ViewStory = Template.bind({});
+export const Controls = Template.bind({});
 
-ViewStory.args = {
+Controls.args = {
     marginTop: MagicUnit.MU200,
     marginRight: MagicUnit.MU200,
     marginBottom: MagicUnit.MU200,
