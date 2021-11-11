@@ -6,10 +6,14 @@ import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import { IModalContainerProps } from '../Modal.types';
 
 const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element => {
-    const { register } = useModals();
+    const { register, unregister } = useModals();
     const modals = useModalsState();
 
-    useEffect(() => register(id), [id]);
+    useEffect(() => {
+        register(id);
+
+        return () => unregister(id);
+    }, [register, unregister, id]);
 
     const isOpen = modals[id]?.isOpen;
 
