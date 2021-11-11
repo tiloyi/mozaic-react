@@ -25,6 +25,18 @@ export default function useModalsProviderState(): TUseModalsProviderState {
         []
     );
 
+    const unregister = useCallback(
+        (modalId: TModalId) =>
+            setState(prevState => {
+                if (modalId in prevState) {
+                    delete prevState[modalId];
+                }
+
+                return prevState;
+            }),
+        []
+    );
+
     const open = useCallback(
         (modalId: TModalId) =>
             setState(prevState => {
@@ -49,7 +61,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
         []
     );
 
-    const actions = useMemo(() => ({ register, open, close }), [register, open, close]);
+    const actions = useMemo(() => ({ register, unregister, open, close }), [register, open, close]);
 
     return [state, actions];
 }

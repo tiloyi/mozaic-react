@@ -10,6 +10,7 @@ export type TModalsProviderAction = (modalId: TModalId) => void;
 
 export interface IModalsProviderActions {
     register: TModalsProviderAction;
+    unregister: TModalsProviderAction;
     open: TModalsProviderAction;
     close: TModalsProviderAction;
 }
