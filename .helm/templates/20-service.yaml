@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.microservice }}
+  labels: {{ template "metadata.labels" . }}
+    app: {{ index .Values.team .Values.profile | default .Values.team.default }}
+  {{- if .Values.prometheus.enabled }}
+    prometheus.deckhouse.io/custom-target: {{ .Values.microservice }}
+  annotations:
+    prometheus.deckhouse.io/path: {{ .Values.prometheus.path | quote }}
+    prometheus.deckhouse.io/allow-unready-pod: "true"
+    prometheus.deckhouse.io/sample-limit: {{ .Values.prometheus.sampleLimit | quote }}
+  {{- end }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: application
+    - port: 8080
+      targetPort: 80
+      protocol: TCP
+      name: http-metrics
+  clusterIP: None
+  selector:
+    component: {{ .Values.microservice }}

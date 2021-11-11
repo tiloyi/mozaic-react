@@ -10,6 +10,7 @@
     "lint:scripts": "eslint ./src",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "npm run test:cov",
     "test:cov": "jest --coverage",
     "prettier:check": "prettier --check \"src/**/*.{ts, tsx, css}\"",
     "prettier:write": "prettier --write \"src/**/*.{ts, tsx, css}\"",
