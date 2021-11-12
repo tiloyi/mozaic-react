@@ -32,6 +32,6 @@ Example.args = {
 };
 
 export default {
-    title: 'TextArea',
+    title: 'Components/TextArea',
     component: TextArea
 };

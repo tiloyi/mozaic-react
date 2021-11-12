@@ -14,7 +14,7 @@ Controls.args = {
 };
 
 export default {
-    title: 'Heading',
+    title: 'Components/Heading',
     component: Heading,
     argTypes: {
         size: {

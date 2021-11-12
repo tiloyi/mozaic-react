@@ -82,7 +82,7 @@ WithCustomContent.args = {
 };
 
 export default {
-    title: 'Tooltip',
+    title: 'Components/Tooltip',
     component: Tooltip,
     parameters: {
         layout: 'centered'

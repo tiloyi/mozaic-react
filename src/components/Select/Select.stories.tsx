@@ -66,7 +66,7 @@ Groups.args = {
 };
 
 export default {
-    title: 'Select',
+    title: 'Components/Select',
     component: Select,
     argTypes: {
         size: {

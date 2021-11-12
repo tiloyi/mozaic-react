@@ -32,7 +32,7 @@ Example.args = {
 };
 
 export default {
-    title: 'DateInput',
+    title: 'Components/DateInput',
     component: DateInput,
     argTypes: {
         size: {

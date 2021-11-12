@@ -14,6 +14,6 @@ Controls.args = {
 };
 
 export default {
-    title: 'Radio',
+    title: 'Components/Radio',
     component: Radio
 };

@@ -30,7 +30,7 @@ Controls.argTypes = {
 };
 
 export default {
-    title: 'Notification',
+    title: 'Components/Notification',
     component: Notification,
     argTypes: {
         theme: {

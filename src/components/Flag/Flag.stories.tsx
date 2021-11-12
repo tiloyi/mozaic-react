@@ -15,7 +15,7 @@ FlagStory.args = {
 FlagStory.storyName = 'Flag';
 
 export default {
-    title: 'Flag',
+    title: 'Components/Flag',
     component: Flag,
     argTypes: {
         theme: {

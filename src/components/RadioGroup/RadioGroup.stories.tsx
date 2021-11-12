@@ -61,7 +61,7 @@ Example.argTypes = {
 };
 
 export default {
-    title: 'RadioGroup',
+    title: 'Components/RadioGroup',
     component: RadioGroup,
     argTypes: {
         value: {

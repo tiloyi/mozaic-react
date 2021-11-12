@@ -76,7 +76,7 @@ IconOnly.argTypes = {
 };
 
 export default {
-    title: 'Button',
+    title: 'Components/Button',
     component: Button,
     argTypes: {
         size: {

@@ -33,6 +33,6 @@ const Template: Story = () => (
 export const Example = Template.bind({});
 
 export default {
-    title: 'Portal',
+    title: 'Components/Portal',
     component: Portal
 };

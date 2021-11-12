@@ -12,7 +12,7 @@ OverlayStory.args = {
 };
 
 export default {
-    title: 'Overlay',
+    title: 'Components/Overlay',
     component: Overlay,
     argTypes: {}
 };

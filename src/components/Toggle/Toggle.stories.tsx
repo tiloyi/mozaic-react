@@ -45,7 +45,7 @@ Example.argTypes = {
 };
 
 export default {
-    title: 'Toggle',
+    title: 'Components/Toggle',
     component: Toggle,
     argTypes: {
         size: {
