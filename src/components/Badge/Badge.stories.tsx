@@ -11,14 +11,10 @@ Controls.args = {
     theme: BadgeTheme.Success
 };
 
-export default {
-    title: 'Components/Badge',
-    component: Badge,
-    argTypes: {
-        theme: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
         }
     }
 };
