@@ -4,4 +4,34 @@ import { Meta } from '@storybook/addon-docs';
 
 # bigfish-wms--mozaic-react
 
-> React implementation of the <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>.
+> Библиотека react-компонентов для <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>.
+
+## Установка
+
+Для установки библиотеки в проекте нужно добавить в файл `.npmrc` строку:
+
+```
+registry = https://art.lmru.tech/api/npm/npm-wms
+```
+
+А затем вызвать команду:
+
+```
+npm install --save bigfish-wms--mozaic-react
+```
+
+Если вы используете `yarn`, то следует вызвать команду:
+
+```
+yarn add bigfish-wms--mozaic-react
+```
+
+После установки пакета с библиотекой в файл с главным компонентом вашего проекта добавьте импорт:
+
+```
+import 'bigfish-wms--mozaic-react/lib/index.css';
+```
+
+---
+
+Конец!
