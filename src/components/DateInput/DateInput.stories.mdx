@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, Example, argTypes } from './DateInput.stories';
 import DateInput from './DateInput';
 
-<Meta title="Components/DateInput" component={DateInput} />
+<Meta title="Components/DateInput" component={DateInput} argTypes={argTypes} />
 
 # DateInput
 
@@ -21,15 +16,18 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { DateInput } from 'bigfish-wms--mozaic-react';"
-/>
+<Source language="javascript" code="import { DateInput } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
+<Canvas>
+    <Story story={Controls} />
+</Canvas>
+
+or controlled example:
+
 <Canvas withSource="open">
-  <Story id="dateinput--controls" />
+    <Story story={Example} />
 </Canvas>
 
 ## Props
