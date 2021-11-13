@@ -1,10 +1,15 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta, Title } from '@storybook/addon-docs';
+import mozaic from '@mozaic-ds/styles/package.json';
+import pkg from '../../package.json';
 
 <Meta title="About/Introduction" />
 
-# bigfish-wms--mozaic-react
+<Title>bigfish-wms--mozaic-react v{pkg.version}</Title>
 
-> Библиотека react-компонентов для <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>.
+<blockquote>
+    Библиотека react-компонентов для <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>{' '}
+    <strong>v{mozaic.version}</strong>
+</blockquote>
 
 ## Установка
 
