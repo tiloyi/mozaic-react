@@ -5,9 +5,9 @@ import Overlay from './Overlay';
 
 const Template: Story<IOverlayProps> = args => <Overlay {...args}>Overlay</Overlay>;
 
-export const OverlayStory = Template.bind({});
+export const Controls = Template.bind({});
 
-OverlayStory.args = {
+Controls.args = {
     isVisible: true
 };
 
