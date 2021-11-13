@@ -5,9 +5,10 @@ import {
   Source,
   ArgsTable,
 } from '@storybook/addon-docs';
+import { Controls, argTypes } from './Flag.stories';
 import Flag from './Flag';
 
-<Meta title="Components/Flag" component={Flag} />
+<Meta title="Components/Flag" component={Flag} argTypes={argTypes} />
 
 # Flag
 
@@ -29,7 +30,7 @@ To use the component in your project you must:
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="flag--flag-story" />
+  <Story story={Controls} />
 </Canvas>
 
 
