@@ -81,22 +81,15 @@ WithCustomContent.args = {
     label: <button type="button">Button</button>
 };
 
-export default {
-    title: 'Components/Tooltip',
-    component: Tooltip,
-    parameters: {
-        layout: 'centered'
+export const argTypes = {
+    placement: {
+        control: {
+            type: 'select'
+        }
     },
-    argTypes: {
-        placement: {
-            control: {
-                type: 'select'
-            }
-        },
-        label: {
-            control: {
-                type: 'text'
-            }
+    label: {
+        control: {
+            type: 'text'
         }
     }
 };

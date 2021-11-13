@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Top, Right, Bottom, Left, WithIcon, WithCustomContent, argTypes } from './Tooltip.stories';
 import Tooltip from './Tooltip';
 
-<Meta title="Components/Tooltip" component={Tooltip} parameters={{ layout: 'centered' }} />
+<Meta title="Components/Tooltip" component={Tooltip} parameters={{ layout: 'centered' }} argTypes={argTypes} />
 
 # Tooltip
 
@@ -21,15 +16,44 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { Tooltip } from 'bigfish-wms--mozaic-react';"
-/>
+<Source language="javascript" code="import { Tooltip } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
-<Canvas withSource="open">
-  <Story id="tooltip--top" />
+`top` placement
+
+<Canvas>
+    <Story story={Top} parameters={{ layout: 'centered' }} />
+</Canvas>
+
+`right` placement
+
+<Canvas>
+    <Story story={Right} parameters={{ layout: 'centered' }} />
+</Canvas>
+
+`bottom` placement
+
+<Canvas>
+    <Story story={Bottom} parameters={{ layout: 'centered' }} />
+</Canvas>
+
+`left` placement
+
+<Canvas>
+    <Story story={Left} parameters={{ layout: 'centered' }} />
+</Canvas>
+
+icon
+
+<Canvas>
+    <Story story={WithIcon} parameters={{ layout: 'centered' }} />
+</Canvas>
+
+custom content
+
+<Canvas>
+    <Story story={WithCustomContent} parameters={{ layout: 'centered' }} />
 </Canvas>
 
 ## Props
