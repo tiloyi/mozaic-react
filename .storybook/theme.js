@@ -1,5 +1,4 @@
 import { create } from '@storybook/theming';
-// import logo from './../src/assets/images/logo-mozaic-vue-large.svg';
 import logo from './logo.svg';
 
 export default create({
