@@ -44,15 +44,11 @@ Example.argTypes = {
     }
 };
 
-export default {
-    title: 'Components/Toggle',
-    component: Toggle,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            },
-            options: [ToggleSize.S, ToggleSize.M]
-        }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        },
+        options: [ToggleSize.S, ToggleSize.M]
     }
 };

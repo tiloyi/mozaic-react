@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, Example, argTypes } from './Toggle.stories';
 import Toggle from './Toggle';
 
-<Meta title="Components/Toggle" component={Toggle} />
+<Meta title="Components/Toggle" component={Toggle} argTypes={argTypes} />
 
 # Toggle
 
@@ -21,15 +16,18 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { Toggle } from 'bigfish-wms--mozaic-react';"
-/>
+<Source language="javascript" code="import { Toggle } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="toggle--controls" />
+    <Story story={Controls} />
+</Canvas>
+
+or controlled example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
 </Canvas>
 
 ## Props
