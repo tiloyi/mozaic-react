@@ -33,14 +33,10 @@ Example.args = {
     isValid: false
 };
 
-export default {
-    title: 'Components/TextInput',
-    component: TextInput,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
         }
     }
 };
