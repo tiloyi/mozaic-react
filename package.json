@@ -12,8 +12,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "npm run test:cov",
     "test:cov": "jest --coverage",
-    "prettier:check": "prettier --check \"src/**/*.{ts, tsx, css}\"",
-    "prettier:write": "prettier --write \"src/**/*.{ts, tsx, css}\"",
+    "prettier:check": "prettier --check \"src/**/*.{ts, tsx, scss, css, mdx}\"",
+    "prettier:write": "prettier --write \"src/**/*.{ts, tsx, scss, css, mdx}\"",
     "start": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "lib:build": "rollup --config"
