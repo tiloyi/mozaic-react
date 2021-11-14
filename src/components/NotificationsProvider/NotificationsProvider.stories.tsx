@@ -114,8 +114,3 @@ const Template: Story = () => (
 );
 
 export const Notifications = Template.bind({});
-
-export default {
-    title: 'Components/NotificationsProvider',
-    component: NotificationsProvider
-};
