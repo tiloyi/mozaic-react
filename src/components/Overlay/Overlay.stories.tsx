@@ -8,11 +8,5 @@ const Template: Story<IOverlayProps> = args => <Overlay {...args}>Overlay</Overl
 export const Controls = Template.bind({});
 
 Controls.args = {
-    isVisible: true
-};
-
-export default {
-    title: 'Components/Overlay',
-    component: Overlay,
-    argTypes: {}
+    isVisible: false
 };
