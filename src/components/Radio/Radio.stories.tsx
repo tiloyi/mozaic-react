@@ -12,8 +12,3 @@ Controls.args = {
     isDisabled: false,
     isInvalid: false
 };
-
-export default {
-    title: 'Components/Radio',
-    component: Radio
-};
