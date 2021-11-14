@@ -14,33 +14,29 @@ Controls.args = {
     weight: TextWeight.Regular
 };
 
-export default {
-    title: 'Components/Text',
-    component: Text,
-    argTypes: {
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        align: {
-            control: {
-                type: 'select'
-            }
-        },
-        weight: {
-            control: {
-                type: 'select',
-                labels: {
-                    [TextWeight.Light]: 'Light',
-                    [TextWeight.Regular]: 'Regular',
-                    [TextWeight.SemiBold]: 'Semi Bold'
-                }
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    align: {
+        control: {
+            type: 'select'
+        }
+    },
+    weight: {
+        control: {
+            type: 'select',
+            labels: {
+                [TextWeight.Light]: 'Light',
+                [TextWeight.Regular]: 'Regular',
+                [TextWeight.SemiBold]: 'Semi Bold'
             }
         }
     }
