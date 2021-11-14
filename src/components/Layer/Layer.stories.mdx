@@ -1,10 +1,5 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { ShortBody, LongBody } from './Layer.stories';
 import Layer from './Layer';
 
 <Meta title="Components/Layer" component={Layer} />
@@ -21,17 +16,21 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { Layer } from 'bigfish-wms--mozaic-react';"
-/>
+<Source language="javascript" code="import { Layer } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
+short body example:
+
 <Canvas withSource="open">
-  <Story id="layer--layer-story" />
+    <Story story={ShortBody} />
 </Canvas>
 
+long body example:
+
+<Canvas withSource="open">
+    <Story story={LongBody} />
+</Canvas>
 
 ## Props
 

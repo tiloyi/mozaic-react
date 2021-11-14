@@ -117,9 +117,3 @@ const LongBodyTemplate: Story = () => (
 );
 
 export const LongBody = LongBodyTemplate.bind({});
-
-export default {
-    title: 'Components/Layer',
-    component: Layer,
-    argTypes: {}
-};
