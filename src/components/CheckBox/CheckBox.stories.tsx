@@ -45,8 +45,3 @@ Example.argTypes = {
         }
     }
 };
-
-export default {
-    title: 'Components/CheckBox',
-    component: CheckBox
-};
