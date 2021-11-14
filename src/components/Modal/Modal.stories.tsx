@@ -119,9 +119,3 @@ const LongBodyTemplate: Story = () => (
 );
 
 export const LongBody = LongBodyTemplate.bind({});
-
-export default {
-    title: 'Components/Modal',
-    component: Modal,
-    argTypes: {}
-};
