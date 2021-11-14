@@ -29,19 +29,15 @@ Controls.argTypes = {
     }
 };
 
-export default {
-    title: 'Notification',
-    component: Notification,
-    argTypes: {
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        size: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    size: {
+        control: {
+            type: 'select'
         }
     }
 };

@@ -5,44 +5,38 @@ import { ITextProps, TextSize, TextTheme, TextWeight } from './Text.types';
 
 const Template: Story<ITextProps> = args => <Text {...args}>Lorem ipsum dolor sit amet</Text>;
 
-export const TextStory = Template.bind({});
+export const Controls = Template.bind({});
 
-TextStory.args = {
+Controls.args = {
     as: 'p',
     theme: TextTheme.Primary01,
     size: TextSize.M,
     weight: TextWeight.Regular
 };
 
-TextStory.storyName = 'Text';
-
-export default {
-    title: 'Text',
-    component: Text,
-    argTypes: {
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        align: {
-            control: {
-                type: 'select'
-            }
-        },
-        weight: {
-            control: {
-                type: 'select',
-                labels: {
-                    [TextWeight.Light]: 'Light',
-                    [TextWeight.Regular]: 'Regular',
-                    [TextWeight.SemiBold]: 'Semi Bold'
-                }
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    align: {
+        control: {
+            type: 'select'
+        }
+    },
+    weight: {
+        control: {
+            type: 'select',
+            labels: {
+                [TextWeight.Light]: 'Light',
+                [TextWeight.Regular]: 'Regular',
+                [TextWeight.SemiBold]: 'Semi Bold'
             }
         }
     }

@@ -31,8 +31,3 @@ const Template: Story = () => (
 );
 
 export const Example = Template.bind({});
-
-export default {
-    title: 'Portal',
-    component: Portal
-};

@@ -10,5 +10,10 @@ export const parameters = {
             date: /Date$/
         },
         exclude: ['className']
+    },
+    options: {
+        storySort: {
+            order: ['About', 'Components']
+        }
     }
 };

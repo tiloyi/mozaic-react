@@ -65,19 +65,15 @@ Groups.args = {
     isDisabled: false
 };
 
-export default {
-    title: 'Select',
-    component: Select,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        options: {
-            table: {
-                disable: true
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    options: {
+        table: {
+            disable: true
         }
     }
 };

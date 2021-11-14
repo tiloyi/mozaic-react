@@ -75,39 +75,35 @@ IconOnly.argTypes = {
     }
 };
 
-export default {
-    title: 'Button',
-    component: Button,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        variant: {
-            control: {
-                type: 'select'
-            }
-        },
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        width: {
-            control: {
-                type: 'select'
-            }
-        },
-        leftIcon: {
-            table: {
-                disable: true
-            }
-        },
-        rightIcon: {
-            table: {
-                disable: true
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    variant: {
+        control: {
+            type: 'select'
+        }
+    },
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    width: {
+        control: {
+            type: 'select'
+        }
+    },
+    leftIcon: {
+        table: {
+            disable: true
+        }
+    },
+    rightIcon: {
+        table: {
+            disable: true
         }
     }
 };

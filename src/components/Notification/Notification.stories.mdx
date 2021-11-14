@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, argTypes } from './Notification.stories';
 import Notification from './Notification';
 
-<Meta title="Notification" component={Notification} />
+<Meta title="Components/Notification" component={Notification} argTypes={argTypes} />
 
 # Notification
 
@@ -15,23 +10,21 @@ The `Notification` component is the **React.js** implementation of the **Mozaic 
 
 You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Notification/).
 
+Для корректной работы нотификаций ваше приложение должно быть обернуто в `NotificationsProvider`.
+
 ## Usage
 
 To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { Notification } from 'mozaic-react';"
-/>
+<Source language="javascript" code="import { Notification } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="notification--controls" />
+    <Story story={Controls} />
 </Canvas>
-
 
 ## Props
 

@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, Example } from './RadioGroup.stories';
+import RadioGroup from './RadioGroup';
+
+<Meta title="Components/RadioGroup" component={RadioGroup} />
+
+# RadioGroup
+
+Компонент, реализующий логику работы группы радио-кнопок `Radio`.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { RadioGroup } from 'bigfish-wms--mozaic-react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas>
+    <Story story={Controls} />
+</Canvas>
+
+or controlled example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={RadioGroup} />

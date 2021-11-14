@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls } from './Radio.stories';
 import Radio from './Radio';
 
-<Meta title="Radio" component={Radio} />
+<Meta title="Components/Radio" component={Radio} />
 
 # Radio
 
@@ -21,15 +16,12 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { Radio } from 'mozaic-react';"
-/>
+<Source language="javascript" code="import { Radio } from 'bigfish-wms--mozaic-react';" />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="radio--controls" />
+    <Story story={Controls} />
 </Canvas>
 
 ## Props
