@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Button from './Button';
-import { ButtonWidth } from './Button.types';
 
 describe('components/Button', () => {
     test('renders correctly', () => {
@@ -29,7 +28,7 @@ describe('components/Button', () => {
     });
 
     test('renders with full width', () => {
-        render(<Button width={ButtonWidth.Full}>Click!</Button>);
+        render(<Button width="full">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--full');
     });

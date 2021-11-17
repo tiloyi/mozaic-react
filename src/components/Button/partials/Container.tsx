@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps, TButtonSize } from '../Button.types';
+import { IButtonProps, TButtonSize, TButtonTheme, TButtonVariant, TButtonWidth } from '../Button.types';
 
 const blockClassName = 'mc-button';
 
-function getButtonModifier(theme: ButtonTheme, variant: ButtonVariant): string {
+function getButtonModifier(theme: TButtonTheme, variant: TButtonVariant): string {
     const parts = [`${blockClassName}-`];
 
     parts.push(variant);
 
-    if (theme !== ButtonTheme.Primary) {
+    if (theme !== 'primary') {
         parts.push(theme);
     }
 
@@ -20,17 +20,17 @@ function getButtonSizeModifier(size: TButtonSize): string {
     return size !== 'm' ? `${blockClassName}--${size}` : '';
 }
 
-function getButtonWidthModifier(width: ButtonWidth): string {
-    return width === ButtonWidth.Full ? `${blockClassName}--full` : '';
+function getButtonWidthModifier(width: TButtonWidth): string {
+    return width === 'full' ? `${blockClassName}--full` : '';
 }
 
 const ButtonContainer: FC<IButtonProps> = ({
     className,
     children,
-    theme = ButtonTheme.Primary,
-    variant = ButtonVariant.Solid,
+    theme = 'primary',
+    variant = 'solid',
     size = 'm',
-    width = ButtonWidth.Fit,
+    width = 'fit',
     isDisabled,
     ...props
 }) => (
