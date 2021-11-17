@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Button from './Button';
-import { ButtonSize, ButtonWidth } from './Button.types';
+import { ButtonWidth } from './Button.types';
 
 describe('components/Button', () => {
     test('renders correctly', () => {
@@ -35,13 +35,13 @@ describe('components/Button', () => {
     });
 
     test('renders with `s` size', () => {
-        render(<Button size={ButtonSize.S}>Click!</Button>);
+        render(<Button size="s">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--s');
     });
 
     test('renders with `l` size', () => {
-        render(<Button size={ButtonSize.L}>Click!</Button>);
+        render(<Button size="l">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--l');
     });

@@ -2,11 +2,13 @@ import { ButtonHTMLAttributes, ReactElement } from 'react';
 
 type TOmittedProps = 'disabled';
 
+export type TButtonSize = 's' | 'm' | 'l';
+
 export interface IIconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedProps> {
     className?: string;
     variant?: ButtonVariant;
     theme?: ButtonTheme;
-    size?: ButtonSize;
+    size?: TButtonSize;
     isDisabled?: boolean;
 }
 
@@ -33,12 +35,6 @@ export enum ButtonTheme {
     Primary02 = 'primary-02',
     Danger = 'danger',
     Neutral = 'neutral'
-}
-
-export enum ButtonSize {
-    S = 's',
-    M = 'm',
-    L = 'l'
 }
 
 export enum ButtonWidth {

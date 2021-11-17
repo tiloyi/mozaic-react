@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import Button from './Button';
 import IconButton from './IconButton';
-import { ButtonSize, ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps, IIconButtonProps } from './Button.types';
+import { ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps, IIconButtonProps } from './Button.types';
 
 const Icon = (): JSX.Element => (
     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -17,7 +17,7 @@ const TextTemplate: Story<IButtonProps> = args => <Button {...args}>Click!</Butt
 export const Text = TextTemplate.bind({});
 
 Text.args = {
-    size: ButtonSize.M,
+    size: 'm',
     variant: ButtonVariant.Solid,
     theme: ButtonTheme.Primary02,
     width: ButtonWidth.Fit
@@ -32,7 +32,7 @@ const WithLeftIconTemplate: Story<IButtonProps> = args => (
 export const WithLeftIcon = WithLeftIconTemplate.bind({});
 
 WithLeftIcon.args = {
-    size: ButtonSize.M,
+    size: 'm',
     variant: ButtonVariant.Solid,
     theme: ButtonTheme.Neutral,
     width: ButtonWidth.Fit
@@ -47,7 +47,7 @@ const WithRightIconTemplate: Story<IButtonProps> = args => (
 export const WithRightIcon = WithRightIconTemplate.bind({});
 
 WithRightIcon.args = {
-    size: ButtonSize.M,
+    size: 'm',
     variant: ButtonVariant.Solid,
     theme: ButtonTheme.Neutral,
     width: ButtonWidth.Fit
@@ -62,7 +62,7 @@ const IconOnlyTemplate: Story<IIconButtonProps> = args => (
 export const IconOnly = IconOnlyTemplate.bind({});
 
 IconOnly.args = {
-    size: ButtonSize.M,
+    size: 'm',
     variant: ButtonVariant.Solid,
     theme: ButtonTheme.Danger
 };
