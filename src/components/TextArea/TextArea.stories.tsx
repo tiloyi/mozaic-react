@@ -30,8 +30,3 @@ Example.args = {
     isInvalid: false,
     isValid: false
 };
-
-export default {
-    title: 'TextArea',
-    component: TextArea
-};

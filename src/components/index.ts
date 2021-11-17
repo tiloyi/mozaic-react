@@ -4,8 +4,26 @@ export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading';
-export { default as Layer } from './Layer';
-export { default as Modal } from './Modal';
+export {
+    default as Layer,
+    LayerBody,
+    LayerCloseButton,
+    LayerContainer,
+    LayerFooter,
+    LayerHeader,
+    LayerTitle
+} from './Layer';
+export {
+    default as Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContainer,
+    ModalFooter,
+    ModalHeader,
+    ModalHeading,
+    ModalTitle
+} from './Modal';
+export { default as ModalsProvider, useModals } from './ModalsProvider';
 export { default as Notification, NotificationSize, NotificationTheme, INotification } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay } from './Overlay';

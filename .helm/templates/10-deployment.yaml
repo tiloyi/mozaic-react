@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.microservice }}
+  labels:
+    component: {{ .Values.microservice }}
+    app: {{ index .Values.team .Values.profile | default .Values.team.default }}
+{{- $profile := .Values.profile }}
+spec:
+  replicas: {{ index .Values.replicas.api $profile | default .Values.replicas.api.default }}
+  selector:
+    matchLabels:
+      component:  {{ .Values.microservice }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        component:  {{ .Values.microservice }}
+      annotations:
+        sha: {{ .Values.sha | quote }}
+    spec:
+      containers:
+      - name:  {{ .Values.microservice }}
+        image: {{ .Values.imageName }}:{{ .Values.imageTag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - name: http-metrics
+          containerPort: 80
+        env:
+{{- if .Values.vault.enabled }}
+{{- range $key, $value := .Values.global.VAULT }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+{{- end }}
+{{- end }}
+{{ range $key, $value := .Values.environment }}
+    {{ $environmentValue :=  pluck $profile $value | first | default $value.default }}
+    {{ if $environmentValue }}
+        - name: {{ $key | snakecase | upper | quote }}
+          value: {{ $environmentValue | quote }}
+    {{ end }}
+{{ end }}
+{{ include "api_envs" . | indent 8 }}
+        resources:
+          limits:
+            memory: {{index .Values.resources.api.limits.memory $profile | default .Values.resources.api.limits.memory.default }}
+            cpu: {{index .Values.resources.api.limits.cpu $profile | default .Values.resources.api.limits.cpu.default }}
+          requests:
+            memory: {{index .Values.resources.api.requests.memory $profile | default .Values.resources.api.requests.memory.default }}
+            cpu: {{index .Values.resources.api.requests.cpu $profile | default .Values.resources.api.requests.cpu.default }}
+        lifecycle:
+          preStop:
+            exec:
+              command:
+                - sh
+                - '-c'
+                - sleep 30
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /_healthz
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /_readiness
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+      terminationGracePeriodSeconds: 60

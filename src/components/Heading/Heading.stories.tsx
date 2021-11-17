@@ -13,29 +13,25 @@ Controls.args = {
     weight: HeadingWeight.Regular
 };
 
-export default {
-    title: 'Heading',
-    component: Heading,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        align: {
-            control: {
-                type: 'select'
-            }
-        },
-        weight: {
-            control: {
-                type: 'select'
-            }
-        },
-        underline: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    align: {
+        control: {
+            type: 'select'
+        }
+    },
+    weight: {
+        control: {
+            type: 'select'
+        }
+    },
+    underline: {
+        control: {
+            type: 'select'
         }
     }
 };

@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import RadioContainer from './partials/Container';
-import RadioIndicator from './partials/Indicator';
-import RadioLabel from './partials/Label';
+import { RadioContainer, RadioIndicator, RadioLabel } from './partials';
 import { IRadioProps } from './Radio.types';
 import './Radio.scss';
 

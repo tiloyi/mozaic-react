@@ -60,15 +60,11 @@ Example.argTypes = {
     }
 };
 
-export default {
-    title: 'RadioGroup',
-    component: RadioGroup,
-    argTypes: {
-        value: {
-            control: {
-                type: 'select'
-            },
-            options: languages.map(l => l.toLowerCase())
-        }
+export const argTypes = {
+    value: {
+        control: {
+            type: 'select'
+        },
+        options: languages.map(l => l.toLowerCase())
     }
 };
