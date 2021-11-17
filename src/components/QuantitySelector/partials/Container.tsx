@@ -1,16 +1,30 @@
 import React, { FC, createContext, useContext } from 'react';
 import cn from 'classnames';
-import { IQuantitySelectorProps } from '../QuantitySelector.types';
+import { IQuantitySelectorContextValue, IQuantitySelectorProps } from '../QuantitySelector.types';
 
-const QuantitySelectorContext = createContext<IQuantitySelectorProps>({} as IQuantitySelectorProps);
+const QuantitySelectorContext = createContext<IQuantitySelectorContextValue>({} as IQuantitySelectorContextValue);
 
-export function useQuantitySelector(): IQuantitySelectorProps {
+export function useQuantitySelector(): IQuantitySelectorContextValue {
     return useContext(QuantitySelectorContext);
 }
 
 const QuantitySelectorContainer: FC<IQuantitySelectorProps> = ({ className, children, ...props }) => {
+    const increment = () => {
+        debugger;
+    };
+
+    const decrement = () => {
+        debugger;
+    };
+
+    const contextValue = {
+        ...props,
+        increment,
+        decrement
+    };
+
     return (
-        <QuantitySelectorContext.Provider value={props}>
+        <QuantitySelectorContext.Provider value={contextValue}>
             <div className={cn('mc-quantity-selector', className)}>{children}</div>
         </QuantitySelectorContext.Provider>
     );

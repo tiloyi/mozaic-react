@@ -1,21 +1,23 @@
 import React, { FC } from 'react';
-import Button from '../../Button';
+import { IconButton } from '../../Button';
 import { IQuantitySelectorButtonProps } from '../QuantitySelector.types';
 import { useQuantitySelector } from './Container';
 
 const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ children }) => {
-    const { size, isDisabled } = useQuantitySelector();
+    const { size, isDisabled, decrement } = useQuantitySelector();
 
     return (
-        <Button
+        <IconButton
             className="mc-quantity-selector__button-left"
             theme="primary"
             variant="bordered"
             size={size}
             isDisabled={isDisabled}
+            onClick={decrement}
+            aria-label="Decrement"
         >
             {children}
-        </Button>
+        </IconButton>
     );
 };
 

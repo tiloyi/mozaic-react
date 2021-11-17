@@ -11,9 +11,9 @@ import './QuantitySelector.scss';
 const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => {
     return (
         <QuantitySelectorContainer {...props}>
-            <QuantitySelectorDecrement>+</QuantitySelectorDecrement>
+            <QuantitySelectorDecrement>-</QuantitySelectorDecrement>
             <QuantitySelectorInput />
-            <QuantitySelectorIncrement>-</QuantitySelectorIncrement>
+            <QuantitySelectorIncrement>+</QuantitySelectorIncrement>
         </QuantitySelectorContainer>
     );
 };
