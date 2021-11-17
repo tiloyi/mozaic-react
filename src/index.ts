@@ -1,12 +1,5 @@
 export { default as Badge, BadgeTheme } from './components/Badge';
-export {
-    default as Button,
-    IconButton,
-    ButtonSize,
-    ButtonTheme,
-    ButtonVariant,
-    ButtonWidth
-} from './components/Button';
+export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
 export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
@@ -44,7 +37,7 @@ export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';
 export { default as Select, SelectSize } from './components/Select';
 export { default as Text, TextTheme, TextAlign, TextSize, TextWeight } from './components/Text';
 export { default as TextArea } from './components/TextArea';
-export { default as TextInput, TextInputSize } from './components/TextInput';
+export { default as TextInput } from './components/TextInput';
 export { default as Toggle, ToggleSize } from './components/Toggle';
 export {
     default as QuantitySelector,
@@ -52,6 +45,6 @@ export {
     IncrementButton,
     Input,
     QuantitySelectorSize
-} from './components/QuantitySelector';
+} from './components/Counter';
 export { default as Tooltip, TooltipPlacement } from './components/Tooltip';
 export { useQuantitySelector } from './hooks';

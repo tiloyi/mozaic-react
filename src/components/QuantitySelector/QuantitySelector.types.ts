@@ -1,49 +1,18 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, ReactNode, ChangeEvent } from 'react';
+import { InputHTMLAttributes } from 'react';
+import { IButtonProps } from '../Button';
 
-export enum QuantitySelectorSize {
-    'Small' = 's',
-    'Medium' = 'm'
-}
+export const sizes = ['s', 'm'] as const;
 
-export type TOnChangeType = (value: number, event?: ChangeEvent<HTMLInputElement>) => void;
+export type TQuantitySelectorSize = typeof sizes[number];
 
-export interface IQuantitySelectorProps {
+type TOmittedButtonProps = 'size' | 'theme' | 'variant';
+
+type TOmittedHTMLInputProps = 'disabled' | 'size';
+
+export interface IQuantitySelectorButtonProps extends Omit<IButtonProps, TOmittedButtonProps> {}
+
+export interface IQuantitySelectorProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedHTMLInputProps> {
     className?: string;
-    value: number;
-    size?: QuantitySelectorSize;
-    label?: string;
-    min?: number;
-    max?: number;
-    decrementButton?: ReactNode;
-    incrementButton?: ReactNode;
-    inputComponent?: ReactNode;
-    labelComponent?: ReactNode;
-    onChange: TOnChangeType;
-}
-
-export type TInputOmmitedProps = 'type' | 'size' | 'onChange';
-
-export interface IInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TInputOmmitedProps> {
-    min?: number;
-    max?: number;
-    value: number;
-    size: QuantitySelectorSize;
-    isDisabled?: boolean;
-    onChange: TOnChangeType;
-}
-
-type TOmittedButtonProps = 'disabled';
-
-export interface IDecrementButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedButtonProps> {
-    className?: string;
-    content?: ReactNode | string;
-    size?: QuantitySelectorSize;
-    isDisabled?: boolean;
-}
-
-export interface IIncrementButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedButtonProps> {
-    className?: string;
-    content?: ReactNode | string;
-    size: QuantitySelectorSize;
+    size?: TQuantitySelectorSize;
     isDisabled?: boolean;
 }
