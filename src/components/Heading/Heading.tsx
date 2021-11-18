@@ -1,6 +1,6 @@
 import { createElement, FC } from 'react';
 import cn from 'classnames';
-import { HeadingSize, HeadingUnderline, HeadingWeight, IHeadingProps } from './Heading.types';
+import { HeadingUnderline, IHeadingProps } from './Heading.types';
 import './Heading.scss';
 
 const blockClassName = 'mt-heading';
@@ -9,16 +9,16 @@ const Heading: FC<IHeadingProps> = ({
     className,
     children,
     as = 'h2',
-    align,
-    size = HeadingSize.M,
-    weight = HeadingWeight.Regular,
+    textAlign,
+    size = 'm',
+    weight = 'regular',
     underline,
     ...props
 }): JSX.Element => {
     const elementClassName = cn(
         blockClassName,
         className,
-        align && `${blockClassName}--${align}`,
+        textAlign && `${blockClassName}--${textAlign}`,
         `${blockClassName}--${size}`,
         `${blockClassName}--${weight}`,
         underline && `${blockClassName}--underline`,

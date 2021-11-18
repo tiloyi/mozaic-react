@@ -2,23 +2,17 @@ export const tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
 export type THeadingTag = typeof tags[number];
 
-export enum HeadingSize {
-    L = 'l',
-    M = 'm',
-    S = 's'
-}
+export const sizes = ['s', 'm', 'l'] as const;
 
-export enum HeadingAlign {
-    Left = 'left',
-    Center = 'center',
-    Right = 'right'
-}
+export type THeadingSize = typeof sizes[number];
 
-export enum HeadingWeight {
-    Light = 'light',
-    Regular = 'regular',
-    SemiBold = 'semi-bold'
-}
+export const textAligns = ['left', 'center', 'right'] as const;
+
+export type THeadingTextAlign = typeof textAligns[number];
+
+export const weights = ['light', 'regular', 'semi-bold'] as const;
+
+export type THeadingWeight = typeof weights[number];
 
 export enum HeadingUnderline {
     Primary01_200 = 'line-primary-01-200',
@@ -30,8 +24,8 @@ export enum HeadingUnderline {
 export interface IHeadingProps {
     className?: string;
     as?: THeadingTag;
-    size?: HeadingSize;
-    align?: HeadingAlign;
-    weight?: HeadingWeight;
+    size?: THeadingSize;
+    textAlign?: THeadingTextAlign;
+    weight?: THeadingWeight;
     underline?: HeadingUnderline;
 }
