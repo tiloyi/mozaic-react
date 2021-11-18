@@ -22,7 +22,7 @@ describe('components/Heading', () => {
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${size}`);
     });
 
-    test.each(textAligns)('renders with `%s` text align correctly', textAlign => {
+    test.each(textAligns)('renders with `%s` text textAlign correctly', textAlign => {
         render(<Heading textAlign={textAlign}>Heading</Heading>);
 
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${textAlign}`);

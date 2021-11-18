@@ -31,7 +31,7 @@ export { default as Portal } from './Portal';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
 export { default as Select } from './Select';
-export { default as Text, TextAlign, TextTheme, TextSize, TextWeight } from './Text';
+export { default as Text } from './Text';
 export { default as TextArea } from './TextArea';
 export { default as TextInput } from './TextInput';
 export { default as Toggle } from './Toggle';
