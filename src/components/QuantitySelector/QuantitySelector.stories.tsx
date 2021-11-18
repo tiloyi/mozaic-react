@@ -8,7 +8,7 @@ const Template: Story<IQuantitySelectorProps> = args => <QuantitySelector {...ar
 export const Controls = Template.bind({});
 
 Controls.args = {
-    value: 100,
+    defaultValue: 100,
     size: 'm',
     isDisabled: false
 };
@@ -17,6 +17,15 @@ export const Placeholder = Template.bind({});
 
 Placeholder.args = {
     placeholder: 'Value',
+    isDisabled: false
+};
+
+export const Values = Template.bind({});
+
+Values.args = {
+    defaultValue: -5,
+    minValue: 0,
+    maxValue: 10,
     isDisabled: false
 };
 

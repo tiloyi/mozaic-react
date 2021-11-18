@@ -7,12 +7,17 @@ export type TQuantitySelectorSize = typeof sizes[number];
 
 type TOmittedButtonProps = 'size' | 'theme' | 'variant';
 
-type TOmittedHTMLInputProps = 'disabled' | 'size';
+type TOmittedHTMLInputProps = 'disabled' | 'size' | 'value' | 'defaultValue' | 'min' | 'max' | 'step';
 
 export interface IQuantitySelectorButtonProps extends Omit<IIconButtonProps, TOmittedButtonProps> {}
 
 export interface IQuantitySelectorProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedHTMLInputProps> {
     className?: string;
+    value?: number;
+    defaultValue?: number;
+    minValue?: number;
+    maxValue?: number;
+    step?: number;
     size?: TQuantitySelectorSize;
     isDisabled?: boolean;
 }

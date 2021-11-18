@@ -4,7 +4,9 @@ import { IQuantitySelectorButtonProps } from '../QuantitySelector.types';
 import { useQuantitySelector } from './Container';
 
 const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ children }) => {
-    const { size, isDisabled, decrement } = useQuantitySelector();
+    const { value, minValue, size, isDisabled, decrement } = useQuantitySelector();
+
+    const isLocked = minValue !== undefined && value !== undefined && value <= minValue;
 
     return (
         <IconButton
@@ -12,7 +14,7 @@ const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ children 
             theme="primary"
             variant="bordered"
             size={size}
-            isDisabled={isDisabled}
+            isDisabled={isDisabled || isLocked}
             onClick={decrement}
             aria-label="Decrement"
         >
