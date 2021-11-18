@@ -1,6 +1,6 @@
 import { createElement, FC } from 'react';
 import cn from 'classnames';
-import { HeadingUnderline, IHeadingProps } from './Heading.types';
+import { IHeadingProps } from './Heading.types';
 import './Heading.scss';
 
 const blockClassName = 'mt-heading';
@@ -22,7 +22,7 @@ const Heading: FC<IHeadingProps> = ({
         `${blockClassName}--${size}`,
         `${blockClassName}--${weight}`,
         underline && `${blockClassName}--underline`,
-        underline && underline !== HeadingUnderline.Primary01_500 && `${blockClassName}--${underline}`
+        underline && underline !== 'primary-01-500' && `${blockClassName}--line-${underline}`
     );
 
     return createElement(as, { className: elementClassName, ...props }, children);

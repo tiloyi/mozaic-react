@@ -14,12 +14,9 @@ export const weights = ['light', 'regular', 'semi-bold'] as const;
 
 export type THeadingWeight = typeof weights[number];
 
-export enum HeadingUnderline {
-    Primary01_200 = 'line-primary-01-200',
-    Primary01_500 = 'line-primary-01-500',
-    Primary02_200 = 'line-primary-02-200',
-    Primary02_600 = 'line-primary-02-600'
-}
+export const underlines = ['primary-01-200', 'primary-01-500', 'primary-02-200', 'primary-02-600'] as const;
+
+export type THeadingUnderline = typeof underlines[number];
 
 export interface IHeadingProps {
     className?: string;
@@ -27,5 +24,5 @@ export interface IHeadingProps {
     size?: THeadingSize;
     textAlign?: THeadingTextAlign;
     weight?: THeadingWeight;
-    underline?: HeadingUnderline;
+    underline?: THeadingUnderline;
 }

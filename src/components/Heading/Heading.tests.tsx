@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { textAligns, sizes, weights, HeadingUnderline, tags } from './Heading.types';
+import { textAligns, sizes, weights, tags, THeadingUnderline } from './Heading.types';
 import Heading from './Heading';
 
 describe('components/Heading', () => {
@@ -35,17 +35,17 @@ describe('components/Heading', () => {
     });
 
     test('renders with underline correctly', () => {
-        render(<Heading underline={HeadingUnderline.Primary01_500}>Heading</Heading>);
+        render(<Heading underline="primary-01-500">Heading</Heading>);
 
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--underline`);
     });
 
-    test.each([HeadingUnderline.Primary01_200, HeadingUnderline.Primary02_200, HeadingUnderline.Primary02_600])(
+    test.each(['primary-01-200', 'primary-02-200', 'primary-02-600'])(
         'renders with `%s` underline correctly',
         underline => {
-            render(<Heading underline={underline}>Heading</Heading>);
+            render(<Heading underline={underline as THeadingUnderline}>Heading</Heading>);
 
-            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${underline}`);
+            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--line-${underline}`);
         }
     );
 });
