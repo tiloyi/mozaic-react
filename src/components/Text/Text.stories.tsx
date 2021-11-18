@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Text from './Text';
-import { ITextProps, TextTheme } from './Text.types';
+import { ITextProps } from './Text.types';
 
 const Template: Story<ITextProps> = args => <Text {...args}>Lorem ipsum dolor sit amet</Text>;
 
@@ -9,7 +9,7 @@ export const Controls = Template.bind({});
 
 Controls.args = {
     as: 'p',
-    theme: TextTheme.Primary01,
+    theme: 'primary-01',
     size: 'm',
     weight: 'regular'
 };
