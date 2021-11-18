@@ -24,7 +24,7 @@ export {
     ModalTitle
 } from './Modal';
 export { default as ModalsProvider, useModals } from './ModalsProvider';
-export { default as Notification, NotificationSize, NotificationTheme, INotification } from './Notification';
+export { default as Notification, INotification } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';

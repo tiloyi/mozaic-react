@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { NotificationSize, NotificationTheme } from './Notification.types';
 import Notification from './Notification';
+import { sizes, TNotificationTheme } from './Notification.types';
 
 describe('components/Notification', () => {
     test('renders correctly', () => {
@@ -35,16 +35,13 @@ describe('components/Notification', () => {
         expect(onClose).toHaveBeenCalledTimes(1);
     });
 
-    test.each([NotificationTheme.Danger, NotificationTheme.Warning, NotificationTheme.Success])(
-        'renders with `%s` theme correctly',
-        theme => {
-            render(<Notification title="Title" theme={theme} role="status" />);
+    test.each(['danger', 'warning', 'success'])('renders with `%s` theme correctly', theme => {
+        render(<Notification title="Title" theme={theme as TNotificationTheme} role="status" />);
 
-            expect(screen.getByRole('status')).toHaveClass(`mc-notification--${theme}`);
-        }
-    );
+        expect(screen.getByRole('status')).toHaveClass(`mc-notification--${theme}`);
+    });
 
-    test.each([NotificationSize.M, NotificationSize.S])('renders with `%s` size correctly', size => {
+    test.each(sizes)('renders with `%s` size correctly', size => {
         render(<Notification title="Title" size={size} role="status" />);
 
         expect(screen.getByRole('status')).toHaveClass(`mc-notification--${size}`);

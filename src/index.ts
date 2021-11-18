@@ -24,7 +24,7 @@ export {
     ModalTitle
 } from './components/Modal';
 export { default as ModalsProvider, useModals } from './components/ModalsProvider';
-export { default as Notification, NotificationSize, NotificationTheme, INotification } from './components/Notification';
+export { default as Notification, INotification } from './components/Notification';
 export {
     default as NotificationsProvider,
     NotificationsRenderer,
