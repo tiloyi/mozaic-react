@@ -1,4 +1,4 @@
-export { default as Badge, BadgeTheme } from './components/Badge';
+export { default as Badge } from './components/Badge';
 export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
