@@ -36,4 +36,4 @@ export { default as TextArea } from './TextArea';
 export { default as TextInput } from './TextInput';
 export { default as Toggle, ToggleSize } from './Toggle';
 export { default as QuantitySelector, DecrementButton, IncrementButton, Input, QuantitySelectorSize } from './Counter';
-export { default as Tooltip, TooltipPlacement } from './Tooltip';
+export { default as Tooltip } from './Tooltip';

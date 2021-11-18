@@ -46,5 +46,5 @@ export {
     Input,
     QuantitySelectorSize
 } from './components/Counter';
-export { default as Tooltip, TooltipPlacement } from './components/Tooltip';
+export { default as Tooltip } from './components/Tooltip';
 export { useQuantitySelector } from './hooks';
