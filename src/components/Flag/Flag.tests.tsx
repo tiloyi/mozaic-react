@@ -77,7 +77,7 @@ describe('components/Flag', () => {
 
     test('renders with "light" theme and "solid" variant', () => {
         render(
-            <Flag theme="dark" variant="solid">
+            <Flag theme="light" variant="solid">
                 Text
             </Flag>
         );
