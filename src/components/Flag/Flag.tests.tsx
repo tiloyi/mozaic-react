@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Flag from './Flag';
-import { FlagTheme, FlagVariant } from './Flag.types';
 
 describe('components/Flag', () => {
     test('renders children correctly', () => {
@@ -18,7 +17,7 @@ describe('components/Flag', () => {
 
     test('renders with "primary-02" theme and "solid" variant', () => {
         render(
-            <Flag theme={FlagTheme.Primary02} variant={FlagVariant.Solid}>
+            <Flag theme="primary-02" variant="solid">
                 Text
             </Flag>
         );
@@ -28,7 +27,7 @@ describe('components/Flag', () => {
 
     test('renders with "primary-02" theme and "bordered" variant', () => {
         render(
-            <Flag theme={FlagTheme.Primary02} variant={FlagVariant.Bordered}>
+            <Flag theme="primary-02" variant="bordered">
                 Text
             </Flag>
         );
@@ -38,7 +37,7 @@ describe('components/Flag', () => {
 
     test('renders with "danger" theme and "solid" variant', () => {
         render(
-            <Flag theme={FlagTheme.Danger} variant={FlagVariant.Solid}>
+            <Flag theme="danger" variant="solid">
                 Text
             </Flag>
         );
@@ -48,7 +47,7 @@ describe('components/Flag', () => {
 
     test('renders with "danger" theme and "bordered" variant', () => {
         render(
-            <Flag theme={FlagTheme.Danger} variant={FlagVariant.Bordered}>
+            <Flag theme="danger" variant="bordered">
                 Text
             </Flag>
         );
@@ -58,7 +57,7 @@ describe('components/Flag', () => {
 
     test('renders with "dark" theme and "solid" variant', () => {
         render(
-            <Flag theme={FlagTheme.Dark} variant={FlagVariant.Solid}>
+            <Flag theme="dark" variant="solid">
                 Text
             </Flag>
         );
@@ -68,7 +67,7 @@ describe('components/Flag', () => {
 
     test('renders with "dark" theme and "bordered" variant', () => {
         render(
-            <Flag theme={FlagTheme.Dark} variant={FlagVariant.Bordered}>
+            <Flag theme="dark" variant="bordered">
                 Text
             </Flag>
         );
@@ -78,7 +77,7 @@ describe('components/Flag', () => {
 
     test('renders with "light" theme and "solid" variant', () => {
         render(
-            <Flag theme={FlagTheme.Light} variant={FlagVariant.Solid}>
+            <Flag theme="dark" variant="solid">
                 Text
             </Flag>
         );
@@ -88,7 +87,7 @@ describe('components/Flag', () => {
 
     test('renders with "light" theme and "bordered" variant', () => {
         render(
-            <Flag theme={FlagTheme.Light} variant={FlagVariant.Bordered}>
+            <Flag theme="light" variant="bordered">
                 Text
             </Flag>
         );

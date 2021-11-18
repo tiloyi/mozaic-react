@@ -2,7 +2,7 @@ export { default as Badge } from './components/Badge';
 export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
-export { default as Flag, FlagTheme, FlagVariant } from './components/Flag';
+export { default as Flag } from './components/Flag';
 export { default as Heading, HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './components/Heading';
 export {
     default as Layer,
