@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import cn from 'classnames';
 import { nanoid } from 'nanoid';
-import { ISelectOption, ISelectOptionGroup, ISelectProps, SelectSize } from './Select.types';
+import { ISelectOption, ISelectOptionGroup, ISelectProps } from './Select.types';
 import './Select.scss';
 
 const Select = ({
     className,
     options,
     placeholder = '',
-    size = SelectSize.M,
+    size = 'm',
     name,
     isValid,
     isInvalid,
@@ -24,7 +24,7 @@ const Select = ({
     const selectClassName = cn(
         'mc-select',
         className,
-        size !== SelectSize.M && `mc-select--${size}`,
+        size !== 'm' && `mc-select--${size}`,
         isInvalid && 'is-invalid',
         isValid && 'is-valid'
     );
