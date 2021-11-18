@@ -38,7 +38,7 @@ export { default as Select, SelectSize } from './components/Select';
 export { default as Text, TextTheme, TextAlign, TextSize, TextWeight } from './components/Text';
 export { default as TextArea } from './components/TextArea';
 export { default as TextInput } from './components/TextInput';
-export { default as Toggle, ToggleSize } from './components/Toggle';
+export { default as Toggle } from './components/Toggle';
 export {
     default as QuantitySelector,
     DecrementButton,
