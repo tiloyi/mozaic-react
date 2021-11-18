@@ -2,10 +2,10 @@ import React from 'react';
 import TextInput from '../../TextInput';
 import { useQuantitySelector } from './Container';
 
-const QuantitySelectorInput = () => {
-    const { value, size, isDisabled } = useQuantitySelector();
+const QuantitySelectorInput = (): JSX.Element => {
+    const props = useQuantitySelector();
 
-    return <TextInput className="mc-quantity-selector__input" size={size} isDisabled={isDisabled} value={value} />;
+    return <TextInput className="mc-quantity-selector__input" type="number" {...props} />;
 };
 
 export default QuantitySelectorInput;
