@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Button, { ButtonSize } from '../Button';
+import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import Text from '../Text';
 import { ModalBody, ModalFooter, ModalHeader, ModalHeading, ModalTitle } from './partials';
@@ -11,7 +11,7 @@ const ShortBodyExample = (): JSX.Element => {
 
     return (
         <>
-            <Button size={ButtonSize.S} onClick={() => open('shortBodyModal')}>
+            <Button size="s" onClick={() => open('shortBodyModal')}>
                 Open modal
             </Button>
             <Modal id="shortBodyModal">
@@ -47,7 +47,7 @@ const LongBodyExample = (): JSX.Element => {
 
     return (
         <>
-            <Button size={ButtonSize.S} onClick={() => open('longBodyModal')}>
+            <Button size="s" onClick={() => open('longBodyModal')}>
                 Open modal
             </Button>
             <Modal id="longBodyModal">
