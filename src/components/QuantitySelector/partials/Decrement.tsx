@@ -4,9 +4,11 @@ import { IQuantitySelectorButtonProps } from '../QuantitySelector.types';
 import { useQuantitySelector } from './Container';
 
 const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ children }) => {
-    const { value, minValue, size, isDisabled, decrement } = useQuantitySelector();
+    const { value, defaultValue, minValue, size, isDisabled, decrement } = useQuantitySelector();
 
-    const isLocked = minValue !== undefined && value !== undefined && value <= minValue;
+    const currentValue = value || defaultValue;
+
+    const isLocked = minValue !== undefined && currentValue !== undefined && currentValue <= minValue;
 
     return (
         <IconButton
