@@ -1,19 +1,21 @@
 import React from 'react';
 import TextInput from '../../TextInput';
-import { useQuantitySelector } from './Container';
+import { useQuantitySelectorInput } from './Container';
 
 const QuantitySelectorInput = (): JSX.Element => {
-    const { maxValue, minValue, ...props } = useQuantitySelector();
+    // const {} = useQuantitySelectorInput();
+
+    // const { maxValue, minValue, increment, decrement, onChange, ...props } = useQuantitySelector();
 
     return (
         <TextInput
             className="mc-quantity-selector__input"
             type="number"
-            {...props}
-            max={maxValue}
-            min={minValue}
-            aria-valuemax={maxValue}
-            aria-valuemin={minValue}
+            // {...props}
+            // max={maxValue}
+            // min={minValue}
+            // aria-valuemax={maxValue}
+            // aria-valuemin={minValue}
         />
     );
 };

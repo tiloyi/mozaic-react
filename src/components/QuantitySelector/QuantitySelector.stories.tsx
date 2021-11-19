@@ -32,7 +32,7 @@ Values.args = {
 const ExampleTemplate: Story<IQuantitySelectorProps> = args => {
     const [value, setValue] = useState(0);
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => setValue(parseFloat(event.target.value));
+    const handleChange = (nextValue: number): void => setValue(nextValue);
 
     return <QuantitySelector {...args} value={value} onChange={handleChange} />;
 };

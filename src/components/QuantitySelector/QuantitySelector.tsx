@@ -8,14 +8,12 @@ import {
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import './QuantitySelector.scss';
 
-const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => {
-    return (
-        <QuantitySelectorContainer {...props}>
-            <QuantitySelectorDecrement>-</QuantitySelectorDecrement>
-            <QuantitySelectorInput />
-            <QuantitySelectorIncrement>+</QuantitySelectorIncrement>
-        </QuantitySelectorContainer>
-    );
-};
+const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => (
+    <QuantitySelectorContainer {...props}>
+        <QuantitySelectorDecrement aria-label="Decrement">-</QuantitySelectorDecrement>
+        <QuantitySelectorInput />
+        <QuantitySelectorIncrement aria-label="Increment">+</QuantitySelectorIncrement>
+    </QuantitySelectorContainer>
+);
 
 export default QuantitySelector;

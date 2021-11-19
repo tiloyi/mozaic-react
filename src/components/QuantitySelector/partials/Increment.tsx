@@ -1,24 +1,19 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { IconButton } from '../../Button';
 import { IQuantitySelectorButtonProps } from '../QuantitySelector.types';
-import { useQuantitySelector } from './Container';
+import { useQuantitySelectorIncrement } from './Container';
 
-const QuantitySelectorIncrement: FC<IQuantitySelectorButtonProps> = ({ children }) => {
-    const { value, defaultValue, maxValue, size, isDisabled, increment } = useQuantitySelector();
-
-    const currentValue = value || defaultValue;
-
-    const isLocked = maxValue !== undefined && currentValue !== undefined && currentValue >= maxValue;
+const QuantitySelectorIncrement: FC<IQuantitySelectorButtonProps> = ({ className, children, ...props }) => {
+    const incrementProps = useQuantitySelectorIncrement();
 
     return (
         <IconButton
-            className="mc-quantity-selector__button-right"
-            size={size}
+            {...props}
+            className={cn('mc-quantity-selector__button-right', className)}
             theme="primary"
             variant="bordered"
-            isDisabled={isDisabled || isLocked}
-            onClick={increment}
-            aria-label="Increment"
+            {...incrementProps}
         >
             {children}
         </IconButton>

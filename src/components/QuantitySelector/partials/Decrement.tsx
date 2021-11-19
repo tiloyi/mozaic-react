@@ -1,24 +1,19 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { IconButton } from '../../Button';
 import { IQuantitySelectorButtonProps } from '../QuantitySelector.types';
-import { useQuantitySelector } from './Container';
+import { useQuantitySelectorDecrement } from './Container';
 
-const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ children }) => {
-    const { value, defaultValue, minValue, size, isDisabled, decrement } = useQuantitySelector();
-
-    const currentValue = value || defaultValue;
-
-    const isLocked = minValue !== undefined && currentValue !== undefined && currentValue <= minValue;
+const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ className, children, ...props }) => {
+    const decrementProps = useQuantitySelectorDecrement();
 
     return (
         <IconButton
-            className="mc-quantity-selector__button-left"
+            {...props}
+            className={cn('mc-quantity-selector__button-left', className)}
             theme="primary"
             variant="bordered"
-            size={size}
-            isDisabled={isDisabled || isLocked}
-            onClick={decrement}
-            aria-label="Decrement"
+            {...decrementProps}
         >
             {children}
         </IconButton>
