@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Button from './Button';
+import IconButton from './IconButton';
 
 describe('components/Button', () => {
     test('renders correctly', () => {
@@ -43,5 +44,12 @@ describe('components/Button', () => {
         render(<Button size="l">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--l');
+    });
+
+    test('renders correctly as IconButton', () => {
+        render(<IconButton>Click!</IconButton>);
+
+        expect(screen.getByRole('button')).toHaveTextContent('Click!');
+        expect(screen.getByRole('button')).toHaveClass('mc-button--square');
     });
 });
