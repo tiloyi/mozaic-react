@@ -5,7 +5,7 @@ import './Link.scss';
 
 const blockClassName = 'mc-link';
 
-function getSizeModifier(size?: TLinkSize): string {
+export function getSizeModifier(size?: TLinkSize): string {
     if (size) {
         return `${blockClassName}--${size}`;
     }
@@ -13,7 +13,7 @@ function getSizeModifier(size?: TLinkSize): string {
     return '';
 }
 
-function getThemeModifier(theme?: TLinkTheme): string {
+export function getThemeModifier(theme?: TLinkTheme): string {
     if (theme) {
         return `${blockClassName}--${theme}`;
     }
