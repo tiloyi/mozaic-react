@@ -3,10 +3,21 @@ import { Story } from '@storybook/react';
 import { ILinkProps } from './Link.types';
 import Link from './Link';
 
-const Template: Story<ILinkProps> = args => <Link {...args} />;
+const Template: Story<ILinkProps> = args => <Link {...args}>Lorem ipsum</Link>;
 
-export const LinkStory = Template.bind({});
+export const Controls = Template.bind({});
 
-LinkStory.args = {};
+Controls.args = {};
 
-export const argTypes = {};
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    size: {
+        control: {
+            type: 'select'
+        }
+    }
+};

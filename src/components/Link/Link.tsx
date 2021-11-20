@@ -1,10 +1,31 @@
 import React, { FC } from 'react';
-import { ILinkProps } from './Link.types';
-import './Link.scss'
+import cn from 'classnames';
+import { ILinkProps, TLinkSize, TLinkTheme } from './Link.types';
+import './Link.scss';
 
-const Link: FC<ILinkProps> = ({ children }): JSX.Element => {
+const blockClassName = 'mc-link';
+
+function getSizeModifier(size?: TLinkSize): string {
+    if (size) {
+        return `${blockClassName}--${size}`;
+    }
+
+    return '';
+}
+
+function getThemeModifier(theme?: TLinkTheme): string {
+    if (theme) {
+        return `${blockClassName}--${theme}`;
+    }
+
+    return '';
+}
+
+const Link: FC<ILinkProps> = ({ className, children, theme, size, ...props }): JSX.Element => {
     return (
-        <div>{ children }</div>
+        <a className={cn(blockClassName, className, getSizeModifier(size), getThemeModifier(theme))} {...props}>
+            {children}
+        </a>
     );
 };
 
