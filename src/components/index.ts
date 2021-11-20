@@ -13,6 +13,7 @@ export {
     LayerHeader,
     LayerTitle
 } from './Layer';
+export { default as Link } from './Link';
 export {
     default as Modal,
     ModalBody,

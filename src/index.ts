@@ -20,6 +20,7 @@ export {
     LayerHeader,
     LayerTitle
 } from './components/Layer';
+export { default as Link } from './components/Link';
 export {
     default as Modal,
     ModalBody,
