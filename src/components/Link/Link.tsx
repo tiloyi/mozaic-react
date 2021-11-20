@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { AnchorHTMLAttributes, createElement, DetailedHTMLProps, FC } from 'react';
 import cn from 'classnames';
 import { ILinkProps, TLinkSize, TLinkTheme } from './Link.types';
 import './Link.scss';
@@ -21,12 +21,18 @@ export function getThemeModifier(theme?: TLinkTheme): string {
     return '';
 }
 
-const Link: FC<ILinkProps> = ({ className, children, theme, size, ...props }): JSX.Element => {
-    return (
-        <a className={cn(blockClassName, className, getSizeModifier(size), getThemeModifier(theme))} {...props}>
-            {children}
-        </a>
-    );
-};
+export function getLinkProps({
+    className,
+    size,
+    theme,
+    ...props
+}: ILinkProps): DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
+    return {
+        className: cn(blockClassName, className, getSizeModifier(size), getThemeModifier(theme)),
+        ...props
+    };
+}
+
+const Link: FC<ILinkProps> = ({ children, ...props }) => createElement('a', getLinkProps(props), children);
 
 export default Link;
