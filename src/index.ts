@@ -39,6 +39,7 @@ export {
 } from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';
+export { default as ProgressBar } from './components/ProgressBar';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';
 export { default as Select, SelectSize } from './components/Select';
