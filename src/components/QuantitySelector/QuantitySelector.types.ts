@@ -20,15 +20,15 @@ export interface IQuantitySelectorProps extends Omit<InputHTMLAttributes<HTMLInp
     step?: number;
     size?: TQuantitySelectorSize;
     isDisabled?: boolean;
-    onChange?: (value: number) => void;
+    onChange?: (value?: number) => void;
 }
 
 export interface IQuantitySelectorContextProviderProps extends Omit<IQuantitySelectorProps, 'className'> {}
 
 export interface IQuantitySelectorActionContextValue {
-    size: TQuantitySelectorSize;
+    size?: TQuantitySelectorSize;
     isDisabled?: boolean;
     onClick: () => void;
 }
 
-export interface IQuantitySelectorInputContextValue {}
+export interface IQuantitySelectorInputContextValue extends IQuantitySelectorProps {}

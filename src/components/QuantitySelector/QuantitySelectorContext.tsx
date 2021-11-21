@@ -1,4 +1,4 @@
-import React, { FC, createContext, useContext, useMemo } from 'react';
+import React, { FC, createContext, useCallback, useContext, useMemo } from 'react';
 import {
     IQuantitySelectorActionContextValue,
     IQuantitySelectorInputContextValue,
@@ -31,44 +31,69 @@ export function useQuantitySelectorInput(): IQuantitySelectorInputContextValue {
 
 export const QuantitySelectorContextProvider: FC<IQuantitySelectorContextProviderProps> = ({
     children,
-    onChange,
-    size = 'm',
+    defaultValue,
+    value,
+    maxValue,
+    minValue,
+    step = 1,
+    size,
     isDisabled,
+    onChange,
     ...props
 }) => {
-    const increment = () => {
-        debugger;
-    };
+    const currentValue = value ?? defaultValue;
 
-    const decrement = () => {
-        debugger;
-    };
+    const increment = useCallback(() => {
+        const nextValue = (currentValue ?? 0) + step;
 
-    const contextValue = {
-        ...props,
-        increment,
-        decrement
-    };
+        if (maxValue !== undefined && nextValue > maxValue) {
+            return;
+        }
+
+        onChange?.(nextValue);
+    }, [currentValue, maxValue, step]);
+
+    const decrement = useCallback(() => {
+        const nextValue = (currentValue ?? 0) - step;
+
+        if (minValue !== undefined && nextValue < minValue) {
+            return;
+        }
+
+        onChange?.(nextValue);
+    }, [currentValue, minValue, step]);
 
     const incrementContextValue = useMemo(
         () => ({
             size,
-            isDisabled,
+            isDisabled:
+                isDisabled || (maxValue !== undefined && currentValue !== undefined && currentValue >= maxValue),
             onClick: increment
         }),
-        [size, isDisabled, increment]
+        [currentValue, maxValue, size, isDisabled, increment]
     );
 
     const decrementContextValue = useMemo(
         () => ({
             size,
-            isDisabled,
+            isDisabled:
+                isDisabled || (minValue !== undefined && currentValue !== undefined && currentValue <= minValue),
             onClick: decrement
         }),
-        [size, isDisabled, decrement]
+        [currentValue, minValue, size, isDisabled, decrement]
     );
 
-    const inputContextValue = {};
+    const inputContextValue = {
+        defaultValue,
+        value,
+        maxValue,
+        minValue,
+        step,
+        size,
+        isDisabled,
+        onChange,
+        ...props
+    };
 
     return (
         <QuantitySelectorInputContext.Provider value={inputContextValue}>
@@ -80,15 +105,3 @@ export const QuantitySelectorContextProvider: FC<IQuantitySelectorContextProvide
         </QuantitySelectorInputContext.Provider>
     );
 };
-
-// const { value, defaultValue, maxValue, size, isDisabled, increment } = useQuantitySelector();
-//
-// const currentValue = value || defaultValue;
-//
-// const isLocked = maxValue !== undefined && currentValue !== undefined && currentValue >= maxValue;
-
-// const { value, defaultValue, minValue, size, isDisabled, decrement } = useQuantitySelector();
-//
-// const currentValue = value || defaultValue;
-//
-// const isLocked = minValue !== undefined && currentValue !== undefined && currentValue <= minValue;

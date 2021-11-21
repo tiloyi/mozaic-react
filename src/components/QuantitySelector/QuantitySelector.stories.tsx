@@ -8,15 +8,11 @@ const Template: Story<IQuantitySelectorProps> = args => <QuantitySelector {...ar
 export const Controls = Template.bind({});
 
 Controls.args = {
-    defaultValue: 100,
+    defaultValue: 5,
     size: 'm',
-    isDisabled: false
-};
-
-export const Placeholder = Template.bind({});
-
-Placeholder.args = {
-    placeholder: 'Value',
+    maxValue: 10,
+    minValue: 0,
+    placeholder: 'Placeholder text',
     isDisabled: false
 };
 
@@ -30,17 +26,34 @@ Values.args = {
 };
 
 const ExampleTemplate: Story<IQuantitySelectorProps> = args => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState<number | undefined>(0);
 
-    const handleChange = (nextValue: number): void => setValue(nextValue);
+    const handleChange = (nextValue?: number): void => setValue(nextValue);
 
     return <QuantitySelector {...args} value={value} onChange={handleChange} />;
 };
 
 export const Example = ExampleTemplate.bind({});
 
+Example.args = {
+    step: 0.5,
+    minValue: 0,
+    maxValue: 10,
+    isDisabled: false
+};
+
 Example.argTypes = {
+    defaultValue: {
+        table: {
+            disable: true
+        }
+    },
     value: {
+        table: {
+            disable: true
+        }
+    },
+    onChange: {
         table: {
             disable: true
         }

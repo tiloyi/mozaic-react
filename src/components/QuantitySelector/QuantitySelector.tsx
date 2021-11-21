@@ -9,8 +9,8 @@ import { IconMinus, IconPlus } from './assets';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import './QuantitySelector.scss';
 
-const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => (
-    <QuantitySelectorContainer {...props}>
+const QuantitySelector = ({ size = 'm', ...props }: IQuantitySelectorProps): JSX.Element => (
+    <QuantitySelectorContainer size={size} {...props}>
         <QuantitySelectorDecrement theme="primary" variant="bordered" aria-label="Decrement">
             <IconMinus />
         </QuantitySelectorDecrement>
