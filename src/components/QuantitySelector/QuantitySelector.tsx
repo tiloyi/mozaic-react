@@ -5,14 +5,19 @@ import {
     QuantitySelectorIncrement,
     QuantitySelectorInput
 } from './partials';
+import { IconMinus, IconPlus } from './assets';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import './QuantitySelector.scss';
 
 const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => (
     <QuantitySelectorContainer {...props}>
-        <QuantitySelectorDecrement aria-label="Decrement">-</QuantitySelectorDecrement>
+        <QuantitySelectorDecrement aria-label="Decrement">
+            <IconMinus />
+        </QuantitySelectorDecrement>
         <QuantitySelectorInput />
-        <QuantitySelectorIncrement aria-label="Increment">+</QuantitySelectorIncrement>
+        <QuantitySelectorIncrement aria-label="Increment">
+            <IconPlus />
+        </QuantitySelectorIncrement>
     </QuantitySelectorContainer>
 );
 
