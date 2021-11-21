@@ -1,20 +1,16 @@
 import { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 
-export enum NotificationTheme {
-    Info = 'info',
-    Success = 'success',
-    Danger = 'danger',
-    Warning = 'warning'
-}
+export const themes = ['info', 'success', 'danger', 'warning'] as const;
 
-export enum NotificationSize {
-    M = 'm',
-    S = 's'
-}
+export type TNotificationTheme = typeof themes[number];
+
+export const sizes = ['s', 'm'] as const;
+
+export type TNotificationSize = typeof sizes[number];
 
 export interface INotification {
-    theme?: NotificationTheme;
-    size?: NotificationSize;
+    theme?: TNotificationTheme;
+    size?: TNotificationSize;
     title?: string;
     message?: ReactNode;
     footer?: ReactNode;
@@ -29,8 +25,8 @@ export interface INotificationCloseButtonProps extends ButtonHTMLAttributes<HTML
 }
 
 export interface INotificationContainerProps extends INotificationPartialProps {
-    theme?: NotificationTheme;
-    size?: NotificationSize;
+    theme?: TNotificationTheme;
+    size?: TNotificationSize;
     isClosable?: boolean;
 }
 

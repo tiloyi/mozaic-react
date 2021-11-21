@@ -1,15 +1,12 @@
 import { HTMLAttributes } from 'react';
 
+export const placements = ['top', 'right', 'left', 'bottom'] as const;
+
+export type TTooltipPlacement = typeof placements[number];
+
 export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     id?: string;
-    placement: TooltipPlacement;
+    placement?: TTooltipPlacement;
     label?: string | JSX.Element;
-}
-
-export enum TooltipPlacement {
-    Top = 'top',
-    Right = 'right',
-    Bottom = 'bottom',
-    Left = 'left'
 }

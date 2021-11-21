@@ -1,4 +1,4 @@
-import { ITextInputProps } from '../TextInput/TextInput.types';
+import { ITextInputProps } from '../TextInput';
 
 type TOmittedProps = 'type';
 

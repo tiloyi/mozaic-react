@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import Tooltip from './Tooltip';
-import { TooltipPlacement } from './Tooltip.types';
 
 const TEST_TOOLTIP_TEXT = '1234';
 const TEST_TOOLTIP_CONTENT_TEXT = 'Content';
@@ -9,16 +8,13 @@ const TEST_TOOLTIP_CONTENT = <span>{TEST_TOOLTIP_CONTENT_TEXT}</span>;
 
 describe('components/Tooltip', () => {
     test('Tooltip text renders in the right place', () => {
-        render(<Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_TEXT} />);
+        render(<Tooltip placement="top" label={TEST_TOOLTIP_TEXT} />);
 
-        const tooltip = screen.getByRole('tooltip');
-
-        expect(tooltip).toBeInTheDocument();
-        expect(tooltip).toHaveTextContent(TEST_TOOLTIP_TEXT);
+        expect(screen.getByRole('tooltip')).toHaveTextContent(TEST_TOOLTIP_TEXT);
     });
 
     test('Tooltip able to render content as component instead of text', () => {
-        render(<Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_CONTENT} />);
+        render(<Tooltip placement="top" label={TEST_TOOLTIP_CONTENT} />);
 
         const tooltip = screen.getByRole('tooltip');
 
@@ -28,13 +24,11 @@ describe('components/Tooltip', () => {
 
     test('Tooltip content renders in the right place', () => {
         render(
-            <Tooltip placement={TooltipPlacement.Top} label={TEST_TOOLTIP_TEXT}>
+            <Tooltip placement="top" label={TEST_TOOLTIP_TEXT}>
                 {TEST_TOOLTIP_CONTENT}
             </Tooltip>
         );
 
-        const tooltipContentText = screen.getByText(TEST_TOOLTIP_CONTENT_TEXT);
-
-        expect(tooltipContentText).toBeInTheDocument();
+        expect(screen.getByText(TEST_TOOLTIP_CONTENT_TEXT)).toBeInTheDocument();
     });
 });

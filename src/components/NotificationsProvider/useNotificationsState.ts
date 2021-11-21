@@ -1,7 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { INotificationsActions, INotificationsItem, TThemedNotificationParams } from './NotificationsProvider.types';
-import { NotificationTheme } from '../Notification';
 
 const NOTIFICATION_DURATION = 5000;
 
@@ -24,25 +23,13 @@ export default function useNotificationsState(): TUseNotificationsState {
         return notification.id;
     }, []);
 
-    const info = useCallback(
-        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Info }),
-        [add]
-    );
+    const info = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'info' }), [add]);
 
-    const success = useCallback(
-        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Success }),
-        [add]
-    );
+    const success = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'success' }), [add]);
 
-    const warning = useCallback(
-        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Warning }),
-        [add]
-    );
+    const warning = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'warning' }), [add]);
 
-    const danger = useCallback(
-        (params: TThemedNotificationParams) => add({ ...params, theme: NotificationTheme.Danger }),
-        [add]
-    );
+    const danger = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'danger' }), [add]);
 
     const remove = useCallback((notificationId: string) => {
         setNotifications(prevNotifications =>
