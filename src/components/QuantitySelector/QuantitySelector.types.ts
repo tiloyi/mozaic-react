@@ -5,7 +5,7 @@ export const sizes = ['s', 'm'] as const;
 
 export type TQuantitySelectorSize = typeof sizes[number];
 
-type TOmittedButtonProps = 'size' | 'theme' | 'variant' | 'onClick' | 'isDisabled';
+type TOmittedButtonProps = 'size' | 'onClick' | 'isDisabled';
 
 type TOmittedHTMLInputProps = 'disabled' | 'size' | 'value' | 'defaultValue' | 'min' | 'max' | 'step' | 'onChange';
 
@@ -23,10 +23,7 @@ export interface IQuantitySelectorProps extends Omit<InputHTMLAttributes<HTMLInp
     onChange?: (value: number) => void;
 }
 
-export interface IQuantitySelectorContextValue extends IQuantitySelectorProps {
-    increment: () => void;
-    decrement: () => void;
-}
+export interface IQuantitySelectorContextProviderProps extends Omit<IQuantitySelectorProps, 'className'> {}
 
 export interface IQuantitySelectorActionContextValue {
     size: TQuantitySelectorSize;

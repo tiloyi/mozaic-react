@@ -11,11 +11,11 @@ import './QuantitySelector.scss';
 
 const QuantitySelector = (props: IQuantitySelectorProps): JSX.Element => (
     <QuantitySelectorContainer {...props}>
-        <QuantitySelectorDecrement aria-label="Decrement">
+        <QuantitySelectorDecrement theme="primary" variant="bordered" aria-label="Decrement">
             <IconMinus />
         </QuantitySelectorDecrement>
         <QuantitySelectorInput />
-        <QuantitySelectorIncrement aria-label="Increment">
+        <QuantitySelectorIncrement theme="primary" variant="bordered" aria-label="Increment">
             <IconPlus />
         </QuantitySelectorIncrement>
     </QuantitySelectorContainer>
