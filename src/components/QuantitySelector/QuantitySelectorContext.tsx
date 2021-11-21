@@ -51,7 +51,7 @@ export const QuantitySelectorContextProvider: FC<IQuantitySelectorContextProvide
         }
 
         onChange?.(nextValue);
-    }, [currentValue, maxValue, step]);
+    }, [currentValue, maxValue, step, onChange]);
 
     const decrement = useCallback(() => {
         const nextValue = (currentValue ?? 0) - step;
@@ -61,7 +61,7 @@ export const QuantitySelectorContextProvider: FC<IQuantitySelectorContextProvide
         }
 
         onChange?.(nextValue);
-    }, [currentValue, minValue, step]);
+    }, [currentValue, minValue, step, onChange]);
 
     const incrementContextValue = useMemo(
         () => ({

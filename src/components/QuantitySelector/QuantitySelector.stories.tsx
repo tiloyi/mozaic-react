@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import QuantitySelector from './QuantitySelector';

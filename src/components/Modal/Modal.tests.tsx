@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Modal from './Modal';
 import { Button, ModalsProvider, useModals } from '../index';
 
-const ModalSetup = () => {
+const ModalSetup = (): JSX.Element => {
     const { open } = useModals();
     return (
         <>

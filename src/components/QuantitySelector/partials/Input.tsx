@@ -5,22 +5,25 @@ import { useQuantitySelectorInput } from '../QuantitySelectorContext';
 const QuantitySelectorInput = (): JSX.Element => {
     const { maxValue, minValue, onChange, ...props } = useQuantitySelectorInput();
 
-    const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        const nextValue = value.length > 0 ? Number(value) : undefined;
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            const value = event.target.value;
+            const nextValue = value.length > 0 ? Number(value) : undefined;
 
-        if (nextValue !== undefined) {
-            if (maxValue !== undefined && nextValue > maxValue) {
-                return;
+            if (nextValue !== undefined) {
+                if (maxValue !== undefined && nextValue > maxValue) {
+                    return;
+                }
+
+                if (minValue !== undefined && nextValue < minValue) {
+                    return;
+                }
             }
 
-            if (minValue !== undefined && nextValue < minValue) {
-                return;
-            }
-        }
-
-        onChange?.(nextValue);
-    }, []);
+            onChange?.(nextValue);
+        },
+        [maxValue, minValue, onChange]
+    );
 
     return (
         <TextInput
