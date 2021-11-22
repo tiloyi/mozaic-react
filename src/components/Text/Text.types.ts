@@ -1,4 +1,5 @@
 export const tags = [
+    'div',
     'p',
     'span',
     'em',
@@ -19,57 +20,39 @@ export const tags = [
 
 export type TTextTag = typeof tags[number];
 
-export enum TextAlign {
-    Left = 'left',
-    Center = 'center',
-    Right = 'right'
-}
+export const textAligns = ['left', 'center', 'right'] as const;
 
-export enum TextTheme {
-    Primary01 = 'primary-01',
-    Primary02 = 'primary-02',
-    Darkest = 'darkest',
-    Darker = 'darker',
-    Dark = 'dark',
-    Light = 'light',
-    Lightest = 'lightest',
-    Danger = 'danger',
-    Warning = 'warning',
-    Info = 'info',
-    Success = 'success'
-}
+export type TTextAlign = typeof textAligns[number];
 
 export const themes = [
-    TextTheme.Primary01,
-    TextTheme.Primary02,
-    TextTheme.Darkest,
-    TextTheme.Darker,
-    TextTheme.Dark,
-    TextTheme.Light,
-    TextTheme.Lightest,
-    TextTheme.Danger,
-    TextTheme.Warning,
-    TextTheme.Info,
-    TextTheme.Success
-];
+    'primary-01',
+    'primary-02',
+    'darkest',
+    'darker',
+    'dark',
+    'light',
+    'lightest',
+    'danger',
+    'warning',
+    'info',
+    'success'
+] as const;
 
-export enum TextSize {
-    L = 'l',
-    M = 'm',
-    S = 's'
-}
+export type TTextTheme = typeof themes[number];
 
-export enum TextWeight {
-    Light = 'light-weight',
-    Regular = 'regular-weight',
-    SemiBold = 'semi-bold-weight'
-}
+export const sizes = ['s', 'm', 'l'] as const;
+
+export type TTextSize = typeof sizes[number];
+
+export const weights = ['light', 'regular', 'semi-bold'] as const;
+
+export type TTextWeight = typeof weights[number];
 
 export interface ITextProps {
     className?: string;
     as?: TTextTag;
-    align?: TextAlign;
-    theme?: TextTheme;
-    size?: TextSize;
-    weight?: TextWeight;
+    textAlign?: TTextAlign;
+    theme?: TTextTheme;
+    size?: TTextSize;
+    weight?: TTextWeight;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Text from './Text';
-import { ITextProps, TextSize, TextTheme, TextWeight } from './Text.types';
+import { ITextProps } from './Text.types';
 
 const Template: Story<ITextProps> = args => <Text {...args}>Lorem ipsum dolor sit amet</Text>;
 
@@ -9,9 +9,9 @@ export const Controls = Template.bind({});
 
 Controls.args = {
     as: 'p',
-    theme: TextTheme.Primary01,
-    size: TextSize.M,
-    weight: TextWeight.Regular
+    theme: 'primary-01',
+    size: 'm',
+    weight: 'regular'
 };
 
 export const argTypes = {
@@ -32,12 +32,7 @@ export const argTypes = {
     },
     weight: {
         control: {
-            type: 'select',
-            labels: {
-                [TextWeight.Light]: 'Light',
-                [TextWeight.Regular]: 'Regular',
-                [TextWeight.SemiBold]: 'Semi Bold'
-            }
+            type: 'select'
         }
     }
 };

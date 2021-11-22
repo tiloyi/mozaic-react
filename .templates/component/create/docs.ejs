@@ -1,8 +1,13 @@
 ---
 to: "<%= hasDocs ? `src/components/${name}/${name}.stories.mdx` : null %>"
 ---
-import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { <%= name %>Story, argTypes } from './<%= name %>.stories'
+import {
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  ArgsTable,
+} from '@storybook/addon-docs';
 import <%= name %> from './<%= name %>';
 
 <Meta title="<%= name %>" component={<%= name %>} argTypes={argTypes} />

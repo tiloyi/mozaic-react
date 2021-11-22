@@ -1,26 +1,17 @@
 import { FC, createElement } from 'react';
 import cn from 'classnames';
-import { ITextProps, TextSize } from './Text.types';
+import { ITextProps } from './Text.types';
 import './Text.scss';
 
 const blockClassName = 'mt-text';
 
-const Text: FC<ITextProps> = ({
-    className,
-    children,
-    as = 'span',
-    align,
-    theme,
-    size = TextSize.M,
-    weight,
-    ...props
-}) => {
+const Text: FC<ITextProps> = ({ className, children, as = 'span', textAlign, theme, size = 'm', weight, ...props }) => {
     const elementClassName = cn(
         blockClassName,
         className,
-        align && `${blockClassName}--${align}`,
+        textAlign && `${blockClassName}--${textAlign}`,
         `${blockClassName}--${size}`,
-        theme && `${blockClassName}--${theme}`,
+        theme && `${blockClassName}--color-${theme}`,
         weight && `${blockClassName}--${weight}`
     );
 
