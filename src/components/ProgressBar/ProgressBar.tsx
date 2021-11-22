@@ -52,9 +52,10 @@ const ProgressBar = ({
                 withValue && `${blockClassName}--percent`,
                 withValue && value > 50 && `${blockClassName}--half`
             ),
-        [theme, size, value, withValue]
+        [theme, size, value, withValue, className]
     );
 
+    /* eslint-disable react/forbid-dom-props */
     return (
         <div className={containerClassName} {...props}>
             <div
@@ -70,6 +71,7 @@ const ProgressBar = ({
             <div className={`${blockClassName}__percentage`}>{renderValue(value)}</div>
         </div>
     );
+    /* eslint-enable react/forbid-dom-props */
 };
 
 export default ProgressBar;
