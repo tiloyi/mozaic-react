@@ -3,7 +3,7 @@
 <p align="center">
   Mozaic-React is the <a href="https://reactjs.org/">React</a> implementation of <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>.
   <br>
-  <a href="https://mv-storybook-next.surge.sh/"><strong>Explore Mozaic-react Storybook »</strong></a>
+  <a href="https://mv-storybook-next.surge.sh/"><strong>Explore Mozaic-React Storybook »</strong></a>
 </p>
 
 <p align="center">
