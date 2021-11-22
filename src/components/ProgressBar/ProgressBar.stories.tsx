@@ -15,11 +15,6 @@ Controls.args = {
 };
 
 export const argTypes = {
-    value: {
-        control: {
-            type: 'range'
-        }
-    },
     theme: {
         control: {
             type: 'select'

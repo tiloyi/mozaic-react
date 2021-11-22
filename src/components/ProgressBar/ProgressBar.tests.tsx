@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ProgressBar, { getSizeModifier, getThemeModifier } from './ProgressBar';
-import { sizes, TProgressBarSize } from './ProgressBar.types';
+import { TProgressBarSize } from './ProgressBar.types';
 
 describe('components/ProgressBar', () => {
     test('renders correctly', () => {

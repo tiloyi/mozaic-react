@@ -11,8 +11,10 @@ export type TProgressBarSize = typeof sizes[number];
 export interface IProgressBarProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     value: number;
+    minValue?: number;
+    maxValue?: number;
     theme?: TProgressBarTheme;
     size?: TProgressBarSize;
-    renderValue?: (value: number) => string;
+    renderValue?: (value: number, percents: number) => string;
     withValue?: boolean;
 }
