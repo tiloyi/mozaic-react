@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Text from './Text';
-import { tags, TextAlign, TextSize, TextWeight, themes } from './Text.types';
+import { tags, textAligns, sizes, weights, themes } from './Text.types';
 
 describe('components/Text', () => {
     test.each(tags)('renders as `%s` tag correctly', tag => {
@@ -10,16 +10,16 @@ describe('components/Text', () => {
         expect(screen.getByText('text').tagName).toBe(tag.toUpperCase());
     });
 
-    test.each([TextAlign.Left, TextAlign.Center, TextAlign.Right])('renders with `%s` text align correctly', align => {
-        render(<Text align={align}>text</Text>);
+    test.each(textAligns)('renders with `%s` text textAlign correctly', textAlign => {
+        render(<Text textAlign={textAlign}>text</Text>);
 
-        expect(screen.getByText('text')).toHaveClass(`mt-text--${align}`);
+        expect(screen.getByText('text')).toHaveClass(`mt-text--${textAlign}`);
     });
 
     test.each(themes)('renders with `%s` theme correctly', theme => {
         render(<Text theme={theme}>text</Text>);
 
-        expect(screen.getByText('text')).toHaveClass(`mt-text--${theme}`);
+        expect(screen.getByText('text')).toHaveClass(`mt-text--color-${theme}`);
     });
 
     test('renders with default size correctly', () => {
@@ -28,18 +28,15 @@ describe('components/Text', () => {
         expect(screen.getByText('text')).toHaveClass(`mt-text--m`);
     });
 
-    test.each([TextSize.S, TextSize.M, TextSize.L])('renders with `%s` size correctly', size => {
+    test.each(sizes)('renders with `%s` size correctly', size => {
         render(<Text size={size}>text</Text>);
 
         expect(screen.getByText('text')).toHaveClass(`mt-text--${size}`);
     });
 
-    test.each([TextWeight.Light, TextWeight.Regular, TextWeight.SemiBold])(
-        'renders with `%s` weight correctly',
-        weight => {
-            render(<Text weight={weight}>text</Text>);
+    test.each(weights)('renders with `%s` weight correctly', weight => {
+        render(<Text weight={weight}>text</Text>);
 
-            expect(screen.getByText('text')).toHaveClass(`mt-text--${weight}`);
-        }
-    );
+        expect(screen.getByText('text')).toHaveClass(`mt-text--${weight}`);
+    });
 });

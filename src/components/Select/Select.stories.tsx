@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Story } from '@storybook/react';
 import { languages, food } from './Select.fixtures';
-import { ISelectProps, SelectSize } from './Select.types';
+import { ISelectProps } from './Select.types';
 import Select from './Select';
 
 const ControlsTemplate: Story<ISelectProps> = args => <Select {...args} options={languages} />;
@@ -11,7 +11,7 @@ export const Controls = ControlsTemplate.bind({});
 Controls.args = {
     placeholder: 'Select an language',
     defaultValue: 'ruby',
-    size: SelectSize.M,
+    size: 'm',
     isInvalid: false,
     isValid: false,
     isDisabled: false
@@ -38,7 +38,7 @@ export const Example = ExampleTemplate.bind({});
 
 Example.args = {
     placeholder: 'Select an language',
-    size: SelectSize.M,
+    size: 'm',
     isInvalid: false,
     isValid: false,
     isDisabled: false
@@ -59,7 +59,7 @@ export const Groups = GroupsTemplate.bind({});
 Groups.args = {
     placeholder: 'Select an food',
     defaultValue: 'apple',
-    size: SelectSize.M,
+    size: 'm',
     isInvalid: false,
     isValid: false,
     isDisabled: false

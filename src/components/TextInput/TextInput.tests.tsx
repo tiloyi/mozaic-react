@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TextInput from './TextInput';
-import { TextInputSize } from './TextInput.types';
 
 describe('components/TextInput', () => {
     test('renders correctly', () => {
@@ -30,7 +29,7 @@ describe('components/TextInput', () => {
     });
 
     test('renders in small size', () => {
-        render(<TextInput size={TextInputSize.S} />);
+        render(<TextInput size="s" />);
 
         expect(screen.getByRole('textbox')).toHaveClass('mc-text-input--s');
     });

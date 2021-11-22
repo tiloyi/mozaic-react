@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ITextInputProps, TextInputSize } from './TextInput.types';
+import { ITextInputProps, TTextInputSize } from './TextInput.types';
 import './TextInput.scss';
 
 const blockClassName = 'mc-text-input';
 
-function getSizeClassName(size: TextInputSize): string {
-    return size !== TextInputSize.M ? `${blockClassName}--${size}` : '';
+function getSizeClassName(size: TTextInputSize): string {
+    return size !== 'm' ? `${blockClassName}--${size}` : '';
 }
 
 const TextInput: FC<ITextInputProps> = ({
     className,
     type = 'text',
-    size = TextInputSize.M,
+    size = 'm',
     isDisabled,
     isInvalid,
     isValid,

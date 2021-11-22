@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { HeadingAlign, HeadingSize, HeadingUnderline, HeadingWeight, tags } from './Heading.types';
+import { textAligns, sizes, weights, tags, THeadingUnderline } from './Heading.types';
 import Heading from './Heading';
 
 describe('components/Heading', () => {
@@ -16,42 +16,36 @@ describe('components/Heading', () => {
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--m`);
     });
 
-    test.each([HeadingSize.S, HeadingSize.M, HeadingSize.L])('renders with `%s` size correctly', size => {
+    test.each(sizes)('renders with `%s` size correctly', size => {
         render(<Heading size={size}>Heading</Heading>);
 
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${size}`);
     });
 
-    test.each([HeadingAlign.Left, HeadingAlign.Center, HeadingAlign.Right])(
-        'renders with `%s` text align correctly',
-        align => {
-            render(<Heading align={align}>Heading</Heading>);
+    test.each(textAligns)('renders with `%s` text textAlign correctly', textAlign => {
+        render(<Heading textAlign={textAlign}>Heading</Heading>);
 
-            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${align}`);
-        }
-    );
+        expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${textAlign}`);
+    });
 
-    test.each([HeadingWeight.Light, HeadingWeight.Regular, HeadingWeight.SemiBold])(
-        'renders with `%s` weight correctly',
-        weight => {
-            render(<Heading weight={weight}>Heading</Heading>);
+    test.each(weights)('renders with `%s` weight correctly', weight => {
+        render(<Heading weight={weight}>Heading</Heading>);
 
-            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${weight}`);
-        }
-    );
+        expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${weight}`);
+    });
 
     test('renders with underline correctly', () => {
-        render(<Heading underline={HeadingUnderline.Primary01_500}>Heading</Heading>);
+        render(<Heading underline="primary-01-500">Heading</Heading>);
 
         expect(screen.getByText('Heading')).toHaveClass(`mt-heading--underline`);
     });
 
-    test.each([HeadingUnderline.Primary01_200, HeadingUnderline.Primary02_200, HeadingUnderline.Primary02_600])(
+    test.each(['primary-01-200', 'primary-02-200', 'primary-02-600'])(
         'renders with `%s` underline correctly',
         underline => {
-            render(<Heading underline={underline}>Heading</Heading>);
+            render(<Heading underline={underline as THeadingUnderline}>Heading</Heading>);
 
-            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--${underline}`);
+            expect(screen.getByText('Heading')).toHaveClass(`mt-heading--line-${underline}`);
         }
     );
 });

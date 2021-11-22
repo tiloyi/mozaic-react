@@ -2,16 +2,32 @@ import { ButtonHTMLAttributes, ReactElement } from 'react';
 
 type TOmittedProps = 'disabled';
 
+export const sizes = ['s', 'm', 'l'] as const;
+
+export type TButtonSize = typeof sizes[number];
+
+export const variants = ['solid', 'bordered'] as const;
+
+export type TButtonVariant = typeof variants[number];
+
+export const themes = ['primary', 'primary-02', 'danger', 'neutral'] as const;
+
+export type TButtonTheme = typeof themes[number];
+
+export const widths = ['fit', 'full'] as const;
+
+export type TButtonWidth = typeof widths[number];
+
 export interface IIconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedProps> {
     className?: string;
-    variant?: ButtonVariant;
-    theme?: ButtonTheme;
-    size?: ButtonSize;
+    variant?: TButtonVariant;
+    theme?: TButtonTheme;
+    size?: TButtonSize;
     isDisabled?: boolean;
 }
 
 export interface IButtonContainerProps extends IIconButtonProps {
-    width?: ButtonWidth;
+    width?: TButtonWidth;
 }
 
 export interface IButtonProps extends IButtonContainerProps {
@@ -21,27 +37,4 @@ export interface IButtonProps extends IButtonContainerProps {
 
 export interface IButtonPartialProps {
     className?: string;
-}
-
-export enum ButtonVariant {
-    Solid = 'solid',
-    Bordered = 'bordered'
-}
-
-export enum ButtonTheme {
-    Primary = 'primary',
-    Primary02 = 'primary-02',
-    Danger = 'danger',
-    Neutral = 'neutral'
-}
-
-export enum ButtonSize {
-    S = 's',
-    M = 'm',
-    L = 'l'
-}
-
-export enum ButtonWidth {
-    Fit = 'fit',
-    Full = 'full'
 }
