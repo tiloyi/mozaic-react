@@ -33,6 +33,7 @@ export {
 } from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
 export { default as Portal } from './components/Portal';
+export { default as ProgressBar } from './components/ProgressBar';
 export { default as QuantitySelector } from './components/QuantitySelector';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';

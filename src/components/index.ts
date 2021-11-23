@@ -29,6 +29,7 @@ export { default as Notification, INotification } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
+export { default as ProgressBar } from './ProgressBar';
 export { default as QuantitySelector } from './QuantitySelector';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
