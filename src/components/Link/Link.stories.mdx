@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, WithLeftIcon, WithRightIcon, WithIcons, argTypes } from './Link.stories';
+import Link from './Link';
+
+<Meta title="Components/Link" component={Link} argTypes={argTypes} />
+
+# Link
+
+The `Link` component is the **React.js** implementation of the **Mozaic Link** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Link/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Link } from 'bigfish-wms--mozaic-react';" />
+
+2. Call the component and give it the desired props, for example:
+
+basic example:
+
+<Canvas withSource="open">
+    <Story story={Controls} />
+</Canvas>
+
+with left icon:
+
+<Canvas withSource="open">
+    <Story story={WithLeftIcon} />
+</Canvas>
+
+with right icon:
+
+<Canvas withSource="open">
+    <Story story={WithRightIcon} />
+</Canvas>
+
+with icons:
+
+<Canvas withSource="open">
+    <Story story={WithIcons} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Link} />

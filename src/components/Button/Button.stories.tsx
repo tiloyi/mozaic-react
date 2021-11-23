@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import Button from './Button';
 import IconButton from './IconButton';
-import { ButtonSize, ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps, IIconButtonProps } from './Button.types';
+import { IButtonProps, IIconButtonProps } from './Button.types';
 
 const Icon = (): JSX.Element => (
     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -17,10 +17,10 @@ const TextTemplate: Story<IButtonProps> = args => <Button {...args}>Click!</Butt
 export const Text = TextTemplate.bind({});
 
 Text.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Primary02,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'primary-02',
+    width: 'fit'
 };
 
 const WithLeftIconTemplate: Story<IButtonProps> = args => (
@@ -32,10 +32,10 @@ const WithLeftIconTemplate: Story<IButtonProps> = args => (
 export const WithLeftIcon = WithLeftIconTemplate.bind({});
 
 WithLeftIcon.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Neutral,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'neutral',
+    width: 'fit'
 };
 
 const WithRightIconTemplate: Story<IButtonProps> = args => (
@@ -47,10 +47,10 @@ const WithRightIconTemplate: Story<IButtonProps> = args => (
 export const WithRightIcon = WithRightIconTemplate.bind({});
 
 WithRightIcon.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Neutral,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'neutral',
+    width: 'fit'
 };
 
 const IconOnlyTemplate: Story<IIconButtonProps> = args => (
@@ -62,9 +62,9 @@ const IconOnlyTemplate: Story<IIconButtonProps> = args => (
 export const IconOnly = IconOnlyTemplate.bind({});
 
 IconOnly.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Danger
+    size: 'm',
+    variant: 'solid',
+    theme: 'danger'
 };
 
 IconOnly.argTypes = {
@@ -75,39 +75,35 @@ IconOnly.argTypes = {
     }
 };
 
-export default {
-    title: 'Button',
-    component: Button,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        variant: {
-            control: {
-                type: 'select'
-            }
-        },
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        width: {
-            control: {
-                type: 'select'
-            }
-        },
-        leftIcon: {
-            table: {
-                disable: true
-            }
-        },
-        rightIcon: {
-            table: {
-                disable: true
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    variant: {
+        control: {
+            type: 'select'
+        }
+    },
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    width: {
+        control: {
+            type: 'select'
+        }
+    },
+    leftIcon: {
+        table: {
+            disable: true
+        }
+    },
+    rightIcon: {
+        table: {
+            disable: true
         }
     }
 };

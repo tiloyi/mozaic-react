@@ -44,7 +44,7 @@ export default [
                 ]
             }),
             commonjs(),
-            typescript({ exclude: ['src/**/*.stories.tsx', 'src/**/*.tests.tsx'] })
+            typescript({ exclude: ['src/**/*.stories.tsx', 'src/**/*.tests.tsx', 'src/**/*.fixtures.ts'] })
         ]
     }
 ];

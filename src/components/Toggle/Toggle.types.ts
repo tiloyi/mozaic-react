@@ -1,5 +1,9 @@
 import { InputHTMLAttributes } from 'react';
 
+export const sizes = ['s', 'm'] as const;
+
+export type TToggleSize = typeof sizes[number];
+
 type TOmittedProps = 'checked' | 'disabled' | 'size';
 
 export interface IToggleIndicatorProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
@@ -8,7 +12,7 @@ export interface IToggleIndicatorProps extends Omit<InputHTMLAttributes<HTMLInpu
 }
 
 export interface IToggleProps extends IToggleIndicatorProps {
-    size?: ToggleSize;
+    size?: TToggleSize;
 }
 
 export interface ITogglePartialProps {
@@ -16,10 +20,5 @@ export interface ITogglePartialProps {
 }
 
 export interface IToggleContainerProps extends ITogglePartialProps {
-    size?: ToggleSize;
-}
-
-export enum ToggleSize {
-    S = 's',
-    M = 'm'
+    size?: TToggleSize;
 }

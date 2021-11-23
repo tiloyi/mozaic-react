@@ -1,13 +1,13 @@
-@import 'settings-tools/_all-settings';
+@import "settings-tools/_all-settings";
 
-$font-colors: get-token('color', 'font');
+$font-colors: get-token("color", "font");
 $alignments: left, center, right;
 
 .mt-text {
     @include set-font-family();
 
     @each $key, $value in $font-colors {
-        &--#{$key} {
+        &--color-#{$key} {
             @include set-color($key);
         }
     }
@@ -19,26 +19,26 @@ $alignments: left, center, right;
     }
 
     &--l {
-        @include set-font-scale('06');
+        @include set-font-scale("06");
     }
 
     &--m {
-        @include set-font-scale('05');
+        @include set-font-scale("05");
     }
 
     &--s {
-        @include set-font-scale('04');
+        @include set-font-scale("04");
     }
 
-    &--light-weight {
-        @include set-font-weight('light');
+    &--light {
+        @include set-font-weight("light");
     }
 
-    &--regular-weight {
-        @include set-font-weight('regular');
+    &--regular {
+        @include set-font-weight("regular");
     }
 
-    &--semi-bold-weight {
-        @include set-font-weight('semi-bold');
+    &--semi-bold {
+        @include set-font-weight("semi-bold");
     }
 }

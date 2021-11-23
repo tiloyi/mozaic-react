@@ -4,10 +4,11 @@ import {
   Canvas,
   Source,
   ArgsTable,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
+import { Controls, argTypes } from './Badge.stories';
 import Badge from './Badge';
 
-<Meta title="Badge" component={Badge} />
+<Meta title="Components/Badge" component={Badge} argTypes={argTypes} />
 
 # Badge
 
@@ -23,13 +24,13 @@ To use the component in your project you must:
 
 <Source
   language="javascript"
-  code="import { Badge } from 'mozaic-react';"
+  code="import { Badge } from 'bigfish-wms--mozaic-react';"
 />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="badge--badge-story" />
+  <Story story={Controls} />
 </Canvas>
 
 

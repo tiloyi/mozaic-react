@@ -31,14 +31,10 @@ Example.args = {
     isValid: false
 };
 
-export default {
-    title: 'DateInput',
-    component: DateInput,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
         }
     }
 };

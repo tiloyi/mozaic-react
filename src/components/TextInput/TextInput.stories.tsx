@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Story } from '@storybook/react';
 import TextInput from './TextInput';
-import { ITextInputProps, TextInputSize } from './TextInput.types';
+import { ITextInputProps } from './TextInput.types';
 
 const ControlsTemplate: Story<ITextInputProps> = args => <TextInput {...args} />;
 
@@ -9,7 +9,7 @@ export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
     value: 'lorem ipsum',
-    size: TextInputSize.M,
+    size: 'm',
     isDisabled: false,
     isInvalid: false,
     isValid: false
@@ -27,20 +27,16 @@ export const Example = ExampleTemplate.bind({});
 
 Example.args = {
     placeholder: 'placeholder',
-    size: TextInputSize.M,
+    size: 'm',
     isDisabled: false,
     isInvalid: false,
     isValid: false
 };
 
-export default {
-    title: 'TextInput',
-    component: TextInput,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
         }
     }
 };

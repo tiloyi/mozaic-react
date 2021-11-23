@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Tooltip from './Tooltip';
-import { ITooltipProps, TooltipPlacement } from './Tooltip.types';
+import { ITooltipProps } from './Tooltip.types';
 
 // Top
 
@@ -10,7 +10,7 @@ const TooltipTemplateTop: Story<ITooltipProps> = args => <Tooltip {...args}>Top<
 export const Top = TooltipTemplateTop.bind({});
 
 Top.args = {
-    placement: TooltipPlacement.Top,
+    placement: 'top',
     label: 'Tooltip\ntext'
 };
 
@@ -21,7 +21,7 @@ const TooltipTemplateRight: Story<ITooltipProps> = args => <Tooltip {...args}>Ri
 export const Right = TooltipTemplateRight.bind({});
 
 Right.args = {
-    placement: TooltipPlacement.Right,
+    placement: 'right',
     label: 'Tooltip text'
 };
 
@@ -32,7 +32,7 @@ const TooltipTemplateBottom: Story<ITooltipProps> = args => <Tooltip {...args}>B
 export const Bottom = TooltipTemplateBottom.bind({});
 
 Bottom.args = {
-    placement: TooltipPlacement.Bottom,
+    placement: 'bottom',
     label: 'Tooltip text'
 };
 
@@ -43,7 +43,7 @@ const TooltipTemplateLeft: Story<ITooltipProps> = args => <Tooltip {...args}>Lef
 export const Left = TooltipTemplateLeft.bind({});
 
 Left.args = {
-    placement: TooltipPlacement.Left,
+    placement: 'left',
     label: 'Tooltip text'
 };
 
@@ -66,7 +66,7 @@ const TooltipTemplateWithIcon: Story<ITooltipProps> = args => (
 export const WithIcon = TooltipTemplateWithIcon.bind({});
 
 WithIcon.args = {
-    placement: TooltipPlacement.Top,
+    placement: 'top',
     label: 'Tooltip text'
 };
 
@@ -77,26 +77,19 @@ const TooltipTemplateWithCustomContent: Story<ITooltipProps> = args => <Tooltip 
 export const WithCustomContent = TooltipTemplateWithCustomContent.bind({});
 
 WithCustomContent.args = {
-    placement: TooltipPlacement.Top,
+    placement: 'top',
     label: <button type="button">Button</button>
 };
 
-export default {
-    title: 'Tooltip',
-    component: Tooltip,
-    parameters: {
-        layout: 'centered'
+export const argTypes = {
+    placement: {
+        control: {
+            type: 'select'
+        }
     },
-    argTypes: {
-        placement: {
-            control: {
-                type: 'select'
-            }
-        },
-        label: {
-            control: {
-                type: 'text'
-            }
+    label: {
+        control: {
+            type: 'text'
         }
     }
 };

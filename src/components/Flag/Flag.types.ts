@@ -1,20 +1,15 @@
 import { HTMLAttributes } from 'react';
 
+export const variants = ['solid', 'bordered'] as const;
+
+export type TFlagVariant = typeof variants[number];
+
+export const themes = ['primary', 'primary-02', 'danger', 'dark', 'light'] as const;
+
+export type TFlagTheme = typeof themes[number];
+
 export interface IFlagProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
-    variant?: FlagVariant;
-    theme?: FlagTheme;
-}
-
-export enum FlagVariant {
-    Solid = 'solid',
-    Bordered = 'bordered'
-}
-
-export enum FlagTheme {
-    Primary = 'primary',
-    Primary02 = 'primary-02',
-    Danger = 'danger',
-    Dark = 'dark',
-    Light = 'light'
+    variant?: TFlagVariant;
+    theme?: TFlagTheme;
 }

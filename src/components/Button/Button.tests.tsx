@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Button from './Button';
-import { ButtonSize, ButtonWidth } from './Button.types';
+import IconButton from './IconButton';
 
 describe('components/Button', () => {
     test('renders correctly', () => {
@@ -29,20 +29,27 @@ describe('components/Button', () => {
     });
 
     test('renders with full width', () => {
-        render(<Button width={ButtonWidth.Full}>Click!</Button>);
+        render(<Button width="full">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--full');
     });
 
     test('renders with `s` size', () => {
-        render(<Button size={ButtonSize.S}>Click!</Button>);
+        render(<Button size="s">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--s');
     });
 
     test('renders with `l` size', () => {
-        render(<Button size={ButtonSize.L}>Click!</Button>);
+        render(<Button size="l">Click!</Button>);
 
         expect(screen.getByRole('button')).toHaveClass('mc-button--l');
+    });
+
+    test('renders correctly as IconButton', () => {
+        render(<IconButton>Click!</IconButton>);
+
+        expect(screen.getByRole('button')).toHaveTextContent('Click!');
+        expect(screen.getByRole('button')).toHaveClass('mc-button--square');
     });
 });
