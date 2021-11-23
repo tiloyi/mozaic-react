@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { MagicUnit } from '../../constants';
 import { IViewProps } from './View.types';
 import View from './View';
 import './View.stories.scss';
@@ -16,18 +15,12 @@ const Template: Story<IViewProps> = args => (
 export const Controls = Template.bind({});
 
 Controls.args = {
-    marginTop: MagicUnit.MU200,
-    marginRight: MagicUnit.MU200,
-    marginBottom: MagicUnit.MU200,
-    marginLeft: MagicUnit.MU200,
-    paddingTop: MagicUnit.MU100,
-    paddingRight: MagicUnit.MU100,
-    paddingBottom: MagicUnit.MU100,
-    paddingLeft: MagicUnit.MU100
-};
-
-export default {
-    title: 'Utilities/View',
-    component: View,
-    argTypes: {}
+    marginTop: 'mu200',
+    marginRight: 'mu200',
+    marginBottom: 'mu200',
+    marginLeft: 'mu200',
+    paddingTop: 'mu100',
+    paddingRight: 'mu100',
+    paddingBottom: 'mu100',
+    paddingLeft: 'mu100'
 };

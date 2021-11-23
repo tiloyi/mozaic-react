@@ -1,9 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MagicUnit } from '../../constants';
 import View from './View';
-
-const magicUnits = Object.values(MagicUnit);
+import { magicUnits } from './View.types';
 
 describe('components/View', () => {
     test('renders correctly', () => {

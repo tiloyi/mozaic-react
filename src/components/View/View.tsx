@@ -1,37 +1,40 @@
 import { createElement, useMemo, FC } from 'react';
 import cn from 'classnames';
-import { MagicUnit } from '../../constants';
-import { IViewProps } from './View.types';
+import { IViewProps, TMagicUnit } from './View.types';
 import './View.scss';
+
+function sanitize(unit: TMagicUnit): string {
+    return unit.replace(/^mu/, '');
+}
 
 function getSpacingClassNames(
     prefix: 'p' | 'm',
-    spacing?: MagicUnit,
-    top?: MagicUnit,
-    right?: MagicUnit,
-    bottom?: MagicUnit,
-    left?: MagicUnit
+    spacing?: TMagicUnit,
+    top?: TMagicUnit,
+    right?: TMagicUnit,
+    bottom?: TMagicUnit,
+    left?: TMagicUnit
 ): Array<string> {
     if (spacing) {
-        return [`mu-${prefix}-${spacing}`];
+        return [`mu-${prefix}-${sanitize(spacing)}`];
     }
 
     const classNames: Array<string> = [];
 
     if (top) {
-        classNames.push(`mu-${prefix}t-${top}`);
+        classNames.push(`mu-${prefix}t-${sanitize(top)}`);
     }
 
     if (right) {
-        classNames.push(`mu-${prefix}r-${right}`);
+        classNames.push(`mu-${prefix}r-${sanitize(right)}`);
     }
 
     if (bottom) {
-        classNames.push(`mu-${prefix}b-${bottom}`);
+        classNames.push(`mu-${prefix}b-${sanitize(bottom)}`);
     }
 
     if (left) {
-        classNames.push(`mu-${prefix}l-${left}`);
+        classNames.push(`mu-${prefix}l-${sanitize(left)}`);
     }
 
     return classNames;

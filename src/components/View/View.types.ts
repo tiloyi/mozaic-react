@@ -1,17 +1,38 @@
 import { HTMLAttributes, ReactHTML } from 'react';
-import { MagicUnit } from '../../constants';
+
+export const magicUnits = [
+    'mu025',
+    'mu050',
+    'mu075',
+    'mu100',
+    'mu125',
+    'mu150',
+    'mu200',
+    'mu250',
+    'mu300',
+    'mu350',
+    'mu400',
+    'mu500',
+    'mu600',
+    'mu700',
+    'mu800',
+    'mu900',
+    'mu1000'
+] as const;
+
+export type TMagicUnit = typeof magicUnits[number];
 
 export interface IViewProps extends Omit<HTMLAttributes<HTMLElement>, 'style'> {
     className?: string;
     as?: keyof ReactHTML;
-    margin?: MagicUnit;
-    marginTop?: MagicUnit;
-    marginRight?: MagicUnit;
-    marginBottom?: MagicUnit;
-    marginLeft?: MagicUnit;
-    padding?: MagicUnit;
-    paddingTop?: MagicUnit;
-    paddingRight?: MagicUnit;
-    paddingBottom?: MagicUnit;
-    paddingLeft?: MagicUnit;
+    margin?: TMagicUnit;
+    marginTop?: TMagicUnit;
+    marginRight?: TMagicUnit;
+    marginBottom?: TMagicUnit;
+    marginLeft?: TMagicUnit;
+    padding?: TMagicUnit;
+    paddingTop?: TMagicUnit;
+    paddingRight?: TMagicUnit;
+    paddingBottom?: TMagicUnit;
+    paddingLeft?: TMagicUnit;
 }
