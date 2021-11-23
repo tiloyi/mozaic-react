@@ -39,8 +39,14 @@ Spacings.argTypes = {
     }
 };
 
+Spacings.parameters = {
+    backgrounds: {
+        default: 'default'
+    }
+};
+
 const ShadowsTemplate: Story<IViewProps> = args => (
-    <View {...args} padding="mu100">
+    <View {...args} className="view-white-container" padding="mu100">
         <Text>View</Text>
     </View>
 );
