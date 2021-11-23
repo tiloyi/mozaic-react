@@ -15,3 +15,16 @@
 .mt-shadow-l {
     @include set-box-shadow('l');
 }
+
+.mt-radius-s {
+    @include set-border-radius('s');
+}
+
+.mt-radius-m {
+    @include set-border-radius('m');
+}
+
+.mt-radius-l {
+    @include set-border-radius('l');
+}
+

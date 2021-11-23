@@ -1,9 +1,9 @@
 import { createElement, useMemo, FC } from 'react';
 import cn from 'classnames';
-import { IViewProps, TMagicUnit, TShadow } from './View.types';
+import { IViewProps, TMagicUnit, TRadius, TShadow } from './View.types';
 import './View.scss';
 
-function sanitize(unit: TMagicUnit): string {
+export function sanitize(unit: TMagicUnit): string {
     return unit.replace(/^mu/, '');
 }
 
@@ -48,6 +48,14 @@ function getShadowModifier(shadow?: TShadow): string {
     return '';
 }
 
+function getRadiusModifier(radius?: TRadius): string {
+    if (radius) {
+        return `mt-radius-${radius}`;
+    }
+
+    return '';
+}
+
 const View: FC<IViewProps> = ({
     className,
     as = 'div',
@@ -63,6 +71,7 @@ const View: FC<IViewProps> = ({
     paddingBottom,
     paddingLeft,
     shadow,
+    radius,
     ...props
 }): JSX.Element => {
     const margins = useMemo(
@@ -77,7 +86,10 @@ const View: FC<IViewProps> = ({
 
     return createElement(
         as,
-        { className: cn(className, ...margins, ...paddings, getShadowModifier(shadow)), ...props },
+        {
+            className: cn(className, ...margins, ...paddings, getShadowModifier(shadow), getRadiusModifier(radius)),
+            ...props
+        },
         children
     );
 };

@@ -26,6 +26,10 @@ export const shadows = ['s', 'm', 'l'] as const;
 
 export type TShadow = typeof shadows[number];
 
+export const radiuses = ['s', 'm', 'l'] as const;
+
+export type TRadius = typeof radiuses[number];
+
 export interface IViewProps extends Omit<HTMLAttributes<HTMLElement>, 'style'> {
     className?: string;
     as?: keyof ReactHTML;
@@ -40,4 +44,5 @@ export interface IViewProps extends Omit<HTMLAttributes<HTMLElement>, 'style'> {
     paddingBottom?: TMagicUnit;
     paddingLeft?: TMagicUnit;
     shadow?: TShadow;
+    radius?: TRadius;
 }

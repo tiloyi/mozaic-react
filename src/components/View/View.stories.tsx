@@ -31,6 +31,11 @@ Spacings.argTypes = {
         table: {
             disable: true
         }
+    },
+    radius: {
+        table: {
+            disable: true
+        }
     }
 };
 
@@ -40,9 +45,9 @@ const ShadowsTemplate: Story<IViewProps> = args => (
     </View>
 );
 
-export const Shadows = ShadowsTemplate.bind({});
+export const ShadowsAndBorders = ShadowsTemplate.bind({});
 
-Shadows.argTypes = {
+ShadowsAndBorders.argTypes = {
     margin: {
         table: {
             disable: true
@@ -97,6 +102,11 @@ Shadows.argTypes = {
 
 export const argTypes = {
     shadow: {
+        control: {
+            type: 'select'
+        }
+    },
+    radius: {
         control: {
             type: 'select'
         }
