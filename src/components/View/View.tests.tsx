@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import View from './View';
-import { magicUnits } from './View.types';
+import { magicUnits, shadows } from './View.types';
 
 describe('components/View', () => {
     test('renders correctly', () => {
@@ -68,5 +68,11 @@ describe('components/View', () => {
         render(<View marginLeft={marginLeft}>Test</View>);
 
         expect(screen.getByText('Test')).toHaveClass(`mu-ml-${marginLeft}`);
+    });
+
+    test.each(shadows)('renders with shadow=%s', shadow => {
+        render(<View shadow={shadow}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mt-shadow-${shadow}`);
     });
 });

@@ -1,6 +1,6 @@
 import { createElement, useMemo, FC } from 'react';
 import cn from 'classnames';
-import { IViewProps, TMagicUnit } from './View.types';
+import { IViewProps, TMagicUnit, TShadow } from './View.types';
 import './View.scss';
 
 function sanitize(unit: TMagicUnit): string {
@@ -40,6 +40,14 @@ function getSpacingClassNames(
     return classNames;
 }
 
+function getShadowModifier(shadow?: TShadow): string {
+    if (shadow) {
+        return `mt-shadow-${shadow}`;
+    }
+
+    return '';
+}
+
 const View: FC<IViewProps> = ({
     className,
     as = 'div',
@@ -54,6 +62,7 @@ const View: FC<IViewProps> = ({
     paddingRight,
     paddingBottom,
     paddingLeft,
+    shadow,
     ...props
 }): JSX.Element => {
     const margins = useMemo(
@@ -66,7 +75,11 @@ const View: FC<IViewProps> = ({
         [padding, paddingTop, paddingRight, paddingBottom, paddingLeft]
     );
 
-    return createElement(as, { className: cn(className, ...margins, ...paddings), ...props }, children);
+    return createElement(
+        as,
+        { className: cn(className, ...margins, ...paddings, getShadowModifier(shadow)), ...props },
+        children
+    );
 };
 
 export default View;

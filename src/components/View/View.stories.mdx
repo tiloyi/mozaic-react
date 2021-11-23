@@ -1,8 +1,8 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Controls } from './View.stories';
+import { Spacings, Shadows, argTypes } from './View.stories';
 import View from './View';
 
-<Meta title="Utilities/View" component={View} />
+<Meta title="Utilities/View" component={View} argTypes={argTypes} />
 
 # View
 
@@ -18,8 +18,16 @@ To use the component in your project you must:
 
 2. Call the component and give it the desired props, for example:
 
+spacings:
+
 <Canvas withSource="open">
-    <Story story={Controls} />
+    <Story story={Spacings} />
+</Canvas>
+
+shadows:
+
+<Canvas withSource="open">
+    <Story story={Shadows} />
 </Canvas>
 
 ## Props
