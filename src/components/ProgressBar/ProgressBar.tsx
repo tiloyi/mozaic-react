@@ -37,6 +37,12 @@ const ProgressBar = ({
     withValue,
     ...props
 }: IProgressBarProps): JSX.Element => {
+    if (minValue >= maxValue) {
+        /* eslint-disable no-console */
+        console.error('The `minValue` property must be less than the `maxValue` property');
+        /* eslint-enable no-console */
+    }
+
     if (value < minValue) {
         /* eslint-disable no-console */
         console.error('The `value` property cannot be less than the `minValue` property');
@@ -46,12 +52,6 @@ const ProgressBar = ({
     if (value > maxValue) {
         /* eslint-disable no-console */
         console.error('The `value` property cannot be greater than the `maxValue` property');
-        /* eslint-enable no-console */
-    }
-
-    if (minValue >= maxValue) {
-        /* eslint-disable no-console */
-        console.error('The `minValue` property must be less than the `maxValue` property');
         /* eslint-enable no-console */
     }
 
