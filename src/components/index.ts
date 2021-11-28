@@ -1,4 +1,5 @@
 export { default as Badge } from './Badge';
+export { default as Breadcrumbs, BreadcrumbsItem } from './Breadcrumbs';
 export { default as Button, IconButton } from './Button';
 export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';

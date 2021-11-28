@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Light, Dark, argTypes } from './Breadcrumbs.stories';
+import Breadcrumbs from './Breadcrumbs';
+
+<Meta title="Components/Breadcrumbs" component={Breadcrumbs} argTypes={argTypes} />
+
+# Breadcrumbs
+
+The `Breadcrumbs` component is the **React.js** implementation of the **Mozaic Breadcrumb** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Breadcrumb/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Breadcrumbs } from 'bigfish-wms--mozaic-react';" />
+
+2. Call the component and give it the desired props
+
+Light example:
+
+<Canvas withSource="open">
+    <Story story={Light} />
+</Canvas>
+
+Dark example:
+
+<Canvas withSource="open">
+    <Story story={Dark} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Breadcrumbs} />
