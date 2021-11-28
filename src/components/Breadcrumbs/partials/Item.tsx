@@ -4,11 +4,11 @@ import Link from '../../Link';
 import { IBreadcrumbsItemProps } from '../Breadcrumbs.types';
 import { useBreadcrumbs } from '../BreadcrumbsContext';
 
-const BreadcrumbsItem: FC<IBreadcrumbsItemProps> = ({ className, children, isCurrent, ...props }) => {
+const BreadcrumbsItem: FC<IBreadcrumbsItemProps> = ({ className, children, isCurrent, isActive, ...props }) => {
     const { theme } = useBreadcrumbs();
 
     return (
-        <li className={cn('mc-breadcrumb__item', className)}>
+        <li className={cn('mc-breadcrumb__item', isActive && 'is-active', className)}>
             {isCurrent ? (
                 <span className="mc-link mc-breadcrumb__current" aria-current="page">
                     {children}
