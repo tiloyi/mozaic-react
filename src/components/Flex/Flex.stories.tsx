@@ -40,8 +40,40 @@ export const Controls = Template.bind({});
 
 Controls.args = {};
 
-export default {
-    title: 'Utilities/Flex',
-    component: Flex,
-    argTypes: {}
+export const argTypes = {
+    direction: {
+        control: {
+            type: 'select'
+        }
+    },
+    justifyContent: {
+        control: {
+            type: 'select'
+        }
+    },
+    alignContent: {
+        control: {
+            type: 'select'
+        }
+    },
+    alignItems: {
+        control: {
+            type: 'select'
+        }
+    },
+    wrap: {
+        control: {
+            type: 'select'
+        }
+    },
+    shadow: {
+        table: {
+            disable: true
+        }
+    },
+    radius: {
+        table: {
+            disable: true
+        }
+    }
 };
