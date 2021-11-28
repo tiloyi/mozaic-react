@@ -15,5 +15,22 @@ export const parameters = {
         storySort: {
             order: ['About', 'Components']
         }
+    },
+    backgrounds: {
+        default: 'light',
+        values: [
+            {
+                name: 'mozaic',
+                value: '#eeeef0'
+            },
+            {
+                name: 'light',
+                value: '#ffffff'
+            },
+            {
+                name: 'dark',
+                value: '#222020'
+            }
+        ]
     }
 };
