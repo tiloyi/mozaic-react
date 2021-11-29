@@ -1,0 +1,30 @@
+@import 'settings-tools/_all-settings';
+
+@import 'utilities/_u.margin.scss';
+
+@import 'utilities/_u.padding.scss';
+
+.mt-shadow-s {
+    @include set-box-shadow('s');
+}
+
+.mt-shadow-m {
+    @include set-box-shadow('m');
+}
+
+.mt-shadow-l {
+    @include set-box-shadow('l');
+}
+
+.mt-radius-s {
+    @include set-border-radius('s');
+}
+
+.mt-radius-m {
+    @include set-border-radius('m');
+}
+
+.mt-radius-l {
+    @include set-border-radius('l');
+}
+

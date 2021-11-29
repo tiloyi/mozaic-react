@@ -44,3 +44,4 @@ export { default as TextArea } from './components/TextArea';
 export { default as TextInput } from './components/TextInput';
 export { default as Toggle } from './components/Toggle';
 export { default as Tooltip } from './components/Tooltip';
+export { default as View } from './components/View';
