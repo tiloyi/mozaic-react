@@ -39,3 +39,4 @@ export { default as TextArea } from './TextArea';
 export { default as TextInput } from './TextInput';
 export { default as Toggle } from './Toggle';
 export { default as Tooltip } from './Tooltip';
+export { default as View } from './View';
