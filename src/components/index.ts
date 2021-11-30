@@ -4,6 +4,7 @@ export { default as Button, IconButton } from './Button';
 export { default as CheckBox } from './CheckBox';
 export { default as DateInput } from './DateInput';
 export { default as Flag } from './Flag';
+export { default as Flex } from './Flex';
 export { default as Heading } from './Heading';
 export {
     default as Layer,
