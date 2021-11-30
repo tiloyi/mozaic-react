@@ -17,15 +17,19 @@ export const parameters = {
         }
     },
     backgrounds: {
-        default: 'mozaic',
+        default: 'light',
         values: [
             {
                 name: 'mozaic',
                 value: '#eeeef0'
             },
             {
-                name: 'default',
+                name: 'light',
                 value: '#ffffff'
+            },
+            {
+                name: 'dark',
+                value: '#222020'
             }
         ]
     }

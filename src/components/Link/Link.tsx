@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, createElement, DetailedHTMLProps, FC } from 'react';
+import { AnchorHTMLAttributes, createElement, DetailedHTMLProps, FC } from 'react';
 import cn from 'classnames';
 import { ILinkProps, TLinkSize, TLinkTheme } from './Link.types';
 import './Link.scss';
