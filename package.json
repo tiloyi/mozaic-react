@@ -53,7 +53,6 @@
     "@types/react-dom": "^17.0.9",
     "@types/react-transition-group": "^4.4.3",
     "babel-loader": "^8.2.2",
-    "classnames": "^2.3.1",
     "eslint": "^7.32.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.1.0",
@@ -83,6 +82,7 @@
     "@mozaic-ds/styles": "^1.20.1",
     "@mozaic-ds/tokens": "^1.19.0",
     "@mozaic-ds/web-fonts": "^1.18.0",
-    "react-transition-group": "^4.4.2"
+    "react-transition-group": "^4.4.2",
+    "classnames": "^2.3.1"
   }
 }
