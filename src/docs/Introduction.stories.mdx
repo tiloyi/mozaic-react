@@ -4,39 +4,38 @@ import pkg from '../../package.json';
 
 <Meta title="About/Introduction" />
 
-<Title>bigfish-wms--mozaic-react v{pkg.version}</Title>
+<Title>mozaic-react v{pkg.version}</Title>
 
 <blockquote>
-    Библиотека react-компонентов для <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>{' '}
+    This library contains a collection of React components that implements <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>{' '}
     <strong>v{mozaic.version}</strong>
 </blockquote>
 
-## Установка
+<p align="center">
+    <a href="https://www.typescriptlang.org/">
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Using typescript" />
+    </a>
+  <a href="https://github.com/adeo/mozaic-react/issues">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
+  </a>
+</p>
 
-Для установки библиотеки в проекте нужно добавить в файл `.npmrc` строку:
+## Getting started
 
-```
-registry = https://art.lmru.tech/api/npm/npm-wms
-```
-
-А затем вызвать команду:
-
-```
-npm install --save bigfish-wms--mozaic-react
-```
-
-Если вы используете `yarn`, то следует вызвать команду:
+In order to install `mozaic-react` in your project, you will need to run the following command:
 
 ```
-yarn add bigfish-wms--mozaic-react
+npm install --save mozaic-react
 ```
 
-После установки пакета с библиотекой в файл с главным компонентом вашего проекта добавьте импорт:
+If you prefer Yarn, use the following command instead:
 
 ```
-import 'bigfish-wms--mozaic-react/lib/index.css';
+yarn add mozaic-react
 ```
 
----
+Once the package installed, import the following `css` file in your project entry point:
 
-Конец!
+```
+import 'mozaic-react/lib/index.css';
+```
