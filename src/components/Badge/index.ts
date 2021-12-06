@@ -1,3 +1,2 @@
-import Badge from './Badge';
-
-export default Badge;
+export { TBadgeTheme, IBadgeProps } from './Badge.types';
+export { default as Badge } from './Badge';
