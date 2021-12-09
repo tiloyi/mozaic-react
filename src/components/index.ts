@@ -58,7 +58,12 @@ export {
     LayerContainer,
     LayerFooter,
     LayerHeader,
-    LayerTitle
+    LayerTitle,
+    ILayerProps,
+    ILayerContainerProps,
+    ILayerPartialProps,
+    ILayerCloseButtonProps,
+    ILayerTitleProps
 } from './Layer';
 export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './Link';
 export {
@@ -69,21 +74,51 @@ export {
     ModalFooter,
     ModalHeader,
     ModalHeading,
-    ModalTitle
+    ModalTitle,
+    IModalProps,
+    IModalContainerProps,
+    IModalPartialProps,
+    IModalCloseButtonProps,
+    IModalTitleProps,
+    TModalId
 } from './Modal';
 export { default as ModalsProvider, useModals } from './ModalsProvider';
-export { default as Notification, INotification } from './Notification';
+export {
+    default as Notification,
+    NotificationContainer,
+    NotificationTitle,
+    NotificationMessage,
+    NotificationFooter,
+    NotificationCloseButton,
+    INotification,
+    INotificationProps,
+    INotificationContainerProps,
+    INotificationPartialProps,
+    INotificationCloseButtonProps,
+    TNotificationSize,
+    TNotificationTheme
+} from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
-export { default as Overlay } from './Overlay';
+export { default as Overlay, IOverlayProps } from './Overlay';
 export { default as Portal } from './Portal';
 export { default as ProgressBar } from './ProgressBar';
 export { default as QuantitySelector } from './QuantitySelector';
 export { default as Radio } from './Radio';
 export { default as RadioGroup, useRadioGroup } from './RadioGroup';
 export { default as Select } from './Select';
-export * from './Text';
-export { default as TextArea } from './TextArea';
-export { default as TextInput } from './TextInput';
-export { default as Toggle } from './Toggle';
+export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
+export { default as TextArea, ITextAreaProps } from './TextArea';
+export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';
+export {
+    default as Toggle,
+    ToggleContainer,
+    ToggleIndicator,
+    ToggleLabel,
+    IToggleProps,
+    IToggleContainerProps,
+    ITogglePartialProps,
+    IToggleIndicatorProps,
+    TToggleSize
+} from './Toggle';
 export { default as Tooltip } from './Tooltip';
 export { default as View } from './View';
