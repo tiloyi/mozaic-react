@@ -8,7 +8,21 @@ export {
     IBreadcrumbsItemProps,
     TBreadcrumbsTheme
 } from './Breadcrumbs';
-export { default as Button, IconButton } from './Button';
+export {
+    default as Button,
+    IconButton,
+    ButtonContainer,
+    ButtonLabel,
+    ButtonIcon,
+    IButtonProps,
+    IIconButtonProps,
+    IButtonContainerProps,
+    IButtonPartialProps,
+    TButtonVariant,
+    TButtonTheme,
+    TButtonSize,
+    TButtonWidth
+} from './Button';
 export {
     default as CheckBox,
     CheckBoxContainer,
