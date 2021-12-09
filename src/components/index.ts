@@ -100,12 +100,24 @@ export {
 } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './Overlay';
-export { default as Portal } from './Portal';
-export { default as ProgressBar } from './ProgressBar';
-export { default as QuantitySelector } from './QuantitySelector';
-export { default as Radio } from './Radio';
-export { default as RadioGroup, useRadioGroup } from './RadioGroup';
-export { default as Select } from './Select';
+export { default as Portal, IPortalProps } from './Portal';
+export { default as ProgressBar, IProgressBarProps, TProgressBarSize, TProgressBarTheme } from './ProgressBar';
+export {
+    default as QuantitySelector,
+    QuantitySelectorContainer,
+    QuantitySelectorIncrement,
+    QuantitySelectorDecrement,
+    QuantitySelectorInput,
+    IQuantitySelectorProps,
+    IQuantitySelectorButtonProps,
+    TQuantitySelectorSize,
+    useQuantitySelectorInput,
+    useQuantitySelectorIncrement,
+    useQuantitySelectorDecrement
+} from './QuantitySelector';
+export { default as Radio, RadioContainer, RadioIndicator, RadioLabel, IRadioProps, IRadioPartialProps } from './Radio';
+export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './RadioGroup';
+export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';
@@ -120,5 +132,5 @@ export {
     IToggleIndicatorProps,
     TToggleSize
 } from './Toggle';
-export { default as Tooltip } from './Tooltip';
-export { default as View } from './View';
+export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './Tooltip';
+export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './View';
