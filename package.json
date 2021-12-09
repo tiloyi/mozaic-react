@@ -10,13 +10,14 @@
     "lint:scripts": "eslint ./src",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "npm run test:cov",
-    "test:cov": "jest --coverage",
+    "test:coverage": "jest --coverage",
     "prettier:check": "prettier --check \"src/**/*.{ts, tsx, scss, css, mdx}\"",
     "prettier:write": "prettier --write \"src/**/*.{ts, tsx, scss, css, mdx}\"",
     "start": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "lib:build": "rollup --config"
+    "storybook:clean": "rimraf storybook-static",
+    "lib:build": "rollup --config",
+    "lib:clean": "rimraf lib"
   },
   "repository": {
     "type": "git",
