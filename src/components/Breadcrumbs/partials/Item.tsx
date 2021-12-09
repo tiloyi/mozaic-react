@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import Link from '../../Link';
+import { Link } from '../../Link';
 import { IBreadcrumbsItemProps } from '../Breadcrumbs.types';
 import { useBreadcrumbs } from '../BreadcrumbsContext';
 

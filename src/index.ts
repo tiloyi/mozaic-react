@@ -1,4 +1,4 @@
-export * from './components/Badge';
+export { default as Badge, IBadgeProps, TBadgeTheme } from './components/Badge';
 export { default as Breadcrumbs, BreadcrumbsItem } from './components/Breadcrumbs';
 export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
