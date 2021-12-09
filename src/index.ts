@@ -3,9 +3,9 @@ export { default as Breadcrumbs, BreadcrumbsItem } from './components/Breadcrumb
 export { default as Button, IconButton } from './components/Button';
 export { default as CheckBox } from './components/CheckBox';
 export { default as DateInput } from './components/DateInput';
-export { default as Flag } from './components/Flag';
-export { default as Flex } from './components/Flex';
-export { default as Heading } from './components/Heading';
+export * from './components/Flag';
+export * from './components/Flex';
+export * from './components/Heading';
 export {
     default as Layer,
     LayerBody,
@@ -15,7 +15,7 @@ export {
     LayerHeader,
     LayerTitle
 } from './components/Layer';
-export { default as Link } from './components/Link';
+export * from './components/Link';
 export {
     default as Modal,
     ModalBody,
@@ -40,7 +40,7 @@ export { default as QuantitySelector } from './components/QuantitySelector';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup, useRadioGroup } from './components/RadioGroup';
 export { default as Select } from './components/Select';
-export { default as Text } from './components/Text';
+export * from './components/Text';
 export { default as TextArea } from './components/TextArea';
 export { default as TextInput } from './components/TextInput';
 export { default as Toggle } from './components/Toggle';
