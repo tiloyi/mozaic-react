@@ -31,10 +31,26 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './CheckBox';
-export { default as DateInput } from './DateInput';
-export * from './Flag';
-export * from './Flex';
-export * from './Heading';
+export { default as DateInput, IDateInputProps } from './DateInput';
+export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './Flag';
+export {
+    default as Flex,
+    IFlexProps,
+    TFlexDirection,
+    TFlexWrap,
+    TAlignItems,
+    TJustifyContent,
+    TAlignContent
+} from './Flex';
+export {
+    default as Heading,
+    IHeadingProps,
+    THeadingTag,
+    THeadingSize,
+    THeadingWeight,
+    THeadingTextAlign,
+    THeadingUnderline
+} from './Heading';
 export {
     default as Layer,
     LayerBody,
@@ -44,7 +60,7 @@ export {
     LayerHeader,
     LayerTitle
 } from './Layer';
-export * from './Link';
+export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './Link';
 export {
     default as Modal,
     ModalBody,

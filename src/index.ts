@@ -8,7 +8,21 @@ export {
     IBreadcrumbsItemProps,
     TBreadcrumbsTheme
 } from './components/Breadcrumbs';
-export { default as Button, IconButton } from './components/Button';
+export {
+    default as Button,
+    IconButton,
+    ButtonContainer,
+    ButtonLabel,
+    ButtonIcon,
+    IButtonProps,
+    IIconButtonProps,
+    IButtonContainerProps,
+    IButtonPartialProps,
+    TButtonVariant,
+    TButtonTheme,
+    TButtonSize,
+    TButtonWidth
+} from './components/Button';
 export {
     default as CheckBox,
     CheckBoxContainer,
@@ -17,10 +31,26 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
-export { default as DateInput } from './components/DateInput';
-export * from './components/Flag';
-export * from './components/Flex';
-export * from './components/Heading';
+export { default as DateInput, IDateInputProps } from './components/DateInput';
+export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './components/Flag';
+export {
+    default as Flex,
+    IFlexProps,
+    TFlexDirection,
+    TFlexWrap,
+    TAlignItems,
+    TJustifyContent,
+    TAlignContent
+} from './components/Flex';
+export {
+    default as Heading,
+    IHeadingProps,
+    THeadingTag,
+    THeadingSize,
+    THeadingWeight,
+    THeadingTextAlign,
+    THeadingUnderline
+} from './components/Heading';
 export {
     default as Layer,
     LayerBody,
@@ -30,7 +60,7 @@ export {
     LayerHeader,
     LayerTitle
 } from './components/Layer';
-export * from './components/Link';
+export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './components/Link';
 export {
     default as Modal,
     ModalBody,
