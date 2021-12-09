@@ -1,7 +1,22 @@
 export { default as Badge, IBadgeProps, TBadgeTheme } from './Badge';
-export { default as Breadcrumbs, BreadcrumbsItem } from './Breadcrumbs';
+export {
+    default as Breadcrumbs,
+    BreadcrumbsItem,
+    BreadcrumbsContainer,
+    IBreadcrumbsProps,
+    IBreadcrumbsContainerProps,
+    IBreadcrumbsItemProps,
+    TBreadcrumbsTheme
+} from './Breadcrumbs';
 export { default as Button, IconButton } from './Button';
-export { default as CheckBox } from './CheckBox';
+export {
+    default as CheckBox,
+    CheckBoxContainer,
+    CheckBoxLabel,
+    CheckBoxIndicator,
+    ICheckBoxProps,
+    ICheckBoxPartialProps
+} from './CheckBox';
 export { default as DateInput } from './DateInput';
 export * from './Flag';
 export * from './Flex';
