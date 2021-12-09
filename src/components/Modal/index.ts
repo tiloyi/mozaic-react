@@ -9,4 +9,12 @@ export {
     ModalHeading,
     ModalTitle
 } from './partials';
+export {
+    IModalProps,
+    IModalTitleProps,
+    IModalPartialProps,
+    IModalCloseButtonProps,
+    IModalContainerProps,
+    TModalId
+} from './Modal.types';
 export default Modal;

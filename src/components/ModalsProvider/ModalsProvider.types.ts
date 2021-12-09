@@ -1,4 +1,4 @@
-import { TModalId } from '../Modal/Modal.types';
+import { TModalId } from '../Modal';
 
 export interface IModalState {
     isOpen: boolean;
