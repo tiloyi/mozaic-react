@@ -53,7 +53,7 @@ To run the documentation locally, you can do the following:
 
 ### Bugs and feature requests
 
-Have a bug or a feature request? Please let us know by [opening a new issue](https://github.com/adeo/bigfish-wms--mozaic-react/issues/new/choose) and using the correct template associated with your request.
+Have a bug or a feature request? Please let us know by [opening a new issue](https://github.com/adeo/mozaic-react/issues/new/choose) and using the correct template associated with your request.
 
 However if you are ever able to contribute to help us fix bugs, build new features, or help us improve the project documentation, feel free to do it! _(more information below)_
 
