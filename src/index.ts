@@ -79,8 +79,7 @@ export {
     IModalContainerProps,
     IModalPartialProps,
     IModalCloseButtonProps,
-    IModalTitleProps,
-    TModalId
+    IModalTitleProps
 } from './components/Modal';
 export { default as ModalsProvider, useModals } from './components/ModalsProvider';
 export {
