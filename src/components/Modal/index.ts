@@ -14,7 +14,6 @@ export {
     IModalTitleProps,
     IModalPartialProps,
     IModalCloseButtonProps,
-    IModalContainerProps,
-    TModalId
+    IModalContainerProps
 } from './Modal.types';
 export default Modal;

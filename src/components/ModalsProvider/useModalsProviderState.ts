@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-import { TModalId } from '../Modal/Modal.types';
 import { IModalsProviderActions, IModalState, TModalsProviderState } from './ModalsProvider.types';
 
 function createModalState(): IModalState {
@@ -14,7 +13,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
     const [state, setState] = useState<TModalsProviderState>({});
 
     const register = useCallback(
-        (modalId: TModalId) =>
+        (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
                     throw new Error(`Modal with id ${modalId} already exists!`);
@@ -26,7 +25,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
     );
 
     const unregister = useCallback(
-        (modalId: TModalId) =>
+        (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
                     delete prevState[modalId];
@@ -38,7 +37,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
     );
 
     const open = useCallback(
-        (modalId: TModalId) =>
+        (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
                     return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: true } };
@@ -50,7 +49,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
     );
 
     const close = useCallback(
-        (modalId: TModalId) =>
+        (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
                     return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: false } };
@@ -61,7 +60,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
         []
     );
 
-    const actions = useMemo(() => ({ register, unregister, open, close }), [register, open, close]);
+    const actions = useMemo(() => ({ register, unregister, open, close }), [register, open, close, unregister]);
 
     return [state, actions];
 }

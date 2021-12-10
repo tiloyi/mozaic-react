@@ -1,5 +1,5 @@
 import { createElement, FC } from 'react';
-import { THeadingTag } from '../../Heading/Heading.types';
+import { THeadingTag } from '../../Heading';
 
 interface IModalHeadingProps {
     className?: string;

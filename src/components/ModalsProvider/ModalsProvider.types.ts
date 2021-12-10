@@ -1,12 +1,10 @@
-import { TModalId } from '../Modal';
-
 export interface IModalState {
     isOpen: boolean;
 }
 
-export type TModalsProviderState = Record<TModalId, IModalState>;
+export type TModalsProviderState = Record<string, IModalState>;
 
-export type TModalsProviderAction = (modalId: TModalId) => void;
+export type TModalsProviderAction = (modalId: string) => void;
 
 export interface IModalsProviderActions {
     register: TModalsProviderAction;

@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import { TModalId } from '../Modal/Modal.types';
-import { THeadingTag } from '../Heading/Heading.types';
+import { THeadingTag } from '../Heading';
 
 export interface ILayerPartialProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -8,11 +7,11 @@ export interface ILayerPartialProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface ILayerCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    id: TModalId;
+    id: string;
 }
 
 export interface ILayerContainerProps extends HTMLAttributes<HTMLDivElement> {
-    id: TModalId;
+    id: string;
 }
 
 export interface ILayerTitleProps extends HTMLAttributes<HTMLHeadingElement> {
