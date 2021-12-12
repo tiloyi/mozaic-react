@@ -1,6 +1,12 @@
 import { ITextInputProps } from '../TextInput';
+import { ButtonHTMLAttributes } from 'react';
 
-export interface IPasswordInputProps extends ITextInputProps {
-}
+type TOmittedInputProps = 'type' | 'size' | 'isValid' | 'isInvalid';
 
-export interface IPasswordInputPartialProps {}
+export type TPasswordInputType = 'text' | 'password';
+
+export interface IPasswordInputProps extends Omit<ITextInputProps, TOmittedInputProps> {}
+
+type TOmittedActionProps = 'size' | 'onClick' | 'isDisabled';
+
+export interface IPasswordInputActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, TOmittedActionProps> {}
