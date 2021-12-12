@@ -26,5 +26,6 @@ describe('components/PasswordInput', () => {
         render(<PasswordInput defaultValue="password" isDisabled />);
 
         expect(screen.getByDisplayValue('password')).toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Show' })).toBeDisabled();
     });
 });
