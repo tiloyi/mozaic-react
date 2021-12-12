@@ -9,9 +9,7 @@ export const Controls = Template.bind({});
 
 Controls.args = {
     value: 'password',
-    isDisabled: false,
-    isInvalid: false,
-    isValid: false
+    isDisabled: false
 };
 
 const ExampleTemplate: Story<IPasswordInputProps> = args => {
@@ -26,9 +24,7 @@ export const Example = ExampleTemplate.bind({});
 
 Example.args = {
     placeholder: 'placeholder',
-    isDisabled: false,
-    isInvalid: false,
-    isValid: false
+    isDisabled: false
 };
 
 export const argTypes = {};
