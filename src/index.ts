@@ -34,6 +34,15 @@ export {
     useNotifications
 } from './components/NotificationsProvider';
 export { default as Overlay } from './components/Overlay';
+export {
+    default as PasswordInput,
+    PasswordInputContainer,
+    PasswordInputField,
+    PasswordInputShow,
+    PasswordInputHide,
+    IPasswordInputProps,
+    IPasswordInputActionProps
+} from './components/PasswordInput';
 export { default as Portal } from './components/Portal';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as QuantitySelector } from './components/QuantitySelector';
