@@ -22,7 +22,7 @@ export default function usePortal({ id }: IPortalProps): IUsePortal {
         return () => {
             document.body.removeChild(container);
         };
-    }, []);
+    }, [container]);
 
     return { container };
 }
