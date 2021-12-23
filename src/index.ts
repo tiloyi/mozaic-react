@@ -103,6 +103,15 @@ export {
     useNotifications
 } from './components/NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './components/Overlay';
+export {
+    default as PasswordInput,
+    PasswordInputContainer,
+    PasswordInputField,
+    PasswordInputShow,
+    PasswordInputHide,
+    IPasswordInputProps,
+    IPasswordInputActionProps
+} from './components/PasswordInput';
 export { default as Portal, IPortalProps } from './components/Portal';
 export {
     default as ProgressBar,

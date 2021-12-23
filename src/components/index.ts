@@ -99,6 +99,15 @@ export {
 } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './Overlay';
+export {
+    default as PasswordInput,
+    PasswordInputContainer,
+    PasswordInputField,
+    PasswordInputShow,
+    PasswordInputHide,
+    IPasswordInputProps,
+    IPasswordInputActionProps
+} from './PasswordInput';
 export { default as Portal, IPortalProps } from './Portal';
 export { default as ProgressBar, IProgressBarProps, TProgressBarSize, TProgressBarTheme } from './ProgressBar';
 export {
