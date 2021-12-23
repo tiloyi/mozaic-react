@@ -1,14 +1,14 @@
 import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
 } from '@storybook/addon-docs';
 import { Controls, argTypes } from './Badge.stories';
 import Badge from './Badge';
 
-<Meta title="Components/Badge" component={Badge} argTypes={argTypes} />
+<Meta title="Components/Badge" component={Badge} argTypes={argTypes}/>
 
 # Badge
 
@@ -23,17 +23,17 @@ To use the component in your project you must:
 1. Import the component where you need it:
 
 <Source
-  language="javascript"
-  code="import { Badge } from '@mozaic-ds/react';"
+    language="javascript"
+    code="import { Badge } from '@mozaic-ds/react';"
 />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story story={Controls} />
+    <Story story={Controls}/>
 </Canvas>
 
 
 ## Props
 
-<ArgsTable of={Badge} />
+<ArgsTable of={Badge}/>

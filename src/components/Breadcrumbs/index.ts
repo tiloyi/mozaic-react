@@ -1,4 +1,10 @@
 import Breadcrumbs from './Breadcrumbs';
 
-export { BreadcrumbsItem } from './partials';
+export {
+    IBreadcrumbsProps,
+    IBreadcrumbsContainerProps,
+    IBreadcrumbsItemProps,
+    TBreadcrumbsTheme
+} from './Breadcrumbs.types';
+export { BreadcrumbsItem, BreadcrumbsContainer } from './partials';
 export default Breadcrumbs;

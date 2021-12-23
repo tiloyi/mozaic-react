@@ -7,7 +7,7 @@ const QuantitySelectorInput = (): JSX.Element => {
 
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            const value = event.target.value;
+            const { value } = event.target;
             const nextValue = value.length > 0 ? Number(value) : undefined;
 
             if (nextValue !== undefined) {
