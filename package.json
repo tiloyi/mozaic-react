@@ -81,9 +81,9 @@
   "dependencies": {
     "@mozaic-ds/css-dev-tools": "^1.20.0",
     "@mozaic-ds/icons": "^1.20.0",
-    "@mozaic-ds/styles": "^1.20.1",
-    "@mozaic-ds/tokens": "^1.19.0",
-    "@mozaic-ds/web-fonts": "^1.18.0",
+    "@mozaic-ds/styles": "^1.22.1",
+    "@mozaic-ds/tokens": "^1.22.0",
+    "@mozaic-ds/web-fonts": "^1.22.0",
     "react-transition-group": "^4.4.2",
     "classnames": "^2.3.1"
   }
