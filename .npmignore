@@ -1,9 +1,10 @@
 .coverage
+.github
+.idea
 .jest
 .storybook
 .templates
 src
-Jenkinsfile
 .hygen.js
 jest.config.js
 mozaic.config.js
