@@ -1,4 +1,5 @@
 import React from 'react';
+import { DataTableCell, DataTableRow } from './partials';
 import { IDataTableProps } from './DataTable.types';
 import './DataTable.scss';
 
@@ -8,7 +9,7 @@ export default function DataTable<R>({ columns, rows, getRowKey }: IDataTablePro
             <thead>
                 <tr>
                     {columns.map(column => (
-                        <th key={`header-cell-${column.key as string}`}>{column.title}</th>
+                        <th key={`header-cell-${column.key as string}`}>{column.label}</th>
                     ))}
                 </tr>
             </thead>
@@ -17,13 +18,16 @@ export default function DataTable<R>({ columns, rows, getRowKey }: IDataTablePro
                     const rowKey = getRowKey(row);
 
                     return (
-                        <tr key={`row-${rowKey}`}>
+                        <DataTableRow key={`row-${rowKey}`}>
                             {columns.map(column => (
-                                <td key={`row-${rowKey}-cell-${column.key as string}`}>
+                                <DataTableCell
+                                    key={`row-${rowKey}-cell-${column.key as string}`}
+                                    variant={column.variant}
+                                >
                                     {column.render ? column.render(row, column.key) : row[column.key]}
-                                </td>
+                                </DataTableCell>
                             ))}
-                        </tr>
+                        </DataTableRow>
                     );
                 })}
             </tbody>

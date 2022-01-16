@@ -25,29 +25,30 @@ export function generateDataTableRows(limit = 10, offset = 0): Array<IDataTableF
 }
 
 export function getRowKey(fixture: IDataTableFixture): number {
-    return fixture.id;
+    return fixture.id + 100;
 }
 
 export const columns: Array<IDataTableColumn<IDataTableFixture>> = [
     {
-        title: 'Id',
+        label: 'Id',
         key: 'id'
     },
     {
-        title: 'Name',
+        label: 'Name',
         key: 'name'
     },
     {
-        title: 'Count',
-        key: 'count'
+        label: 'Count',
+        key: 'count',
+        variant: 'number'
     },
     {
-        title: 'Date',
+        label: 'Date',
         key: 'date',
         render: (row: IDataTableFixture) => row.date.toLocaleDateString()
     },
     {
-        title: 'Status',
+        label: 'Status',
         key: 'status',
         render: (row: IDataTableFixture) => (
             <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>

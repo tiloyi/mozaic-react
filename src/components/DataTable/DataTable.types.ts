@@ -1,8 +1,11 @@
 import { HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
 
+export type TDataTableColumnVariant = 'number' | 'field';
+
 export interface IDataTableColumn<R> {
     key: keyof R;
-    title: string;
+    label: string;
+    variant?: TDataTableColumnVariant;
     render?: (row: R, key: keyof R) => JSX.Element | string | number;
 }
 
@@ -13,7 +16,9 @@ export interface IDataTableProps<R> {
     getRowKey: (row: R) => string | number;
 }
 
-export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {}
+export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+    variant?: TDataTableColumnVariant;
+}
 
 export interface IDataTableRowProps extends HTMLAttributes<HTMLTableRowElement> {}
 
