@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Basic, argTypes } from './Table.stories';
+import Table from './Table';
+
+<Meta title="Components/Table" component={Table} argTypes={argTypes} />
+
+# Table
+
+The `Table` component is part of the **React.js** implementation of the **Mozaic DataTable** component.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Table } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={Basic} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Table} />
