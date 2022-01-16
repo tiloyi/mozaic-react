@@ -43,7 +43,7 @@ const BasicTemplate: Story = () => (
 
 export const Basic = BasicTemplate.bind({});
 
-const CellsWithNumbersTemplate: Story = () => (
+const CellsWithCheckboxesTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
@@ -66,6 +66,35 @@ const CellsWithNumbersTemplate: Story = () => (
                     </TableCell>
                     <TableCell>{row.id}</TableCell>
                     <TableCell>{row.name}</TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const CellsWithCheckboxes = CellsWithCheckboxesTemplate.bind({});
+
+const CellsWithNumbersTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Id</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Name</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell variant="number">
+                    <TableHeaderLabel>Count</TableHeaderLabel>
+                </TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {rows.map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell variant="number">{row.count}</TableCell>
                 </TableRow>
             ))}
         </TableBody>

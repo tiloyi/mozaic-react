@@ -15,6 +15,7 @@ export interface ITableRowProps {
 
 export interface ITableHeaderCellProps {
     className?: string;
+    variant?: TTableColumnVariant;
 }
 
 export interface ITableHeaderLabelProps {
