@@ -1,9 +1,12 @@
+export type TTableColumnVariant = 'number' | 'field' | 'checkbox' | 'button';
+
 export interface ITableProps {
     className?: string;
 }
 
 export interface ITableCellProps {
     className?: string;
+    variant?: TTableColumnVariant;
 }
 
 export interface ITableRowProps {
