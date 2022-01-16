@@ -1,10 +1,18 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
-import { TableHeader, TableBody, TableRow, TableHeaderCell, TableHeaderLabel, TableCell } from './partials';
-import Table from './Table';
+import {
+    TableHeader,
+    TableBody,
+    TableRow,
+    TableHeaderCell,
+    TableHeaderLabel,
+    TableCell,
+    TableActionButton
+} from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
+import Table from './Table';
 import TextInput from '../TextInput';
 
 const rows = generateDataTableRows(5);
@@ -130,5 +138,44 @@ const CellsWithFieldsTemplate: Story = () => (
 );
 
 export const CellsWithFields = CellsWithFieldsTemplate.bind({});
+
+const IconMore = (): JSX.Element => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="2" />
+        <circle cx="6" cy="12" r="2" />
+        <circle cx="18" cy="12" r="2" />
+    </svg>
+);
+
+const CellsWithButtonsTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Id</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Name</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell />
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {rows.map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell variant="button">
+                        <TableActionButton>
+                            <IconMore />
+                        </TableActionButton>
+                    </TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const CellsWithButtons = CellsWithButtonsTemplate.bind({});
 
 export const argTypes = {};

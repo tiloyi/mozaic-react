@@ -29,3 +29,5 @@ export interface ITableHeaderProps {
 export interface ITableBodyProps {
     className?: string;
 }
+
+export interface ITableActionButtonProps {}
