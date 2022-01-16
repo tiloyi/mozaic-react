@@ -5,6 +5,7 @@ import { TableHeader, TableBody, TableRow, TableHeaderCell, TableHeaderLabel, Ta
 import Table from './Table';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
+import TextInput from '../TextInput';
 
 const rows = generateDataTableRows(5);
 
@@ -102,5 +103,32 @@ const CellsWithNumbersTemplate: Story = () => (
 );
 
 export const CellsWithNumbers = CellsWithNumbersTemplate.bind({});
+
+const CellsWithFieldsTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Id</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Name</TableHeaderLabel>
+                </TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {rows.map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell variant="field">
+                        <TextInput value={row.name} size="s" />
+                    </TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const CellsWithFields = CellsWithFieldsTemplate.bind({});
 
 export const argTypes = {};
