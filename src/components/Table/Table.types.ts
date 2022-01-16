@@ -16,6 +16,7 @@ export interface ITableRowProps {
 export interface ITableHeaderCellProps {
     className?: string;
     variant?: TTableColumnVariant;
+    isSortable?: boolean;
 }
 
 export interface ITableHeaderLabelProps {

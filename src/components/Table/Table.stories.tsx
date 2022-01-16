@@ -1,15 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
-import {
-    TableHeader,
-    TableBody,
-    TableRow,
-    TableHeaderCell,
-    TableHeaderLabel,
-    TableCell,
-    TableActionButton
-} from './partials';
+import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
 import Table from './Table';
@@ -21,18 +13,10 @@ const BasicTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Count</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Status</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell>Count</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -52,22 +36,41 @@ const BasicTemplate: Story = () => (
 
 export const Basic = BasicTemplate.bind({});
 
+const SortableTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell isSortable>Name</TableHeaderCell>
+                <TableHeaderCell isSortable>Count</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {rows.map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.count}</TableCell>
+                    <TableCell>
+                        <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                    </TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const Sortable = SortableTemplate.bind({});
+
 const StickyHeaderTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Count</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Status</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell>Count</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -94,12 +97,8 @@ const CellsWithCheckboxesTemplate: Story = () => (
                 <TableHeaderCell>
                     <CheckBox />
                 </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -122,15 +121,9 @@ const CellsWithNumbersTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell variant="number">
-                    <TableHeaderLabel>Count</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell variant="number">Count</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -151,12 +144,8 @@ const CellsWithFieldsTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -186,12 +175,8 @@ const CellsWithButtonsTemplate: Story = () => (
     <Table>
         <TableHeader>
             <TableRow>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Id</TableHeaderLabel>
-                </TableHeaderCell>
-                <TableHeaderCell>
-                    <TableHeaderLabel>Name</TableHeaderLabel>
-                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
                 <TableHeaderCell />
             </TableRow>
         </TableHeader>
