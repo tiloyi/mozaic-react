@@ -1,8 +1,10 @@
 @import 'settings-tools/_all-settings';
 
 @import "components/_c.datatable";
-
 @import "components/_c.datatable-tools";
+@import "components/_c.datatable-header";
+@import "components/_c.datatable-footer";
+@import "components/_c.datatable-subtable";
 
 th,
 td {

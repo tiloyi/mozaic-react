@@ -5,7 +5,11 @@ import './Table.scss';
 const Table: FC<ITableProps> = ({ children }): JSX.Element => {
     return (
         <div className="mc-datatable">
-            <table className="mc-datatable__table">{children}</table>
+            <div className="mc-datatable__container">
+                <div className="mc-datatable__main">
+                    <table className="mc-datatable__table">{children}</table>
+                </div>
+            </div>
         </div>
     );
 };

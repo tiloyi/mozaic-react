@@ -52,6 +52,41 @@ const BasicTemplate: Story = () => (
 
 export const Basic = BasicTemplate.bind({});
 
+const StickyHeaderTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Id</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Name</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Count</TableHeaderLabel>
+                </TableHeaderCell>
+                <TableHeaderCell>
+                    <TableHeaderLabel>Status</TableHeaderLabel>
+                </TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {generateDataTableRows(50).map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.count}</TableCell>
+                    <TableCell>
+                        <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                    </TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const StickyHeader = StickyHeaderTemplate.bind({});
+
 const CellsWithCheckboxesTemplate: Story = () => (
     <Table>
         <TableHeader>
