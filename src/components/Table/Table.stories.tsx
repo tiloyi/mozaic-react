@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
 import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
@@ -6,6 +6,7 @@ import Badge from '../Badge';
 import CheckBox from '../CheckBox';
 import Table from './Table';
 import TextInput from '../TextInput';
+import { TTableSortDirection } from './Table.types';
 
 const rows = generateDataTableRows(5);
 
@@ -36,30 +37,57 @@ const BasicTemplate: Story = () => (
 
 export const Basic = BasicTemplate.bind({});
 
-const SortableTemplate: Story = () => (
-    <Table>
-        <TableHeader>
-            <TableRow>
-                <TableHeaderCell>Id</TableHeaderCell>
-                <TableHeaderCell isSortable>Name</TableHeaderCell>
-                <TableHeaderCell isSortable>Count</TableHeaderCell>
-                <TableHeaderCell>Status</TableHeaderCell>
-            </TableRow>
-        </TableHeader>
-        <TableBody>
-            {rows.map(row => (
-                <TableRow key={`row-${row.id}`}>
-                    <TableCell>{row.id}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.count}</TableCell>
-                    <TableCell>
-                        <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-                    </TableCell>
+const SortableTemplate: Story = () => {
+    const [key, setKey] = useState<'name' | 'count' | undefined>();
+    const [direction, setDirection] = useState<TTableSortDirection | undefined>();
+
+    const handleSortByName = (nextDirection: TTableSortDirection): void => {
+        setKey('name');
+        setDirection(nextDirection);
+    };
+
+    const handleSortByCount = (nextDirection: TTableSortDirection): void => {
+        setKey('count');
+        setDirection(nextDirection);
+    };
+
+    return (
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHeaderCell>Id</TableHeaderCell>
+                    <TableHeaderCell
+                        isSortable
+                        sortDirection={key === 'name' ? direction : undefined}
+                        onSort={handleSortByName}
+                    >
+                        Name
+                    </TableHeaderCell>
+                    <TableHeaderCell
+                        isSortable
+                        sortDirection={key === 'count' ? direction : undefined}
+                        onSort={handleSortByCount}
+                    >
+                        Count
+                    </TableHeaderCell>
+                    <TableHeaderCell>Status</TableHeaderCell>
                 </TableRow>
-            ))}
-        </TableBody>
-    </Table>
-);
+            </TableHeader>
+            <TableBody>
+                {rows.map(row => (
+                    <TableRow key={`row-${row.id}`}>
+                        <TableCell>{row.id}</TableCell>
+                        <TableCell>{row.name}</TableCell>
+                        <TableCell>{row.count}</TableCell>
+                        <TableCell>
+                            <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                        </TableCell>
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    );
+};
 
 export const Sortable = SortableTemplate.bind({});
 

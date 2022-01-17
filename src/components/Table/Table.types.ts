@@ -1,3 +1,5 @@
+export type TTableSortDirection = 'asc' | 'desc';
+
 export type TTableColumnVariant = 'number' | 'field' | 'checkbox' | 'button';
 
 export interface ITableProps {
@@ -17,6 +19,8 @@ export interface ITableHeaderCellProps {
     className?: string;
     variant?: TTableColumnVariant;
     isSortable?: boolean;
+    sortDirection?: TTableSortDirection;
+    onSort?: (sortDirection: TTableSortDirection) => void;
 }
 
 export interface ITableHeaderLabelProps {
