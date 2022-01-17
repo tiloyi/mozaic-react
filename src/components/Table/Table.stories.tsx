@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
+import { generateDataTableRows, IDataTableFixture } from '../DataTable/DataTable.fixtures';
 import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
@@ -38,17 +38,31 @@ const BasicTemplate: Story = () => (
 export const Basic = BasicTemplate.bind({});
 
 const SortableTemplate: Story = () => {
+    const [data, setData] = useState<Array<IDataTableFixture>>(() => generateDataTableRows(10));
+
     const [key, setKey] = useState<'name' | 'count' | undefined>();
     const [direction, setDirection] = useState<TTableSortDirection | undefined>();
 
-    const handleSortByName = (nextDirection: TTableSortDirection): void => {
-        setKey('name');
-        setDirection(nextDirection);
-    };
+    const countSorter =
+        (dir: TTableSortDirection) =>
+        (a: IDataTableFixture, b: IDataTableFixture): number =>
+            dir === 'asc' ? a.count - b.count : b.count - a.count;
+
+    const nameSorter =
+        (dir: TTableSortDirection) =>
+        (a: IDataTableFixture, b: IDataTableFixture): number =>
+            dir === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
 
     const handleSortByCount = (nextDirection: TTableSortDirection): void => {
         setKey('count');
         setDirection(nextDirection);
+        setData(prevData => prevData.sort(countSorter(nextDirection)));
+    };
+
+    const handleSortByName = (nextDirection: TTableSortDirection): void => {
+        setKey('name');
+        setDirection(nextDirection);
+        setData(prevData => prevData.sort(nameSorter(nextDirection)));
     };
 
     return (
@@ -74,7 +88,7 @@ const SortableTemplate: Story = () => {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {rows.map(row => (
+                {data.map(row => (
                     <TableRow key={`row-${row.id}`}>
                         <TableCell>{row.id}</TableCell>
                         <TableCell>{row.name}</TableCell>
