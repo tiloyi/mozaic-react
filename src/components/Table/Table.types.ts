@@ -33,4 +33,6 @@ export interface ITableBodyProps extends HTMLAttributes<HTMLTableSectionElement>
     className?: string;
 }
 
-export interface ITableActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface ITableActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
+}
