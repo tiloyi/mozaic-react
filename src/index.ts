@@ -143,6 +143,24 @@ export {
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
+    default as Table,
+    TableActionButton,
+    TableBody,
+    TableCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+    ITableProps,
+    ITableActionButtonProps,
+    ITableBodyProps,
+    ITableCellProps,
+    ITableHeaderProps,
+    ITableHeaderCellProps,
+    ITableRowProps,
+    TTableCellVariant,
+    TTableSortDirection
+} from './components/Table';
+export {
     default as Text,
     ITextProps,
     TTextTag,
