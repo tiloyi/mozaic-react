@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { ITableHeaderCellProps } from '../Table.types';
 
 const TableHeaderCell: FC<ITableHeaderCellProps> = ({
+    className,
     children,
     variant,
     isSortable,
@@ -13,7 +14,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
     const handleSort = useCallback(() => onSort?.(sortDirection === 'asc' ? 'desc' : 'asc'), [onSort, sortDirection]);
 
     return (
-        <th {...props} className={cn(variant && `mc-datatable__cell-${variant}`)}>
+        <th {...props} className={cn(className, variant && `mc-datatable__cell-${variant}`)}>
             {isSortable ? (
                 <button
                     type="button"

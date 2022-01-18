@@ -1,38 +1,36 @@
+import { ButtonHTMLAttributes, HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
+
 export type TTableSortDirection = 'asc' | 'desc';
 
-export type TTableColumnVariant = 'number' | 'field' | 'checkbox' | 'button';
+export type TTableCellVariant = 'number' | 'field' | 'checkbox' | 'button';
 
-export interface ITableProps {
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
     className?: string;
 }
 
-export interface ITableCellProps {
+export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     className?: string;
-    variant?: TTableColumnVariant;
+    variant?: TTableCellVariant;
 }
 
-export interface ITableRowProps {
+export interface ITableRowProps extends HTMLAttributes<HTMLTableRowElement> {
     className?: string;
 }
 
-export interface ITableHeaderCellProps {
+export interface ITableHeaderCellProps extends ThHTMLAttributes<HTMLTableHeaderCellElement> {
     className?: string;
-    variant?: TTableColumnVariant;
+    variant?: TTableCellVariant;
     isSortable?: boolean;
     sortDirection?: TTableSortDirection;
     onSort?: (sortDirection: TTableSortDirection) => void;
 }
 
-export interface ITableHeaderLabelProps {
+export interface ITableHeaderProps extends HTMLAttributes<HTMLTableSectionElement> {
     className?: string;
 }
 
-export interface ITableHeaderProps {
+export interface ITableBodyProps extends HTMLAttributes<HTMLTableSectionElement> {
     className?: string;
 }
 
-export interface ITableBodyProps {
-    className?: string;
-}
-
-export interface ITableActionButtonProps {}
+export interface ITableActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
