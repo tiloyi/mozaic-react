@@ -4,7 +4,7 @@ import { generateDataTableRows, columns, getRowKey, IDataTableFixture } from './
 import DataTable from './DataTable';
 
 describe('components/DataTable', () => {
-    test('renders correctly', () => {
+    test.skip('renders correctly', () => {
         const rows = generateDataTableRows(10);
 
         render(<DataTable<IDataTableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />);

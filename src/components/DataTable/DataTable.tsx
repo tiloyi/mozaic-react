@@ -1,19 +1,20 @@
 import React from 'react';
 import { DataTableCell, DataTableRow } from './partials';
+import Table, { TableHeader, TableRow, TableHeaderCell, TableBody } from '../Table';
 import { IDataTableProps } from './DataTable.types';
 import './DataTable.scss';
 
 export default function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Element {
     return (
-        <table className="mc-datatable__table">
-            <thead>
-                <tr>
+        <Table className="mc-datatable__table">
+            <TableHeader>
+                <TableRow>
                     {columns.map(column => (
-                        <th key={`header-cell-${column.key as string}`}>{column.label}</th>
+                        <TableHeaderCell key={`header-cell-${column.key as string}`}>{column.label}</TableHeaderCell>
                     ))}
-                </tr>
-            </thead>
-            <tbody>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 {rows.map(row => {
                     const rowKey = getRowKey(row);
 
@@ -30,8 +31,8 @@ export default function DataTable<R>({ columns, rows, getRowKey }: IDataTablePro
                         </DataTableRow>
                     );
                 })}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
     );
 }
 
@@ -44,16 +45,9 @@ export default function DataTable<R>({ columns, rows, getRowKey }: IDataTablePro
  **/
 
 /**
- * + идентификатор для строки
- * + кастомный рендер для ячейки
  * - кастомный рендер для строки
  * - раскрываемая строка
- * + ячейка с чек-боксом
  * - кликабельная строка
- * - редактируемая ячейка
- * + ячейка с числом
- * + ячейка с кнопкой
- * + ячейка с инпутом
  * - пустая страница (компонент с сообщением)
  * - состояние ожидания первой страницы
  * - состояние ожидания второй страницы (если есть подгрузка)
