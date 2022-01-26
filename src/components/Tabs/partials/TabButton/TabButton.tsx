@@ -18,6 +18,7 @@ const TabButton: FC<ITabButtonProps> = ({ children, name, onClick, ...restProps 
                         onClick(event);
                     }
                 }}
+                type="button"
                 role="tab"
                 aria-selected={name === selectedTab}
                 className={cn('mc-tabs__link', name === selectedTab && 'mc-tabs__link--selected')}
