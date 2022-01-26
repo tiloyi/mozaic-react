@@ -6,7 +6,14 @@ import DataTable from './DataTable';
 const Template: Story = () => {
     const rows = generateDataTableRows(20);
 
-    return <DataTable<IDataTableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+    return (
+        <DataTable<IDataTableFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            expandable={{ icon: <>+</> }}
+        />
+    );
 };
 
 export const Basic = Template.bind({});

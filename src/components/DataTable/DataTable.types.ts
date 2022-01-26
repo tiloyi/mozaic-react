@@ -14,6 +14,12 @@ export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => string | number;
+    expandable?:
+        | boolean
+        | {
+              icon?: JSX.Element;
+              rowExpandable?: (row: R) => boolean;
+          };
 }
 
 export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
