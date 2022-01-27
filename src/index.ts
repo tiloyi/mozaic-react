@@ -43,6 +43,14 @@ export {
     TAlignContent
 } from './components/Flex';
 export {
+    default as FileUploader,
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    FileUploaderContainer,
+    FileUploaderLabel,
+    FileUploaderIndicator
+} from './components/FileUploader';
+export {
     default as Heading,
     IHeadingProps,
     THeadingTag,
