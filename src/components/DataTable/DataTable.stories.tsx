@@ -11,7 +11,9 @@ const Template: Story = () => {
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
-            expandable={{ icon: <>+</> }}
+            expandable={{
+                expandedRowRender: row => <p style={{ margin: 0 }}> {`${row.name}`}</p>
+            }}
         />
     );
 };

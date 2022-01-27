@@ -14,10 +14,13 @@ export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => string | number;
+    onRow?: (row: R) => void;
     expandable?:
         | boolean
         | {
-              icon?: JSX.Element;
+              expandedRowRender: (row: R) => JSX.Element;
+              openIcon?: JSX.Element;
+              closeIcon?: JSX.Element;
               rowExpandable?: (row: R) => boolean;
           };
 }
