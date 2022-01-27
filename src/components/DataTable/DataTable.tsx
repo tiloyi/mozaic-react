@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Table, { TableHeader, TableRow, TableHeaderCell, TableBody, TableCell } from '../Table';
-import { IDataTableProps } from './DataTable.types';
+import React, {useState} from 'react';
+import Table, {TableBody, TableCell, TableHeader, TableHeaderCell, TableRow} from '../Table';
+import {IDataTableProps} from './DataTable.types';
 import './DataTable.scss';
 
-export default function DataTable<R>({ columns, rows, getRowKey, onRow, expandable }: IDataTableProps<R>): JSX.Element {
+export default function DataTable<R>({columns, rows, getRowKey, onRow, expandable}: IDataTableProps<R>): JSX.Element {
     const [expandedRows, setExpandedRows] = useState<Array<string | number>>([]);
 
     const isExpanded = (rowKey: string | number): boolean => expandedRows.includes(rowKey);
@@ -20,7 +20,7 @@ export default function DataTable<R>({ columns, rows, getRowKey, onRow, expandab
         <Table className="mc-datatable__table">
             <TableHeader>
                 <TableRow>
-                    {expandable && <TableHeaderCell />}
+                    {expandable && <TableHeaderCell/>}
                     {columns.map(column => (
                         <TableHeaderCell key={`header-cell-${column.key as string}`}>{column.label}</TableHeaderCell>
                     ))}
@@ -35,12 +35,13 @@ export default function DataTable<R>({ columns, rows, getRowKey, onRow, expandab
                             <TableRow key={`row-${rowKey}`} onClick={() => onRow?.(row)}>
                                 {expandable && (
                                     <TableCell>
-                                        <span
-                                            aria-hidden
-                                            role="button"
-                                            onClick={() => handleClickExpandable(rowKey)}
-                                            style={{ cursor: 'pointer' }}
-                                        >
+                                        {(typeof expandable.rowExpandable === "undefined" || expandable.rowExpandable(row)) &&
+                                            <span
+                                                aria-hidden
+                                                role="button"
+                                                onClick={() => handleClickExpandable(rowKey)}
+                                                style={{cursor: 'pointer'}}
+                                            >
                                             {isExpanded(rowKey) ? (
                                                 expandable.closeIcon ? (
                                                     expandable.closeIcon
@@ -52,7 +53,7 @@ export default function DataTable<R>({ columns, rows, getRowKey, onRow, expandab
                                             ) : (
                                                 <span>+</span>
                                             )}
-                                        </span>
+                                        </span>}
                                     </TableCell>
                                 )}
                                 {columns.map(column => (
