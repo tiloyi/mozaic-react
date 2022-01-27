@@ -1,4 +1,4 @@
-import { HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
+import {HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes} from 'react';
 
 export type TDataTableColumnVariant = 'number' | 'field';
 
@@ -15,22 +15,23 @@ export interface IDataTableProps<R> {
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => string | number;
     onRow?: (row: R) => void;
-    expandable?:
-        | boolean
-        | {
-              expandedRowRender: (row: R) => JSX.Element;
-              openIcon?: JSX.Element;
-              closeIcon?: JSX.Element;
-              rowExpandable?: (row: R) => boolean;
-          };
+    expandable?: {
+        expandedRowRender: (row: R) => JSX.Element;
+        openIcon?: JSX.Element;
+        closeIcon?: JSX.Element;
+        rowExpandable?: (row: R) => boolean;
+    };
 }
 
 export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     variant?: TDataTableColumnVariant;
 }
 
-export interface IDataTableRowProps extends HTMLAttributes<HTMLTableRowElement> {}
+export interface IDataTableRowProps extends HTMLAttributes<HTMLTableRowElement> {
+}
 
-export interface IDataTableHeaderRowProps extends HTMLAttributes<HTMLTableRowElement> {}
+export interface IDataTableHeaderRowProps extends HTMLAttributes<HTMLTableRowElement> {
+}
 
-export interface IDataTableHeaderCellProps extends ThHTMLAttributes<HTMLTableHeaderCellElement> {}
+export interface IDataTableHeaderCellProps extends ThHTMLAttributes<HTMLTableHeaderCellElement> {
+}
