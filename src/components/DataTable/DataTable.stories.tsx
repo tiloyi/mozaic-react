@@ -1,6 +1,6 @@
 import React from 'react';
-import {Story} from '@storybook/react';
-import {columns, generateDataTableRows, getRowKey, IDataTableFixture} from './DataTable.fixtures';
+import { Story } from '@storybook/react';
+import { columns, generateDataTableRows, getRowKey, IDataTableFixture } from './DataTable.fixtures';
 import DataTable from './DataTable';
 
 const Template: Story = () => {
@@ -12,7 +12,7 @@ const Template: Story = () => {
             rows={rows}
             getRowKey={getRowKey}
             expandable={{
-                expandedRowRender: row => <p style={{margin: 0}}> {`${row.name}`}</p>,
+                expandedRowRender: row => <p style={{ margin: 0 }}> {`${row.name}`}</p>,
                 rowExpandable: row => row.id % 2 !== 0
             }}
         />
