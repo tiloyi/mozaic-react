@@ -17,7 +17,9 @@ export default function DataTable<R>({
 
     const isExpanded = (rowKey: string | number): boolean => expandedRows.includes(rowKey);
 
-    const handleClickExpandable = (rowKey: string | number): void => {
+    const handleClickExpandable = (event: React.MouseEvent<HTMLElement>, rowKey: string | number): void => {
+        event.stopPropagation();
+
         if (isExpanded(rowKey)) {
             setExpandedRows(prevValue => prevValue.filter(prevRowKey => prevRowKey !== rowKey));
         } else {
@@ -25,8 +27,8 @@ export default function DataTable<R>({
         }
     };
 
-    const fillTableBody = () => {
-        if (rows.length) {
+    const fillTableBody = (): JSX.Element | JSX.Element[] => {
+        if (!rows.length) {
             return (
                 <TableRow key="row-empty">
                     <TableCell key="row-empty-cell" colSpan={columns.length + (expandable ? 1 : 0)}>
@@ -54,7 +56,7 @@ export default function DataTable<R>({
                                         size="s"
                                         theme="primary"
                                         variant="bordered"
-                                        onClick={() => handleClickExpandable(rowKey)}
+                                        onClick={event => handleClickExpandable(event, rowKey)}
                                     >
                                         {isExpanded(rowKey)
                                             ? expandable.closeIcon ?? <IconMinus />
