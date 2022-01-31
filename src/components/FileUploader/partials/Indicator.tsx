@@ -5,14 +5,12 @@ import { IFileUploaderInputProps } from '../FileUploader.types';
 const FileUploaderIndicator = ({
     className,
     isDisabled,
-    isInvalid,
     ...props
 }: IFileUploaderInputProps): JSX.Element => {
 
     const fileUploaderClassName = cn(
       'mc-fileuploader__input',
       className,
-      isInvalid && 'is-invalid',
       );
 
     return (
@@ -22,7 +20,6 @@ const FileUploaderIndicator = ({
             className={fileUploaderClassName}
             type="file"
             disabled={isDisabled}
-            aria-invalid={isInvalid}
         />
     );
 };
