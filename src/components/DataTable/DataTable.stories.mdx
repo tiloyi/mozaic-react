@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Basic, argTypes } from './DataTable.stories';
+import { Basic, CustomRowRender, ClickableRow, argTypes } from './DataTable.stories';
 import DataTable from './DataTable';
 
 <Meta title="Components/DataTable" component={DataTable} argTypes={argTypes} />
@@ -22,6 +22,18 @@ To use the component in your project you must:
 
 <Canvas withSource="open">
     <Story story={Basic} />
+</Canvas>
+
+Custom row
+
+<Canvas withSource="open">
+    <Story story={CustomRowRender} />
+</Canvas>
+
+Clicable row
+
+<Canvas withSource="open">
+    <Story story={ClickableRow} />
 </Canvas>
 
 ## Props
