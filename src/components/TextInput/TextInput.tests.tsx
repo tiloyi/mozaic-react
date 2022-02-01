@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TextInput from './TextInput';
+import SVGIcon from "../../../.storybook/assets/SVGIcon";
 
 describe('components/TextInput', () => {
     test('renders correctly', () => {
@@ -32,6 +33,18 @@ describe('components/TextInput', () => {
         render(<TextInput size="s" />);
 
         expect(screen.getByRole('textbox')).toHaveClass('mc-text-input--s');
+    });
+
+    test('renders with icon', () => {
+        render(<TextInput icon={<SVGIcon />} />);
+
+        const wrapperDiv = document.querySelector('div.mc-left-icon-input');
+        const span = document.querySelector('span.mc-left-icon-input__icon');
+
+        expect(wrapperDiv).toBeTruthy();
+        expect(span).toBeTruthy();
+
+        expect(screen.getByRole('textbox')).toHaveClass('mc-left-icon-input__input');
     });
 
     test('throws an error if `isValid` and `isInvalid` are specified as true', () => {
