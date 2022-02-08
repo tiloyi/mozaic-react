@@ -14,10 +14,13 @@
     "prettier:check": "prettier --check \"src/**/*.{ts, tsx, scss, css, mdx}\"",
     "prettier:write": "prettier --write \"src/**/*.{ts, tsx, scss, css, mdx}\"",
     "start": "start-storybook -p 6006",
+    "start:adeo": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "storybook:clean": "rimraf storybook-static",
     "lib:build": "rollup --config",
+    "lib:build:adeo": "rollup --config --environment MOZAIC_PRESET:adeo",
     "lib:clean": "rimraf lib",
+    "tokens:build": "mozaic-tokens-build",
     "prepare": "husky install",
     "release": "dotenv release-it",
     "release:beta": "dotenv release-it --preRelease=beta",
@@ -39,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/adeo/mozaic-react/issues"
   },
-  "homepage": "https://github.com/adeo/mozaic-react#readme",
+"homepage": "https://github.com/adeo/mozaic-react#readme",
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@byndyusoft/eslint-config": "^1.1.0",
@@ -79,7 +82,7 @@
     "rollup": "^2.56.3",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
-    "sass-loader": "^12.1.0",
+    "sass-loader": "^10",
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.3",
     "husky": "^7.0.0"

@@ -6,6 +6,8 @@ import peerDeps from 'rollup-plugin-peer-deps-external';
 import postcssPlugins from '@mozaic-ds/css-dev-tools/postcssPluginConfig';
 import postcssSyntax from 'postcss-scss';
 
+const isAdeoPreset = process.env.MOZAIC_PRESET === 'adeo';
+
 export default [
     {
         input: ['src/index.ts'],
@@ -22,8 +24,9 @@ export default [
             postcss({
                 plugins: postcssPlugins,
                 syntax: postcssSyntax,
-                extract: true,
+                extract: isAdeoPreset ? 'index.adeo.css' : true,
                 minimize: true,
+                to: 'index.adeo.css',
                 use: [
                     [
                         'sass',
@@ -31,7 +34,7 @@ export default [
                             includePaths: [
                                 './node_modules/',
                                 './node_modules/@mozaic-ds/styles/',
-                                './node_modules/@mozaic-ds/tokens/build/scss/',
+                                isAdeoPreset ? './src/assets/adeo/' : './node_modules/@mozaic-ds/tokens/build/scss/',
                                 './node_modules/@mozaic-ds/styles/components/',
                                 './node_modules/@mozaic-ds/styles/generic/',
                                 './node_modules/@mozaic-ds/styles/layouts/',
