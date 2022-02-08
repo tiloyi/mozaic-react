@@ -26,7 +26,6 @@ export default [
                 syntax: postcssSyntax,
                 extract: isAdeoPreset ? 'index.adeo.css' : true,
                 minimize: true,
-                to: 'index.adeo.css',
                 use: [
                     [
                         'sass',
