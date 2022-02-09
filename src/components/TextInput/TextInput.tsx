@@ -16,6 +16,7 @@ const TextInput: FC<ITextInputProps> = ({
     isDisabled,
     isInvalid,
     isValid,
+    icon,
     ...props
 }: ITextInputProps) => {
     if (isInvalid && isValid) {
@@ -27,8 +28,20 @@ const TextInput: FC<ITextInputProps> = ({
         className,
         getSizeClassName(size),
         isInvalid && 'is-invalid',
-        isValid && 'is-valid'
+        isValid && 'is-valid',
+        icon && 'mc-left-icon-input__input',
     );
+
+    if (icon) {
+        return (
+            <div className="mc-left-icon-input">
+                <span className="mc-left-icon-input__icon">
+                    {icon}
+                </span>
+                <input className={textAreaClassName} {...props} type={type} aria-invalid={isInvalid} disabled={isDisabled} />
+            </div>
+        );
+    }
 
     return (
         <input className={textAreaClassName} {...props} type={type} aria-invalid={isInvalid} disabled={isDisabled} />

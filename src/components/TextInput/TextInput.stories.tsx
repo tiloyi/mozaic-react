@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { Story } from '@storybook/react';
 import TextInput from './TextInput';
 import { ITextInputProps } from './TextInput.types';
+import SVGIcon from '../../../.storybook/assets/SVGIcon';
 
 const ControlsTemplate: Story<ITextInputProps> = args => <TextInput {...args} />;
 
@@ -32,6 +33,17 @@ Example.args = {
     isInvalid: false,
     isValid: false
 };
+
+export const TextInputWithIcon = ExampleTemplate.bind({});
+
+TextInputWithIcon.args = {
+    placeholder: 'placeholder',
+    size: 'm',
+    isDisabled: false,
+    isInvalid: false,
+    isValid: false,
+    icon: <SVGIcon />,
+}
 
 export const argTypes = {
     size: {
