@@ -17,3 +17,7 @@
 .mc-modal__body {
     display: flex;
 }
+
+.mc-modal__content {
+    flex-grow: 1;
+}
