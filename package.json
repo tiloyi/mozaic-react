@@ -85,7 +85,8 @@
     "@mozaic-ds/styles": "^1.24.1",
     "@mozaic-ds/tokens": "^1.22.0",
     "@mozaic-ds/web-fonts": "^1.22.0",
-    "react-transition-group": "^4.4.2",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "react-merge-refs": "^1.1.0",
+    "react-transition-group": "^4.4.2"
   }
 }
