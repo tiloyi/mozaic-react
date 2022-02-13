@@ -2,7 +2,7 @@ import React, { ChangeEvent, forwardRef, useCallback } from 'react';
 import TextInput from '../../TextInput';
 import { useQuantitySelectorInput } from '../QuantitySelectorContext';
 
-const QuantitySelectorInput = forwardRef<HTMLInputElement, unknown>((_, ref) => {
+const QuantitySelectorInput = forwardRef<HTMLInputElement>((_, ref) => {
     const { maxValue, minValue, onChange, ...props } = useQuantitySelectorInput();
 
     const handleChange = useCallback(
