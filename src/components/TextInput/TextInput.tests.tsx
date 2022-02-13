@@ -1,7 +1,33 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { useForm } from 'react-hook-form';
+import userEvent from '@testing-library/user-event';
+import { render, screen, waitFor } from '@testing-library/react';
+import SVGIcon from '../../../.storybook/assets/SVGIcon';
+import View from '../View';
+import Button from '../Button';
 import TextInput from './TextInput';
-import SVGIcon from "../../../.storybook/assets/SVGIcon";
+
+interface IFormValues {
+    message: string;
+}
+
+interface IFormProps {
+    defaultValues: IFormValues;
+    onSubmit: (values: IFormValues) => void;
+}
+
+const Form = ({ defaultValues, onSubmit }: IFormProps): JSX.Element => {
+    const { register, handleSubmit } = useForm<IFormValues>({ defaultValues });
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <View marginBottom="mu100">
+                <TextInput {...register('message')} />
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
 
 describe('components/TextInput', () => {
     test('renders correctly', () => {
@@ -51,5 +77,24 @@ describe('components/TextInput', () => {
         expect(() => render(<TextInput isInvalid isValid />)).toThrow(
             'The properties `isValid` and `isInvalid` can not be true in the same time'
         );
+    });
+
+    test('works with react-hook-form', async () => {
+        const onSubmit = jest.fn();
+        const defaultValues = {
+            message: 'lorem ipsum'
+        };
+
+        render(<Form defaultValues={defaultValues} onSubmit={onSubmit} />);
+
+        expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum');
+
+        userEvent.type(screen.getByRole('textbox'), ' dolor sit amet');
+
+        expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum dolor sit amet');
+
+        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+
+        expect(onSubmit).toHaveBeenCalledWith({ message: 'lorem ipsum dolor sit amet' }, expect.any(Object));
     });
 });
