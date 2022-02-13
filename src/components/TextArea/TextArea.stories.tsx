@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Story } from '@storybook/react';
 import { useForm } from 'react-hook-form';
+import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import View from '../View';
 import TextArea from './TextArea';
 import { ITextAreaProps } from './TextArea.types';
-import { action } from '@storybook/addon-actions';
 
 const ControlsTemplate: Story<ITextAreaProps> = args => <TextArea {...args} />;
 
@@ -36,7 +36,7 @@ const ReactHookFormTemplate: Story = () => {
             <View marginBottom="mu100">
                 <TextArea {...register('value')} />
             </View>
-            <Button>Submit</Button>
+            <Button type="submit">Submit</Button>
         </form>
     );
 };
