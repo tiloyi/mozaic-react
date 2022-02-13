@@ -1,7 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Story } from '@storybook/react';
+import { useForm } from 'react-hook-form';
+import Button from '../Button';
+import View from '../View';
 import TextArea from './TextArea';
 import { ITextAreaProps } from './TextArea.types';
+import { action } from '@storybook/addon-actions';
 
 const ControlsTemplate: Story<ITextAreaProps> = args => <TextArea {...args} />;
 
@@ -23,6 +27,21 @@ const ExampleTemplate: Story<ITextAreaProps> = args => {
 };
 
 export const Example = ExampleTemplate.bind({});
+
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <TextArea {...register('value')} />
+            </View>
+            <Button>Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 Example.args = {
     placeholder: 'placeholder',
