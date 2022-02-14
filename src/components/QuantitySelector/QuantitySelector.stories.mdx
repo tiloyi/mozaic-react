@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Controls, Placeholder, Example, Values, argTypes } from './QuantitySelector.stories';
+import { Controls, Example, Values, ReactHookForm, argTypes } from './QuantitySelector.stories';
 import QuantitySelector from './QuantitySelector';
 
 <Meta title="Components/QuantitySelector" component={QuantitySelector} argTypes={argTypes} />
@@ -34,6 +34,12 @@ controlled example:
 
 <Canvas withSource="open">
     <Story story={Example} />
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm} />
 </Canvas>
 
 ## Props
