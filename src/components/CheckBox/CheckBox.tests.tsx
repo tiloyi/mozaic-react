@@ -1,10 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 import View from '../View';
 import CheckBox from './CheckBox';
-import userEvent from '@testing-library/user-event';
 
 interface IFormValues {
     isChecked: boolean;

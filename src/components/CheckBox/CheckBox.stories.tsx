@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Story } from '@storybook/react';
-import CheckBox from './CheckBox';
+import { action } from '@storybook/addon-actions';
+import Button from '../Button';
+import View from '../View';
 import { ICheckBoxProps } from './CheckBox.types';
+import CheckBox from './CheckBox';
 
 const ControlsTemplate: Story<ICheckBoxProps> = args => <CheckBox {...args}>Check box label</CheckBox>;
 
@@ -45,3 +49,18 @@ Example.argTypes = {
         }
     }
 };
+
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <CheckBox {...register('value')}>Label</CheckBox>
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
