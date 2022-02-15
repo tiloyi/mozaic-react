@@ -67,7 +67,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(6);
     });
@@ -77,7 +77,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(4);
     });
@@ -87,7 +87,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(10);
     });
@@ -97,7 +97,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={7} step={5} maxValue={10} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).not.toBeCalled();
     });
@@ -107,7 +107,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(0);
     });
@@ -117,7 +117,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={3} step={5} minValue={0} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).not.toBeCalled();
     });
