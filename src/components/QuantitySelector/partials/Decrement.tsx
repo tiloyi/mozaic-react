@@ -8,7 +8,12 @@ const QuantitySelectorDecrement: FC<IQuantitySelectorButtonProps> = ({ className
     const decrementProps = useQuantitySelectorDecrement();
 
     return (
-        <IconButton {...props} className={cn('mc-quantity-selector__button-left', className)} {...decrementProps}>
+        <IconButton
+            {...props}
+            className={cn('mc-quantity-selector__button-left', className)}
+            {...decrementProps}
+            type="button"
+        >
             {children}
         </IconButton>
     );

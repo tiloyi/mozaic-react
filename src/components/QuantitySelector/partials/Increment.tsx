@@ -8,7 +8,12 @@ const QuantitySelectorIncrement: FC<IQuantitySelectorButtonProps> = ({ className
     const incrementProps = useQuantitySelectorIncrement();
 
     return (
-        <IconButton {...props} className={cn('mc-quantity-selector__button-right', className)} {...incrementProps}>
+        <IconButton
+            {...props}
+            className={cn('mc-quantity-selector__button-right', className)}
+            {...incrementProps}
+            type="button"
+        >
             {children}
         </IconButton>
     );

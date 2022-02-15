@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useController } from 'react-hook-form';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
@@ -64,21 +64,25 @@ Example.argTypes = {
     }
 };
 
-interface IFormValues {
-    value: number;
-}
-
 const ReactHookFormTemplate: Story = () => {
-    const { register, handleSubmit } = useForm<IFormValues>({
+    interface IFormValues {
+        value: number;
+    }
+
+    const { control, handleSubmit } = useForm<IFormValues>({
         defaultValues: {
             value: 0
         }
     });
 
+    const {
+        field: { value, onChange }
+    } = useController({ control, name: 'value' });
+
     return (
         <form onSubmit={handleSubmit(action('Submit'))}>
             <View marginBottom="mu100">
-                <QuantitySelector />
+                <QuantitySelector value={value} onChange={onChange} />
             </View>
             <Button type="submit">Submit</Button>
         </form>
