@@ -21,6 +21,6 @@ const QuantitySelector = forwardRef<HTMLInputElement, IQuantitySelectorProps>(({
     </QuantitySelectorContainer>
 ));
 
-QuantitySelector.displayName = 'MozaicQuantitySelector';
+QuantitySelector.displayName = 'QuantitySelector';
 
 export default QuantitySelector;
