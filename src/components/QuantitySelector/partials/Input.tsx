@@ -40,6 +40,6 @@ const QuantitySelectorInput = forwardRef<HTMLInputElement>((_, ref) => {
     );
 });
 
-QuantitySelectorInput.displayName = 'MozaicQuantitySelectorInput';
+QuantitySelectorInput.displayName = 'QuantitySelectorInput';
 
 export default QuantitySelectorInput;

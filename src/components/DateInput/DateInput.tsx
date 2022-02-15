@@ -6,6 +6,6 @@ const DateInput = forwardRef<HTMLInputElement, IDateInputProps>((props, ref) => 
     <TextInput {...props} ref={ref} type="date" />
 ));
 
-DateInput.displayName = 'MozaicDateInput';
+DateInput.displayName = 'DateInput';
 
 export default DateInput;

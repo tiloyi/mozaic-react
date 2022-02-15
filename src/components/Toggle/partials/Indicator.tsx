@@ -15,6 +15,6 @@ const ToggleIndicator = forwardRef<HTMLInputElement, IToggleIndicatorProps>(
     )
 );
 
-ToggleIndicator.displayName = 'MozaicToggleIndicator';
+ToggleIndicator.displayName = 'ToggleIndicator';
 
 export default ToggleIndicator;

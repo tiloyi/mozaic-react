@@ -10,6 +10,6 @@ const Toggle = forwardRef<HTMLInputElement, IToggleProps>(({ className, children
     </ToggleContainer>
 ));
 
-Toggle.displayName = 'MozaicToggle';
+Toggle.displayName = 'Toggle';
 
 export default Toggle;

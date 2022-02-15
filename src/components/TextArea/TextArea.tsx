@@ -23,6 +23,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
     }
 );
 
-TextArea.displayName = 'MozaicTextArea';
+TextArea.displayName = 'TextArea';
 
 export default TextArea;

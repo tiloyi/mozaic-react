@@ -10,6 +10,6 @@ const Radio = forwardRef<HTMLInputElement, IRadioProps>(({ className, children, 
     </RadioContainer>
 ));
 
-Radio.displayName = 'MozaicRadio';
+Radio.displayName = 'Radio';
 
 export default Radio;

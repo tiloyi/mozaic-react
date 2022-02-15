@@ -48,6 +48,6 @@ const TextInput = forwardRef<HTMLInputElement, ITextInputProps>(
     }
 );
 
-TextInput.displayName = 'MozaicTextInput';
+TextInput.displayName = 'TextInput';
 
 export default TextInput;

@@ -10,6 +10,6 @@ const CheckBox = forwardRef<HTMLInputElement, ICheckBoxProps>(({ className, chil
     </CheckBoxContainer>
 ));
 
-CheckBox.displayName = 'MozaicCheckBox';
+CheckBox.displayName = 'CheckBox';
 
 export default CheckBox;

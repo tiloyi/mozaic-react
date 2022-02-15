@@ -8,6 +8,6 @@ const PasswordInputField = forwardRef<HTMLInputElement>((_, ref) => {
     return <TextInput className="mc-password-input__control" {...props} ref={ref} />;
 });
 
-PasswordInputField.displayName = 'MozaicPasswordInputField';
+PasswordInputField.displayName = 'PasswordInputField';
 
 export default PasswordInputField;

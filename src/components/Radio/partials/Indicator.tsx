@@ -46,6 +46,6 @@ const RadioIndicator = forwardRef<HTMLInputElement, IRadioProps>(
     }
 );
 
-RadioIndicator.displayName = 'MozaicRadioIndicator';
+RadioIndicator.displayName = 'RadioIndicator';
 
 export default RadioIndicator;

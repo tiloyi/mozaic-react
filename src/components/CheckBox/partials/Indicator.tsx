@@ -28,6 +28,6 @@ const CheckBoxIndicator = forwardRef<HTMLInputElement, ICheckBoxProps>(
     }
 );
 
-CheckBoxIndicator.displayName = 'MozaicCheckBoxIndicator';
+CheckBoxIndicator.displayName = 'CheckBoxIndicator';
 
 export default CheckBoxIndicator;

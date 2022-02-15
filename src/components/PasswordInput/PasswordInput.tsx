@@ -11,6 +11,6 @@ const PasswordInput = forwardRef<HTMLInputElement, IPasswordInputProps>((props, 
     </PasswordInputContainer>
 ));
 
-PasswordInput.displayName = 'MozaicPasswordInput';
+PasswordInput.displayName = 'PasswordInput';
 
 export default PasswordInput;
