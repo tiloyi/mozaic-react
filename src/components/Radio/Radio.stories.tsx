@@ -4,6 +4,7 @@ import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import View from '../View';
+import { languages } from '../RadioGroup/RadioGroup.fixtures';
 import { IRadioProps } from './Radio.types';
 import Radio from './Radio';
 
@@ -18,12 +19,29 @@ Controls.args = {
 };
 
 const ReactHookFormTemplate: Story = () => {
-    const { register, handleSubmit } = useForm();
+    interface IFormValues {
+        language: string;
+    }
+
+    const { register, handleSubmit } = useForm<IFormValues>({
+        defaultValues: {
+            language: languages[0].toLowerCase()
+        }
+    });
 
     return (
         <form onSubmit={handleSubmit(action('Submit'))}>
             <View marginBottom="mu100">
-                <Radio {...register('value')}>Label</Radio>
+                {languages.map(lang => (
+                    <Radio
+                        className="radio-group-item"
+                        {...register('language')}
+                        key={lang.toLowerCase()}
+                        value={lang.toLowerCase()}
+                    >
+                        {lang}
+                    </Radio>
+                ))}
             </View>
             <Button type="submit">Submit</Button>
         </form>
