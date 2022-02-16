@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Controls } from './Radio.stories';
+import { Controls, ReactHookForm } from './Radio.stories';
 import Radio from './Radio';
 
 <Meta title="Components/Radio" component={Radio} />
@@ -22,6 +22,12 @@ To use the component in your project you must:
 
 <Canvas withSource="open">
     <Story story={Controls} />
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm} />
 </Canvas>
 
 ## Props

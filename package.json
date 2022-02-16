@@ -64,6 +64,7 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.27.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -84,7 +85,8 @@
     "@mozaic-ds/styles": "^1.24.1",
     "@mozaic-ds/tokens": "^1.22.0",
     "@mozaic-ds/web-fonts": "^1.22.0",
-    "react-transition-group": "^4.4.2",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "react-merge-refs": "^1.1.0",
+    "react-transition-group": "^4.4.2"
   }
 }
