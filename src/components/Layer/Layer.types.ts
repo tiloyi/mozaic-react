@@ -8,10 +8,12 @@ export interface ILayerPartialProps extends HTMLAttributes<HTMLDivElement> {
 export interface ILayerCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     id: string;
+    onClose?: () => void;
 }
 
 export interface ILayerContainerProps extends HTMLAttributes<HTMLDivElement> {
     id: string;
+    onClose?: () => void;
 }
 
 export interface ILayerTitleProps extends HTMLAttributes<HTMLHeadingElement> {
