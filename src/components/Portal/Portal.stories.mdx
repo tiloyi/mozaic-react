@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Example } from './Portal.stories';
+import Portal from './Portal';
+
+<Meta title="Components/Portal" component={Portal} parameters={{ layout: 'centered' }} />
+
+# Portal
+
+Компонент `Portal` не является частью [Mozaic Design System](https://mozaic.adeo.cloud/). Предназначен для рендеринга компонентов вне основного дерева приложения.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Portal } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Portal} />

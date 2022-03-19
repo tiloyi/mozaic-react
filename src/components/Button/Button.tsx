@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import ButtonContainer from './partials/Container';
-import ButtonLabel from './partials/Label';
+import { ButtonContainer, ButtonIcon, ButtonLabel } from './partials';
 import { IButtonProps } from './Button.types';
 import './Button.scss';
-import ButtonIcon from './partials/Icon';
 
 const Button: FC<IButtonProps> = ({ children, leftIcon, rightIcon, ...props }) => (
     <ButtonContainer {...props}>

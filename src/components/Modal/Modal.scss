@@ -1,0 +1,23 @@
+@import "settings-tools/_all-settings";
+
+@import "components/_c.modal";
+
+@media screen and (max-width: get-token(screen, m)) {
+    .mc-modal__dialog {
+        max-height: 100%;
+    }
+}
+
+.mc-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.mc-modal__body {
+    display: flex;
+}
+
+.mc-modal__content {
+    flex-grow: 1;
+}

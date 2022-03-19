@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { themes } from './Badge.types';
 import Badge from './Badge';
-import { BadgeTheme } from './Badge.types';
 
 describe('components/Badge', () => {
     test('renders children correctly', () => {
@@ -16,12 +16,9 @@ describe('components/Badge', () => {
         expect(screen.getByText('Text')).toHaveClass('mc-badge--info');
     });
 
-    test.each([BadgeTheme.Danger, BadgeTheme.Neutral, BadgeTheme.Success, BadgeTheme.Warning])(
-        'renders with `%s` theme correctly',
-        theme => {
-            render(<Badge theme={theme}>text</Badge>);
+    test.each(themes)('renders with `%s` theme correctly', theme => {
+        render(<Badge theme={theme}>text</Badge>);
 
-            expect(screen.getByText('text')).toHaveClass(`mc-badge--${theme}`);
-        }
-    );
+        expect(screen.getByText('text')).toHaveClass(`mc-badge--${theme}`);
+    });
 });

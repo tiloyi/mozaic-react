@@ -1,0 +1,41 @@
+import { Meta, Title } from '@storybook/addon-docs';
+import mozaic from '@mozaic-ds/styles/package.json';
+import pkg from '../../package.json';
+
+<Meta title="About/Introduction" />
+
+<Title>mozaic-react v{pkg.version}</Title>
+
+<blockquote>
+    This library contains a collection of React components that implements <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>{' '}
+    <strong>v{mozaic.version}</strong>
+</blockquote>
+
+<p align="center">
+    <a href="https://www.typescriptlang.org/">
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Using typescript" />
+    </a>
+  <a href="https://github.com/adeo/mozaic-react/issues">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
+  </a>
+</p>
+
+## Getting started
+
+In order to install `@mozaic-ds/react` in your project, you will need to run the following command:
+
+```
+npm install --save @mozaic-ds/react
+```
+
+If you prefer Yarn, use the following command instead:
+
+```
+yarn add @mozaic-ds/react
+```
+
+Once the package installed, import the following `css` file in your project entry point:
+
+```
+import '@mozaic-ds/react/lib/index.css';
+```

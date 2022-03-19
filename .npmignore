@@ -1,8 +1,12 @@
+.coverage
+.github
+.idea
 .jest
 .storybook
 .templates
 src
-Jenkinsfile
+storybook-static
+.hygen.js
 jest.config.js
 mozaic.config.js
 prettier.config.js

@@ -1,0 +1,119 @@
+import React from 'react';
+import { Story } from '@storybook/react';
+import Button from '../Button';
+import ModalsProvider, { useModals } from '../ModalsProvider';
+import Text from '../Text';
+import { LayerBody, LayerFooter, LayerHeader, LayerTitle } from './partials';
+import Layer from './Layer';
+
+const ShortBodyExample = (): JSX.Element => {
+    const { open } = useModals();
+
+    return (
+        <>
+            <Button size="s" onClick={() => open('shortBodyLayer')}>
+                Open layer
+            </Button>
+            <Layer id="shortBodyLayer">
+                <LayerHeader>
+                    <LayerTitle>Layer title</LayerTitle>
+                </LayerHeader>
+                <LayerBody>
+                    <Text as="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
+                        magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae
+                        pulvinar mi. Morbi nisi enim, tincidunt et sapien at, viverra facilisis nisi.
+                    </Text>
+                </LayerBody>
+                <LayerFooter>
+                    <Button>Action button</Button>
+                </LayerFooter>
+            </Layer>
+        </>
+    );
+};
+
+const ShortBodyTemplate: Story = () => (
+    <ModalsProvider>
+        <ShortBodyExample />
+    </ModalsProvider>
+);
+
+export const ShortBody = ShortBodyTemplate.bind({});
+
+const LongBodyExample = (): JSX.Element => {
+    const { open } = useModals();
+
+    return (
+        <>
+            <Button size="s" onClick={() => open('longBodyLayer')}>
+                Open layer
+            </Button>
+            <Layer id="longBodyLayer">
+                <LayerHeader>
+                    <LayerTitle>Layer title</LayerTitle>
+                </LayerHeader>
+                <LayerBody>
+                    <Text as="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
+                        magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae
+                        pulvinar mi. Morbi nisi enim, tincidunt et sapien at, viverra facilisis nisi. Fusce sed suscipit
+                        dui. Aenean tincidunt et lectus sed euismod. Proin sit amet diam a enim hendrerit euismod at sit
+                        amet nibh. Etiam eleifend nulla a ex lacinia, eu laoreet lectus auctor. Nam sagittis, eros nec
+                        convallis bibendum, tortor neque ultricies arcu, vitae volutpat metus nunc non ipsum. Cras
+                        dapibus lorem vitae mauris porta, id lacinia orci blandit. Maecenas ac mauris urna. Curabitur
+                        congue egestas ante, at malesuada diam consequat non. Etiam et ultrices eros. Proin in efficitur
+                        arcu. Suspendisse interdum lorem quis placerat mattis.
+                    </Text>
+                    <Text as="p">
+                        Nunc sed orci augue. Praesent interdum viverra lacinia. Quisque a est accumsan, maximus diam
+                        vitae, tempor metus. Nam congue nec urna sed mollis. Suspendisse a lectus vel turpis accumsan
+                        bibendum interdum sed nisl. Nam efficitur tincidunt ornare. In sagittis a ex quis blandit. Donec
+                        odio massa, fringilla non mi nec, tristique dictum nisi. Nulla varius pulvinar tincidunt. Nam
+                        porta convallis lorem, venenatis ornare ligula ornare porta. Donec ut libero sed dui laoreet
+                        rutrum a pellentesque elit. Praesent pharetra leo quam, sed sodales leo consectetur ut. Cras
+                        luctus nulla ac urna consectetur feugiat.
+                    </Text>
+                    <Text as="p">
+                        Proin augue ex, tempus id luctus eget, ultrices id augue. Aenean eu dui at orci dignissim
+                        viverra venenatis at lectus. In hac habitasse platea dictumst. Nullam facilisis congue sodales.
+                        Aliquam malesuada lacus vel libero laoreet aliquam. Nunc gravida velit dapibus est interdum
+                        tristique. Nunc tincidunt malesuada nisi id ornare. Aliquam tempus viverra odio a efficitur.
+                        Nunc non ligula sodales, finibus eros nec, dignissim ex. Nulla porttitor vestibulum libero. Duis
+                        non nisi turpis. Pellentesque pulvinar ipsum quis augue consectetur ultricies. Nulla venenatis,
+                        quam eu suscipit facilisis, leo nibh aliquam quam, at ullamcorper nisi sapien at lectus.
+                    </Text>
+                    <Text as="p">
+                        Nulla vulputate justo a orci condimentum aliquet. Mauris vestibulum metus id semper posuere.
+                        Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer
+                        dictum facilisis leo, at viverra ligula congue non. Etiam euismod fermentum turpis ut semper.
+                        Aliquam pellentesque ante vitae leo tempus, vitae ullamcorper ex eleifend. Integer porta dapibus
+                        nisi, ut egestas odio tincidunt eu.
+                    </Text>
+                    <Text as="p">
+                        Cras vitae feugiat magna, vel rhoncus odio. Cras et consequat tortor, id placerat orci.
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras vel
+                        mi malesuada, mattis dui quis, faucibus lorem. Vestibulum ac pulvinar enim, ut dictum sem. Donec
+                        eget purus at eros sodales tempus vel in nisl. Fusce volutpat at risus sed finibus. Etiam
+                        condimentum enim ut rutrum pulvinar. Curabitur eu lacinia lacus, et interdum orci. Duis sagittis
+                        metus sit amet erat mollis commodo ac a tellus. Vestibulum ante ipsum primis in faucibus orci
+                        luctus et ultrices posuere cubilia curae; Fusce turpis ipsum, bibendum eget efficitur at, porta
+                        eu erat. Nullam ac commodo est, id elementum mi. Morbi id augue placerat mauris sodales gravida
+                        in eu nunc. Nulla facilisis mauris eu lectus ornare, blandit imperdiet mauris sagittis.
+                    </Text>
+                </LayerBody>
+                <LayerFooter>
+                    <Button>Action button</Button>
+                </LayerFooter>
+            </Layer>
+        </>
+    );
+};
+
+const LongBodyTemplate: Story = () => (
+    <ModalsProvider>
+        <LongBodyExample />
+    </ModalsProvider>
+);
+
+export const LongBody = LongBodyTemplate.bind({});

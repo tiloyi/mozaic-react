@@ -1,0 +1,9 @@
+@import "settings-tools/_all-settings";
+
+@import "components/_c.layer";
+
+.mc-layer__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

@@ -1,4 +1,4 @@
 import TextInput from './TextInput';
 
-export { TextInputSize } from './TextInput.types';
+export { ITextInputProps, TTextInputSize } from './TextInput.types';
 export default TextInput;

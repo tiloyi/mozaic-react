@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
-import { IToggleProps } from '../Toggle.types';
+import { IToggleIndicatorProps } from '../Toggle.types';
 
-const ToggleIndicator = ({ className, isChecked, isDisabled, size, ...props }: IToggleProps) => {
-    return (
+const ToggleIndicator = forwardRef<HTMLInputElement, IToggleIndicatorProps>(
+    ({ className, isChecked, isDisabled, ...props }, ref) => (
         <input
             className={cn('mc-toggle__input', className)}
             {...props}
+            ref={ref}
             type="checkbox"
             checked={isChecked}
             disabled={isDisabled}
         />
-    );
-};
+    )
+);
+
+ToggleIndicator.displayName = 'ToggleIndicator';
 
 export default ToggleIndicator;

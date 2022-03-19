@@ -1,4 +1,11 @@
 import Heading from './Heading';
 
-export { HeadingAlign, HeadingSize, HeadingWeight, HeadingUnderline } from './Heading.types';
+export {
+    IHeadingProps,
+    THeadingTag,
+    THeadingSize,
+    THeadingWeight,
+    THeadingTextAlign,
+    THeadingUnderline
+} from './Heading.types';
 export default Heading;

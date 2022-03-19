@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { useForm } from 'react-hook-form';
+import Button from '../Button';
+import View from '../View';
 import Toggle from './Toggle';
-import { IToggleProps, ToggleSize } from './Toggle.types';
+import { IToggleProps } from './Toggle.types';
 
 const ControlsTemplate: Story<IToggleProps> = args => <Toggle {...args}>Toggle label</Toggle>;
 
 export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
-    size: ToggleSize.M,
+    size: 'm',
     isChecked: false,
     isDisabled: false,
     onChange() {}
@@ -32,7 +36,7 @@ const ExampleTemplate: Story<IToggleProps> = ({ size, isDisabled }) => {
 export const Example = ExampleTemplate.bind({});
 
 Example.args = {
-    size: ToggleSize.M,
+    size: 'm',
     isDisabled: false
 };
 
@@ -44,15 +48,25 @@ Example.argTypes = {
     }
 };
 
-export default {
-    title: 'Toggle',
-    component: Toggle,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            },
-            options: [ToggleSize.S, ToggleSize.M]
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <Toggle {...register('value')}>Toggle label</Toggle>
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
+
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
         }
     }
 };

@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, Example, ReactHookForm } from './CheckBox.stories';
 import CheckBox from './CheckBox';
 
-<Meta title="CheckBox" component={CheckBox} />
+<Meta title="Components/CheckBox" component={CheckBox} />
 
 # CheckBox
 
@@ -21,15 +16,24 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { CheckBox } from 'mozaic-react';"
-/>
+<Source language="javascript" code="import { CheckBox } from '@mozaic-ds/react';" />
 
 2. Call the component and give it the desired props, for example:
 
+<Canvas>
+    <Story story={Controls} />
+</Canvas>
+
+or controlled example:
+
 <Canvas withSource="open">
-  <Story id="checkbox--controls" />
+    <Story story={Example} />
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm} />
 </Canvas>
 
 ## Props

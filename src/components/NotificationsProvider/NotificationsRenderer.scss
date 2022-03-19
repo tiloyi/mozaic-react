@@ -1,0 +1,15 @@
+@import "settings-tools/_all-settings";
+
+.mc-notifications-renderer {
+    position: fixed;
+    right: $mu100;
+    bottom: $mu100;
+    left: $mu100;
+
+    @include set-from-screen(s-xlarge) {
+        right: initial;
+        left: 50%;
+        width: 24rem;
+        margin-left: -12rem;
+    }
+}

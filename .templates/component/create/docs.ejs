@@ -7,10 +7,11 @@ import {
   Canvas,
   Source,
   ArgsTable,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
+import { <%= name %>Story, argTypes } from './<%= name %>.stories';
 import <%= name %> from './<%= name %>';
 
-<Meta title="<%= name %>" component={<%= name %>} />
+<Meta title="Components/<%= name %>" component={<%= name %>} argTypes={argTypes} />
 
 # <%= name %>
 
@@ -26,13 +27,13 @@ To use the component in your project you must:
 
 <Source
   language="javascript"
-  code="import { <%= name %> } from 'mozaic-react';"
+  code="import { <%= name %> } from '@mozaic-ds/react';"
 />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="<%= name.toLowerCase() %>--<%= name.toLowerCase() %>-story" />
+  <Story story={<%= name %>Story} />
 </Canvas>
 
 

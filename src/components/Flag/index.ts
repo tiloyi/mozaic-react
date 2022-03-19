@@ -1,4 +1,4 @@
 import Flag from './Flag';
 
-export { FlagTheme, FlagVariant } from './Flag.types';
+export { IFlagProps, TFlagTheme, TFlagVariant } from './Flag.types';
 export default Flag;

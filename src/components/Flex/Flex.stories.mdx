@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, argTypes } from './Flex.stories';
+import Flex from './Flex';
+
+<Meta title="Utilities/Flex" component={Flex} argTypes={argTypes} />
+
+# Flex
+
+Компонент `Flex` не является частью [Mozaic Design System](https://mozaic.adeo.cloud/). Предназначен для работы с [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) контейнером.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Flex } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={Controls} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Flex} />

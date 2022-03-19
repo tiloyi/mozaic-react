@@ -16,14 +16,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2018"
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "node_modules",
-    "src/**/*.stories.tsx",
-    "src/**/*.tests.tsx"
+    "node_modules"
   ]
 }

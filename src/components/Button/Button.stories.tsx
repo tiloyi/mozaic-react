@@ -1,29 +1,23 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Button, { IconButton } from '../Button';
-import { ButtonSize, ButtonTheme, ButtonVariant, ButtonWidth, IButtonProps, IIconButtonProps } from './Button.types';
-
-const Icon = () => (
-    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M11.74 12.03h.02-.02zM12 7a3 3 0 00-3 3 .75.75 0 001.5 0A1.5 1.5 0 0112 8.51a1.5 1.5 0 01.66 2.85 2.41 2.41 0 00-1.41 2.16v.25a.75.75 0 001.5 0v-.25a.91.91 0 01.57-.81A3 3 0 0012 7z" />
-        <circle cx="12" cy="16.24" r=".75" />
-        <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z" />
-    </svg>
-);
+import Button from './Button';
+import IconButton from './IconButton';
+import { IButtonProps, IIconButtonProps } from './Button.types';
+import SVGIcon from '../../../.storybook/assets/SVGIcon';
 
 const TextTemplate: Story<IButtonProps> = args => <Button {...args}>Click!</Button>;
 
 export const Text = TextTemplate.bind({});
 
 Text.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Primary02,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'primary-02',
+    width: 'fit'
 };
 
 const WithLeftIconTemplate: Story<IButtonProps> = args => (
-    <Button {...args} leftIcon={<Icon />}>
+    <Button {...args} leftIcon={<SVGIcon />}>
         Click!
     </Button>
 );
@@ -31,14 +25,14 @@ const WithLeftIconTemplate: Story<IButtonProps> = args => (
 export const WithLeftIcon = WithLeftIconTemplate.bind({});
 
 WithLeftIcon.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Neutral,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'neutral',
+    width: 'fit'
 };
 
 const WithRightIconTemplate: Story<IButtonProps> = args => (
-    <Button {...args} rightIcon={<Icon />}>
+    <Button {...args} rightIcon={<SVGIcon />}>
         Click!
     </Button>
 );
@@ -46,24 +40,24 @@ const WithRightIconTemplate: Story<IButtonProps> = args => (
 export const WithRightIcon = WithRightIconTemplate.bind({});
 
 WithRightIcon.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Neutral,
-    width: ButtonWidth.Fit
+    size: 'm',
+    variant: 'solid',
+    theme: 'neutral',
+    width: 'fit'
 };
 
 const IconOnlyTemplate: Story<IIconButtonProps> = args => (
     <IconButton {...args}>
-        <Icon />
+        <SVGIcon />
     </IconButton>
 );
 
 export const IconOnly = IconOnlyTemplate.bind({});
 
 IconOnly.args = {
-    size: ButtonSize.M,
-    variant: ButtonVariant.Solid,
-    theme: ButtonTheme.Danger
+    size: 'm',
+    variant: 'solid',
+    theme: 'danger'
 };
 
 IconOnly.argTypes = {
@@ -74,39 +68,35 @@ IconOnly.argTypes = {
     }
 };
 
-export default {
-    title: 'Button',
-    component: Button,
-    argTypes: {
-        size: {
-            control: {
-                type: 'select'
-            }
-        },
-        variant: {
-            control: {
-                type: 'select'
-            }
-        },
-        theme: {
-            control: {
-                type: 'select'
-            }
-        },
-        width: {
-            control: {
-                type: 'select'
-            }
-        },
-        leftIcon: {
-            table: {
-                disable: true
-            }
-        },
-        rightIcon: {
-            table: {
-                disable: true
-            }
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    variant: {
+        control: {
+            type: 'select'
+        }
+    },
+    theme: {
+        control: {
+            type: 'select'
+        }
+    },
+    width: {
+        control: {
+            type: 'select'
+        }
+    },
+    leftIcon: {
+        table: {
+            disable: true
+        }
+    },
+    rightIcon: {
+        table: {
+            disable: true
         }
     }
 };

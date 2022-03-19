@@ -1,13 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
-} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, Example, TextInputWithIcon, ReactHookForm, argTypes } from './TextInput.stories';
 import TextInput from './TextInput';
 
-<Meta title="TextInput" component={TextInput} />
+<Meta title="Components/TextInput" component={TextInput} argTypes={argTypes} />
 
 # TextInput
 
@@ -21,15 +16,30 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-  language="javascript"
-  code="import { TextInput } from 'mozaic-react';"
-/>
+<Source language="javascript" code="import { TextInput } from '@mozaic-ds/react';" />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story id="textinput--controls" />
+    <Story story={Controls} />
+</Canvas>
+
+or controlled example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
+</Canvas>
+
+or with an icon:
+
+<Canvas withSource="open">
+    <Story story={TextInputWithIcon} />
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm} />
 </Canvas>
 
 ## Props

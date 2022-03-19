@@ -1,38 +1,53 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
-import { ITextInputProps, TextInputSize } from './TextInput.types';
+import { ITextInputProps, TTextInputSize } from './TextInput.types';
 import './TextInput.scss';
 
 const blockClassName = 'mc-text-input';
 
-function getTextInputSizeClassName(size: TextInputSize): string {
-    return size !== TextInputSize.M ? `${blockClassName}--${size}` : '';
+function getSizeClassName(size: TTextInputSize): string {
+    return size !== 'm' ? `${blockClassName}--${size}` : '';
 }
 
-const TextInput: FC<ITextInputProps> = ({
-    className,
-    type = 'text',
-    size = TextInputSize.M,
-    isDisabled,
-    isInvalid,
-    isValid,
-    ...props
-}: ITextInputProps) => {
-    const textAreaClassName = cn(
-        'mc-text-input',
-        className,
-        getTextInputSizeClassName(size),
-        isInvalid && 'is-invalid',
-        isValid && 'is-valid'
-    );
+const TextInput = forwardRef<HTMLInputElement, ITextInputProps>(
+    ({ className, type = 'text', size = 'm', isDisabled, isInvalid, isValid, icon, ...props }, ref) => {
+        if (isInvalid && isValid) {
+            throw new Error('The properties `isValid` and `isInvalid` can not be true in the same time');
+        }
 
-    if (isInvalid && isValid) {
-        throw new Error('The properties `isValid` and `isInvalid` can not be true in the same time');
+        const textAreaClassName = cn(
+            'mc-text-input',
+            className,
+            getSizeClassName(size),
+            isInvalid && 'is-invalid',
+            isValid && 'is-valid',
+            icon && 'mc-left-icon-input__input'
+        );
+
+        const input = (
+            <input
+                className={textAreaClassName}
+                {...props}
+                ref={ref}
+                type={type}
+                aria-invalid={isInvalid}
+                disabled={isDisabled}
+            />
+        );
+
+        if (icon) {
+            return (
+                <div className="mc-left-icon-input">
+                    <span className="mc-left-icon-input__icon">{icon}</span>
+                    {input}
+                </div>
+            );
+        }
+
+        return input;
     }
+);
 
-    return (
-        <input className={textAreaClassName} {...props} type={type} aria-invalid={isInvalid} disabled={isDisabled} />
-    );
-};
+TextInput.displayName = 'TextInput';
 
 export default TextInput;

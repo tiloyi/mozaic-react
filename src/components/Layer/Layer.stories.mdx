@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { ShortBody, LongBody } from './Layer.stories';
+import Layer from './Layer';
+
+<Meta title="Components/Layer" component={Layer} />
+
+# Layer
+
+The `Layer` component is the **React.js** implementation of the **Mozaic Layer** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Layer/).
+
+Для корректной работы ваше приложение должно быть обернуто в `ModalsProvider`.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Layer } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+short body example:
+
+<Canvas withSource="open">
+    <Story story={ShortBody} />
+</Canvas>
+
+long body example:
+
+<Canvas withSource="open">
+    <Story story={LongBody} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Layer} />

@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
-import ToggleContainer from './partials/Container';
-import ToggleIndicator from './partials/Indicator';
-import ToggleLabel from './partials/Label';
-import { IToggleProps, ToggleSize } from './Toggle.types';
+import React, { forwardRef } from 'react';
+import { ToggleContainer, ToggleIndicator, ToggleLabel } from './partials';
+import { IToggleProps } from './Toggle.types';
 import './Toggle.scss';
 
-const Toggle: FC<IToggleProps> = ({ className, children, size = ToggleSize.M, ...props }) => (
+const Toggle = forwardRef<HTMLInputElement, IToggleProps>(({ className, children, size = 'm', ...props }, ref) => (
     <ToggleContainer className={className} size={size}>
-        <ToggleIndicator {...props} />
+        <ToggleIndicator {...props} ref={ref} />
         <ToggleLabel>{children}</ToggleLabel>
     </ToggleContainer>
-);
+));
+
+Toggle.displayName = 'Toggle';
 
 export default Toggle;

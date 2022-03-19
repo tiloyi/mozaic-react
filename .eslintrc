@@ -1,0 +1,19 @@
+{
+  "extends": "@byndyusoft/eslint-config/frontend",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.tests.*",
+        "*.stories.*"
+      ],
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "react/no-array-index-key": "off"
+      }
+    }
+  ]
+}
