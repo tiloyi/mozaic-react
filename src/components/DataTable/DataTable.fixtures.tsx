@@ -1,7 +1,6 @@
 import React from 'react';
 import Badge from '../Badge';
 import { IDataTableColumn } from './DataTable.types';
-import { TTableCellVariant, TTableSortDirection } from '../Table';
 
 export interface IDataTableFixture {
     id: number;
@@ -9,24 +8,6 @@ export interface IDataTableFixture {
     count: number;
     date: Date;
     status: 'success' | 'failure';
-    className?: string;
-    variant?: TTableCellVariant;
-    isSortable?: boolean;
-    sortDirection?: TTableSortDirection;
-    onSort?: (sortDirection: TTableSortDirection) => void;
-}
-
-export interface IDataTableSortableFixture {
-    id: number;
-    name: string;
-    count: number;
-    date: Date;
-    status: 'success' | 'failure';
-    className?: string;
-    variant?: TTableCellVariant;
-    isSortable?: boolean;
-    sortDirection?: TTableSortDirection;
-    onSort?: (sortDirection: TTableSortDirection) => void;
 }
 
 export function generateDataTableRows(limit = 10, offset = 0): Array<IDataTableFixture> {
@@ -71,22 +52,6 @@ export const columns: Array<IDataTableColumn<IDataTableFixture>> = [
         key: 'status',
         render: (row: IDataTableFixture) => (
             <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-        ),
-        isSortable: true,
-        sortDirection: undefined
+        )
     }
 ];
-
-export function generateAccordingColumnsRows(
-    headerColumns: Array<IDataTableColumn<IDataTableFixture>>,
-    limit = 10
-): Array<IDataTableFixture> {
-    const rows = [];
-    for (let index = 0; index < limit; index++) {
-        rows.push(
-            headerColumns.map(column => ({
-                key: column.key
-            }))
-        );
-    }
-}
