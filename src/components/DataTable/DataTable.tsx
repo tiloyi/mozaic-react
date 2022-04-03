@@ -14,9 +14,14 @@ export default function DataTable<R>({
         <Table className="mc-datatable__table">
             <TableHeader>
                 <TableRow>
-                    {columns.map(column => (
-                        <TableHeaderCell key={`header-cell-${column.key as string}`}>{column.label}</TableHeaderCell>
-                    ))}
+                    {columns.map(column => {
+                        const { isSortable, key, label } = column;
+                        return (
+                            <TableHeaderCell key={`header-cell-${key as string}`} isSortable={isSortable}>
+                                {label}
+                            </TableHeaderCell>
+                        );
+                    })}
                 </TableRow>
             </TableHeader>
             <TableBody>

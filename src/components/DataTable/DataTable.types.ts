@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } from 'react';
+import { TTableSortDirection } from '../Table/Table.types';
 
 export type TDataTableColumnVariant = 'number' | 'field';
 
@@ -7,6 +8,10 @@ export interface IDataTableColumn<R> {
     label: string;
     variant?: TDataTableColumnVariant;
     render?: (row: R, key: keyof R) => JSX.Element | string | number;
+    className?: string;
+    isSortable?: boolean;
+    sortDirection?: TTableSortDirection;
+    onSort?: (sortDirection: TTableSortDirection) => void;
 }
 
 export interface IDataTableProps<R> {
