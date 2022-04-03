@@ -45,7 +45,8 @@ export const columns: Array<IDataTableColumn<IDataTableFixture>> = [
     {
         label: 'Date',
         key: 'date',
-        render: (row: IDataTableFixture) => row.date.toLocaleDateString()
+        render: (row: IDataTableFixture) => row.date.toLocaleDateString(),
+        isSortable: true
     },
     {
         label: 'Status',
