@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
 
-export type TTableSortDirection = 'asc' | 'desc';
+export type TTableSortDirection = 'asc' | 'desc' | undefined;
 
 export type TTableCellVariant = 'number' | 'field' | 'checkbox' | 'button';
 

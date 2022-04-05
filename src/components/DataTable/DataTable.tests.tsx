@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { generateDataTableRows, columns, getRowKey, IDataTableFixture } from './DataTable.fixtures';
+import { generateDataTableRows, columns, getRowKey } from './DataTable.fixtures';
+import { IDataTableFixture } from './DataTable.types';
 import DataTable from './DataTable';
 
 describe('components/DataTable', () => {

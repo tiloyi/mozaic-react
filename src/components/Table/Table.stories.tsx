@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { generateDataTableRows, IDataTableFixture } from '../DataTable/DataTable.fixtures';
+import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
+import { IDataTableFixture } from '../DataTable/DataTable.types';
 import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';

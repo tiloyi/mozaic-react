@@ -1,14 +1,4 @@
-import React from 'react';
-import Badge from '../Badge';
-import { IDataTableColumn } from './DataTable.types';
-
-export interface IDataTableFixture {
-    id: number;
-    name: string;
-    count: number;
-    date: Date;
-    status: 'success' | 'failure';
-}
+import { IDataTableFixture } from './DataTable.types';
 
 export function generateDataTableRows(limit = 10, offset = 0): Array<IDataTableFixture> {
     return Array.from({ length: limit }).map((_: unknown, index: number) => {
@@ -27,32 +17,3 @@ export function generateDataTableRows(limit = 10, offset = 0): Array<IDataTableF
 export function getRowKey(fixture: IDataTableFixture): number {
     return fixture.id + 100;
 }
-
-export const columns: Array<IDataTableColumn<IDataTableFixture>> = [
-    {
-        label: 'Id',
-        key: 'id'
-    },
-    {
-        label: 'Name',
-        key: 'name'
-    },
-    {
-        label: 'Count',
-        key: 'count',
-        variant: 'number'
-    },
-    {
-        label: 'Date',
-        key: 'date',
-        render: (row: IDataTableFixture) => row.date.toLocaleDateString(),
-        isSortable: true
-    },
-    {
-        label: 'Status',
-        key: 'status',
-        render: (row: IDataTableFixture) => (
-            <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-        )
-    }
-];
