@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { SortingRowsRender, argTypes } from './DataTable.stories';
+import { Basic, SortingRowsRender, argTypes } from './DataTable.stories';
 import DataTable from './DataTable';
 
 <Meta title="Components/DataTable" component={DataTable} argTypes={argTypes} />
@@ -19,6 +19,12 @@ To use the component in your project you must:
 <Source language="javascript" code="import { DataTable } from '@mozaic-ds/react';" />
 
 2. Call the component and give it the desired props, for example:
+
+Basic
+
+<Canvas withSource="open">
+    <Story story={Basic} />
+</Canvas>
 
 Sorting rows
 

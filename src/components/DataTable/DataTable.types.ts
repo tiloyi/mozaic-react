@@ -1,5 +1,4 @@
-import { HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
-import { TTableSortDirection } from '../Table';
+import { TdHTMLAttributes } from 'react';
 
 export interface IDataTableFixture {
     id: number;
@@ -28,8 +27,6 @@ export interface IDataTableProps<R> {
 export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     variant?: TDataTableColumnVariant;
 }
-
-export interface IDataTableHeaderRowProps extends HTMLAttributes<HTMLTableRowElement> {}
 
 export type TTableCellVariant = 'number' | 'field' | 'checkbox' | 'button';
 

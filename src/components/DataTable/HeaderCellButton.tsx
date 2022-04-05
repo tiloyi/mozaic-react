@@ -13,7 +13,7 @@ const HeaderCellButton: FC<IHeaderCellButtonProps> = ({ children, isSortable, so
         <button
             type="button"
             className={cn('mc-datatable__sort', 'mc-datatable__btn', sortingDirection)}
-            onClick={handleSort}
+            onClick={() => handleSort()}
         >
             <span className="mc-datatable__sort-label">{children}</span>
             <span className="mc-datatable__sort-arrow" />
