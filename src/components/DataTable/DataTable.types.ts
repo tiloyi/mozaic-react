@@ -1,4 +1,4 @@
-import { TdHTMLAttributes } from 'react';
+import { TdHTMLAttributes, ReactNode } from 'react';
 
 export interface IDataTableFixture {
     id: number;
@@ -22,6 +22,8 @@ export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => string | number;
+    customRowRender?: (row: R, key: string | number) => ReactNode;
+    isRowСustomRender?: (row: R) => boolean;
 }
 
 export interface IDataTableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {

@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Basic, SortingRowsRender, argTypes } from './DataTable.stories';
+import { Basic, SortingRows, CustomRows, ClickableRows, argTypes } from './DataTable.stories';
 import DataTable from './DataTable';
 
 <Meta title="Components/DataTable" component={DataTable} argTypes={argTypes} />
@@ -26,10 +26,22 @@ Basic
     <Story story={Basic} />
 </Canvas>
 
+Custom rows
+
+<Canvas withSource="open">
+    <Story story={CustomRows} />
+</Canvas>
+
+Clickable rows
+
+<Canvas withSource="open">
+    <Story story={ClickableRows} />
+</Canvas>
+
 Sorting rows
 
 <Canvas withSource="open">
-    <Story story={SortingRowsRender} />
+    <Story story={SortingRows} />
 </Canvas>
 
 ## Props

@@ -6,11 +6,57 @@ import { TTableSortDirection } from '../Table';
 import DataTable from './DataTable';
 import Badge from '../Badge';
 import HeaderCellButton from './HeaderCellButton';
+import { TableCell, TableRow } from '../Table/partials';
 
 const Template: Story = () => {
     const rows = generateDataTableRows(20);
 
     return <DataTable<IDataTableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+};
+const CustomRowsTemplate: Story = () => {
+    const rows = generateDataTableRows(20);
+
+    return (
+        <DataTable<IDataTableFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            customRowRender={(row, rowKey) => (
+                <TableRow key={`row-${rowKey}`}>
+                    {columns.map(column => (
+                        <TableCell key={`row-${rowKey}-cell-${column.key as string}`} variant={column.variant}>
+                            {column.rowCellRender ? column.rowCellRender(row, column.key) : row[column.key]}
+                        </TableCell>
+                    ))}
+                </TableRow>
+            )}
+            isRowСustomRender={row => row.id % 2 === 0}
+        />
+    );
+};
+
+const ClickableRowTemplate: Story = () => {
+    const rows = generateDataTableRows(20);
+    const handleClickRow = (name: string): void => {
+        alert(`You click ${name} row`);
+    };
+    return (
+        <DataTable<IDataTableFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            customRowRender={(row, rowKey) => (
+                <TableRow key={`row-${rowKey}`} onClick={() => handleClickRow(row.name)}>
+                    {columns.map(column => (
+                        <TableCell key={`row-${rowKey}-cell-${column.key as string}`} variant={column.variant}>
+                            {column.rowCellRender ? column.rowCellRender(row, column.key) : row[column.key]}
+                        </TableCell>
+                    ))}
+                </TableRow>
+            )}
+            isRowСustomRender={row => row.id % 2 === 0}
+        />
+    );
 };
 
 const SortingRowsTemplate: Story = () => {
@@ -77,5 +123,8 @@ const SortingRowsTemplate: Story = () => {
 
     return <DataTable<IDataTableFixture> columns={columnsSort} rows={sortedRows} getRowKey={getRowKey} />;
 };
+
 export const Basic = Template.bind({});
-export const SortingRowsRender = SortingRowsTemplate.bind({});
+export const CustomRows = CustomRowsTemplate.bind({});
+export const ClickableRows = ClickableRowTemplate.bind({});
+export const SortingRows = SortingRowsTemplate.bind({});

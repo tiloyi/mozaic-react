@@ -4,7 +4,13 @@ import HeaderCell from './HeaderCell';
 import { IDataTableProps } from './DataTable.types';
 import './DataTable.scss';
 
-export default function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Element {
+export default function DataTable<R>({
+    columns,
+    rows,
+    getRowKey,
+    isRowСustomRender,
+    customRowRender
+}: IDataTableProps<R>): JSX.Element {
     return (
         <Table className="mc-datatable__table">
             <TableHeader>
@@ -21,8 +27,14 @@ export default function DataTable<R>({ columns, rows, getRowKey }: IDataTablePro
             </TableHeader>
             <TableBody>
                 {rows.map(row => {
+                    if (isRowСustomRender && !isRowСustomRender(row)) {
+                        return null;
+                    }
                     const rowKey = getRowKey(row);
-                    return (
+
+                    return customRowRender ? (
+                        customRowRender(row, rowKey)
+                    ) : (
                         <TableRow key={`row-${rowKey}`}>
                             {columns.map(column => {
                                 const { variant, key, rowCellRender } = column;
