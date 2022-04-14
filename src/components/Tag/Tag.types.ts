@@ -1,5 +1,5 @@
 
-export const types = ['text', 'removable', 'selectable', 'link'] as const;
+export const types = ['text', 'removable'] as const;
 export const themes = ['dark'] as const;
 export const sizes = ['s', 'm'] as const;
 
