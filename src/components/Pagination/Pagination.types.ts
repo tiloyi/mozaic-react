@@ -1,11 +1,10 @@
-import { ChangeEvent } from 'react';
-
 export interface IPaginationProps {
     className?: string;
-    pagesNumber: number;
-    currentPage: number;
-    handleNext: () => void;
-    handlePrevious: () => void;
-    handleChangePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     isCompact?: boolean;
+    pagesNumber: number;
+    previousLabel?: string;
+    nextLabel?: string;
+    goNext: (page: number) => void;
+    goPrevious: (page: number) => void;
+    goToPage: (page: number) => void;
 }
