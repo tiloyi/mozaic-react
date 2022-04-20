@@ -1,0 +1,12 @@
+@import "settings-tools/all-settings";
+@include import-font-families();
+@import "components/c.select";
+@import "components/c.pagination";
+
+.is-disabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+    pointer-events: none;
+  }
