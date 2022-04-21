@@ -19,7 +19,7 @@ const PaginationComponent: FC = () => {
     );
 };
 
-describe('components/Breadcrumbs', () => {
+describe('components/Pagination', () => {
     test('renders correctly', () => {
         render(<PaginationComponent />);
     });
