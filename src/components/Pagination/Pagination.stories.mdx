@@ -1,14 +1,8 @@
-import {
-    Meta,
-    Story,
-    Canvas,
-    Source,
-    ArgsTable,
-} from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 import { Controls, argTypes } from './Pagination.stories';
 import Pagination from './Pagination';
 
-<Meta title="Components/Pagination" component={Pagination} argTypes={argTypes}/>
+<Meta title="Components/Pagination" component={Pagination} argTypes={argTypes} />
 
 # Pagination
 
@@ -23,17 +17,15 @@ To use the component in your project you must:
 1. Import the component where you need it:
 
 <Source
-    language="javascript"
-    code="import { Pagination } from '@mozaic-ds/react';"
-/>
+     language="javascript" 
+     code="import { Pagination } from '@mozaic-ds/react';" />
 
-2. Call the component and give it the desired props, for example:
+2. Call the component and manage the displayed list items
 
 <Canvas withSource="open">
-    <Story story={Controls}/>
+    <Story story={Controls} />
 </Canvas>
-
 
 ## Props
 
-<ArgsTable of={Pagination}/>
+<ArgsTable of={Pagination} />
