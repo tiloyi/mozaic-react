@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Story } from '@storybook/react';
 import Pagination from './Pagination';
 import { IPaginationProps } from './Pagination.types';
 import View from '../View/index';
 import { usePagination } from '../../hooks';
+import { chunk } from 'lodash';
 
 export const PaginationTemplate: Story<IPaginationProps> = args => {
+    const { handlePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
     const initialItems = Array.from(Array(30), (_e, i) => i);
-    const { handlePage, handleNext, handlePrevious, currentPage, pagesNumber, items } = usePagination(
-        initialItems as []
+    const chunkItems = chunk(initialItems, itemsPerPage);
+    const itemsPage: (number | string | Record<string, string>)[] = useMemo(
+        () => chunkItems[currentPage - 1],
+        [chunkItems, currentPage]
     );
+    const pagesNumber: number = useMemo(() => chunkItems.length, [chunkItems]);
 
     return (
         <View>
             <View>
-                {items.map(e => (
+                {itemsPage.map(e => (
                     <div key={e as number}>Element {e}</div>
                 ))}
             </View>

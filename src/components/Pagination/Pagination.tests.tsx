@@ -4,10 +4,9 @@ import Pagination from './Pagination';
 import { usePagination } from '../..';
 
 const PaginationComponent: FC = () => {
-    const initialItems = Array.from(Array(30), (_e, i) => i);
-    const { handlePage, handleNext, handlePrevious, currentPage, pagesNumber } = usePagination(
-        initialItems as []
-    );
+    const { handlePage, handleNext, handlePrevious, currentPage } = usePagination();
+    const pagesNumber = 10;
+    
     return (
         <Pagination
             pagesNumber={pagesNumber}
