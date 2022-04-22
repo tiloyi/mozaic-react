@@ -1,6 +1,4 @@
-import { ChangeEvent, useMemo, useState } from 'react';
-import { chunk } from 'lodash';
-
+import { ChangeEvent, useState } from 'react';
 interface IUsePagination {
     handlePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     handleNext: () => void;
@@ -8,21 +6,11 @@ interface IUsePagination {
     handleItemsPerPage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     currentPage: number;
     itemsPerPage: number;
-    pagesNumber: number;
-    totalItems: number;
-    items: (number | string | Record<string, string>)[];
 }
 
-function usePagination(initialItems: (number | string | Record<string, string>)[]): IUsePagination {
+function usePagination(): IUsePagination {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
-    const totalItems = useMemo(() => initialItems.length, [initialItems]);
-    const chunkItems = chunk(initialItems, itemsPerPage);
-    const items: (number | string | Record<string, string>)[] = useMemo(
-        () => chunkItems[currentPage - 1],
-        [chunkItems, currentPage]
-    );
-    const pagesNumber = useMemo(() => chunkItems.length, [chunkItems]);
 
     const handlePage = (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>): void => {
         const newPage = Number(event.target.value);
@@ -45,10 +33,7 @@ function usePagination(initialItems: (number | string | Record<string, string>)[
         handlePrevious,
         handleItemsPerPage,
         currentPage,
-        itemsPerPage,
-        items,
-        pagesNumber,
-        totalItems
+        itemsPerPage
     };
 }
 
