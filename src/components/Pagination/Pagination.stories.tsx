@@ -4,16 +4,22 @@ import Pagination from './Pagination';
 import { IPaginationProps } from './Pagination.types';
 import View from '../View/index';
 import { usePagination } from '../../hooks';
-import { chunk } from 'lodash';
+
+type TArrayElement = number | string | Record<string, string>;
+type TArray = TArrayElement[];
+
+const chunk = (input: TArray, size: number): TArrayElement[][] =>
+    input.reduce(
+        (arr: TArrayElement[][], item: TArrayElement, idx) =>
+            idx % size === 0 ? [...arr, [item]] : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]],
+        []
+    );
 
 export const PaginationTemplate: Story<IPaginationProps> = args => {
     const { handleChangePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
     const initialItems = Array.from(Array(30), (_e, i) => i);
     const chunkItems = chunk(initialItems, itemsPerPage);
-    const itemsPage: (number | string | Record<string, string>)[] = useMemo(
-        () => chunkItems[currentPage - 1],
-        [chunkItems, currentPage]
-    );
+    const itemsPage: TArray = useMemo(() => chunkItems[currentPage - 1], [chunkItems, currentPage]);
     const pagesNumber: number = useMemo(() => chunkItems.length, [chunkItems]);
 
     return (
