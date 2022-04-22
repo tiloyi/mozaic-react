@@ -22,22 +22,25 @@ const Pagination: FC<IPaginationProps> = ({
                 role="navigation"
                 aria-label="pagination"
             >
-                <div
+                <button
                     onClick={handlePrevious}
-                    className={cn('mc-pagination__button mc-pagination__button--previous', {
-                        'is-disabled': currentPage === 1
-                    })}
+                    className="mc-pagination__button mc-pagination__button--previous"
                     aria-label="Previous page"
-                    role="button"
+                    type="button"
+                    disabled={currentPage === 1}
                     tabIndex={0}
                 >
                     <svg className="mc-pagination__button-icon">
                         <use xlinkHref="#iconLeftL" />
                     </svg>
-                </div>
+                </button>
                 {!isCompact && (
                     <div className="mc-pagination__field">
-                        <select className="mc-select mc-pagination__select" onChange={handleChangePage} value={currentPage}>
+                        <select
+                            className="mc-select mc-pagination__select"
+                            onChange={handleChangePage}
+                            value={currentPage}
+                        >
                             {Array.from(Array(pagesNumber), (_, i) => (
                                 <option key={i + 1} value={i + 1}>
                                     {`Page ${i + 1} of ${pagesNumber}`}
@@ -47,19 +50,18 @@ const Pagination: FC<IPaginationProps> = ({
                     </div>
                 )}
 
-                <div
+                <button
                     onClick={handleNext}
-                    className={cn('mc-pagination__button mc-pagination__button--next', {
-                        'is-disabled': currentPage === pagesNumber
-                    })}
+                    className="mc-pagination__button mc-pagination__button--next"
                     aria-label="Next Page"
-                    role="button"
+                    type="button"
+                    disabled={currentPage === pagesNumber}
                     tabIndex={0}
                 >
                     <svg className="mc-pagination__button-icon">
                         <use xlinkHref="#iconRightL" />
                     </svg>
-                </div>
+                </button>
             </nav>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg">
