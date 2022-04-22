@@ -28,7 +28,6 @@ const Pagination: FC<IPaginationProps> = ({
                     aria-label="Previous page"
                     type="button"
                     disabled={currentPage === 1}
-                    tabIndex={0}
                 >
                     <svg className="mc-pagination__button-icon">
                         <use xlinkHref="#iconLeftL" />
@@ -49,14 +48,12 @@ const Pagination: FC<IPaginationProps> = ({
                         </select>
                     </div>
                 )}
-
                 <button
                     onClick={handleNext}
                     className="mc-pagination__button mc-pagination__button--next"
                     aria-label="Next Page"
                     type="button"
                     disabled={currentPage === pagesNumber}
-                    tabIndex={0}
                 >
                     <svg className="mc-pagination__button-icon">
                         <use xlinkHref="#iconRightL" />
