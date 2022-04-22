@@ -4,14 +4,14 @@ import Pagination from './Pagination';
 import { usePagination } from '../..';
 
 const PaginationComponent: FC = () => {
-    const { handlePage, handleNext, handlePrevious, currentPage } = usePagination();
+    const { handleChangePage, handleNext, handlePrevious, currentPage } = usePagination();
     const pagesNumber = 10;
-    
+
     return (
         <Pagination
             pagesNumber={pagesNumber}
             currentPage={currentPage}
-            handlePage={handlePage}
+            handleChangePage={handleChangePage}
             handleNext={handleNext}
             handlePrevious={handlePrevious}
         />

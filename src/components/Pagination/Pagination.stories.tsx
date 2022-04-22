@@ -7,7 +7,7 @@ import { usePagination } from '../../hooks';
 import { chunk } from 'lodash';
 
 export const PaginationTemplate: Story<IPaginationProps> = args => {
-    const { handlePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
+    const { handleChangePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
     const initialItems = Array.from(Array(30), (_e, i) => i);
     const chunkItems = chunk(initialItems, itemsPerPage);
     const itemsPage: (number | string | Record<string, string>)[] = useMemo(
@@ -28,7 +28,7 @@ export const PaginationTemplate: Story<IPaginationProps> = args => {
                     {...args}
                     pagesNumber={pagesNumber}
                     currentPage={currentPage}
-                    handlePage={handlePage}
+                    handleChangePage={handleChangePage}
                     handleNext={handleNext}
                     handlePrevious={handlePrevious}
                 />
