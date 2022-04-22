@@ -1,170 +1,56 @@
-import React, { useState } from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import Tabs from './Tabs';
-
-const TEST_LINK = 'http://google.com';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import TabButton from "./partials/TabButton";
+import Tabs from "./Tabs";
 
 describe('components/Tabs', () => {
-    test('123', () => {
-        expect(1).toBe(1);
+    test('tabs renders correctly', () => {
+        render(
+            <Tabs name="TabsTest" initialTab="first" theme="primary-01">
+                <TabButton name="first">First</TabButton>
+            </Tabs>
+        );
+
+        expect(screen.getByRole('tab')).toHaveTextContent('First');
     });
-    // test('renders Button type', () => {
-    //     render(
-    //         <Tabs
-    //             name="test tabs"
-    //             type={TabType.Button}
-    //             tabs={[
-    //                 {
-    //                     content: '123'
-    //                 }
-    //             ]}
-    //             selectedTab={0}
-    //         />
-    //     );
 
-    //     const buttonTab = screen.getByRole('tab');
-    //     expect(buttonTab).toBeInTheDocument();
-    // });
+    test('renders with different theme', () => {
+        render(
+            <Tabs name="TabsTest" initialTab="first" theme="primary-02">
+                <TabButton name="first">First</TabButton>
+            </Tabs>
+        );
 
-    // test('renders Link type with specified link', () => {
-    //     render(
-    //         <Tabs
-    //             name="test tabs"
-    //             type={TabType.Link}
-    //             tabs={[
-    //                 {
-    //                     link: TEST_LINK,
-    //                     content: '123'
-    //                 }
-    //             ]}
-    //             selectedTab={0}
-    //         />
-    //     );
+        expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--primary-02');
+    });
 
-    //     const anchorTab = screen.getByRole('tab');
-    //     expect(anchorTab).toHaveAttribute('href', TEST_LINK);
-    // });
+    test('renders with fullWidth class when isFullWidth props', () => {
+        render(
+            <Tabs name="TabsTest" initialTab="first" isFullWidth>
+                <TabButton name="first">First</TabButton>
+            </Tabs>
+        );
 
-    // test('onSelectTab works', () => {
-    //     let value: string = '';
+        expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--full-centered');
+    });
 
-    //     render(
-    //         <Tabs
-    //             onSelectTab={() => {
-    //                 value = 'ok';
-    //             }}
-    //             name="test tabs"
-    //             type={TabType.Button}
-    //             tabs={[
-    //                 {
-    //                     content: '123'
-    //                 }
-    //             ]}
-    //             selectedTab={0}
-    //         />
-    //     );
+    test('renders with isAlignedToContainer class when isAlignedToContainer props', () => {
+        render(
+            <Tabs name="TabsTest" initialTab="first" isAlignedToContainer>
+                <TabButton name="first">First</TabButton>
+            </Tabs>
+        );
 
-    //     const buttonTab = screen.getByRole('tab');
-    //     expect(buttonTab).toBeInTheDocument();
+        expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--full');
+    });
 
-    //     act(() => {
-    //         fireEvent.click(buttonTab);
-    //     });
+    test('renders tabs with no shadow when isShadowEnabled is false', () => {
+        render(
+            <Tabs name="TabsTest" initialTab="first" isShadowEnabled={false}>
+                <TabButton name="first">First</TabButton>
+            </Tabs>
+        );
 
-    //     expect(value).toBe('ok');
-    // });
-
-    // test('initial tab selected works', () => {
-    //     const initialTabSelected = 1;
-    //     render(
-    //         <Tabs
-    //             name="test tabs"
-    //             type={TabType.Button}
-    //             tabs={[
-    //                 {
-    //                     content: '123'
-    //                 },
-    //                 {
-    //                     content: '456'
-    //                 }
-    //             ]}
-    //             selectedTab={initialTabSelected}
-    //         />
-    //     );
-
-    //     const buttonTab = screen.getAllByRole('tab');
-    //     expect(buttonTab[initialTabSelected]).toHaveAttribute('aria-selected', 'true');
-    // });
-
-    // test('onSelectTab returns tabIndex', () => {
-    //     let lastTabSelected = 0;
-    //     const tabToSelect = 1;
-
-    //     const onSelectHandler = (tabIndex: number) => {
-    //         lastTabSelected = tabIndex;
-    //     };
-
-    //     render(
-    //         <Tabs
-    //             onSelectTab={onSelectHandler}
-    //             name="test tabs"
-    //             type={TabType.Button}
-    //             tabs={[
-    //                 {
-    //                     content: '123'
-    //                 },
-    //                 {
-    //                     content: '456'
-    //                 }
-    //             ]}
-    //             selectedTab={0}
-    //         />
-    //     );
-
-    //     const buttonTab = screen.getAllByRole('tab');
-    //     expect(buttonTab[tabToSelect]).toBeDefined();
-
-    //     act(() => {
-    //         fireEvent.click(buttonTab[tabToSelect]);
-    //     });
-
-    //     expect(lastTabSelected).toBe(tabToSelect);
-    // });
-
-    // test('onSelectTab returns sets aria-selected', () => {
-    //     const TestComponent = () => {
-    //         const [selectedTab, setSelectedTab] = useState<number>(0);
-    //         return (
-    //             <Tabs
-    //                 onSelectTab={tabIndex => {
-    //                     setSelectedTab(tabIndex);
-    //                 }}
-    //                 name="test tabs"
-    //                 type={TabType.Button}
-    //                 tabs={[
-    //                     {
-    //                         content: '123'
-    //                     },
-    //                     {
-    //                         content: '456'
-    //                     }
-    //                 ]}
-    //                 selectedTab={selectedTab}
-    //             />
-    //         );
-    //     };
-
-    //     const tabToSelect = 1;
-
-    //     render(<TestComponent />);
-
-    //     const buttonTab = screen.getAllByRole('tab');
-    //     expect(buttonTab[tabToSelect]).toBeDefined();
-
-    //     act(() => {
-    //         fireEvent.click(buttonTab[tabToSelect]);
-    //     });
-
-    //     expect(buttonTab[tabToSelect]).toHaveAttribute('aria-selected', 'true');
-    // });
+        expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--no-shadow');
+    });
 });

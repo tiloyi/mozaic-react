@@ -15,6 +15,7 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id }): JSX.Element
         return () => unregister(id);
     }, [register, unregister, id]);
 
+    /* eslint-disable @typescript-eslint/no-unnecessary-condition */
     const isOpen = modals[id]?.isOpen;
 
     return (

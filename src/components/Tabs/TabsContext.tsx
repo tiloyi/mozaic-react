@@ -1,4 +1,4 @@
-import React, { FC, createContext, useContext, useState, useEffect } from 'react';
+import React, { FC, createContext, useContext, useState } from 'react';
 
 interface ITabsContextProps {
     selectedTab: string;
@@ -22,7 +22,7 @@ interface ITabsProviderProps {
 }
 
 export const TabsProvider: FC<ITabsProviderProps> = ({ children, initialTab }) => {
-    const [selectedTab, setSelectedTab] = useState<string>(initialTab || '');
+    const [selectedTab, setSelectedTab] = useState<string>(initialTab ?? '');
 
     const contextValue: ITabsContextProps = {
         selectedTab,
