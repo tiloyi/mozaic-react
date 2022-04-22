@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 interface IUsePagination {
-    handlePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+    handleChangePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     handleNext: () => void;
     handlePrevious: () => void;
     handleItemsPerPage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
@@ -12,7 +12,7 @@ function usePagination(): IUsePagination {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    const handlePage = (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>): void => {
+    const handleChangePage = (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>): void => {
         const newPage = Number(event.target.value);
         setCurrentPage(newPage);
     };
@@ -28,7 +28,7 @@ function usePagination(): IUsePagination {
     };
 
     return {
-        handlePage,
+        handleChangePage,
         handleNext,
         handlePrevious,
         handleItemsPerPage,

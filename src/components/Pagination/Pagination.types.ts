@@ -6,6 +6,6 @@ export interface IPaginationProps {
     currentPage: number;
     handleNext: () => void;
     handlePrevious: () => void;
-    handlePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+    handleChangePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     isCompact?: boolean;
 }

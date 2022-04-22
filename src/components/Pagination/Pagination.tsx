@@ -8,7 +8,7 @@ const Pagination: FC<IPaginationProps> = ({
     className,
     pagesNumber,
     currentPage,
-    handlePage,
+    handleChangePage,
     handleNext,
     handlePrevious,
     isCompact
@@ -37,7 +37,7 @@ const Pagination: FC<IPaginationProps> = ({
                 </div>
                 {!isCompact && (
                     <div className="mc-pagination__field">
-                        <select className="mc-select mc-pagination__select" onChange={handlePage} value={currentPage}>
+                        <select className="mc-select mc-pagination__select" onChange={handleChangePage} value={currentPage}>
                             {Array.from(Array(pagesNumber), (_, i) => (
                                 <option key={i + 1} value={i + 1}>
                                     {`Page ${i + 1} of ${pagesNumber}`}

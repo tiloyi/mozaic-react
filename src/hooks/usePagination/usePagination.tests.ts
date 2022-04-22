@@ -9,10 +9,10 @@ describe('hooks/usePagination', () => {
         expect(result.current.itemsPerPage).toEqual(10);
     });
 
-    test('handlePage should set currentPage(15) ', () => {
+    test('handleChangePage should set currentPage(15) ', () => {
         const { result } = renderHook(() => usePagination());
-        const { handlePage } = result.current;
-        act(() => handlePage({ target: { value: '15' } } as ChangeEvent<HTMLSelectElement>));
+        const { handleChangePage } = result.current;
+        act(() => handleChangePage({ target: { value: '15' } } as ChangeEvent<HTMLSelectElement>));
         expect(result.current.currentPage).toEqual(15);
     });
     test('handleNext should set currentPage(2)', () => {
