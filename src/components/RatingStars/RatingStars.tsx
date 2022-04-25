@@ -51,7 +51,6 @@ const RatingStars: FC<IRatingStarsProps> = ({
             data-testid="rating-stars-wrapper"
         >
             <span className="mc-stars-result__visual"/>
-            <span className="mc-stars-result__text">Global score: 1,5/5</span>
         </div>
     );
 };
