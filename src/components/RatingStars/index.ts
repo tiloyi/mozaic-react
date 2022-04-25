@@ -2,10 +2,11 @@ import RatingStars from './RatingStars';
 
 export {
     IRatingStarsProps,
+    IRatingStarLabelProps,
+    IRatingStarInputProps,
     TRatingStarsSize,
     TRatingStarsTypes,
-    IRatingStarLabelProps,
-    IRatingStarInputProps
+    TRatingStarsScores
 } from './RatingStars.types';
 
 export default RatingStars;
