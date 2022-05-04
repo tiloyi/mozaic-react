@@ -8,6 +8,7 @@ export interface IModalPartialProps extends HTMLAttributes<HTMLDivElement> {
 export interface IModalCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     id: string;
+    onClose: () => void;
 }
 
 export interface IModalContainerProps extends HTMLAttributes<HTMLDivElement> {
@@ -19,4 +20,6 @@ export interface IModalTitleProps extends HTMLAttributes<HTMLHeadingElement> {
     as?: THeadingTag;
 }
 
-export interface IModalProps extends IModalContainerProps {}
+export interface IModalProps extends IModalContainerProps {
+    onClose: () => void;
+}
