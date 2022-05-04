@@ -15,7 +15,7 @@ const ModalCloseButton = ({
     const handleClick = useCallback(() => {
         onClose();
         close(id);
-    }, [id, close]);
+    }, [id, close, onClose]);
 
     return (
         <button type="button" className={cn('mc-modal__close', className)} {...props} onClick={handleClick}>
