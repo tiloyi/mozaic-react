@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 import { IFileUploaderInputProps } from '../FileUploader.types';
 
-const FileUploaderIndicator = ({
-    className,
-    isDisabled,
-    ...props
-}: IFileUploaderInputProps): JSX.Element => {
+const FileUploaderIndicator = forwardRef<HTMLInputElement, IFileUploaderInputProps>(
+  ({ className, isDisabled, id, ...props }, ref) => {
 
     const fileUploaderClassName = cn(
       'mc-fileuploader__input',
@@ -16,12 +13,15 @@ const FileUploaderIndicator = ({
     return (
         <input
             {...props}
-            id="default"
+            ref={ref}
+            id={id}
             className={fileUploaderClassName}
             type="file"
             disabled={isDisabled}
         />
     );
-};
+});
+
+FileUploaderIndicator.displayName = 'FileUploaderIndicator';
 
 export default FileUploaderIndicator;

@@ -1,9 +1,10 @@
 import { InputHTMLAttributes } from 'react';
 
-type TOmittedProps = 'type' | 'size';
+type TOmittedProps = 'type' | 'size' | 'id';
 
 export interface IFileUploaderInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     isDisabled?: boolean;
+    id: string;
 }
 
 export interface IFileUploaderListProps {

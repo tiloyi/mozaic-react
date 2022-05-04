@@ -1,20 +1,18 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import { IFileUploaderProps } from './FileUploader.types';
 import { FileUploaderContainer, FileUploaderLabel, FileUploaderList, FileUploaderIndicator } from './partials';
 import './FileUploader.scss';
 
-const FileUploader: FC<IFileUploaderProps> = ({
-    className,
-    onDeleteFile,
-    files,
-    children,
-    ...props
-}) => (
+
+const FileUploader = forwardRef<HTMLInputElement, IFileUploaderProps>(
+  ({ className, onDeleteFile, files, children, ...props }, ref) => (
     <FileUploaderContainer className={className}>
-        <FileUploaderIndicator {...props} />
-        <FileUploaderLabel>{children}</FileUploaderLabel>
+        <FileUploaderIndicator {...props} ref={ref}/>
+        <FileUploaderLabel id={props.id}>{children}</FileUploaderLabel>
         <FileUploaderList files={files} onDeleteFile={onDeleteFile}/>
     </FileUploaderContainer>
-);
+));
+
+FileUploader.displayName = 'FileUploader';
 
 export default FileUploader;

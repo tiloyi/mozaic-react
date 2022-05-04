@@ -8,7 +8,7 @@ const onDelete = jest.fn();
 
 describe('components/FileUploader', () => {
     test('upload file', () => {
-        render(<FileUploader files={[file]} onDeleteFile={onDelete}>Select file to upload</FileUploader>);
+        render(<FileUploader files={[file]} onDeleteFile={onDelete} id="1">Select file to upload</FileUploader>);
 
         const input = screen.getByLabelText("Select file to upload") as HTMLInputElement;
         userEvent.upload(input, file)
@@ -24,7 +24,7 @@ describe('components/FileUploader', () => {
             new File(['there'], 'there.png'),
         ]
 
-        render(<FileUploader files={files} onDeleteFile={onDelete} multiple>Select file to upload</FileUploader>);
+        render(<FileUploader files={files} onDeleteFile={onDelete} id="1" multiple>Select file to upload</FileUploader>);
 
         const input = screen.getByLabelText("Select file to upload") as HTMLInputElement;
         userEvent.upload(input, files)
@@ -37,13 +37,13 @@ describe('components/FileUploader', () => {
     })
 
     test('renders children correctly', () => {
-        render(<FileUploader files={[file]} onDeleteFile={onDelete}>Select file to upload</FileUploader>);
+        render(<FileUploader files={[file]} id="1" onDeleteFile={onDelete}>Select file to upload</FileUploader>);
 
         expect(screen.getByText('Select file to upload')).toBeInTheDocument();
     });
 
     test('renders disabled correctly', () => {
-        render(<FileUploader files={[file]} onDeleteFile={onDelete} isDisabled>Select file to upload</FileUploader>);
+        render(<FileUploader files={[file]} id="1" onDeleteFile={onDelete} isDisabled>Select file to upload</FileUploader>);
 
         expect(screen.getByLabelText('Select file to upload')).toBeDisabled();
     });
