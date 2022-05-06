@@ -31,6 +31,7 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
+export { default as Accordion, TAccordionSize, IAccordionProps } from './components/Accordion';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './components/Flag';
 export {

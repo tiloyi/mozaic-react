@@ -1,0 +1,46 @@
+import {
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
+} from '@storybook/addon-docs';
+import { Controls, ControlsWithIcon, argTypes } from './Accordion.stories';
+import Accordion from './Accordion';
+
+<Meta title="Components/Accordion" component={Accordion} argTypes={argTypes}/>
+
+# Accordion
+
+The `Accordion` component is the **React.js** implementation of the **Mozaic Accordion styles**.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Accordion/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+    language="javascript"
+    code="import { Accordion } from '@mozaic-ds/react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={Controls}/>
+</Canvas>
+
+WithIcon example:
+
+<Canvas withSource="open">
+    <Story story={ControlsWithIcon}/>
+</Canvas>
+
+
+
+## Props
+
+<ArgsTable of={Accordion}/>
