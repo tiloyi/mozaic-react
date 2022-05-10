@@ -20,7 +20,10 @@
     "lib:clean": "rimraf lib",
     "prepare": "husky install",
     "release": "dotenv release-it",
-    "release:beta": "release-it --preRelease=beta"
+    "release:beta": "dotenv release-it --preRelease=beta",
+    "prepublishOnly": "npm run build",
+    "npm:publish": "npm publish --access public",
+    "npm:publishBeta": "npm publish --tag beta --access public"
   },
   "repository": {
     "type": "git",
