@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.3](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.2...v1.3.0-beta.3) (2022-05-10)
+
+
+### Bug Fixes
+
+* **component/accordion:** remove [@include](https://github.com/include) import-font-families() ([a343e19](https://github.com/adeo/mozaic-react/commit/a343e196354c54999e32aff3b1e8c23fa2c723b4))
+
 # [1.3.0-beta.2](https://github.com/adeo/mozaic-react/compare/v1.2.0...v1.3.0-beta.2) (2022-05-10)
 
 
