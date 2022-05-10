@@ -1,12 +1,5 @@
 
 
-# [1.3.0-beta.4](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.3...v1.3.0-beta.4) (2022-05-11)
-
-
-### Bug Fixes
-
-* **component/pagination:** remove [@include](https://github.com/include) import-font-families() ([29c4430](https://github.com/adeo/mozaic-react/commit/29c4430c88b711dec02573fa10f02f9282a29f16))
-
 # [1.3.0-beta.3](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.2...v1.3.0-beta.3) (2022-05-10)
 
 
@@ -33,3 +26,4 @@
 * add pagination component ([20d36a9](https://github.com/adeo/mozaic-react/commit/20d36a93eee82ee8450b446e106bc7024c919594))
 * add usePagination hook ([a13df73](https://github.com/adeo/mozaic-react/commit/a13df73570f8a445b531c5902f98041e891e29a0))
 * **textInput:** add icon props to TextInput component ([411ad32](https://github.com/adeo/mozaic-react/commit/411ad320771f4500027f6300c860e538c0998643))
+
