@@ -2,7 +2,6 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import Accordion from './Accordion';
 import { IAccordionProps } from './Accordion.types';
-import SVGIcon from '../../../.storybook/assets/SVGIcon';
 
 export const Template: Story<IAccordionProps> = args => <Accordion {...args}>Accordion size {args.size}</Accordion>;
 
