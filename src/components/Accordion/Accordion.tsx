@@ -5,14 +5,14 @@ import './Accordion.scss';
 
 const blockClassName = 'mc-accordion';
 
-const Accordion: React.FC<IAccordionProps> = ({ className = '', size = 'm', title, isDefaultOpen = false, isDisabled = false, icon, children }) => {
+const Accordion: React.FC<IAccordionProps> = ({ className = '', size = 'm', title, isDefaultOpen = false, isDisabled = false, icon, children, ...props }) => {
     const [isOpen, setIsOpen] = useState(isDefaultOpen);
     const wrapperClassName = cn(`${blockClassName}`, `${blockClassName}--${size}`, className, {
         'is-open': isOpen
     });
 
     return (
-        <div className={wrapperClassName} data-testid='accordion-wrapper'>
+        <div className={wrapperClassName} data-testid='accordion-wrapper' {...props}>
             <div className="mc-accordion__header">
                 <h2 className="mc-accordion__title">
                     <button
