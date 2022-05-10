@@ -23,7 +23,7 @@
     "release:beta": "dotenv release-it --preRelease=beta",
     "prepublishOnly": "npm run build",
     "npm:publish": "npm publish --access public",
-    "npm:publishBeta": "npm publish --tag beta --access public"
+    "npm:publishBeta": "npm publish --tag next --access public"
   },
   "repository": {
     "type": "git",
