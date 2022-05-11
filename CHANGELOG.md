@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.4](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.3...v1.3.0-beta.4) (2022-05-11)
+
+
+### Bug Fixes
+
+* **component/pagination:** remove [@include](https://github.com/include) import-font-families() ([29c4430](https://github.com/adeo/mozaic-react/commit/29c4430c88b711dec02573fa10f02f9282a29f16))
+
 # [1.3.0-beta.3](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.2...v1.3.0-beta.3) (2022-05-10)
 
 
