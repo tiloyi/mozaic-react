@@ -1,14 +1,14 @@
 import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
 } from '@storybook/addon-docs';
-import { Controls, argTypes } from './Loader.stories';
+import {Controls, argTypes} from './Loader.stories';
 import Loader from './Loader';
 
-<Meta title="Components/Loader" component={Loader} argTypes={argTypes} />
+<Meta title="Components/Loader" component={Loader} argTypes={argTypes}/>
 
 # Loader
 
@@ -23,17 +23,17 @@ To use the component in your project you must:
 1. Import the component where you need it:
 
 <Source
-  language="javascript"
-  code="import { Loader } from '@mozaic-ds/react';"
+    language="javascript"
+    code="import { Loader } from '@mozaic-ds/react';"
 />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-  <Story story={Controls} />
+    <Story story={Controls}/>
 </Canvas>
 
 
 ## Props
 
-<ArgsTable of={Loader} />
+<ArgsTable of={Loader}/>

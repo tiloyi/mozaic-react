@@ -1,31 +1,53 @@
 import React from 'react';
 import cn from 'classnames';
-import { combiningSizeWithProps, ILoaderProps } from './Loader.types';
+import View from '../View';
+import { ILoaderProps, ILoaderSvgProperties, TLoaderSize, TLoaderTheme } from './Loader.types';
 import './Loader.scss';
 
-export const blockClassName = 'mc-loader';
+const blockClassName = 'mc-loader';
 
-const Loader = ({ className, themes = 'primary', size = 'm', }: ILoaderProps): JSX.Element => {
-    const elementClassName = cn(
-        blockClassName,
-        className,
-        `${blockClassName}--${themes}`,
-        `${blockClassName}--${size}`,
-    );
-    const { viewBox, radius } = combiningSizeWithProps[size]
+function getThemeModifier(theme: TLoaderTheme): string {
+    return `${blockClassName}--${theme}`;
+}
+
+function getSizeModifier(size: TLoaderSize): string {
+    return `${blockClassName}--${size}`;
+}
+
+function getSvgProperties(size: TLoaderSize): ILoaderSvgProperties {
+    const properties: Record<TLoaderSize, ILoaderSvgProperties> = {
+        s: {
+            radius: '6',
+            viewBox: '0 0 24 24'
+        },
+        m: {
+            radius: '9',
+            viewBox: '0 0 32 32'
+        },
+        l: {
+            radius: '19',
+            viewBox: '0 0 64 64'
+        }
+    };
+
+    return properties[size];
+}
+
+const Loader = ({ className, theme = 'primary', size = 'm', ...props }: ILoaderProps): JSX.Element => {
+    const { viewBox, radius } = getSvgProperties(size);
 
     return (
-      <div className={elementClassName}>
-        <span className="mc-loader__spinner">
-          <svg
-            className="mc-loader__icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox={viewBox}
-          >
-              <circle className="mc-loader__path" cx="50%" cy="50%" r={radius}/>
-          </svg>
-        </span>
-      </div>
+        <View
+            className={cn(blockClassName, className, getThemeModifier(theme), getSizeModifier(size))}
+            {...props}
+            role="progressbar"
+        >
+            <span className="mc-loader__spinner">
+                <svg className="mc-loader__icon" xmlns="http://www.w3.org/2000/svg" viewBox={viewBox}>
+                    <circle className="mc-loader__path" cx="50%" cy="50%" r={radius} />
+                </svg>
+            </span>
+        </View>
     );
 };
 
