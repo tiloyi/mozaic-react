@@ -3,19 +3,10 @@ import cn from 'classnames';
 import { useModals } from '../../ModalsProvider';
 import { IModalCloseButtonProps } from '../Modal.types';
 
-const ModalCloseButton = ({
-    className,
-    id,
-    title = 'Close',
-    onClose,
-    ...props
-}: IModalCloseButtonProps): JSX.Element => {
+const ModalCloseButton = ({ className, id, title = 'Close', ...props }: IModalCloseButtonProps): JSX.Element => {
     const { close } = useModals();
 
-    const handleClick = useCallback(() => {
-        onClose();
-        close(id);
-    }, [id, close, onClose]);
+    const handleClick = useCallback(() => close(id), [id, close]);
 
     return (
         <button type="button" className={cn('mc-modal__close', className)} {...props} onClick={handleClick}>

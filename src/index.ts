@@ -167,3 +167,4 @@ export {
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
 export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './components/Tag';
+export * from './hooks';

@@ -1,13 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import cn from 'classnames';
+import { useIsMounted } from '../../../hooks';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
 import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import { ILayerContainerProps } from '../Layer.types';
 
-const LayerContainer: FC<ILayerContainerProps> = ({ children, id }): JSX.Element => {
+const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClose }): JSX.Element => {
     const { register, unregister } = useModals();
     const modals = useModalsState();
+    const isMounted = useIsMounted();
 
     useEffect(() => {
         register(id);
@@ -15,7 +17,21 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id }): JSX.Element
         return () => unregister(id);
     }, [register, unregister, id]);
 
-    const isOpen = modals[id]?.isOpen;
+    const modalState = modals[id];
+
+    const isOpen = modalState === 'opened';
+
+    useEffect(() => {
+        if (isMounted) {
+            if (modalState === 'opened') {
+                onOpen?.();
+            }
+
+            if (modalState === 'closed') {
+                onClose?.();
+            }
+        }
+    }, [modalState, isMounted, onOpen, onClose]);
 
     return (
         <Portal id={`portal-layer-${id}`}>
