@@ -1,5 +1,7 @@
 
 
+# [1.3.0-beta.5](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.4...v1.3.0-beta.5) (2022-05-18)
+
 # [1.3.0-beta.4](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.3...v1.3.0-beta.4) (2022-05-11)
 
 
