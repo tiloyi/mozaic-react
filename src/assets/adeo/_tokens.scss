@@ -136,13 +136,13 @@ $color-success-600: #188803 !default;
 $color-success-700: #006902 !default;
 $color-success-800: #035010 !default;
 $color-success-900: #023618 !default;
-$color-button-solid-background: #00919f !default;
+$color-button-solid-background: #007f8c !default;
 $color-button-solid-font: #ffffff !default;
 $color-button-solid-focus-border: #006974 !default;
 $color-button-solid-disabled-background: #dddcd5 !default;
 $color-button-solid-disabled-font: #71706b !default;
 $color-button-solid-active-background: #006974 !default;
-$color-button-solid-hover-background: #007f8c !default;
+$color-button-solid-hover-background: #006974 !default;
 $color-button-solid-hover-font: #ffffff !default;
 $color-button-solid-primary-02-background: #007574 !default;
 $color-button-solid-primary-02-font: #ffffff !default;
@@ -160,17 +160,17 @@ $color-button-solid-neutral-disabled-font: #71706b !default;
 $color-button-solid-neutral-active-background: #3a3936 !default;
 $color-button-solid-neutral-hover-background: #1e1e1c !default;
 $color-button-solid-neutral-hover-font: #ffffff !default;
-$color-button-solid-danger-background: #ea302d !default;
+$color-button-solid-danger-background: #b42a27 !default;
 $color-button-solid-danger-font: #ffffff !default;
 $color-button-solid-danger-focus-border: #8c0003 !default;
 $color-button-solid-danger-disabled-background: #dddcd5 !default;
 $color-button-solid-danger-disabled-font: #71706b !default;
 $color-button-solid-danger-active-background: #8c0003 !default;
-$color-button-solid-danger-hover-background: #c61112 !default;
+$color-button-solid-danger-hover-background: #8c0003 !default;
 $color-button-solid-danger-hover-font: #ffffff !default;
 $color-button-bordered-background: #ffffff !default;
-$color-button-bordered-border: #00919f !default;
-$color-button-bordered-font: #00919f !default;
+$color-button-bordered-border: #007f8c !default;
+$color-button-bordered-font: #007f8c !default;
 $color-button-bordered-focus-border: #006974 !default;
 $color-button-bordered-disabled-background: #dddcd5 !default;
 $color-button-bordered-disabled-font: #71706b !default;
@@ -193,8 +193,8 @@ $color-button-bordered-neutral-disabled-font: #71706b !default;
 $color-button-bordered-neutral-active-background: #dddcd5 !default;
 $color-button-bordered-neutral-hover-background: #eeedea !default;
 $color-button-bordered-danger-background: #ffffff !default;
-$color-button-bordered-danger-border: #df382b !default;
-$color-button-bordered-danger-font: #df382b !default;
+$color-button-bordered-danger-border: #b42a27 !default;
+$color-button-bordered-danger-font: #b42a27 !default;
 $color-button-bordered-danger-focus-border: #8b2226 !default;
 $color-button-bordered-danger-disabled-background: #dddcd5 !default;
 $color-button-bordered-danger-disabled-font: #71706b !default;
@@ -213,11 +213,11 @@ $color-fileuploader-files-list: #eeedea !default;
 $color-fileuploader-files-delete: #dddcd5 !default;
 $color-fileuploader-valid: #00919f !default;
 $color-fileuploader-alert: #c61112 !default;
-$color-flag-solid-background: #00919f !default;
-$color-flag-solid-border: #00919f !default;
+$color-flag-solid-background: #007f8c !default;
+$color-flag-solid-border: #007f8c !default;
 $color-flag-solid-text: #ffffff !default;
-$color-flag-solid-primary-02-background: #035f64 !default;
-$color-flag-solid-primary-02-border: #035f64 !default;
+$color-flag-solid-primary-02-background: #4b4a8c !default;
+$color-flag-solid-primary-02-border: #4b4a8c !default;
 $color-flag-solid-primary-02-text: #ffffff !default;
 $color-flag-solid-dark-background: #000000 !default;
 $color-flag-solid-dark-border: #000000 !default;
@@ -225,15 +225,15 @@ $color-flag-solid-dark-text: #ffffff !default;
 $color-flag-solid-light-background: #ffffff !default;
 $color-flag-solid-light-border: #ffffff !default;
 $color-flag-solid-light-text: #000000 !default;
-$color-flag-solid-danger-background: #df382b !default;
-$color-flag-solid-danger-border: #df382b !default;
+$color-flag-solid-danger-background: #b42a27 !default;
+$color-flag-solid-danger-border: #b42a27 !default;
 $color-flag-solid-danger-text: #ffffff !default;
 $color-flag-bordered-background: #ffffff !default;
-$color-flag-bordered-border: #00919f !default;
-$color-flag-bordered-text: #00919f !default;
+$color-flag-bordered-border: #007f8c !default;
+$color-flag-bordered-text: #007f8c !default;
 $color-flag-bordered-primary-02-background: #ffffff !default;
-$color-flag-bordered-primary-02-border: #035f64 !default;
-$color-flag-bordered-primary-02-text: #035f64 !default;
+$color-flag-bordered-primary-02-border: #4b4a8c !default;
+$color-flag-bordered-primary-02-text: #4b4a8c !default;
 $color-flag-bordered-dark-background: #ffffff !default;
 $color-flag-bordered-dark-border: #000000 !default;
 $color-flag-bordered-dark-text: #000000 !default;
@@ -241,8 +241,8 @@ $color-flag-bordered-light-background: #000000 !default;
 $color-flag-bordered-light-border: #ffffff !default;
 $color-flag-bordered-light-text: #ffffff !default;
 $color-flag-bordered-danger-background: #ffffff !default;
-$color-flag-bordered-danger-border: #df382b !default;
-$color-flag-bordered-danger-text: #df382b !default;
+$color-flag-bordered-danger-border: #b42a27 !default;
+$color-flag-bordered-danger-text: #b42a27 !default;
 $color-focus-gap: #ffffff !default;
 $color-focus-border: #758992 !default;
 $color-font-primary-01: #00919f !default;
@@ -283,7 +283,7 @@ $color-link-light-visited: #dddcd5 !default;
 $color-link-light-active: #dddcd5 !default;
 $color-link-light-disabled: #eeedea !default;
 $color-link-light-hover: #a7a6a0 !default;
-$color-link-primary-base: #00919f !default;
+$color-link-primary-base: #007f8c !default;
 $color-link-primary-visited: #006974 !default;
 $color-link-primary-active: #006974 !default;
 $color-link-primary-disabled: #eeedea !default;
@@ -324,45 +324,56 @@ $color-tabs-disabled: #71706b !default;
 $color-tabs-active: #00919f !default;
 $color-tabs-active-disabled: #91d5db !default;
 $color-tag-text-light-background: #ffffff !default;
-$color-tag-text-light-border: #555550 !default;
-$color-tag-text-light-text: #555550 !default;
-$color-tag-text-dark-background: #000000 !default;
+$color-tag-text-light-border: #8c8b85 !default;
+$color-tag-text-light-text: #1e1e1c !default;
+$color-tag-text-dark-background: #1e1e1c !default;
 $color-tag-text-dark-border: #ffffff !default;
 $color-tag-text-dark-text: #ffffff !default;
 $color-tag-link-light-background: #ffffff !default;
-$color-tag-link-light-border: #555550 !default;
-$color-tag-link-light-text: #555550 !default;
+$color-tag-link-light-border: #8c8b85 !default;
+$color-tag-link-light-text: #1e1e1c !default;
 $color-tag-link-light-hover-background: #eeedea !default;
 $color-tag-link-light-active-background: #dddcd5 !default;
-$color-tag-link-dark-background: #000000 !default;
+$color-tag-link-dark-background: #1e1e1c !default;
 $color-tag-link-dark-border: #ffffff !default;
 $color-tag-link-dark-text: #ffffff !default;
 $color-tag-link-dark-hover-background: #3a3936 !default;
 $color-tag-link-dark-active-background: #555550 !default;
-$color-tag-selectable-light-background: #dddcd5 !default;
+$color-tag-selectable-light-background: #ffffff !default;
+$color-tag-selectable-light-border: #8c8b85 !default;
 $color-tag-selectable-light-text: #1e1e1c !default;
 $color-tag-selectable-light-hover-background: #48bac4 !default;
-$color-tag-selectable-light-active-background: #007f8c !default;
+$color-tag-selectable-light-active-background: #004e57 !default;
+$color-tag-selectable-light-active-border: #004e57 !default;
+$color-tag-selectable-light-active-text: #ffffff !default;
 $color-tag-selectable-light-disabled-background: #eeedea !default;
 $color-tag-selectable-light-disabled-text: #8c8b85 !default;
-$color-tag-selectable-light-selected-background: #00919f !default;
-$color-tag-selectable-dark-background: #3a3936 !default;
+$color-tag-selectable-light-selected-background: #007f8c !default;
+$color-tag-selectable-light-selected-text: #ffffff !default;
+$color-tag-selectable-light-selected-hover-background: #006974 !default;
+$color-tag-selectable-dark-background: #1e1e1c !default;
+$color-tag-selectable-dark-border: #ffffff !default;
 $color-tag-selectable-dark-text: #ffffff !default;
-$color-tag-selectable-dark-hover-background: #00919f !default;
-$color-tag-selectable-dark-active-background: #004e57 !default;
-$color-tag-selectable-dark-selected-background: #006974 !default;
+$color-tag-selectable-dark-hover-background: #006974 !default;
+$color-tag-selectable-dark-active-background: #91d5db !default;
+$color-tag-selectable-dark-active-border: #91d5db !default;
+$color-tag-selectable-dark-active-text: #1e1e1c !default;
+$color-tag-selectable-dark-selected-background: #009eac !default;
+$color-tag-selectable-dark-selected-border: #009eac !default;
+$color-tag-selectable-dark-selected-text: #1e1e1c !default;
+$color-tag-selectable-dark-selected-hover-background: #48bac4 !default;
 $color-tag-selectable-dark-disabled-background: #555550 !default;
 $color-tag-selectable-dark-disabled-text: #8c8b85 !default;
-$color-tag-removable-light-background: #dddcd5 !default;
-$color-tag-removable-light-text: #1e1e1c !default;
-$color-tag-removable-light-icon: #3a3936 !default;
-$color-tag-removable-light-hover-background: #c2c1ba !default;
-$color-tag-removable-light-active-background: #a7a6a0 !default;
-$color-tag-removable-dark-background: #3a3936 !default;
-$color-tag-removable-dark-text: #ffffff !default;
-$color-tag-removable-dark-icon: #dddcd5 !default;
-$color-tag-removable-dark-hover-background: #555550 !default;
-$color-tag-removable-dark-active-background: #71706b !default;
+$color-tag-removable-light-background: #3a3936 !default;
+$color-tag-removable-light-text: #ffffff !default;
+$color-tag-removable-light-icon: #dddcd5 !default;
+$color-tag-removable-light-hover-background: #555550 !default;
+$color-tag-removable-light-active-background: #71706b !default;
+$color-tag-removable-dark-background: #dddcd5 !default;
+$color-tag-removable-dark-text: #1e1e1c !default;
+$color-tag-removable-dark-icon: #1e1e1c !default;
+$color-tag-removable-dark-hover-background: #c2c1ba !default;
+$color-tag-removable-dark-active-background: #a7a6a0 !default;
 $color-toggle-off-background: #71706b !default;
 $color-toggle-off-circle: #ffffff !default;
 $color-toggle-on-background: #00919f !default;
@@ -1042,32 +1053,47 @@ $tokens: (
       'selectable': (
         'light': (
           'background': $color-tag-selectable-light-background,
+          'border': $color-tag-selectable-light-border,
           'text': $color-tag-selectable-light-text,
           'hover': (
             'background': $color-tag-selectable-light-hover-background
           ),
           'active': (
-            'background': $color-tag-selectable-light-active-background
+            'background': $color-tag-selectable-light-active-background,
+            'border': $color-tag-selectable-light-active-border,
+            'text': $color-tag-selectable-light-active-text
           ),
           'disabled': (
             'background': $color-tag-selectable-light-disabled-background,
             'text': $color-tag-selectable-light-disabled-text
           ),
           'selected': (
-            'background': $color-tag-selectable-light-selected-background
+            'background': $color-tag-selectable-light-selected-background,
+            'text': $color-tag-selectable-light-selected-text,
+            'hover': (
+              'background': $color-tag-selectable-light-selected-hover-background
+            )
           )
         ),
         'dark': (
           'background': $color-tag-selectable-dark-background,
+          'border': $color-tag-selectable-dark-border,
           'text': $color-tag-selectable-dark-text,
           'hover': (
             'background': $color-tag-selectable-dark-hover-background
           ),
           'active': (
-            'background': $color-tag-selectable-dark-active-background
+            'background': $color-tag-selectable-dark-active-background,
+            'border': $color-tag-selectable-dark-active-border,
+            'text': $color-tag-selectable-dark-active-text
           ),
           'selected': (
-            'background': $color-tag-selectable-dark-selected-background
+            'background': $color-tag-selectable-dark-selected-background,
+            'border': $color-tag-selectable-dark-selected-border,
+            'text': $color-tag-selectable-dark-selected-text,
+            'hover': (
+              'background': $color-tag-selectable-dark-selected-hover-background
+            )
           ),
           'disabled': (
             'background': $color-tag-selectable-dark-disabled-background,
