@@ -19,6 +19,7 @@
     "storybook:clean": "rimraf storybook-static",
     "lib:build": "rollup --config",
     "lib:build:adeo": "rollup --config --environment MOZAIC_PRESET:adeo",
+    "lib:build:all": "npm run lib:build & npm run lib:build:adeo",
     "lib:clean": "rimraf lib",
     "tokens:build": "mozaic-tokens-build",
     "prepare": "husky install",
