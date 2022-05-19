@@ -1,0 +1,39 @@
+import {
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
+} from '@storybook/addon-docs';
+import {Controls, argTypes} from './Loader.stories';
+import Loader from './Loader';
+
+<Meta title="Components/Loader" component={Loader} argTypes={argTypes}/>
+
+# Loader
+
+The `Loader` component is the **React.js** implementation of the **Mozaic Loader styles**.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Loader).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+    language="javascript"
+    code="import { Loader } from '@mozaic-ds/react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={Controls}/>
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={Loader}/>
