@@ -66,6 +66,7 @@ export {
     ILayerTitleProps
 } from './components/Layer';
 export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './components/Link';
+export { default as Loader, ILoaderProps, TLoaderTheme, TLoaderSize } from './components/Loader';
 export {
     default as Modal,
     ModalBody,
