@@ -6,15 +6,15 @@ import './Loader.scss';
 
 const blockClassName = 'mc-loader';
 
-function getThemeModifier(theme: TLoaderTheme): string {
+export function getThemeModifier(theme: TLoaderTheme): string {
     return `${blockClassName}--${theme}`;
 }
 
-function getSizeModifier(size: TLoaderSize): string {
+export function getSizeModifier(size: TLoaderSize): string {
     return `${blockClassName}--${size}`;
 }
 
-function getSvgProperties(size: TLoaderSize): ILoaderSvgProperties {
+export function getSvgProperties(size: TLoaderSize): ILoaderSvgProperties {
     const properties: Record<TLoaderSize, ILoaderSvgProperties> = {
         s: {
             radius: '6',
