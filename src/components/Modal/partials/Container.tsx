@@ -6,7 +6,7 @@ import Overlay from '../../Overlay';
 import Portal from '../../Portal';
 import { IModalContainerProps } from '../Modal.types';
 
-const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClose }): JSX.Element => {
+const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
     const { register, unregister } = useModals();
     const modals = useModalsState();
     const isMounted = useIsMounted();
@@ -36,7 +36,7 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClos
     return (
         <Portal id={`portal-modal-${id}`}>
             <div className="mc-modal" role="dialog" tabIndex={-1}>
-                <div className={cn('mc-modal__dialog', isOpen && 'is-open')} role="document">
+                <div {...props} className={cn('mc-modal__dialog', isOpen && 'is-open')} role="document">
                     {isOpen && children}
                 </div>
             </div>

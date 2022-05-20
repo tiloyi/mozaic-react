@@ -6,7 +6,7 @@ import Portal from '../../Portal';
 import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import { ILayerContainerProps } from '../Layer.types';
 
-const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClose }): JSX.Element => {
+const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
     const { register, unregister } = useModals();
     const modals = useModalsState();
     const isMounted = useIsMounted();
@@ -36,7 +36,7 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClos
     return (
         <Portal id={`portal-layer-${id}`}>
             <div className="mc-layer" role="dialog" tabIndex={-1}>
-                <div className={cn('mc-layer__dialog', isOpen && 'is-open')} role="document">
+                <div {...props} className={cn('mc-layer__dialog', isOpen && 'is-open')} role="document">
                     {isOpen && children}
                 </div>
             </div>
