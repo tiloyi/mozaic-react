@@ -3,10 +3,10 @@ import { LayerContainer, LayerCloseButton } from './partials';
 import { ILayerProps } from './Layer.types';
 import './Layer.scss';
 
-const Layer: FC<ILayerProps> = ({ children, id, onClose, ...props }): JSX.Element => (
+const Layer: FC<ILayerProps> = ({ children, id, ...props }): JSX.Element => (
     <LayerContainer {...props} id={id}>
         {children}
-        <LayerCloseButton id={id} onClose={onClose} />
+        <LayerCloseButton id={id} />
     </LayerContainer>
 );
 
