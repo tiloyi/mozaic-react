@@ -1,9 +1,10 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 interface IUsePagination {
     handleChangePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     handleNext: () => void;
     handlePrevious: () => void;
     handleItemsPerPage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+    setCurrentPage: Dispatch<SetStateAction<number>>
     currentPage: number;
     itemsPerPage: number;
 }
@@ -33,6 +34,7 @@ function usePagination(): IUsePagination {
         handlePrevious,
         handleItemsPerPage,
         currentPage,
+        setCurrentPage,
         itemsPerPage
     };
 }
