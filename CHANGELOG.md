@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.7](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.6...v1.3.0-beta.7) (2022-05-30)
+
+
+### Bug Fixes
+
+* **npm/script:** use script lib:build:all instead of lib:build when npm publish ([9cc1c57](https://github.com/adeo/mozaic-react/commit/9cc1c5703be84ecc12019ee74993395f99dc1453))
+
 # [1.3.0-beta.6](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.5...v1.3.0-beta.6) (2022-05-30)
 
 
