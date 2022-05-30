@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.6](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.5...v1.3.0-beta.6) (2022-05-30)
+
+
+### Bug Fixes
+
+* return setCurrentPage function ([ae8afe8](https://github.com/adeo/mozaic-react/commit/ae8afe8878d3272d58167a516f9051bb1a781eeb))
+
 # [1.3.0-beta.5](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.4...v1.3.0-beta.5) (2022-05-18)
 
 # [1.3.0-beta.4](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.3...v1.3.0-beta.4) (2022-05-11)
