@@ -31,7 +31,7 @@ const Select = ({
 
     /* eslint-disable react/no-array-index-key */
     return (
-        <select className={selectClassName} {...props} aria-invalid={isInvalid} disabled={isDisabled}>
+        <select className={selectClassName} name={name} {...props} aria-invalid={isInvalid} disabled={isDisabled}>
             {placeholder.length > 0 && <option>-- {placeholder} --</option>}
             {options.map((option, index) => {
                 if ((option as ISelectOptionGroup).options) {

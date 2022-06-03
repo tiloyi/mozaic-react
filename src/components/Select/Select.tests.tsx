@@ -33,6 +33,13 @@ describe('components/Select', () => {
         });
     });
 
+    test('renders select with name attribute if provided', () => {
+        render(<Select options={food} defaultValue={food[0].options[0].value} name="food" />);
+        const select: HTMLSelectElement | null = document.querySelector('select');
+
+        expect(select?.name).toEqual('food');
+    })
+
     test('renders valid correctly', () => {
         setup({ isValid: true });
 
