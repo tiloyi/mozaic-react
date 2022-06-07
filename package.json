@@ -4,7 +4,7 @@
   "description": "React implementation of the Mozaic Design System",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npm run clean && npm run lib:build:all && npm run storybook:build",
+    "build": "npm run clean && npm run lib:build:all",
     "clean": "rimraf lib storybook-static",
     "lint": "npm run lint:scripts",
     "lint:scripts": "eslint ./src",
