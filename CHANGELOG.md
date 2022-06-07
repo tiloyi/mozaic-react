@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.9](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.8...v1.3.0-beta.9) (2022-06-07)
+
+
+### Bug Fixes
+
+* **script:** remove storybook from build ([e722f02](https://github.com/adeo/mozaic-react/commit/e722f020ae9f83b03d9947813f3f1a72a8cf0916))
+
 # [1.3.0-beta.8](https://github.com/adeo/mozaic-react/compare/v1.2.0...v1.3.0-beta.8) (2022-06-07)
 
 
