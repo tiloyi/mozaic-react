@@ -1,10 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
-import { IModalsProviderActions, IModalState, TModalsProviderState } from './ModalsProvider.types';
+import { IModalsProviderActions, TModalsProviderState, TModalState } from './ModalsProvider.types';
 
-function createModalState(): IModalState {
-    return {
-        isOpen: false
-    };
+function createModalState(): TModalState {
+    return 'registered';
 }
 
 export type TUseModalsProviderState = [TModalsProviderState, IModalsProviderActions];
@@ -40,7 +38,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
         (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
-                    return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: true } };
+                    return { ...prevState, [modalId]: 'opened' };
                 }
 
                 throw new Error(`Modal with id ${modalId} does not exist!`);
@@ -52,7 +50,7 @@ export default function useModalsProviderState(): TUseModalsProviderState {
         (modalId: string) =>
             setState(prevState => {
                 if (modalId in prevState) {
-                    return { ...prevState, [modalId]: { ...prevState[modalId], isOpen: false } };
+                    return { ...prevState, [modalId]: 'closed' };
                 }
 
                 throw new Error(`Modal with id ${modalId} does not exist!`);

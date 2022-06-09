@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import Text from '../Text';
@@ -14,7 +15,7 @@ const ShortBodyExample = (): JSX.Element => {
             <Button size="s" onClick={() => open('shortBodyModal')}>
                 Open modal
             </Button>
-            <Modal id="shortBodyModal">
+            <Modal id="shortBodyModal" onOpen={action('Open')} onClose={action('Close')}>
                 <ModalHeader>
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>
@@ -50,7 +51,7 @@ const LongBodyExample = (): JSX.Element => {
             <Button size="s" onClick={() => open('longBodyModal')}>
                 Open modal
             </Button>
-            <Modal id="longBodyModal">
+            <Modal id="longBodyModal" onOpen={action('Open')} onClose={action('Close')}>
                 <ModalHeader>
                     <ModalTitle>Modal title</ModalTitle>
                 </ModalHeader>

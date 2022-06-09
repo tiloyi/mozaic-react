@@ -1,32 +1,73 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Button from '../Button';
+import ModalsProvider, { useModals } from '../ModalsProvider';
 import Modal from './Modal';
-import { Button, ModalsProvider, useModals } from '../index';
 
-const ModalSetup = (): JSX.Element => {
+interface ISceneProps {
+    onOpen?: () => void;
+    onClose?: () => void;
+}
+
+const Scene = ({ onOpen, onClose }: ISceneProps): JSX.Element => {
     const { open } = useModals();
+
     return (
         <>
             <Button onClick={() => open('modal')}>Open</Button>
-            <Modal id="modal">Test</Modal>
+            <Modal id="modal" onOpen={onOpen} onClose={onClose}>
+                Test
+            </Modal>
         </>
     );
 };
 
 describe('components/Modal', () => {
     test('renders correctly', () => {
-        document.body.innerHTML = `
-            <div id='portal-modal-modal'></div>
-        `;
-
         render(
             <ModalsProvider>
-                <ModalSetup />
+                <Scene />
             </ModalsProvider>
         );
 
-        fireEvent.click(screen.getByText(/Open/));
+        expect(screen.getByRole('document')).not.toHaveClass('is-open');
+
+        userEvent.click(screen.getByText(/Open/));
 
         expect(screen.getByText('Test')).toBeInTheDocument();
+        expect(screen.getByRole('document')).toHaveClass('is-open');
+    });
+
+    test('calls `onOpen` callback', () => {
+        const onOpen = jest.fn();
+
+        render(
+            <ModalsProvider>
+                <Scene onOpen={onOpen} />
+            </ModalsProvider>
+        );
+
+        userEvent.click(screen.getByText(/Open/));
+
+        expect(onOpen).toBeCalledTimes(1);
+    });
+
+    test('calls `onClose` callback', () => {
+        const onClose = jest.fn();
+
+        render(
+            <ModalsProvider>
+                <Scene onClose={onClose} />
+            </ModalsProvider>
+        );
+
+        userEvent.click(screen.getByText(/Open/));
+
+        expect(screen.getByRole('document')).toHaveClass('is-open');
+
+        userEvent.click(screen.getByRole('button', { name: /Close/ }));
+
+        expect(onClose).toBeCalledTimes(1);
     });
 });

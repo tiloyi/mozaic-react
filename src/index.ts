@@ -66,6 +66,7 @@ export {
     ILayerTitleProps
 } from './components/Layer';
 export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './components/Link';
+export { default as Loader, ILoaderProps, TLoaderTheme, TLoaderSize } from './components/Loader';
 export {
     default as Modal,
     ModalBody,
@@ -166,3 +167,5 @@ export {
 } from './components/Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
+export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './components/Tag';
+export * from './hooks';
