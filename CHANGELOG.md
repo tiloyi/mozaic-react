@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.10](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.9...v1.3.0-beta.10) (2022-07-06)
+
+
+### Features
+
+* **select:** add forward ref to select component in order to be able to pass a ref in props ([ab0a31b](https://github.com/adeo/mozaic-react/commit/ab0a31b9332fe9b4ba891b5250a7ae9081aebf30))
+
 # [1.3.0-beta.9](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.8...v1.3.0-beta.9) (2022-06-07)
 
 
