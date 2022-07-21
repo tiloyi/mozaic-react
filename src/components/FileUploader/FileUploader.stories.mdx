@@ -1,0 +1,49 @@
+import {
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
+} from '@storybook/addon-docs';
+import { FileUploaderStory, argTypes, Example, ExampleMultipleFiles } from './FileUploader.stories';
+import FileUploader from './FileUploader';
+
+<Meta title="Components/FileUploader" component={FileUploader} argTypes={argTypes} />
+
+# FileUploader
+
+The `FileUploader` component is the **React.js** implementation of the **Mozaic FileUploader** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Form/FileUploader/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+    language="javascript"
+    code="import { FileUploader } from '@mozaic-ds/react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={FileUploaderStory} />
+</Canvas>
+
+3. It's recommended to use this component with FileUploaderItem component to display your selected files, for example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
+</Canvas>
+
+Example with multiple inputs
+<Canvas withSource="open">
+    <Story story={ExampleMultipleFiles} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={FileUploader} />
