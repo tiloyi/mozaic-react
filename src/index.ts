@@ -172,4 +172,6 @@ export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './comp
 export { default as RatingStars, IRatingStarsProps, IRatingStarLabelProps, IRatingStarInputProps, TRatingStarsSize, TRatingStarsTypes, TRatingStarsScores } from './components/RatingStars';
 
 export { default as Pagination, IPaginationProps} from './components/Pagination';
+export { default as FileUploader, FileUploaderItem, IFileUploadItemProps, IFileUploaderProps } from './components/FileUploader';
+
 export * from './hooks';
