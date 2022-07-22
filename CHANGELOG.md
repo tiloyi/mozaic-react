@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.12](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.11...v1.3.0-beta.12) (2022-07-22)
+
+
+### Bug Fixes
+
+* **index:** add forgotten export in index ([57722d9](https://github.com/adeo/mozaic-react/commit/57722d96235a3a59ba7dac5a893029a31fa4396c))
+
 # [1.3.0-beta.11](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.10...v1.3.0-beta.11) (2022-07-22)
 
 
