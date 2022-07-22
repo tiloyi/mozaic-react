@@ -1,5 +1,12 @@
 
 
+# [1.3.0-beta.11](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.10...v1.3.0-beta.11) (2022-07-22)
+
+
+### Features
+
+* **fileUploader:** add fileUploader mozaic component ([989e2ca](https://github.com/adeo/mozaic-react/commit/989e2cad155bddf8d7361b08a5a5f9bf20356e97))
+
 # [1.3.0-beta.10](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.9...v1.3.0-beta.10) (2022-07-06)
 
 
