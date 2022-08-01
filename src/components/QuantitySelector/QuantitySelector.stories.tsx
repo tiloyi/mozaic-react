@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { useForm, useController } from 'react-hook-form';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import Button from '../Button';
+import View from '../View';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import QuantitySelector from './QuantitySelector';
 
@@ -59,6 +63,33 @@ Example.argTypes = {
         }
     }
 };
+
+const ReactHookFormTemplate: Story = () => {
+    interface IFormValues {
+        value: number;
+    }
+
+    const { control, handleSubmit } = useForm<IFormValues>({
+        defaultValues: {
+            value: 0
+        }
+    });
+
+    const {
+        field: { value, onChange }
+    } = useController({ control, name: 'value' });
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <QuantitySelector value={value} onChange={onChange} />
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 export const argTypes = {
     size: {

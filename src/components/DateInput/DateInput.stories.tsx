@@ -1,7 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Story } from '@storybook/react';
-import DateInput from './DateInput';
+import { action } from '@storybook/addon-actions';
+import View from '../View';
+import Button from '../Button';
 import { IDateInputProps } from './DateInput.types';
+import DateInput from './DateInput';
 
 const ControlsTemplate: Story<IDateInputProps> = args => <DateInput {...args} />;
 
@@ -30,6 +34,21 @@ Example.args = {
     isInvalid: false,
     isValid: false
 };
+
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <DateInput {...register('date')} />
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 export const argTypes = {
     size: {

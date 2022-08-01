@@ -1,6 +1,38 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { useController, useForm } from 'react-hook-form';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Button from '../Button';
+import View from '../View';
 import QuantitySelector from './QuantitySelector';
+
+interface IFormValues {
+    value: number;
+}
+
+interface IFormProps {
+    defaultValues: IFormValues;
+    onSubmit: (values: IFormValues) => void;
+}
+
+const Form = ({ defaultValues, onSubmit }: IFormProps): JSX.Element => {
+    const { control, handleSubmit } = useForm<IFormValues>({
+        defaultValues
+    });
+
+    const {
+        field: { value, onChange }
+    } = useController({ control, name: 'value' });
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <View marginBottom="mu100">
+                <QuantitySelector placeholder="quantity" value={value} onChange={onChange} />
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
 
 describe('components/QuantitySelector', () => {
     test('renders correctly', () => {
@@ -35,7 +67,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(6);
     });
@@ -45,7 +77,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(4);
     });
@@ -55,7 +87,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(10);
     });
@@ -65,7 +97,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={7} step={5} maxValue={10} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).not.toBeCalled();
     });
@@ -75,7 +107,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(0);
     });
@@ -85,7 +117,7 @@ describe('components/QuantitySelector', () => {
 
         render(<QuantitySelector value={3} step={5} minValue={0} onChange={onChange} />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).not.toBeCalled();
     });
@@ -118,5 +150,24 @@ describe('components/QuantitySelector', () => {
         fireEvent.change(screen.getByPlaceholderText('Placeholder'), { target: { value: 11 } });
 
         expect(onChange).not.toBeCalled();
+    });
+
+    test('works with react-hook-form', async () => {
+        const onSubmit = jest.fn();
+        const defaultValues = {
+            value: 0
+        };
+
+        render(<Form defaultValues={defaultValues} onSubmit={onSubmit} />);
+
+        expect(screen.getByPlaceholderText('quantity')).toHaveDisplayValue('0');
+
+        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
+
+        expect(screen.getByPlaceholderText('quantity')).toHaveDisplayValue('1');
+
+        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+
+        expect(onSubmit).toHaveBeenCalledWith({ value: 1 }, expect.any(Object));
     });
 });

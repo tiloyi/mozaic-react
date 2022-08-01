@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import Text from '../Text';
@@ -14,7 +15,7 @@ const ShortBodyExample = (): JSX.Element => {
             <Button size="s" onClick={() => open('shortBodyLayer')}>
                 Open layer
             </Button>
-            <Layer id="shortBodyLayer">
+            <Layer id="shortBodyLayer" onOpen={action('Open')} onClose={action('Close')}>
                 <LayerHeader>
                     <LayerTitle>Layer title</LayerTitle>
                 </LayerHeader>
@@ -49,7 +50,7 @@ const LongBodyExample = (): JSX.Element => {
             <Button size="s" onClick={() => open('longBodyLayer')}>
                 Open layer
             </Button>
-            <Layer id="longBodyLayer">
+            <Layer id="longBodyLayer" onOpen={action('Open')} onClose={action('Close')}>
                 <LayerHeader>
                     <LayerTitle>Layer title</LayerTitle>
                 </LayerHeader>

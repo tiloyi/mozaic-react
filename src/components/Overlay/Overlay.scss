@@ -1,5 +1,3 @@
-@import "settings-tools/_all-settings";
+@import "settings-tools/all-settings";
 
-.mc-overlay {
-    @include set-dialog-overlay();
-}
+@import 'components/c.overlay';

@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback } from 'react';
 import TextInput from '../../TextInput';
 import { useQuantitySelectorInput } from '../QuantitySelectorContext';
 
-const QuantitySelectorInput = (): JSX.Element => {
+const QuantitySelectorInput = forwardRef<HTMLInputElement>((_, ref) => {
     const { maxValue, minValue, onChange, ...props } = useQuantitySelectorInput();
 
     const handleChange = useCallback(
@@ -30,6 +30,7 @@ const QuantitySelectorInput = (): JSX.Element => {
             className="mc-quantity-selector__input"
             type="number"
             {...props}
+            ref={ref}
             max={maxValue}
             min={minValue}
             aria-valuemax={maxValue}
@@ -37,6 +38,8 @@ const QuantitySelectorInput = (): JSX.Element => {
             onChange={handleChange}
         />
     );
-};
+});
+
+QuantitySelectorInput.displayName = 'QuantitySelectorInput';
 
 export default QuantitySelectorInput;

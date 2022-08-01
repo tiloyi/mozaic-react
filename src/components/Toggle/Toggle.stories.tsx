@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { useForm } from 'react-hook-form';
+import Button from '../Button';
+import View from '../View';
 import Toggle from './Toggle';
 import { IToggleProps } from './Toggle.types';
 
@@ -43,6 +47,21 @@ Example.argTypes = {
         }
     }
 };
+
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <Toggle {...register('value')}>Toggle label</Toggle>
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 export const argTypes = {
     size: {

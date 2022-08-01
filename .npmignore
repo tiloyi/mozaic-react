@@ -5,6 +5,7 @@
 .storybook
 .templates
 src
+storybook-static
 .hygen.js
 jest.config.js
 mozaic.config.js

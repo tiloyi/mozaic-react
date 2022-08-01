@@ -1,5 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { useForm } from 'react-hook-form';
+import SVGIcon from '../../../.storybook/assets/SVGIcon';
+import Button from '../Button';
+import View from '../View';
 import TextInput from './TextInput';
 import { ITextInputProps } from './TextInput.types';
 
@@ -32,6 +37,32 @@ Example.args = {
     isInvalid: false,
     isValid: false
 };
+
+export const TextInputWithIcon = ExampleTemplate.bind({});
+
+TextInputWithIcon.args = {
+    placeholder: 'placeholder',
+    size: 'm',
+    isDisabled: false,
+    isInvalid: false,
+    isValid: false,
+    icon: <SVGIcon />
+};
+
+const ReactHookFormTemplate: Story = () => {
+    const { register, handleSubmit } = useForm();
+
+    return (
+        <form onSubmit={handleSubmit(action('Submit'))}>
+            <View marginBottom="mu100">
+                <TextInput {...register('value')} />
+            </View>
+            <Button type="submit">Submit</Button>
+        </form>
+    );
+};
+
+export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 export const argTypes = {
     size: {

@@ -1,13 +1,15 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import { CheckBoxContainer, CheckBoxIndicator, CheckBoxLabel } from './partials';
 import { ICheckBoxProps } from './CheckBox.types';
 import './CheckBox.scss';
 
-const CheckBox: FC<ICheckBoxProps> = ({ className, children, ...props }) => (
+const CheckBox = forwardRef<HTMLInputElement, ICheckBoxProps>(({ className, children, ...props }, ref) => (
     <CheckBoxContainer className={className}>
-        <CheckBoxIndicator {...props} />
+        <CheckBoxIndicator {...props} ref={ref} />
         <CheckBoxLabel>{children}</CheckBoxLabel>
     </CheckBoxContainer>
-);
+));
+
+CheckBox.displayName = 'CheckBox';
 
 export default CheckBox;

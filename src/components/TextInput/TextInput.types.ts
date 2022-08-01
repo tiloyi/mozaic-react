@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import {InputHTMLAttributes, ReactElement} from 'react';
 
 type TOmittedProps = 'disabled' | 'size';
 
@@ -10,4 +10,5 @@ export interface ITextInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
     isValid?: boolean;
     isInvalid?: boolean;
     isDisabled?: boolean;
+    icon?: ReactElement;
 }
