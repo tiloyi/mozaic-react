@@ -4,7 +4,7 @@ interface IUsePagination {
     handleNext: () => void;
     handlePrevious: () => void;
     handleItemsPerPage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
-    setCurrentPage: Dispatch<SetStateAction<number>>
+    setCurrentPage: Dispatch<SetStateAction<number>>;
     currentPage: number;
     itemsPerPage: number;
 }

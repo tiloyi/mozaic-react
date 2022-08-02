@@ -10,5 +10,5 @@ export interface IAccordionProps extends HTMLAttributes<HTMLDivElement> {
     isDefaultOpen?: boolean;
     isDisabled?: boolean;
     size?: TAccordionSize;
-    icon? : React.ReactElement;
+    icon?: React.ReactElement;
 }
