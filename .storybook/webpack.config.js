@@ -2,7 +2,7 @@ const plugins = require('@mozaic-ds/css-dev-tools/postcssPluginConfig');
 const syntax = require('postcss-scss');
 
 module.exports = ({ config }) => {
-    const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
+    const svgRule = config.module.rules.find(rule => !Array.isArray(rule.test) && rule.test.test('.svg'));
 
     svgRule.exclude = /\.svg$/;
 
