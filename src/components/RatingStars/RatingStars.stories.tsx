@@ -1,21 +1,31 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import RatingStars from './RatingStars';
-import { IRatingStarsProps } from './RatingStars.types';
+import { action } from '@storybook/addon-actions';
+import RatingStarsResult from './RatingStarsResult';
+import RatingStarsInput from './RatingStarsInput';
+import { IRatingStarInputProps, IRatingStarsResultProps } from './RatingStars.types';
 
-const ResultTemplate: Story<IRatingStarsProps> = args => <RatingStars {...args} />;
+const ResultTemplate: Story<IRatingStarsResultProps> = args => <RatingStarsResult {...args} />;
 
-export const ResultControls = ResultTemplate.bind({});
+export const Result = ResultTemplate.bind({});
 
-ResultControls.args = {
-    type: 'result'
+Result.args = {
+    size: 's'
 };
 
-const InputTemplate: Story<IRatingStarsProps> = args => <RatingStars {...args} />;
+const InputTemplate: Story<IRatingStarInputProps> = args => <RatingStarsInput {...args} />;
 
-export const InputControls = InputTemplate.bind({});
+export const Input = InputTemplate.bind({});
 
-InputControls.args = {
-    type: 'input',
-    name: 'inputControl'
+Input.args = {
+    name: 'rating',
+    handleChange: action('Change!')
+};
+
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    }
 };

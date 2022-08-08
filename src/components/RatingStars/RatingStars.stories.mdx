@@ -1,12 +1,13 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { ResultControls, InputControls } from './RatingStars.stories';
-import RatingStars from './RatingStars';
+import { Result, Input, argTypes } from './RatingStars.stories';
+import RatingStarsInput from './RatingStarsInput';
+import RatingStarsResult from './RatingStarsResult';
 
-<Meta title="Components/RatingStars" component={RatingStars} />
+<Meta title="Components/RatingStars" argTypes={argTypes} />
 
 # RatingStars
 
-The `RatingStars` component is the **React.js** implementation of the **Mozaic RatingStars** component.
+The `RatingStars` component is the **React.js** implementation of the **Mozaic Rating Stars** component.
 
 You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/RatingStars/).
 
@@ -16,20 +17,26 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source language="javascript" code="import { RatingStars } from '@mozaic-ds/react';" />
+<Source language="javascript" code="import { RatingStarsInput, RatingStarsResult } from '@mozaic-ds/react';" />
 
 2. Call the component with notation result:
 
 <Canvas withSource="open">
-    <Story story={ResultControls} />
+    <Story story={Result} />
 </Canvas>
 
 3. Call the component with notation input:
 
 <Canvas withSource="open">
-    <Story story={InputControls} />
+    <Story story={Input} />
 </Canvas>
 
 ## Props
 
-<ArgsTable of={RatingStars} />
+### RatingStarsInput
+
+<ArgsTable of={RatingStarsInput} />
+
+### RatingStarsResult
+
+<ArgsTable of={RatingStarsResult} />

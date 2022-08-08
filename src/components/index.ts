@@ -126,6 +126,15 @@ export {
 } from './QuantitySelector';
 export { default as Radio, RadioContainer, RadioIndicator, RadioLabel, IRadioProps, IRadioPartialProps } from './Radio';
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './RadioGroup';
+export {
+    RatingStartsResult,
+    RatingStarsInput,
+    TRatingStarsSize,
+    TRatingStarsScore,
+    IRatingStarsContainerProps,
+    IRatingStarsResultProps,
+    IRatingStarsInputProps
+} from './RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
