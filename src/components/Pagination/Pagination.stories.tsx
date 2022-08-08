@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Pagination from './Pagination';
 import { IPaginationProps } from './Pagination.types';
 import View from '../View/index';
@@ -16,27 +17,28 @@ const chunk = (input: TArray, size: number): TArrayElement[][] =>
     );
 
 export const PaginationTemplate: Story<IPaginationProps> = args => {
-    const { handleChangePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
-    const initialItems = Array.from(Array(30), (_e, i) => i);
-    const chunkItems = chunk(initialItems, itemsPerPage);
-    const itemsPage: TArray = useMemo(() => chunkItems[currentPage - 1], [chunkItems, currentPage]);
-    const pagesNumber: number = useMemo(() => chunkItems.length, [chunkItems]);
+    // const { handleChangePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
+    // const initialItems = Array.from(Array(30), (_e, i) => i);
+    // const chunkItems = chunk(initialItems, itemsPerPage);
+    // const itemsPage: TArray = useMemo(() => chunkItems[currentPage - 1], [chunkItems, currentPage]);
+    // const pagesNumber: number = useMemo(() => chunkItems.length, [chunkItems]);
 
     return (
         <View>
-            <View>
-                {itemsPage.map(e => (
-                    <div key={e as number}>Element {e}</div>
-                ))}
-            </View>
+            {/*<View>*/}
+            {/*    {itemsPage.map(e => (*/}
+            {/*        <div key={e as number}>Element {e}</div>*/}
+            {/*    ))}*/}
+            {/*</View>*/}
             <View>
                 <Pagination
                     {...args}
-                    pagesNumber={pagesNumber}
-                    currentPage={currentPage}
-                    handleChangePage={handleChangePage}
-                    handleNext={handleNext}
-                    handlePrevious={handlePrevious}
+                    onChange={action('Change!')}
+                    // pagesNumber={pagesNumber}
+                    // currentPage={currentPage}
+                    // handleChangePage={handleChangePage}
+                    // handleNext={handleNext}
+                    // handlePrevious={handlePrevious}
                 />
             </View>
         </View>
@@ -46,7 +48,10 @@ export const PaginationTemplate: Story<IPaginationProps> = args => {
 export const Controls = PaginationTemplate.bind({});
 
 Controls.args = {
-    className: 'pagination'
+    currentPage: 1,
+    pagesTotal: 10,
+    isCompact: false,
+    isDisabled: false
 };
 
 export const argTypes = {
