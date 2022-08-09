@@ -1,33 +1,102 @@
-import React, { FC } from 'react';
-import cn from 'classnames';
-import { IRatingStarsResultProps } from './RatingStars.types';
-import { RatingStarLabel, RatingStarsContainer } from './partials';
+import React, { ChangeEvent, FC, useCallback, useRef } from 'react';
+import { nanoid } from 'nanoid';
+import { IRatingStarsInputProps, TRatingStarsScore } from './RatingStars.types';
+import { RatingStarsContainer } from './partials';
 import './RatingStars.scss';
-import RatingStarInput from './partials/Input';
 
-const RatingStarsInput: FC<IRatingStarsResultProps> = ({ className, size = 'm', ...props }) => {
-    const name = 'rating-stars';
+const RatingStarsInput: FC<IRatingStarsInputProps> = ({
+    className,
+    size = 'm',
+    name,
+    score = 0,
+    onChange,
+    ...props
+}) => {
+    const nameRef = useRef(name ?? nanoid());
 
-    const handleChange = () => {};
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            onChange?.(Number(event.target.value) as TRatingStarsScore);
+        },
+        [onChange]
+    );
 
     return (
-        <RatingStarsContainer className={className} type="input" size={size}>
-            <RatingStarInput value="0" checked handleChange={handleChange} name={name} />
+        <RatingStarsContainer className={className} type="input" size={size} {...props}>
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="0"
+                id={`${nameRef.current}-0`}
+                checked={score === 0}
+                onChange={handleChange}
+            />
 
-            <RatingStarInput value="1" handleChange={handleChange} name={name} />
-            <RatingStarLabel value="1" text="Very bad" name={name} />
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="20"
+                id={`${nameRef.current}-20`}
+                checked={score === 20}
+                onChange={handleChange}
+            />
+            <label htmlFor={`${nameRef.current}-20`} className="mc-stars-input__label">
+                <span className="mc-stars-input__text" />
+            </label>
 
-            <RatingStarInput value="2" handleChange={handleChange} name={name} />
-            <RatingStarLabel value="2" text="Bad" name={name} />
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="40"
+                id={`${nameRef.current}-40`}
+                checked={score === 40}
+                onChange={handleChange}
+            />
+            <label htmlFor={`${nameRef.current}-40`} className="mc-stars-input__label">
+                <span className="mc-stars-input__text" />
+            </label>
 
-            <RatingStarInput value="3" handleChange={handleChange} name={name} />
-            <RatingStarLabel value="3" text="Medium" name={name} />
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="60"
+                id={`${nameRef.current}-60`}
+                checked={score === 60}
+                onChange={handleChange}
+            />
+            <label htmlFor={`${nameRef.current}-60`} className="mc-stars-input__label">
+                <span className="mc-stars-input__text" />
+            </label>
 
-            <RatingStarInput value="4" handleChange={handleChange} name={name} />
-            <RatingStarLabel value="4" text="Good" name={name} />
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="80"
+                id={`${nameRef.current}-80`}
+                checked={score === 80}
+                onChange={handleChange}
+            />
+            <label htmlFor={`${nameRef.current}-80`} className="mc-stars-input__label">
+                <span className="mc-stars-input__text" />
+            </label>
 
-            <RatingStarInput value="5" handleChange={handleChange} name={name} />
-            <RatingStarLabel value="5" text="Excellent" name={name} />
+            <input
+                type="radio"
+                className="mc-stars-input__radio"
+                name={nameRef.current}
+                value="100"
+                id={`${nameRef.current}-100`}
+                checked={score === 100}
+                onChange={handleChange}
+            />
+            <label htmlFor={`${nameRef.current}-100`} className="mc-stars-input__label">
+                <span className="mc-stars-input__text" />
+            </label>
         </RatingStarsContainer>
     );
 };
