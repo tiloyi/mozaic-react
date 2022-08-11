@@ -144,6 +144,19 @@ export {
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
+    LinkTag,
+    TextTag,
+    RemovableTag,
+    SelectableTag,
+    IBasicTagProps,
+    ILinkTagProps,
+    IRemovableTagProps,
+    ISelectableTagProps,
+    ITextTagProps,
+    TTagSize,
+    TTagTheme
+} from './components/Tag';
+export {
     default as Text,
     ITextProps,
     TTextTag,
@@ -167,5 +180,4 @@ export {
 } from './components/Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
-export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './components/Tag';
 export * from './hooks';
