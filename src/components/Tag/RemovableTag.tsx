@@ -1,6 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
 import { IRemovableTagProps, TTagSize, TTagTheme } from './Tag.types';
+import './Tag.scss';
 
 export function getSizeModifier(size: TTagSize): string {
     if (size === 's') {
