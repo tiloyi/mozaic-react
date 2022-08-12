@@ -66,6 +66,7 @@ export {
     ILayerTitleProps
 } from './Layer';
 export { default as Link, LinkRightIcon, LinkLeftIcon, ILinkProps, TLinkTheme, TLinkSize } from './Link';
+export { default as Loader, ILoaderProps, TLoaderTheme, TLoaderSize } from './Loader';
 export {
     default as Modal,
     ModalBody,
@@ -126,6 +127,19 @@ export {
 export { default as Radio, RadioContainer, RadioIndicator, RadioLabel, IRadioProps, IRadioPartialProps } from './Radio';
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
+export {
+    LinkTag,
+    TextTag,
+    RemovableTag,
+    SelectableTag,
+    IBasicTagProps,
+    ILinkTagProps,
+    IRemovableTagProps,
+    ISelectableTagProps,
+    ITextTagProps,
+    TTagSize,
+    TTagTheme
+} from './Tag';
 export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';

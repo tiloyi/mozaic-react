@@ -1,13 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import cn from 'classnames';
+import { useIsMounted } from '../../../hooks';
+import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
-import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import { IModalContainerProps } from '../Modal.types';
 
-const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element => {
+const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
     const { register, unregister } = useModals();
     const modals = useModalsState();
+    const isMounted = useIsMounted();
 
     useEffect(() => {
         register(id);
@@ -15,13 +17,26 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id }): JSX.Element
         return () => unregister(id);
     }, [register, unregister, id]);
 
-    /* eslint-disable @typescript-eslint/no-unnecessary-condition */
-    const isOpen = modals[id]?.isOpen;
+    const modalState = modals[id];
+
+    const isOpen = modalState === 'opened';
+
+    useEffect(() => {
+        if (isMounted) {
+            if (modalState === 'opened') {
+                onOpen?.();
+            }
+
+            if (modalState === 'closed') {
+                onClose?.();
+            }
+        }
+    }, [modalState, isMounted, onOpen, onClose]);
 
     return (
         <Portal id={`portal-modal-${id}`}>
             <div className="mc-modal" role="dialog" tabIndex={-1}>
-                <div className={cn('mc-modal__dialog', isOpen && 'is-open')} role="document">
+                <div {...props} className={cn('mc-modal__dialog', isOpen && 'is-open')} role="document">
                     {isOpen && children}
                 </div>
             </div>
