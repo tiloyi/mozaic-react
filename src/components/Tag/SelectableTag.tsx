@@ -35,7 +35,7 @@ const SelectableTag: FC<ISelectableTagProps> = ({
     const handleChange = useCallback(() => onChange?.(), [onChange]);
 
     return (
-        <span className={cn('mc-tag-selectable', getSizeModifier(size), getThemeModifier(theme), className)}>
+        <span className={cn('mc-tag-selectable', getSizeModifier(size), getThemeModifier(theme), className)} {...props}>
             <input
                 className="mc-tag-selectable__input"
                 type="checkbox"
@@ -43,7 +43,6 @@ const SelectableTag: FC<ISelectableTagProps> = ({
                 name={name}
                 disabled={isDisabled}
                 onChange={handleChange}
-                {...props}
             />
             <label className="mc-tag-selectable__pill" htmlFor={nameRef.current}>
                 <span className="mc-tag-selectable__label">{children}</span>

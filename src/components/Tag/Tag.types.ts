@@ -1,4 +1,4 @@
-import {AnchorHTMLAttributes, HTMLAttributes, InputHTMLAttributes} from 'react';
+import { AnchorHTMLAttributes, HTMLAttributes, InputHTMLAttributes } from 'react';
 
 export const sizes = ['s', 'm'] as const;
 
@@ -16,13 +16,15 @@ export interface IBasicTagProps {
 
 export interface ILinkTagProps extends AnchorHTMLAttributes<HTMLAnchorElement>, IBasicTagProps {}
 
-export interface IRemovableTagProps extends HTMLAttributes<HTMLSpanElement>, IBasicTagProps {
+export interface ITextTagProps extends HTMLAttributes<HTMLSpanElement>, IBasicTagProps {}
+
+export interface IRemovableTagProps extends ITextTagProps {
+    isDisabled?: boolean;
     onRemove?: () => void;
 }
 
-export interface ISelectableTagProps extends IBasicTagProps, Omit<InputHTMLAttributes<HTMLInputElement>, 'disabled' | 'size'> {
+export interface ISelectableTagProps extends ITextTagProps {
+    name?: string;
     isDisabled?: boolean;
     onChange?: () => void;
 }
-
-export interface ITextTagProps extends HTMLAttributes<HTMLSpanElement>, IBasicTagProps {}

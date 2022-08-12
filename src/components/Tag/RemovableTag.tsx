@@ -2,6 +2,7 @@ import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
 import { IRemovableTagProps, TTagSize, TTagTheme } from './Tag.types';
 import './Tag.scss';
+import TextTag from './TextTag';
 
 export function getSizeModifier(size: TTagSize): string {
     if (size === 's') {
@@ -24,10 +25,19 @@ const RemovableTag: FC<IRemovableTagProps> = ({
     children,
     size = 'm',
     theme = 'light',
+    isDisabled,
     onRemove,
     ...props
 }) => {
     const handleRemove = useCallback(() => onRemove?.(), [onRemove]);
+
+    if (isDisabled) {
+        return (
+            <TextTag className={className} theme={theme} size={size} {...props}>
+                {children}
+            </TextTag>
+        );
+    }
 
     return (
         <span className={cn('mc-tag-removable', getSizeModifier(size), getThemeModifier(theme), className)} {...props}>

@@ -11,7 +11,8 @@ export const Controls = Template.bind({});
 Controls.args = {
     size: 'm',
     theme: 'light',
-    onRemove: action('Remove!')
+    onRemove: action('Remove!'),
+    isDisabled: false
 };
 
 export const argTypes = {
