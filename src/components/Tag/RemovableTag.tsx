@@ -33,7 +33,7 @@ const RemovableTag: FC<IRemovableTagProps> = ({
         <span className={cn('mc-tag-removable', getSizeModifier(size), getThemeModifier(theme), className)} {...props}>
             <span className="mc-tag-removable__label">{children}</span>
             <button type="button" className="mc-tag-removable__remove" onClick={handleRemove}>
-                <span className="mc-tag-removable__remove-text">Delete tag</span>
+                <span className="mc-tag-removable__remove-text" />
             </button>
         </span>
     );
