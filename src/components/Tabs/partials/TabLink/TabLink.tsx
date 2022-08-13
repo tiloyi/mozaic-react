@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { ITabLinkProps } from '../../Tabs.types';
-import { useTabs } from '../../TabsContext';
+import { useTabsContext } from '../../TabsContext';
 
 import TabItem from '../TabItem';
 
 const TabLink: FC<ITabLinkProps> = ({ children, link, onClick, ...restProps }) => {
-    const { selectedTab, setSelectedTab } = useTabs();
+    const { selectedTab, setSelectedTab } = useTabsContext();
 
     return (
         <TabItem>

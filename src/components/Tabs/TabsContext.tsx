@@ -7,21 +7,21 @@ interface ITabsContextProps {
 
 const TabsContext = createContext<ITabsContextProps | undefined>(undefined);
 
-export function useTabs(): ITabsContextProps {
+export function useTabsContext(): ITabsContextProps {
     const context = useContext(TabsContext);
 
     if (context === undefined) {
-        throw new Error('useTabs must be used within the TabsProvider');
+        throw new Error('useTabsContext must be used within the TabsContextProvider');
     }
 
     return context;
 }
 
-interface ITabsProviderProps {
+interface ITabsContextProviderProps {
     initialTab?: string;
 }
 
-export const TabsProvider: FC<ITabsProviderProps> = ({ children, initialTab }) => {
+export const TabsContextProvider: FC<ITabsContextProviderProps> = ({ children, initialTab }) => {
     const [selectedTab, setSelectedTab] = useState<string>(initialTab ?? '');
 
     const contextValue: ITabsContextProps = {
