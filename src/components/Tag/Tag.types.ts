@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, HTMLAttributes, InputHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 
 export const sizes = ['s', 'm'] as const;
 
