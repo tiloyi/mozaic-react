@@ -19,7 +19,7 @@ export interface ITabsLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> 
     isSelected?: boolean;
 }
 
-export interface ITabsButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ITabsButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> {
     isDisabled?: boolean;
     isSelected?: boolean;
 }

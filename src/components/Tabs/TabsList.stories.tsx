@@ -9,6 +9,7 @@ export const ListTemplate: Story<ITabsListProps> = args => (
         <TabsButton>Tab #1</TabsButton>
         <TabsButton>Tab #2</TabsButton>
         <TabsButton>Tab #3</TabsButton>
+        <TabsButton isDisabled>Tab #4</TabsButton>
     </TabsList>
 );
 
