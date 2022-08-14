@@ -47,19 +47,45 @@ describe('components/Tabs', () => {
     });
 
     describe('TabsLink', () => {
-        test.todo('renders correctly with default props');
+        test('renders correctly with default props', () => {
+            render(<TabsLink>tab</TabsLink>);
 
-        test.todo('renders correctly with disabled state');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link');
+            expect(screen.getByRole('tab')).toHaveTextContent('tab');
+        });
 
-        test.todo('renders correctly with selected state');
+        test('renders correctly with disabled state', () => {
+            render(<TabsLink isDisabled>tab</TabsLink>);
+
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--disabled');
+        });
+
+        test('renders correctly with selected state', () => {
+            render(<TabsLink isSelected>tab</TabsLink>);
+
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--selected');
+        });
     });
 
     describe('TabsButton', () => {
-        test.todo('renders correctly with default props');
+        test('renders correctly with default props', () => {
+            render(<TabsButton>tab</TabsButton>);
 
-        test.todo('renders correctly with disabled state');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link');
+            expect(screen.getByRole('tab')).toHaveTextContent('tab');
+        });
 
-        test.todo('renders correctly with selected state');
+        test('renders correctly with disabled state', () => {
+            render(<TabsButton isDisabled>tab</TabsButton>);
+
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--disabled');
+        });
+
+        test('renders correctly with selected state', () => {
+            render(<TabsButton isSelected>tab</TabsButton>);
+
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--selected');
+        });
 
         test('call onClick callback', () => {
             const onClick = jest.fn();
