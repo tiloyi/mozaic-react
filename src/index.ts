@@ -144,6 +144,20 @@ export {
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
+    Tabs,
+    TabsLink,
+    TabsButton,
+    TabsPanel,
+    useTabsState,
+    IUseTabsState,
+    ITabsPanelProps,
+    ITabsListProps,
+    ITabsLinkProps,
+    ITabsButtonProps,
+    TTabsTheme,
+    TTabsWidth
+} from './components/Tabs';
+export {
     LinkTag,
     TextTag,
     RemovableTag,

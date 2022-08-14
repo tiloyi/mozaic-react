@@ -128,6 +128,20 @@ export { default as Radio, RadioContainer, RadioIndicator, RadioLabel, IRadioPro
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export {
+    Tabs,
+    TabsLink,
+    TabsButton,
+    TabsPanel,
+    useTabsState,
+    IUseTabsState,
+    ITabsPanelProps,
+    ITabsListProps,
+    ITabsLinkProps,
+    ITabsButtonProps,
+    TTabsTheme,
+    TTabsWidth
+} from './Tabs';
+export {
     LinkTag,
     TextTag,
     RemovableTag,

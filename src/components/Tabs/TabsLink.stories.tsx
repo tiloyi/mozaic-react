@@ -10,7 +10,9 @@ export const LinksTemplate: Story<ITabsListProps> = args => (
             Google
         </TabsLink>
         <TabsLink href="https://facebook.com">Facebook</TabsLink>
-        <TabsLink href="https://apple.com">Apple</TabsLink>
+        <TabsLink href="https://apple.com" target="_blank">
+            Apple
+        </TabsLink>
         <TabsLink href="https://microsoft.com" isDisabled>
             Microsoft
         </TabsLink>
