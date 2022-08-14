@@ -29,7 +29,8 @@ export const List = ListTemplate.bind({});
 List.args = {
     theme: 'primary-01',
     width: 'full',
-    align: 'start'
+    align: 'start',
+    hasShadow: false
 };
 
 export const argTypes = {

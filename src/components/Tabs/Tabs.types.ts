@@ -18,6 +18,7 @@ export interface ITabsListProps extends HTMLAttributes<HTMLUListElement> {
     theme?: TTabsTheme;
     width?: TTabsWidth;
     align?: TTabsAlign;
+    hasShadow?: boolean;
 }
 
 export interface ITabsLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

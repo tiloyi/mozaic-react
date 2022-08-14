@@ -31,16 +31,28 @@ export function getAlignModifier(align: TTabsAlign): string {
     return '';
 }
 
+export function getShadowModifier(hasShadow?: boolean): string {
+    return hasShadow ? '' : 'mc-tabs--no-shadow';
+}
+
 const TabsList: FC<ITabsListProps> = ({
     className,
     children,
     theme = 'primary-01',
     width = 'fit',
     align = 'start',
+    hasShadow = true,
     ...props
 }) => (
     <nav
-        className={cn('mc-tabs', className, getThemeModifier(theme), getWidthModifier(width), getAlignModifier(align))}
+        className={cn(
+            'mc-tabs',
+            className,
+            getThemeModifier(theme),
+            getWidthModifier(width),
+            getAlignModifier(align),
+            getShadowModifier(hasShadow)
+        )}
     >
         <ul className="mc-tabs__nav" role="tablist" {...props}>
             {children}
