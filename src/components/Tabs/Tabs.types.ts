@@ -1,4 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import { IViewProps } from '../View';
 
 export const themes = ['primary-01', 'primary-02'] as const;
 
@@ -20,8 +21,13 @@ export interface ITabsLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> 
 }
 
 export interface ITabsButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> {
+    tab?: string;
     isDisabled?: boolean;
     isSelected?: boolean;
+}
+
+export interface ITabsPanelProps extends Omit<IViewProps, 'role' | 'hidden'> {
+    tab: string;
 }
 
 export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {

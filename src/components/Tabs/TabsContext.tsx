@@ -1,33 +1,21 @@
-import React, { FC, createContext, useContext, useState } from 'react';
+import React, { FC, createContext, useContext } from 'react';
+import useTabsState from './useTabsState';
 
 interface ITabsContextProps {
-    selectedTab: string;
-    setSelectedTab: (tabName: string) => void;
+    tab: string;
+    select: (tab: string) => void;
 }
 
 const TabsContext = createContext<ITabsContextProps | undefined>(undefined);
 
-export function useTabsContext(): ITabsContextProps {
-    const context = useContext(TabsContext);
-
-    if (context === undefined) {
-        throw new Error('useTabsContext must be used within the TabsContextProvider');
-    }
-
-    return context;
-}
+export const useTabsContext = (): ITabsContextProps | undefined => useContext(TabsContext);
 
 interface ITabsContextProviderProps {
-    initialTab?: string;
+    defaultTab: string;
 }
 
-export const TabsContextProvider: FC<ITabsContextProviderProps> = ({ children, initialTab }) => {
-    const [selectedTab, setSelectedTab] = useState<string>(initialTab ?? '');
-
-    const contextValue: ITabsContextProps = {
-        selectedTab,
-        setSelectedTab
-    };
+export const TabsContextProvider: FC<ITabsContextProviderProps> = ({ children, defaultTab }) => {
+    const contextValue = useTabsState(defaultTab);
 
     return <TabsContext.Provider value={contextValue}>{children}</TabsContext.Provider>;
 };

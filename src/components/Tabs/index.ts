@@ -1,3 +1,13 @@
-import Tabs from './Tabs';
+export { TabsContextProvider as Tabs, useTabsContext } from './TabsContext';
+export * from './partials';
 
-export default Tabs;
+export {
+    ITabsButtonProps,
+    ITabsLinkProps,
+    ITabsPanelProps,
+    ITabsListProps,
+    TTabsWidth,
+    TTabsTheme
+} from './Tabs.types';
+
+export { default as useTabsState, IUseTabsState } from './useTabsState';
