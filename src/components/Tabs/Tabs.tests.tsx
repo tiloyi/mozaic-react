@@ -61,7 +61,15 @@ describe('components/Tabs', () => {
 
         test.todo('renders correctly with selected state');
 
-        test.todo('call onClick callback');
+        test('call onClick callback', () => {
+            const onClick = jest.fn();
+
+            render(<TabsButton onClick={onClick}>tab</TabsButton>);
+
+            userEvent.click(screen.getByRole('tab', { name: 'tab' }));
+
+            expect(onClick).toBeCalledTimes(1);
+        });
     });
 
     describe('Tabs', () => {
