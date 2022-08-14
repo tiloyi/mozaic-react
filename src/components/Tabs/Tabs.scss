@@ -15,3 +15,8 @@
         border-bottom-color: $color-primary-02-500;
     }
 }
+
+// Custom align
+.mc-tabs--full-end {
+    justify-content: flex-end;
+}

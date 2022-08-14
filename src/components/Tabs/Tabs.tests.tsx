@@ -2,6 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 describe('components/Tabs', () => {
+    describe('TabsList', () => {});
+
+    describe('TabsLink', () => {});
+
+    describe('TabsButton', () => {});
+
+    describe('Tabs', () => {});
     // test('tabs renders correctly', () => {
     //     render(
     //         <Tabs name="TabsTest" initialTab="first" theme="primary-01">

@@ -23,7 +23,8 @@ export const Links = LinksTemplate.bind({});
 
 Links.args = {
     theme: 'primary-01',
-    width: 'fit'
+    width: 'full',
+    align: 'start'
 };
 
 export const argTypes = {
@@ -33,6 +34,11 @@ export const argTypes = {
         }
     },
     width: {
+        control: {
+            type: 'select'
+        }
+    },
+    align: {
         control: {
             type: 'select'
         }

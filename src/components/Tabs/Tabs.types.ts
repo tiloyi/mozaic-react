@@ -9,10 +9,15 @@ export const widths = ['fit', 'full'] as const;
 
 export type TTabsWidth = typeof widths[number];
 
+export const aligns = ['start', 'center', 'end'] as const;
+
+export type TTabsAlign = typeof aligns[number];
+
 export interface ITabsListProps extends HTMLAttributes<HTMLUListElement> {
     className?: string;
     theme?: TTabsTheme;
     width?: TTabsWidth;
+    align?: TTabsAlign;
 }
 
 export interface ITabsLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
