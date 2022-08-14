@@ -1,61 +1,55 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { TabsLink, TabsPanel, TabsButton } from './partials';
+import { TabsContextProvider as Tabs } from './TabsContext';
+import TabsList, { getAlignModifier, getShadowModifier, getThemeModifier, getWidthModifier } from './TabsList';
 
 describe('components/Tabs', () => {
-    describe('TabsList', () => {});
+    describe('TabsList', () => {
+        test('renders correctly with default props', () => {
+            render(<TabsList>tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toBeInTheDocument();
+            expect(screen.getByRole('tablist')).toBeInTheDocument();
+            expect(screen.getByText('tabs')).toBeInTheDocument();
+        });
+
+        test('renders correctly with align="center"', () => {
+            render(<TabsList align="center">tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toHaveClass(getAlignModifier('center'));
+        });
+
+        test('renders correctly with align="end"', () => {
+            render(<TabsList align="end">tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toHaveClass(getAlignModifier('end'));
+        });
+
+        test('renders correctly with theme="primary-01"', () => {
+            render(<TabsList theme="primary-02">tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toHaveClass(getThemeModifier('primary-02'));
+        });
+
+        test('renders correctly with width="full"', () => {
+            render(<TabsList width="full">tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toHaveClass(getWidthModifier('full'));
+        });
+
+        test('renders correctly without shadow', () => {
+            render(<TabsList hasShadow={false}>tabs</TabsList>);
+
+            expect(screen.getByRole('navigation')).toHaveClass(getShadowModifier(false));
+        });
+    });
 
     describe('TabsLink', () => {});
 
     describe('TabsButton', () => {});
 
+    describe('TabsPanel', () => {});
+
     describe('Tabs', () => {});
-    // test('tabs renders correctly', () => {
-    //     render(
-    //         <Tabs name="TabsTest" initialTab="first" theme="primary-01">
-    //             <TabButton name="first">First</TabButton>
-    //         </Tabs>
-    //     );
-    //
-    //     expect(screen.getByRole('tab')).toHaveTextContent('First');
-    // });
-    //
-    // test('renders with different theme', () => {
-    //     render(
-    //         <Tabs name="TabsTest" initialTab="first" theme="primary-02">
-    //             <TabButton name="first">First</TabButton>
-    //         </Tabs>
-    //     );
-    //
-    //     expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--primary-02');
-    // });
-    //
-    // test('renders with fullWidth class when isFullWidth props', () => {
-    //     render(
-    //         <Tabs name="TabsTest" initialTab="first" isFullWidth>
-    //             <TabButton name="first">First</TabButton>
-    //         </Tabs>
-    //     );
-    //
-    //     expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--full-centered');
-    // });
-    //
-    // test('renders with isAlignedToContainer class when isAlignedToContainer props', () => {
-    //     render(
-    //         <Tabs name="TabsTest" initialTab="first" isAlignedToContainer>
-    //             <TabButton name="first">First</TabButton>
-    //         </Tabs>
-    //     );
-    //
-    //     expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--full');
-    // });
-    //
-    // test('renders tabs with no shadow when isShadowEnabled is false', () => {
-    //     render(
-    //         <Tabs name="TabsTest" initialTab="first" isShadowEnabled={false}>
-    //             <TabButton name="first">First</TabButton>
-    //         </Tabs>
-    //     );
-    //
-    //     expect(screen.getByTestId('mozaic-react_tabs-container')).toHaveClass('mc-tabs--no-shadow');
-    // });
 });
