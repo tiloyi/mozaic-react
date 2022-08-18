@@ -10,6 +10,8 @@ export interface IPaginationContextProps {
     isCompact?: boolean;
     isDisabled?: boolean;
     onChange?: (currentPage: number) => void;
+    onNext?: () => void;
+    onPrevious?: () => void;
 }
 
 export interface IPaginationContainerProps

@@ -4,9 +4,12 @@ import { IPaginationButtonProps } from '../Pagination.types';
 import PaginationButton from './Button';
 
 const PaginationPreviousPageButton = (props: Omit<IPaginationButtonProps, 'isDisabled'>): JSX.Element => {
-    const { currentPage, isDisabled, onChange } = usePaginationContext();
+    const { currentPage, isDisabled, onChange, onPrevious } = usePaginationContext();
 
-    const handleClick = useCallback(() => onChange?.(currentPage - 1), [onChange, currentPage]);
+    const handleClick = useCallback(() => {
+        onChange?.(currentPage - 1);
+        onPrevious?.();
+    }, [onChange, onPrevious, currentPage]);
 
     return (
         <PaginationButton {...props} isDisabled={currentPage === 1 || isDisabled} onClick={handleClick}>

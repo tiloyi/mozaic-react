@@ -12,6 +12,8 @@ const PaginationContainer: FC<IPaginationContainerProps> = ({
     isCompact,
     isDisabled,
     onChange,
+    onNext,
+    onPrevious,
     ...props
 }) => (
     <PaginationContextProvider
@@ -21,6 +23,8 @@ const PaginationContainer: FC<IPaginationContainerProps> = ({
         isCompact={isCompact}
         isDisabled={isDisabled}
         onChange={onChange}
+        onNext={onNext}
+        onPrevious={onPrevious}
     >
         <nav
             {...props}

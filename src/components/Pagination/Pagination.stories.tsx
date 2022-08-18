@@ -14,7 +14,15 @@ export const ControlsTemplate: Story<IPaginationProps> = args => {
         [args.pagesTotal]
     );
 
-    return <Pagination {...args} options={options} onChange={action('Change!')} />;
+    return (
+        <Pagination
+            {...args}
+            options={options}
+            onChange={action('Change!')}
+            onNext={action('Next!')}
+            onPrevious={action('Previous!')}
+        />
+    );
 };
 
 export const Controls = ControlsTemplate.bind({});
