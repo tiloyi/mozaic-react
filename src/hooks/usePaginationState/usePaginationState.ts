@@ -3,9 +3,8 @@ import { useCallback, useState } from 'react';
 export interface IUsePaginationState {
     currentPage: number;
     pagesTotal: number;
-    offset: number;
-    fromItem: number;
-    toItem: number;
+    fromIndex: number;
+    toIndex: number;
     hasNextPage: boolean;
     hasPreviousPage: boolean;
     change: (page: number) => void;
@@ -15,8 +14,8 @@ export interface IUsePaginationState {
 
 export default function usePaginationState(
     initialPage: number,
-    itemsTotal: number,
-    pageSize: number
+    pageSize: number,
+    itemsTotal: number
 ): IUsePaginationState {
     const pagesTotal = Math.ceil(itemsTotal / pageSize);
 
@@ -39,9 +38,8 @@ export default function usePaginationState(
     return {
         currentPage,
         pagesTotal,
-        offset: currentPage * pageSize,
-        fromItem: (currentPage - 1) * pageSize + 1,
-        toItem: currentPage * pageSize,
+        fromIndex: (currentPage - 1) * pageSize,
+        toIndex: currentPage * pageSize - 1,
         hasNextPage: currentPage < pagesTotal,
         hasPreviousPage: currentPage > 1,
         change,
