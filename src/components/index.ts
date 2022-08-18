@@ -101,6 +101,19 @@ export {
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './Overlay';
 export {
+    default as Pagination,
+    usePaginationContext,
+    PaginationSelect,
+    PaginationButton,
+    PaginationContainer,
+    PaginationNextPageButton,
+    PaginationPreviousPageButton,
+    IPaginationProps,
+    IPaginationOption,
+    IPaginationButtonProps,
+    IPaginationContainerProps
+} from './Pagination';
+export {
     default as PasswordInput,
     PasswordInputContainer,
     PasswordInputField,
