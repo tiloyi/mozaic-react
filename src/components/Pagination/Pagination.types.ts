@@ -1,14 +1,12 @@
-import { ButtonHTMLAttributes, ChangeEvent, HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import { ISelectOption } from '../Select';
 
-export type TPaginationState = '';
-
-export interface IPaginationActions {}
-
-export type TUsePaginationState = [TPaginationState, IPaginationActions];
+export interface IPaginationOption extends ISelectOption {}
 
 export interface IPaginationContextProps {
     currentPage: number;
     pagesTotal: number;
+    options?: Array<IPaginationOption>;
     isCompact?: boolean;
     isDisabled?: boolean;
     onChange?: (currentPage: number) => void;

@@ -11,13 +11,14 @@ const PaginationContextProvider: FC<IPaginationContextProps> = ({
     children,
     currentPage,
     pagesTotal,
+    options,
     isCompact,
     isDisabled,
     onChange
 }) => {
     const contextValue = useMemo(
-        () => ({ currentPage, pagesTotal, isCompact, isDisabled, onChange }),
-        [currentPage, pagesTotal, isCompact, isDisabled, onChange]
+        () => ({ currentPage, pagesTotal, options, isCompact, isDisabled, onChange }),
+        [currentPage, pagesTotal, options, isCompact, isDisabled, onChange]
     );
 
     return <PaginationContext.Provider value={contextValue}>{children}</PaginationContext.Provider>;

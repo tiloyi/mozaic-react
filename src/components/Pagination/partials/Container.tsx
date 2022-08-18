@@ -8,6 +8,7 @@ const PaginationContainer: FC<IPaginationContainerProps> = ({
     children,
     currentPage,
     pagesTotal,
+    options,
     isCompact,
     isDisabled,
     onChange,
@@ -16,6 +17,7 @@ const PaginationContainer: FC<IPaginationContainerProps> = ({
     <PaginationContextProvider
         currentPage={currentPage}
         pagesTotal={pagesTotal}
+        options={options}
         isCompact={isCompact}
         isDisabled={isDisabled}
         onChange={onChange}
