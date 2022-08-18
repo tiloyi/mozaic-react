@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Controls, argTypes } from './Pagination.stories';
+import { Controls, Example, argTypes } from './Pagination.stories';
 import Pagination from './Pagination';
 
 <Meta title="Components/Pagination" component={Pagination} argTypes={argTypes} />
@@ -22,6 +22,12 @@ To use the component in your project you must:
 
 <Canvas withSource="open">
     <Story story={Controls} />
+</Canvas>
+
+controlled example:
+
+<Canvas withSource="open">
+    <Story story={Example} />
 </Canvas>
 
 ## Props
