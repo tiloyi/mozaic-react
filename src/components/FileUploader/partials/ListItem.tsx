@@ -7,6 +7,7 @@ const FileUploaderListItem = ({
     name,
     isValid,
     isInvalid,
+    onRemove,
     ...props
 }: IFileUploaderListItemProps): JSX.Element => {
     if (isInvalid && isValid) {
