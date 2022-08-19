@@ -34,6 +34,7 @@ const Select = ({
         <select className={selectClassName} {...props} aria-invalid={isInvalid} disabled={isDisabled}>
             {placeholder.length > 0 && <option>-- {placeholder} --</option>}
             {options.map((option, index) => {
+                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                 if ((option as ISelectOptionGroup).options) {
                     return (
                         <optgroup

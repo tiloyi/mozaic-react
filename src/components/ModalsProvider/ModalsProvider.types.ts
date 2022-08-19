@@ -1,8 +1,10 @@
+export type TModalState = 'opened' | 'closed' | 'registered';
+
 export interface IModalState {
     isOpen: boolean;
 }
 
-export type TModalsProviderState = Record<string, IModalState>;
+export type TModalsProviderState = Record<string, TModalState>;
 
 export type TModalsProviderAction = (modalId: string) => void;
 

@@ -1,0 +1,22 @@
+@import "settings-tools/_all-settings";
+
+@import "components/_c.tabs";
+
+// Custom theme
+.mc-tabs--primary-02 {
+    .mc-tabs__link:focus,
+    .mc-tabs__link:hover,
+    .mc-tabs__link--selected {
+        color: $color-primary-02-500;
+    }
+
+    .mc-tabs__link--selected {
+        color: $color-primary-02-500;
+        border-bottom-color: $color-primary-02-500;
+    }
+}
+
+// Custom align
+.mc-tabs--full-end {
+    justify-content: flex-end;
+}
