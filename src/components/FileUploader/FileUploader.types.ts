@@ -25,4 +25,4 @@ export interface IFileUploaderContainerProps {
     className?: string;
 }
 
-export interface IFileUploaderProps extends IFileUploaderInputProps, IFileUploaderListProps {}
+export interface IFileUploaderProps extends IFileUploaderInputProps {}

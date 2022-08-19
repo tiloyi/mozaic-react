@@ -21,11 +21,16 @@ const FileUploaderListItem = ({
         isValid && 'mc-fileuploader__file--is-valid'
     );
 
+    const handleRemove = (): void => onRemove?.(name);
+
     return (
         <li className={itemClassName} {...props}>
             <span className="mc-fileuploader__file-name">{name}</span>
             <span className="mc-fileuploader__file-icon" />
-            <button type="button" className="mc-fileuploader__delete" />
+            {onRemove !== undefined && (
+                <button type="button" className="mc-fileuploader__delete" onClick={handleRemove} />
+            )}
+            <div className="mc-fileuploader__file-message">Oops, the file is not uploaded.</div>
         </li>
     );
 };
