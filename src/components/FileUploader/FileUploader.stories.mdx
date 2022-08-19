@@ -1,14 +1,14 @@
 import {
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  ArgsTable,
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
 } from '@storybook/addon-docs';
-import { Example, ReactHookForm } from './FileUploader.stories';
+import {Example, ReactHookForm} from './FileUploader.stories';
 import FileUploader from './FileUploader';
 
-<Meta title="Components/FileUploader" component={FileUploader} />
+<Meta title="Components/FileUploader" component={FileUploader}/>
 
 # FileUploader
 
@@ -23,24 +23,23 @@ To use the component in your project you must:
 1. Import the component where you need it:
 
 <Source
-  language="javascript"
-  code="import { FileUploader } from '@mozaic-ds/react';"
+    language="javascript"
+    code="import { FileUploader } from '@mozaic-ds/react';"
 />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas>
-  <Story story={Example} />
+    <Story story={Example}/>
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm}/>
 </Canvas>
 
 
 ## Props
 
-<ArgsTable of={FileUploader} />
-
-
-Example with `react-hook-form`:
-
-<Canvas withSource="open">
-    <Story story={ReactHookForm} />
-</Canvas>
+<ArgsTable of={FileUploader}/>

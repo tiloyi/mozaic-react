@@ -1,4 +1,12 @@
-import { InputHTMLAttributes } from 'react';
+import { HTMLAttributes, InputHTMLAttributes } from 'react';
+
+export interface IFileUploaderListItemProps extends HTMLAttributes<HTMLLIElement> {
+    className?: string;
+    name: string;
+    isValid?: boolean;
+    isInvalid?: boolean;
+    onRemove?: (name: string) => void;
+}
 
 type TOmittedProps = 'type' | 'size' | 'id';
 
@@ -7,9 +15,10 @@ export interface IFileUploaderInputProps extends Omit<InputHTMLAttributes<HTMLIn
     id: string;
 }
 
-export interface IFileUploaderListProps {
-    files: Array<File>;
-    onDeleteFile: (fileName: string) => void;
+export interface IFileUploaderListProps extends HTMLAttributes<HTMLUListElement> {
+    className?: string;
+    files: Array<IFileUploaderListItemProps>;
+    onRemove?: (name: string) => void;
 }
 
 export interface IFileUploaderContainerProps {
