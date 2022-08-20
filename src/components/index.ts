@@ -165,4 +165,3 @@ export {
 } from './Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './View';
-export { default as FileUploader, FileUploaderItem, IFileUploadItemProps, IFileUploaderProps } from './FileUploader';
