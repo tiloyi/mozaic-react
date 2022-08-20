@@ -32,6 +32,17 @@ export {
     ICheckBoxPartialProps
 } from './CheckBox';
 export { default as DateInput, IDateInputProps } from './DateInput';
+export {
+    default as FileUploader,
+    FileUploaderInput,
+    FileUploaderFile,
+    FileUploaderFilesList,
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    IFileUploaderFile,
+    IFileUploaderFileProps,
+    IFileUploaderFilesListProps
+} from './FileUploader';
 export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './Flag';
 export {
     default as Flex,
@@ -42,14 +53,6 @@ export {
     TJustifyContent,
     TAlignContent
 } from './Flex';
-export {
-    default as FileUploader,
-    IFileUploaderProps,
-    IFileUploaderInputProps,
-    FileUploaderContainer,
-    FileUploaderLabel,
-    FileUploaderIndicator
-} from './FileUploader';
 export {
     default as Heading,
     IHeadingProps,

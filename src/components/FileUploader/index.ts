@@ -1,5 +1,11 @@
 import FileUploader from './FileUploader';
 
-export { IFileUploaderProps, IFileUploaderInputProps } from './FileUploader.types';
-export { FileUploaderContainer, FileUploaderLabel, FileUploaderIndicator } from './partials';
+export {
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    IFileUploaderFileProps,
+    IFileUploaderFile,
+    IFileUploaderFilesListProps
+} from './FileUploader.types';
+export { FileUploaderInput, FileUploaderFile, FileUploaderFilesList } from './partials';
 export default FileUploader;
