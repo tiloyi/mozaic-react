@@ -1,50 +1,92 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import FileUploader from './FileUploader';
 import userEvent from '@testing-library/user-event';
-
-const file = new File(['hello'], 'hello.png', {type: 'image/png'})
-const onDelete = jest.fn();
+import FileUploader from './FileUploader';
+import { FileUploaderInput, FileUploaderFile } from './partials';
+import { IFileUploaderFile } from './FileUploader.types';
 
 describe('components/FileUploader', () => {
-    test('upload file', () => {
-        render(<FileUploader files={[file]} onDeleteFile={onDelete} id="1">Select file to upload</FileUploader>);
+    describe('FileUploaderInput', () => {
+        test('renders correctly in disabled state', () => {
+            render(<FileUploaderInput isDisabled>Select file to upload</FileUploaderInput>);
 
-        const input = screen.getByLabelText("Select file to upload") as HTMLInputElement;
-        userEvent.upload(input, file)
+            expect(screen.getByLabelText('Select file to upload')).toBeDisabled();
+        });
 
-        expect(input.files).toHaveLength(1)
-        expect(input.files?.item(0)).toStrictEqual(file)
-        expect(screen.getByText('hello.png')).toBeInTheDocument();
+        test('calls onChange callback', () => {
+            const onChange = jest.fn();
+
+            render(<FileUploaderInput onChange={onChange}>Select file to upload</FileUploaderInput>);
+
+            const input = screen.getByLabelText('Select file to upload') as HTMLInputElement;
+            const file = new File(['file'], 'file.png', { type: 'image/png' });
+
+            userEvent.upload(input, file);
+
+            expect(input.files).toHaveLength(1);
+            expect(input.files?.item(0)).toStrictEqual(file);
+
+            expect(onChange).toBeCalledTimes(1);
+        });
     });
 
-    test('upload multiple files', () => {
-        const files = [
-            new File(['hello'], 'hello.png'),
-            new File(['there'], 'there.png'),
-        ]
+    describe('FileUploaderFile', () => {
+        test('renders correctly in valid state', () => {
+            render(<FileUploaderFile name="file.png" isValid aria-label="file" />);
 
-        render(<FileUploader files={files} onDeleteFile={onDelete} id="1" multiple>Select file to upload</FileUploader>);
+            expect(screen.getByLabelText('file')).toHaveClass('mc-fileuploader__file--is-valid');
+        });
 
-        const input = screen.getByLabelText("Select file to upload") as HTMLInputElement;
-        userEvent.upload(input, files)
+        test('renders correctly in invalid state', () => {
+            render(
+                <FileUploaderFile
+                    name="file.png"
+                    errorMessage="Oops, the file is not uploaded"
+                    isInvalid
+                    aria-label="file"
+                />
+            );
 
-        expect(input.files).toHaveLength(2)
-        expect(input.files?.item(0)).toStrictEqual(files[0])
-        expect(input.files?.item(1)).toStrictEqual(files[1])
-        expect(screen.getByText('hello.png')).toBeInTheDocument();
-        expect(screen.getByText('there.png')).toBeInTheDocument();
-    })
+            expect(screen.getByLabelText('file')).toHaveClass('mc-fileuploader__file--is-invalid');
+            expect(screen.getByText('Oops, the file is not uploaded')).toBeInTheDocument();
+        });
 
-    test('renders children correctly', () => {
-        render(<FileUploader files={[file]} id="1" onDeleteFile={onDelete}>Select file to upload</FileUploader>);
+        test('calls onRemove callback', () => {
+            const onRemove = jest.fn();
 
-        expect(screen.getByText('Select file to upload')).toBeInTheDocument();
+            render(<FileUploaderFile name="file.png" onRemove={onRemove} />);
+
+            userEvent.click(screen.getByRole('button'));
+
+            expect(onRemove).toBeCalledWith('file.png');
+        });
     });
 
-    test('renders disabled correctly', () => {
-        render(<FileUploader files={[file]} id="1" onDeleteFile={onDelete} isDisabled>Select file to upload</FileUploader>);
+    describe('FileUploader', () => {
+        test('renders all attached files', () => {
+            const files: Array<IFileUploaderFile> = [
+                { name: 'file1.png' },
+                { name: 'file2.png' },
+                { name: 'file3.png' },
+                { name: 'file4.png' }
+            ];
 
-        expect(screen.getByLabelText('Select file to upload')).toBeDisabled();
+            render(<FileUploader files={files} />);
+
+            files.forEach(file => {
+                expect(screen.getByText(file.name)).toBeInTheDocument();
+            });
+        });
+
+        test('call onRemove callback', () => {
+            const onRemove = jest.fn();
+            const files: Array<IFileUploaderFile> = [{ name: 'file.png' }];
+
+            render(<FileUploader files={files} onRemove={onRemove} />);
+
+            userEvent.click(screen.getByRole('button'));
+
+            expect(onRemove).toBeCalledWith('file.png');
+        });
     });
 });
