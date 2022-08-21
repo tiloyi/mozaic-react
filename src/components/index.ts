@@ -1,3 +1,19 @@
+export {
+    default as Accordion,
+    AccordionHeader,
+    AccordionHeading,
+    AccordionContent,
+    useAccordionState,
+    useAccordionContext,
+    IAccordionProps,
+    TAccordionSize,
+    IAccordionHeaderProps,
+    IAccordionHeadingProps,
+    IAccordionContentProps,
+    IAccordionContextProps,
+    IUseAccordionMethods,
+    TUseAccordionState
+} from './Accordion';
 export { default as Badge, IBadgeProps, TBadgeTheme } from './Badge';
 export {
     default as Breadcrumbs,
