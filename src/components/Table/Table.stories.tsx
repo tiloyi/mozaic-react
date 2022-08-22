@@ -8,6 +8,7 @@ import CheckBox from '../CheckBox';
 import Table from './Table';
 import TextInput from '../TextInput';
 import { TTableSortDirection } from './Table.types';
+import Link from '../Link';
 
 const rows = generateDataTableRows(5);
 
@@ -19,6 +20,7 @@ const BasicTemplate: Story = () => (
                 <TableHeaderCell>Name</TableHeaderCell>
                 <TableHeaderCell>Count</TableHeaderCell>
                 <TableHeaderCell>Status</TableHeaderCell>
+                <TableHeaderCell>Link</TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -29,6 +31,9 @@ const BasicTemplate: Story = () => (
                     <TableCell>{row.count}</TableCell>
                     <TableCell>
                         <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                    </TableCell>
+                    <TableCell>
+                        <Link href="/">Page link</Link>
                     </TableCell>
                 </TableRow>
             ))}
