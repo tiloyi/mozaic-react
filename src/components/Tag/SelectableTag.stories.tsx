@@ -1,22 +1,18 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Tag from './Tag';
-import { ITagProps } from './Tag.types';
+import SelectableTag from './SelectableTag';
+import { ISelectableTagProps } from './Tag.types';
 
-export const Template: Story<ITagProps> = args => <Tag {...args}>tag</Tag>;
+export const Template: Story<ISelectableTagProps> = args => <SelectableTag {...args}>tag</SelectableTag>;
 
 export const Controls = Template.bind({});
 
 Controls.args = {
-    type: 'text'
+    size: 'm',
+    theme: 'light'
 };
 
 export const argTypes = {
-    type: {
-        control: {
-            type: 'select'
-        }
-    },
     theme: {
         control: {
             type: 'select'
