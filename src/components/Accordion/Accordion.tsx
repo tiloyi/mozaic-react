@@ -1,32 +1,22 @@
-import React, { useState } from 'react';
-import cn from 'classnames';
+import React, { FC } from 'react';
 import { IAccordionProps } from './Accordion.types';
-import { AccordionContainer, AccordionContent, AccordionTrigger } from './partials';
+import { AccordionContainer } from './partials';
+import { AccordionContextProvider } from './AccordionContext';
 import './Accordion.scss';
 
-const Accordion: React.FC<IAccordionProps> = ({
+const Accordion: FC<IAccordionProps> = ({
     className,
     size = 'm',
-    title,
-    isDefaultOpen = false,
+    defaultIsOpen = false,
     isDisabled = false,
-    icon,
     children,
     ...props
-}) => {
-    const [isOpen, setIsOpen] = useState(isDefaultOpen);
-
-    return (
-        <AccordionContainer className={className} size={size} isOpen={isOpen} {...props}>
-            <AccordionTrigger onClick={() => setIsOpen(!isOpen)}>
-                {icon}
-                {title}
-            </AccordionTrigger>
-            <AccordionContent id="content" aria-hidden={isOpen && 'false'} aria-labelledby="accordion">
-                {children}
-            </AccordionContent>
+}) => (
+    <AccordionContextProvider size={size} defaultIsOpen={defaultIsOpen} isDisabled={isDisabled}>
+        <AccordionContainer className={className} {...props}>
+            {children}
         </AccordionContainer>
-    );
-};
+    </AccordionContextProvider>
+);
 
 export default Accordion;
