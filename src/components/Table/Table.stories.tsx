@@ -160,6 +160,33 @@ const CellsWithCheckboxesTemplate: Story = () => (
 
 export const CellsWithCheckboxes = CellsWithCheckboxesTemplate.bind({});
 
+const SelectedRowsTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>
+                    <CheckBox />
+                </TableHeaderCell>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {rows.map(row => (
+                <TableRow key={`row-${row.id}`} isSelected={Boolean(row.id % 2)}>
+                    <TableCell variant="checkbox">
+                        <CheckBox isChecked={Boolean(row.id % 2)} />
+                    </TableCell>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const SelectedRows = SelectedRowsTemplate.bind({});
+
 const CellsWithNumbersTemplate: Story = () => (
     <Table>
         <TableHeader>
