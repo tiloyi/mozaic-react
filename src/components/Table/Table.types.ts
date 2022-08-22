@@ -12,6 +12,8 @@ export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
     size?: TTableSize;
 }
 
+export interface ISubTableProps extends TableHTMLAttributes<HTMLTableElement> {}
+
 export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     variant?: TTableCellVariant;
     key?: string;
