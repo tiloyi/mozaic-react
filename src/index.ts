@@ -31,6 +31,7 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
+export { default as Accordion, TAccordionSize, IAccordionProps } from './components/Accordion';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export {
     default as FileUploader,
@@ -116,6 +117,19 @@ export {
 } from './components/NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './components/Overlay';
 export {
+    default as Pagination,
+    usePaginationContext,
+    PaginationSelect,
+    PaginationButton,
+    PaginationContainer,
+    PaginationNextPageButton,
+    PaginationPreviousPageButton,
+    IPaginationProps,
+    IPaginationOption,
+    IPaginationButtonProps,
+    IPaginationContainerProps
+} from './components/Pagination';
+export {
     default as PasswordInput,
     PasswordInputContainer,
     PasswordInputField,
@@ -153,6 +167,15 @@ export {
     IRadioPartialProps
 } from './components/Radio';
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
+export {
+    RatingStartsResult,
+    RatingStarsInput,
+    TRatingStarsSize,
+    TRatingStarsScore,
+    IRatingStarsContainerProps,
+    IRatingStarsResultProps,
+    IRatingStarsInputProps
+} from './components/RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
     Tabs,
@@ -205,4 +228,5 @@ export {
 } from './components/Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
+
 export * from './hooks';

@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react';
-import { ILinkProps } from '../Link/Link.types';
+import { ILinkProps } from '../Link';
 
 export type TBreadcrumbsTheme = 'light' | 'dark';
 

@@ -12,6 +12,7 @@ Controls.args = {
     placeholder: 'Select an language',
     defaultValue: 'ruby',
     size: 'm',
+    name: 'language',
     isInvalid: false,
     isValid: false,
     isDisabled: false
