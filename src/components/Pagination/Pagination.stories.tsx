@@ -1,58 +1,68 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Pagination from './Pagination';
 import { IPaginationProps } from './Pagination.types';
-import View from '../View/index';
-import { usePagination } from '../../hooks';
 
-type TArrayElement = number | string | Record<string, string>;
-type TArray = TArrayElement[];
-
-const chunk = (input: TArray, size: number): TArrayElement[][] =>
-    input.reduce(
-        (arr: TArrayElement[][], item: TArrayElement, idx) =>
-            idx % size === 0 ? [...arr, [item]] : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]],
-        []
+export const ControlsTemplate: Story<IPaginationProps> = args => {
+    const options = useMemo(
+        () =>
+            Array.from({ length: args.pagesTotal }).map((_: unknown, index: number) => ({
+                value: index + 1,
+                label: `Page ${index + 1} of ${args.pagesTotal}`
+            })),
+        [args.pagesTotal]
     );
-
-export const PaginationTemplate: Story<IPaginationProps> = args => {
-    const { handleChangePage, handleNext, handlePrevious, currentPage, itemsPerPage } = usePagination();
-    const initialItems = Array.from(Array(30), (_e, i) => i);
-    const chunkItems = chunk(initialItems, itemsPerPage);
-    const itemsPage: TArray = useMemo(() => chunkItems[currentPage - 1], [chunkItems, currentPage]);
-    const pagesNumber: number = useMemo(() => chunkItems.length, [chunkItems]);
 
     return (
-        <View>
-            <View>
-                {itemsPage.map(e => (
-                    <div key={e as number}>Element {e}</div>
-                ))}
-            </View>
-            <View>
-                <Pagination
-                    {...args}
-                    pagesNumber={pagesNumber}
-                    currentPage={currentPage}
-                    handleChangePage={handleChangePage}
-                    handleNext={handleNext}
-                    handlePrevious={handlePrevious}
-                />
-            </View>
-        </View>
+        <Pagination
+            {...args}
+            options={options}
+            onChange={action('Change!')}
+            onNext={action('Next!')}
+            onPrevious={action('Previous!')}
+        />
     );
 };
 
-export const Controls = PaginationTemplate.bind({});
+export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
-    className: 'pagination'
+    currentPage: 1,
+    pagesTotal: 10,
+    isCompact: false,
+    isDisabled: false
 };
+
+export const ExampleTemplate: Story = () => {
+    const [page, setPage] = useState(1);
+    const pagesTotal = 10;
+
+    const options = useMemo(
+        () =>
+            Array.from({ length: pagesTotal }).map((_: unknown, index: number) => ({
+                value: index + 1,
+                label: `Page ${index + 1} of ${pagesTotal}`
+            })),
+        [pagesTotal]
+    );
+
+    const handleChange = useCallback(nextPage => setPage(nextPage), []);
+
+    return <Pagination currentPage={page} pagesTotal={pagesTotal} options={options} onChange={handleChange} />;
+};
+
+export const Example = ExampleTemplate.bind({});
 
 export const argTypes = {
     isCompact: {
         control: {
             type: 'boolean'
+        }
+    },
+    options: {
+        table: {
+            disable: true
         }
     }
 };

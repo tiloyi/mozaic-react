@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import RatingStars from './RatingStars';
-import { IRatingStarsProps } from './RatingStars.types';
+import RatingStarsResult from './RatingStarsResult';
+import RatingStarsInput from './RatingStarsInput';
+import { IRatingStarsResultProps, TRatingStarsScore } from './RatingStars.types';
 
-const ResultTemplate: Story<IRatingStarsProps> = args => <RatingStars {...args} />;
+const ResultTemplate: Story<IRatingStarsResultProps> = args => <RatingStarsResult {...args} />;
 
-export const ResultControls = ResultTemplate.bind({});
+export const Result = ResultTemplate.bind({});
 
-ResultControls.args = {
-    type: 'result'
+Result.args = {
+    size: 'm',
+    score: 50
 };
 
-const InputTemplate: Story<IRatingStarsProps> = args => <RatingStars {...args} />;
+const InputTemplate: Story = () => {
+    const [score, setScore] = useState<TRatingStarsScore>(40);
 
-export const InputControls = InputTemplate.bind({});
+    return <RatingStarsInput score={score} size="m" name="rating" onChange={nextScore => setScore(nextScore)} />;
+};
 
-InputControls.args = {
-    type: 'input',
-    name: 'inputControl'
+export const Input = InputTemplate.bind({});
+
+export const argTypes = {
+    size: {
+        control: {
+            type: 'select'
+        }
+    },
+    score: {
+        control: {
+            type: 'select'
+        }
+    }
 };

@@ -106,6 +106,19 @@ export {
 } from './components/NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './components/Overlay';
 export {
+    default as Pagination,
+    usePaginationContext,
+    PaginationSelect,
+    PaginationButton,
+    PaginationContainer,
+    PaginationNextPageButton,
+    PaginationPreviousPageButton,
+    IPaginationProps,
+    IPaginationOption,
+    IPaginationButtonProps,
+    IPaginationContainerProps
+} from './components/Pagination';
+export {
     default as PasswordInput,
     PasswordInputContainer,
     PasswordInputField,
@@ -143,6 +156,15 @@ export {
     IRadioPartialProps
 } from './components/Radio';
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
+export {
+    RatingStartsResult,
+    RatingStarsInput,
+    TRatingStarsSize,
+    TRatingStarsScore,
+    IRatingStarsContainerProps,
+    IRatingStarsResultProps,
+    IRatingStarsInputProps
+} from './components/RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
     default as Text,
@@ -169,9 +191,5 @@ export {
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
 export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './components/Tag';
-export { default as RatingStars, IRatingStarsProps, IRatingStarLabelProps, IRatingStarInputProps, TRatingStarsSize, TRatingStarsTypes, TRatingStarsScores } from './components/RatingStars';
-
-export { default as Pagination, IPaginationProps} from './components/Pagination';
-export { default as FileUploader, FileUploaderItem, IFileUploadItemProps, IFileUploaderProps } from './components/FileUploader';
 
 export * from './hooks';

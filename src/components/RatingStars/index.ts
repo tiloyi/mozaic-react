@@ -1,12 +1,10 @@
-import RatingStars from './RatingStars';
-
 export {
-    IRatingStarsProps,
-    IRatingStarLabelProps,
-    IRatingStarInputProps,
     TRatingStarsSize,
-    TRatingStarsTypes,
-    TRatingStarsScores
+    TRatingStarsScore,
+    IRatingStarsResultProps,
+    IRatingStarsInputProps,
+    IRatingStarsContainerProps
 } from './RatingStars.types';
 
-export default RatingStars;
+export { default as RatingStartsResult } from './RatingStarsResult';
+export { default as RatingStarsInput } from './RatingStarsInput';

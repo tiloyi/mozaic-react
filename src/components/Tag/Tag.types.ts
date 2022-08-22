@@ -1,4 +1,3 @@
-
 export const types = ['text', 'removable'] as const;
 export const themes = ['dark'] as const;
 export const sizes = ['s', 'm'] as const;
@@ -12,5 +11,5 @@ export interface ITagProps {
     type?: TTagType;
     theme?: TTagTheme;
     size?: TTagSize;
-    onClose?: () => void
+    onClose?: () => void;
 }

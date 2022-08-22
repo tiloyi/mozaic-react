@@ -1,11 +1,28 @@
-import { ChangeEvent } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import { ISelectOption } from '../Select';
 
-export interface IPaginationProps {
-    className?: string;
-    pagesNumber: number;
+export interface IPaginationOption extends ISelectOption {}
+
+export interface IPaginationContextProps {
     currentPage: number;
-    handleNext: () => void;
-    handlePrevious: () => void;
-    handleChangePage: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+    pagesTotal: number;
+    options?: Array<IPaginationOption>;
     isCompact?: boolean;
+    isDisabled?: boolean;
+    onChange?: (currentPage: number) => void;
+    onNext?: () => void;
+    onPrevious?: () => void;
 }
+
+export interface IPaginationContainerProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>,
+        IPaginationContextProps {
+    className?: string;
+}
+
+export interface IPaginationButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> {
+    className?: string;
+    isDisabled?: boolean;
+}
+
+export interface IPaginationProps extends IPaginationContainerProps {}
