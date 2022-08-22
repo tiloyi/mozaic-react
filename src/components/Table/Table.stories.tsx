@@ -115,33 +115,6 @@ const SortableTemplate: Story = () => {
 
 export const Sortable = SortableTemplate.bind({});
 
-const StickyHeaderTemplate: Story = () => (
-    <Table>
-        <TableHeader>
-            <TableRow>
-                <TableHeaderCell>Id</TableHeaderCell>
-                <TableHeaderCell>Name</TableHeaderCell>
-                <TableHeaderCell>Count</TableHeaderCell>
-                <TableHeaderCell>Status</TableHeaderCell>
-            </TableRow>
-        </TableHeader>
-        <TableBody>
-            {generateDataTableRows(50).map(row => (
-                <TableRow key={`row-${row.id}`}>
-                    <TableCell>{row.id}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.count}</TableCell>
-                    <TableCell>
-                        <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-                    </TableCell>
-                </TableRow>
-            ))}
-        </TableBody>
-    </Table>
-);
-
-export const StickyHeader = StickyHeaderTemplate.bind({});
-
 const CellsWithCheckboxesTemplate: Story = () => (
     <Table>
         <TableHeader>
