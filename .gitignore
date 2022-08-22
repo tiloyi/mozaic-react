@@ -13,3 +13,6 @@ lib
 
 # storybook
 storybook-static
+
+# env files
+.env

@@ -10,7 +10,11 @@ interface IUseToggleMethods {
 
 export type TUseToggle<V> = [V, IUseToggleMethods];
 
-function useToggle<L, R>(leftValue: L, rightValue: R, initialValue: TInitialValue<L | R>): TUseToggle<L | R> {
+export default function useToggle<L, R>(
+    leftValue: L,
+    rightValue: R,
+    initialValue: TInitialValue<L | R>
+): TUseToggle<L | R> {
     const [value, setValue] = useState<L | R>(initialValue);
 
     const toLeftValue = useCallback(() => setValue(leftValue), [leftValue]);
@@ -24,5 +28,3 @@ function useToggle<L, R>(leftValue: L, rightValue: R, initialValue: TInitialValu
 
     return [value, { toLeftValue, toRightValue, toggle }];
 }
-
-export default useToggle;

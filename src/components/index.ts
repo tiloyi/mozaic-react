@@ -112,6 +112,19 @@ export {
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
 export { default as Overlay, IOverlayProps } from './Overlay';
 export {
+    default as Pagination,
+    usePaginationContext,
+    PaginationSelect,
+    PaginationButton,
+    PaginationContainer,
+    PaginationNextPageButton,
+    PaginationPreviousPageButton,
+    IPaginationProps,
+    IPaginationOption,
+    IPaginationButtonProps,
+    IPaginationContainerProps
+} from './Pagination';
+export {
     default as PasswordInput,
     PasswordInputContainer,
     PasswordInputField,
@@ -137,6 +150,15 @@ export {
 } from './QuantitySelector';
 export { default as Radio, RadioContainer, RadioIndicator, RadioLabel, IRadioProps, IRadioPartialProps } from './Radio';
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './RadioGroup';
+export {
+    RatingStartsResult,
+    RatingStarsInput,
+    TRatingStarsSize,
+    TRatingStarsScore,
+    IRatingStarsContainerProps,
+    IRatingStarsResultProps,
+    IRatingStarsInputProps
+} from './RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export {
     default as Table,
