@@ -1,15 +1,84 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import CheckBox from '../CheckBox';
+import Text from '../Text';
+import Toggle from '../Toggle';
+import { AccordionHeader, AccordionContent, AccordionHeading } from './partials';
 import Accordion from './Accordion';
 import { IAccordionProps } from './Accordion.types';
 
-export const Template: Story<IAccordionProps> = args => <Accordion {...args}>Accordion size {args.size}</Accordion>;
+export const Template: Story<IAccordionProps> = args => (
+    <Accordion {...args}>
+        <AccordionHeader>
+            <AccordionHeading>Lorem ipsum dolor sit amet</AccordionHeading>
+        </AccordionHeader>
+        <AccordionContent>
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum
+            </Text>
+        </AccordionContent>
+    </Accordion>
+);
 
 export const Controls = Template.bind({});
 
 Controls.args = {
-    title: 'Accordion size M',
-    size: 'm'
+    size: 'm',
+    isDisabled: false
+};
+
+export const WithCheckBoxTemplate: Story<IAccordionProps> = args => (
+    <Accordion {...args}>
+        <AccordionHeader>
+            <CheckBox />
+            <AccordionHeading>Lorem ipsum dolor sit amet</AccordionHeading>
+        </AccordionHeader>
+        <AccordionContent>
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum
+            </Text>
+        </AccordionContent>
+    </Accordion>
+);
+
+export const WithCheckBox = WithCheckBoxTemplate.bind({});
+
+WithCheckBox.args = {
+    size: 'm',
+    isDisabled: false
+};
+
+export const WithToggleTemplate: Story<IAccordionProps> = args => (
+    <Accordion {...args}>
+        <AccordionHeader>
+            <Toggle size={args.size} isDisabled={args.isDisabled} />
+            <AccordionHeading>Lorem ipsum dolor sit amet</AccordionHeading>
+        </AccordionHeader>
+        <AccordionContent>
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum
+            </Text>
+        </AccordionContent>
+    </Accordion>
+);
+
+export const WithToggle = WithToggleTemplate.bind({});
+
+WithToggle.args = {
+    size: 'm',
+    isDisabled: false
 };
 
 export const argTypes = {
@@ -17,29 +86,5 @@ export const argTypes = {
         control: {
             type: 'select'
         }
-    },
-    title: {
-        control: { type: 'text' }
     }
-};
-
-const Icon = (): JSX.Element => (
-    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32">
-        <path d="M16,29A13,13,0,1,1,29,16,13,13,0,0,1,16,29ZM16,5A11,11,0,1,0,27,16,11,11,0,0,0,16,5Z" />
-        <path d="M16,21.7a1,1,0,0,1-1-1V14.87a1,1,0,1,1,2,0V20.7A1,1,0,0,1,16,21.7Z" />
-        <circle cx="16" cy="11.3" r="1" />
-    </svg>
-);
-
-export const TemplateWithIcon: Story<IAccordionProps> = args => (
-    <Accordion {...args} icon={<Icon />}>
-        Accordion size {args.size}
-    </Accordion>
-);
-
-export const ControlsWithIcon = TemplateWithIcon.bind({});
-
-ControlsWithIcon.args = {
-    title: 'Accordion size M',
-    size: 'm'
 };

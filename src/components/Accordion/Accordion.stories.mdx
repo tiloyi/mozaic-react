@@ -1,14 +1,8 @@
-import {
-    Meta,
-    Story,
-    Canvas,
-    Source,
-    ArgsTable,
-} from '@storybook/addon-docs';
-import { Controls, ControlsWithIcon, argTypes } from './Accordion.stories';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { Controls, WithCheckBox, WithToggle, argTypes } from './Accordion.stories';
 import Accordion from './Accordion';
 
-<Meta title="Components/Accordion" component={Accordion} argTypes={argTypes}/>
+<Meta title="Components/Accordion" component={Accordion} argTypes={argTypes} />
 
 # Accordion
 
@@ -22,25 +16,26 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source
-    language="javascript"
-    code="import { Accordion } from '@mozaic-ds/react';"
-/>
+<Source language="javascript" code="import { Accordion } from '@mozaic-ds/react';" />
 
 2. Call the component and give it the desired props, for example:
 
 <Canvas withSource="open">
-    <Story story={Controls}/>
+    <Story story={Controls} />
 </Canvas>
 
-WithIcon example:
+Example with check box:
 
 <Canvas withSource="open">
-    <Story story={ControlsWithIcon}/>
+    <Story story={WithCheckBox} />
 </Canvas>
 
+Example with toggle:
 
+<Canvas withSource="open">
+    <Story story={WithToggle} />
+</Canvas>
 
 ## Props
 
-<ArgsTable of={Accordion}/>
+<ArgsTable of={Accordion} />

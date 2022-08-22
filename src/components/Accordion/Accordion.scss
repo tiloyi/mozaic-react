@@ -2,3 +2,6 @@
 
 @import "components/c.accordion";
 
+.mc-accordion__trigger:disabled > .mc-accordion__title {
+    color: inherit;
+}

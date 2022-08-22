@@ -1,31 +1,35 @@
-import { HTMLAttributes, ReactElement } from 'react';
-import { IViewProps } from '../View';
-
-export const types = ['text', 'removable'] as const;
+import { HTMLAttributes } from 'react';
 
 export const sizes = ['s', 'm'] as const;
 
 export type TAccordionSize = typeof sizes[number];
 
-export interface IAccordionContainer extends HTMLAttributes<HTMLDivElement> {
-    className?: string;
+export interface IAccordionContextProps {
+    size: TAccordionSize;
+    isOpen: boolean;
+    isDisabled: boolean;
+    open: () => void;
+    close: () => void;
+    toggle: () => void;
+}
+
+export interface IAccordionContextProviderProps {
+    size: TAccordionSize;
+    defaultIsOpen: boolean;
+    isDisabled: boolean;
+}
+
+export interface IAccordionContainerProps extends HTMLAttributes<HTMLDivElement> {
     size?: TAccordionSize;
-    isOpen?: boolean;
 }
 
-export interface IAccordionTrigger extends IViewProps {
-    className?: string;
-}
+export interface IAccordionHeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
-export interface IAccordionContent extends HTMLAttributes<HTMLDivElement> {
-    className?: string;
-}
+export interface IAccordionContentProps extends HTMLAttributes<HTMLDivElement> {}
 
-export interface IAccordionProps extends HTMLAttributes<HTMLDivElement> {
-    className?: string;
-    title: string;
-    isDefaultOpen?: boolean;
+export interface IAccordionHeadingProps extends HTMLAttributes<HTMLHeadingElement> {}
+
+export interface IAccordionProps extends IAccordionContainerProps {
+    defaultIsOpen?: boolean;
     isDisabled?: boolean;
-    size?: TAccordionSize;
-    icon?: ReactElement;
 }
