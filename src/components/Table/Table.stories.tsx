@@ -5,15 +5,15 @@ import { IDataTableFixture } from '../DataTable/DataTable.types';
 import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
+import Link from '../Link';
 import Table from './Table';
 import TextInput from '../TextInput';
-import { TTableSortDirection } from './Table.types';
-import Link from '../Link';
+import { ITableProps, TTableSortDirection } from './Table.types';
 
 const rows = generateDataTableRows(5);
 
-const BasicTemplate: Story = () => (
-    <Table>
+const BasicTemplate: Story<ITableProps> = args => (
+    <Table {...args}>
         <TableHeader>
             <TableRow>
                 <TableHeaderCell>Id</TableHeaderCell>
@@ -42,6 +42,10 @@ const BasicTemplate: Story = () => (
 );
 
 export const Basic = BasicTemplate.bind({});
+
+Basic.args = {
+    size: 'm'
+};
 
 const SortableTemplate: Story = () => {
     const [data, setData] = useState<Array<IDataTableFixture>>(() => generateDataTableRows(10));
@@ -273,4 +277,8 @@ const CellsWithButtonsTemplate: Story = () => (
 
 export const CellsWithButtons = CellsWithButtonsTemplate.bind({});
 
-export const argTypes = {};
+export const argTypes = {
+    size: {
+        control: 'select'
+    }
+};
