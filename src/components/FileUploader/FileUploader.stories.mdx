@@ -1,0 +1,71 @@
+import {
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
+} from '@storybook/addon-docs';
+import { Input, File, Uploader, ReactHookForm } from './FileUploader.stories';
+import FileUploader from './FileUploader';
+import FileUploaderInput from './partials/Input';
+import FileUploaderFile from './partials/File';
+
+<Meta title="Components/FileUploader" component={FileUploader}/>
+
+# FileUploader
+
+The `FileUploader` component is the **React.js** implementation of the **Mozaic FileUploader** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/Form/FileUploader/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+    language="javascript"
+    code="import { FileUploader, FileUploaderInput, FileUploaderFile } from '@mozaic-ds/react';"
+/>
+
+2. Call the component and give it the desired props.
+
+`FileUploaderInput` example:
+
+<Canvas>
+    <Story story={Input} />
+</Canvas>
+
+`FileUploaderFile` example:
+
+<Canvas>
+    <Story story={File}/>
+</Canvas>
+
+`FileUploader` example:
+
+<Canvas>
+    <Story story={Uploader}/>
+</Canvas>
+
+Example with `react-hook-form`:
+
+<Canvas withSource="open">
+    <Story story={ReactHookForm}/>
+</Canvas>
+
+
+## Props
+
+### `FileUploaderInput`
+
+<ArgsTable of={FileUploaderInput}/>
+
+### `FileUploaderFile`
+
+<ArgsTable of={FileUploaderFile}/>
+
+### `FileUploader`
+
+<ArgsTable of={FileUploader}/>

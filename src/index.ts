@@ -33,6 +33,17 @@ export {
 } from './components/CheckBox';
 export { default as Accordion, TAccordionSize, IAccordionProps } from './components/Accordion';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
+export {
+    default as FileUploader,
+    FileUploaderInput,
+    FileUploaderFile,
+    FileUploaderFilesList,
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    IFileUploaderFile,
+    IFileUploaderFileProps,
+    IFileUploaderFilesListProps
+} from './components/FileUploader';
 export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './components/Flag';
 export {
     default as Flex,
