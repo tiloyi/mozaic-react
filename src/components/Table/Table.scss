@@ -9,6 +9,6 @@
 th,
 td {
     &.mc-datatable__cell-number {
-        text-align: right;
+        text-align: right !important;
     }
 }
