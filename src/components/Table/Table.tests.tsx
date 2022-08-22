@@ -1,11 +1,27 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Table from './Table';
+import { TableRow } from './partials';
 
 describe('components/Table', () => {
-    test('renders correctly', () => {
-        render(<Table>Test</Table>);
+    describe('TableRow', () => {
+        test('renders correctly', () => {
+            render(
+                <TableRow>
+                    <span data-testid="row" />
+                </TableRow>
+            );
 
-        expect(screen.getByText('Test')).toBeInTheDocument();
+            expect(screen.getByTestId('row')).toBeInTheDocument();
+        });
+
+        test('renders in selected state', () => {
+            render(
+                <TableRow isSelected>
+                    <span />
+                </TableRow>
+            );
+
+            expect(screen.getByRole('row')).toHaveClass('selected');
+        });
     });
 });
