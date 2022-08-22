@@ -32,6 +32,17 @@ export {
     ICheckBoxPartialProps
 } from './components/CheckBox';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
+export {
+    default as FileUploader,
+    FileUploaderInput,
+    FileUploaderFile,
+    FileUploaderFilesList,
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    IFileUploaderFile,
+    IFileUploaderFileProps,
+    IFileUploaderFilesListProps
+} from './components/FileUploader';
 export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './components/Flag';
 export {
     default as Flex,
@@ -144,6 +155,33 @@ export {
 export { default as RadioGroup, useRadioGroup, IRadioGroupProps } from './components/RadioGroup';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './components/Select';
 export {
+    Tabs,
+    TabsLink,
+    TabsButton,
+    TabsPanel,
+    useTabsState,
+    IUseTabsState,
+    ITabsPanelProps,
+    ITabsListProps,
+    ITabsLinkProps,
+    ITabsButtonProps,
+    TTabsTheme,
+    TTabsWidth
+} from './components/Tabs';
+export {
+    LinkTag,
+    TextTag,
+    RemovableTag,
+    SelectableTag,
+    IBasicTagProps,
+    ILinkTagProps,
+    IRemovableTagProps,
+    ISelectableTagProps,
+    ITextTagProps,
+    TTagSize,
+    TTagTheme
+} from './components/Tag';
+export {
     default as Table,
     TableActionButton,
     TableBody,
@@ -185,5 +223,4 @@ export {
 } from './components/Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
 export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
-export { default as Tag, ITagProps, TTagTheme, TTagSize, TTagType } from './components/Tag';
 export * from './hooks';

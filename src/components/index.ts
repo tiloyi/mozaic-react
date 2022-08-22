@@ -32,6 +32,17 @@ export {
     ICheckBoxPartialProps
 } from './CheckBox';
 export { default as DateInput, IDateInputProps } from './DateInput';
+export {
+    default as FileUploader,
+    FileUploaderInput,
+    FileUploaderFile,
+    FileUploaderFilesList,
+    IFileUploaderProps,
+    IFileUploaderInputProps,
+    IFileUploaderFile,
+    IFileUploaderFileProps,
+    IFileUploaderFilesListProps
+} from './FileUploader';
 export { default as Flag, IFlagProps, TFlagTheme, TFlagVariant } from './Flag';
 export {
     default as Flex,
@@ -145,6 +156,33 @@ export {
     TTableCellVariant,
     TTableSortDirection
 } from './Table';
+export {
+    Tabs,
+    TabsLink,
+    TabsButton,
+    TabsPanel,
+    useTabsState,
+    IUseTabsState,
+    ITabsPanelProps,
+    ITabsListProps,
+    ITabsLinkProps,
+    ITabsButtonProps,
+    TTabsTheme,
+    TTabsWidth
+} from './Tabs';
+export {
+    LinkTag,
+    TextTag,
+    RemovableTag,
+    SelectableTag,
+    IBasicTagProps,
+    ILinkTagProps,
+    IRemovableTagProps,
+    ISelectableTagProps,
+    ITextTagProps,
+    TTagSize,
+    TTagTheme
+} from './Tag';
 export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';
