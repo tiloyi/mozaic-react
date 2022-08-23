@@ -11,10 +11,24 @@ export function getSizeModifier(size: TTableSize): string {
     return `mc-datatable--${size}`;
 }
 
-const Table: FC<ITableProps> = ({ className, children, size = 'm', ...props }): JSX.Element => (
-    <div className={cn('mc-datatable', className, getSizeModifier(size))}>
+const Table: FC<ITableProps> = ({
+    className,
+    containerClassName,
+    children,
+    size = 'm',
+    withStickyHeader,
+    ...props
+}): JSX.Element => (
+    <div
+        className={cn(
+            'mc-datatable',
+            className,
+            getSizeModifier(size),
+            withStickyHeader && 'mc-datatable--sticky-header'
+        )}
+    >
         <div className="mc-datatable__container">
-            <div className="mc-datatable__main">
+            <div className={cn('mc-datatable__main', containerClassName)}>
                 <table className="mc-datatable__table" {...props}>
                     {children}
                 </table>

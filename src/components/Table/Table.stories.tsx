@@ -10,6 +10,7 @@ import TextInput from '../TextInput';
 import Table from './Table';
 import SubTable from './SubTable';
 import { ITableProps, TTableSortDirection } from './Table.types';
+import './Table.stories.scss';
 
 const rows = generateDataTableRows(5);
 
@@ -47,6 +48,37 @@ export const Basic = BasicTemplate.bind({});
 Basic.args = {
     size: 'm'
 };
+
+const StickyHeaderTemplate: Story = () => (
+    <Table withStickyHeader containerClassName="table-container">
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell>Count</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
+                <TableHeaderCell>Link</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            {generateDataTableRows(50).map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.count}</TableCell>
+                    <TableCell>
+                        <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                    </TableCell>
+                    <TableCell>
+                        <Link href="/">Page link</Link>
+                    </TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const StickyHeader = StickyHeaderTemplate.bind({});
 
 const SortableTemplate: Story = () => {
     const [data, setData] = useState<Array<IDataTableFixture>>(() => generateDataTableRows(10));

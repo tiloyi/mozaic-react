@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 import {
     Basic,
+    StickyHeader,
     Sortable,
     CellsWithNumbers,
     CellsWithCheckboxes,
@@ -30,6 +31,18 @@ To use the component in your project you must:
 
 <Canvas>
     <Story story={Basic} />
+</Canvas>
+
+Sticky header:
+
+```css
+.table-container {
+    max-height: 600px;
+}
+```
+
+<Canvas>
+    <Story story={StickyHeader} />
 </Canvas>
 
 Sortable table:

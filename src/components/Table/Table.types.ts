@@ -9,7 +9,9 @@ export const sizes = ['s', 'l', 'm'] as const;
 export type TTableSize = typeof sizes[number];
 
 export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
+    containerClassName?: string;
     size?: TTableSize;
+    withStickyHeader?: boolean;
 }
 
 export interface ISubTableProps extends TableHTMLAttributes<HTMLTableElement> {}
