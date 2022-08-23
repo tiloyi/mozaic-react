@@ -7,6 +7,7 @@ import {
     SelectedRows,
     CellsWithFields,
     CellsWithButtons,
+    TableWithSubTable,
     argTypes
 } from './Table.stories';
 import Table from './Table';
@@ -23,37 +24,56 @@ To use the component in your project you must:
 
 1. Import the component where you need it:
 
-<Source language="javascript" code="import { Table } from '@mozaic-ds/react';" />
+<Source language="javascript" code="import { Table, TableHeader, TableBody, TableRow, TableCell, TableHeaderCell, SubTable } from '@mozaic-ds/react';" />
 
 2. Call the component and give it the desired props, for example:
 
-<Canvas withSource="open">
+<Canvas>
     <Story story={Basic} />
 </Canvas>
 
-<Canvas withSource="open">
+Sortable table:
+
+<Canvas>
     <Story story={Sortable} />
 </Canvas>
 
-<Canvas withSource="open">
+Cells with checkboxes:
+
+<Canvas>
     <Story story={CellsWithCheckboxes} />
 </Canvas>
 
-<Canvas withSource="open">
+Selected rows example:
+
+<Canvas>
     <Story story={SelectedRows} />
 </Canvas>
 
-<Canvas withSource="open">
+Cells with numbers:
+
+<Canvas>
     <Story story={CellsWithNumbers} />
 </Canvas>
 
-<Canvas withSource="open">
+Cells with inputs:
+
+<Canvas>
     <Story story={CellsWithFields} />
 </Canvas>
 
-<Canvas withSource="open">
+Cells with action buttons:
+
+<Canvas>
     <Story story={CellsWithButtons} />
 </Canvas>
+
+Table with sub-table:
+
+<Canvas>
+    <Story story={TableWithSubTable} />
+</Canvas>
+
 
 ## Props
 

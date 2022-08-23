@@ -12,3 +12,9 @@ td {
         text-align: right !important;
     }
 }
+
+.mc-datatable__cell--with-sub-table {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-bottom: none !important;
+}

@@ -6,8 +6,9 @@ import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActi
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
 import Link from '../Link';
-import Table from './Table';
 import TextInput from '../TextInput';
+import Table from './Table';
+import SubTable from './SubTable';
 import { ITableProps, TTableSortDirection } from './Table.types';
 
 const rows = generateDataTableRows(5);
@@ -249,6 +250,57 @@ const CellsWithButtonsTemplate: Story = () => (
 );
 
 export const CellsWithButtons = CellsWithButtonsTemplate.bind({});
+
+const TableWithSubTableTemplate: Story = () => (
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>Id</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell>0</TableCell>
+                <TableCell>Name #0</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell colSpan={2} withSubTable>
+                    <SubTable>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHeaderCell>Label</TableHeaderCell>
+                                <TableHeaderCell>Label</TableHeaderCell>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>Sub text</TableCell>
+                                <TableCell>Sub text</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>Sub text</TableCell>
+                                <TableCell>Sub text</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>Sub text</TableCell>
+                                <TableCell>Sub text</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </SubTable>
+                </TableCell>
+            </TableRow>
+            {rows.slice(1).map(row => (
+                <TableRow key={`row-${row.id}`}>
+                    <TableCell>{row.id}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+);
+
+export const TableWithSubTable = TableWithSubTableTemplate.bind({});
 
 export const argTypes = {
     size: {

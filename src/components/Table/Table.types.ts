@@ -16,7 +16,7 @@ export interface ISubTableProps extends TableHTMLAttributes<HTMLTableElement> {}
 
 export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     variant?: TTableCellVariant;
-    key?: string;
+    withSubTable?: boolean;
 }
 
 export interface ITableRowProps extends HTMLAttributes<HTMLTableRowElement> {
