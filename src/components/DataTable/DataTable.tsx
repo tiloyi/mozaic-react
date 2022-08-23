@@ -12,7 +12,7 @@ function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Ele
                     {columns.map(column => {
                         return (
                             <HeaderCell key={`column-${column.key as string}`} variant={column.variant}>
-                                {column.label}
+                                {column.headerCellRenderer ? column.headerCellRenderer() : column.label}
                             </HeaderCell>
                         );
                     })}
@@ -30,7 +30,7 @@ function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Ele
                                         key={`row-${rowKey}-column-${column.key as string}`}
                                         variant={column.variant}
                                     >
-                                        {row[column.key]}
+                                        {column.cellRenderer ? column.cellRenderer(row, column.key) : row[column.key]}
                                     </TableCell>
                                 );
                             })}

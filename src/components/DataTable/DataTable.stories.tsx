@@ -1,10 +1,11 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Story } from '@storybook/react';
-import { IBasicFixture, generateBasicRows } from './DataTable.fixtures';
+import Badge from '../Badge';
+import Text from '../Text';
+import { IBasicFixture, generateBasicRows, ICustomCellFixture, generateCustomCellRows } from './DataTable.fixtures';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 // import { TTableSortDirection } from '../Table';
-// import Badge from '../Badge';
 // import HeaderCellButton from './HeaderCellButton';
 // import { TableCell, TableRow } from '../Table/partials';
 
@@ -37,11 +38,50 @@ const BasicTemplate: Story = () => {
 
 export const Basic = BasicTemplate.bind({});
 
-// const Template: Story = () => {
-//     const rows = generateDataTableRows(20);
-//
-//     return <DataTable<IDataTableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
-// };
+const CustomCellRendererTemplate: Story = () => {
+    const rows = generateCustomCellRows(15);
+
+    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            },
+            {
+                label: 'Date',
+                key: 'date',
+                cellRenderer: row => row.date.toLocaleDateString(),
+                headerCellRenderer: () => (
+                    <Text theme="warning" size="s">
+                        Date
+                    </Text>
+                )
+            },
+            {
+                label: 'Status',
+                key: 'status',
+                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
+
+    return <DataTable<ICustomCellFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+};
+
+export const CustomCellRenderer = CustomCellRendererTemplate.bind({});
+
 // const CustomRowsTemplate: Story = () => {
 //     const rows = generateDataTableRows(20);
 //
@@ -153,7 +193,6 @@ export const Basic = BasicTemplate.bind({});
 //     return <DataTable<IDataTableFixture> columns={columnsSort} rows={sortedRows} getRowKey={getRowKey} />;
 // };
 //
-// export const Basic = Template.bind({});
 // export const CustomRows = CustomRowsTemplate.bind({});
 // export const ClickableRows = ClickableRowTemplate.bind({});
 // export const SortingRows = SortingRowsTemplate.bind({});

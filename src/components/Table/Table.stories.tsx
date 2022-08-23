@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { generateDataTableRows } from '../DataTable/DataTable.fixtures';
-import { IDataTableFixture } from '../DataTable/DataTable.types';
+import { ICustomCellFixture, generateCustomCellRows } from '../DataTable/DataTable.fixtures';
 import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
@@ -12,7 +11,7 @@ import SubTable from './SubTable';
 import { ITableProps, TTableSortDirection } from './Table.types';
 import './Table.stories.scss';
 
-const rows = generateDataTableRows(5);
+const rows = generateCustomCellRows(5);
 
 const BasicTemplate: Story<ITableProps> = args => (
     <Table {...args}>
@@ -61,7 +60,7 @@ const StickyHeaderTemplate: Story = () => (
             </TableRow>
         </TableHeader>
         <TableBody>
-            {generateDataTableRows(50).map(row => (
+            {generateCustomCellRows(50).map(row => (
                 <TableRow key={`row-${row.id}`}>
                     <TableCell>{row.id}</TableCell>
                     <TableCell>{row.name}</TableCell>
@@ -81,19 +80,19 @@ const StickyHeaderTemplate: Story = () => (
 export const StickyHeader = StickyHeaderTemplate.bind({});
 
 const SortableTemplate: Story = () => {
-    const [data, setData] = useState<Array<IDataTableFixture>>(() => generateDataTableRows(10));
+    const [data, setData] = useState<Array<ICustomCellFixture>>(() => generateCustomCellRows(10));
 
     const [key, setKey] = useState<'name' | 'count' | undefined>();
     const [direction, setDirection] = useState<TTableSortDirection | undefined>();
 
     const countSorter =
         (dir: TTableSortDirection) =>
-        (a: IDataTableFixture, b: IDataTableFixture): number =>
+        (a: ICustomCellFixture, b: ICustomCellFixture): number =>
             dir === 'asc' ? a.count - b.count : b.count - a.count;
 
     const nameSorter =
         (dir: TTableSortDirection) =>
-        (a: IDataTableFixture, b: IDataTableFixture): number =>
+        (a: ICustomCellFixture, b: ICustomCellFixture): number =>
             dir === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
 
     const handleSortByCount = (nextDirection: TTableSortDirection): void => {
