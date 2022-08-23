@@ -227,6 +227,7 @@ export {
     TableHeader,
     TableHeaderCell,
     TableRow,
+    SubTable,
     ITableProps,
     ITableActionButtonProps,
     ITableBodyProps,
@@ -234,8 +235,10 @@ export {
     ITableHeaderProps,
     ITableHeaderCellProps,
     ITableRowProps,
+    ISubTableProps,
     TTableCellVariant,
-    TTableSortDirection
+    TTableSortDirection,
+    TTableSize
 } from './components/Table';
 export {
     default as Text,

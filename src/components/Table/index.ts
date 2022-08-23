@@ -10,6 +10,9 @@ export {
     ITableHeaderCellProps,
     ITableRowProps,
     TTableSortDirection,
-    TTableCellVariant
+    TTableCellVariant,
+    ISubTableProps,
+    TTableSize
 } from './Table.types';
+export { default as SubTable } from './SubTable';
 export default Table;
