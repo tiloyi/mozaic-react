@@ -99,7 +99,8 @@ jobs:
         run: npm run storybook:build
 
       - name: Deploy to GH pages
-        uses: maxheld83/ghpages@v0.3.0
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          build_dir: storybook-static/
         env:
-          BUILD_DIR: storybook-static/
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
