@@ -1,21 +1,23 @@
 import React from 'react';
-import Table, { TableBody, TableCell, TableHeader, TableRow } from '../Table';
+import Table, { TableBody, TableCell, TableHeader, TableRow, TableHeaderCell } from '../Table';
 import { IDataTableProps } from './DataTable.types';
-import './DataTable.scss';
-import HeaderCell from '../Table/partials/HeaderCell';
 
 function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Element {
     return (
         <Table>
             <TableHeader>
                 <TableRow>
-                    {columns.map(column => {
-                        return (
-                            <HeaderCell key={`column-${column.key as string}`} variant={column.variant}>
-                                {column.headerCellRenderer ? column.headerCellRenderer() : column.label}
-                            </HeaderCell>
-                        );
-                    })}
+                    {columns.map(column => (
+                        <TableHeaderCell
+                            key={`column-${column.key as string}`}
+                            variant={column.variant}
+                            isSortable={column.isSortable}
+                            sortDirection={column.sortDirection}
+                            onSort={column.onSort}
+                        >
+                            {column.headerCellRenderer ? column.headerCellRenderer() : column.label}
+                        </TableHeaderCell>
+                    ))}
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -40,21 +42,6 @@ function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Ele
             </TableBody>
         </Table>
     );
-    // return (
-    //     <Table className="mc-datatable__table">
-    //         <TableHeader>
-    //             <TableRow>
-    //                 {columns.map(column => {
-    //                     const { label, key, columnCellRender } = column;
-    //                     return (
-    //                         <HeaderCell key={`column-${key as string}`}>
-    //                             {columnCellRender ? columnCellRender() : label}
-    //                         </HeaderCell>
-    //                     );
-    //                 })}
-    //             </TableRow>
-    //         </TableHeader>
-    //         <TableBody>
     //             {rows.map(row => {
     //                 if (isRowСustomRender && !isRowСustomRender(row)) {
     //                     return null;
@@ -76,9 +63,6 @@ function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Ele
     //                     </TableRow>
     //                 );
     //             })}
-    //         </TableBody>
-    //     </Table>
-    // );
 }
 
 export default DataTable;

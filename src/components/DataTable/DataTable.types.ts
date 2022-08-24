@@ -1,10 +1,13 @@
 import { ReactNode } from 'react';
-import { TTableCellVariant } from '../Table';
+import { TTableCellVariant, TTableSortDirection } from '../Table';
 
 export interface IDataTableColumn<R> {
     key: keyof R;
     label: string;
     variant?: TTableCellVariant;
+    isSortable?: boolean;
+    sortDirection?: TTableSortDirection;
+    onSort?: (sortDirection: TTableSortDirection) => void;
     cellRenderer?: (row: R, key: keyof R) => ReactNode;
     headerCellRenderer?: () => ReactNode;
 }
