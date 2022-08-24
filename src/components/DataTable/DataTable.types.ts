@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TTableCellVariant, TTableSortDirection } from '../Table';
+import { ITableRowProps, TTableCellVariant, TTableSortDirection } from '../Table';
 
 export interface IDataTableColumn<R> {
     key: keyof R;
@@ -21,7 +21,7 @@ export interface IDataTableProps<R> {
     onRowClick?: () => void;
 }
 
-export interface IDataTableRowProps<R> {
+export interface IDataTableRowProps<R> extends ITableRowProps {
     columns: Array<IDataTableColumn<R>>;
     row: R;
     rowKey: string | number;
