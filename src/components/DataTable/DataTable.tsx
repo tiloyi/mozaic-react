@@ -2,7 +2,15 @@ import React from 'react';
 import Table, { TableBody, TableCell, TableHeader, TableRow, TableHeaderCell } from '../Table';
 import { IDataTableProps } from './DataTable.types';
 
-function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Element {
+const defaultRowRendererSelector = (): boolean => false;
+
+function DataTable<R>({
+    columns,
+    rows,
+    getRowKey,
+    rowRenderer,
+    rowRendererSelector = defaultRowRendererSelector
+}: IDataTableProps<R>): JSX.Element {
     return (
         <Table>
             <TableHeader>
@@ -24,45 +32,26 @@ function DataTable<R>({ columns, rows, getRowKey }: IDataTableProps<R>): JSX.Ele
                 {rows.map(row => {
                     const rowKey = getRowKey(row);
 
+                    if (rowRendererSelector(row, rowKey) && rowRenderer !== undefined) {
+                        return rowRenderer(row, rowKey);
+                    }
+
                     return (
                         <TableRow key={`row-${rowKey}`}>
-                            {columns.map(column => {
-                                return (
-                                    <TableCell
-                                        key={`row-${rowKey}-column-${column.key as string}`}
-                                        variant={column.variant}
-                                    >
-                                        {column.cellRenderer ? column.cellRenderer(row, column.key) : row[column.key]}
-                                    </TableCell>
-                                );
-                            })}
+                            {columns.map(column => (
+                                <TableCell
+                                    key={`row-${rowKey}-column-${column.key as string}`}
+                                    variant={column.variant}
+                                >
+                                    {column.cellRenderer ? column.cellRenderer(row, column.key) : row[column.key]}
+                                </TableCell>
+                            ))}
                         </TableRow>
                     );
                 })}
             </TableBody>
         </Table>
     );
-    //             {rows.map(row => {
-    //                 if (isRowСustomRender && !isRowСustomRender(row)) {
-    //                     return null;
-    //                 }
-    //                 const rowKey = getRowKey(row);
-    //
-    //                 return customRowRender ? (
-    //                     customRowRender(row, rowKey)
-    //                 ) : (
-    //                     <TableRow key={`row-${rowKey}`}>
-    //                         {columns.map(column => {
-    //                             const { variant, key, rowCellRender } = column;
-    //                             return (
-    //                                 <TableCell key={`row-${rowKey}-cell-${key as string}`} variant={variant}>
-    //                                     {rowCellRender ? rowCellRender(row, key) : row[key]}
-    //                                 </TableCell>
-    //                             );
-    //                         })}
-    //                     </TableRow>
-    //                 );
-    //             })}
 }
 
 export default DataTable;

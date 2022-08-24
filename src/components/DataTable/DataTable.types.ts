@@ -17,5 +17,5 @@ export interface IDataTableProps<R> {
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => string | number;
     rowRenderer?: (row: R, key: string | number) => ReactNode;
-    // isRowСustomRender?: (row: R) => boolean;
+    rowRendererSelector?: (row: R, key: string | number) => boolean;
 }
