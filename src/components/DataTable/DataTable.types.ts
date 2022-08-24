@@ -18,4 +18,11 @@ export interface IDataTableProps<R> {
     getRowKey: (row: R) => string | number;
     rowRenderer?: (row: R, key: string | number) => ReactNode;
     rowRendererSelector?: (row: R, key: string | number) => boolean;
+    onRowClick?: () => void;
+}
+
+export interface IDataTableRowProps<R> {
+    columns: Array<IDataTableColumn<R>>;
+    row: R;
+    rowKey: string | number;
 }

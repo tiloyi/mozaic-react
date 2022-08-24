@@ -140,6 +140,54 @@ const CustomCellRendererTemplate: Story = () => {
 
 export const CustomCellRenderer = CustomCellRendererTemplate.bind({});
 
+const CustomRowRendererTemplate: Story = () => {
+    const rows = generateCustomCellRows(15);
+
+    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            },
+            {
+                label: 'Date',
+                key: 'date',
+                cellRenderer: row => row.date.toLocaleDateString()
+            },
+            {
+                label: 'Status',
+                key: 'status',
+                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
+
+    const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
+
+    return (
+        <DataTable<ICustomCellFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            rowRendererSelector={rowRendererSelector}
+        />
+    );
+};
+
+export const CustomRowRenderer = CustomRowRendererTemplate.bind({});
+
 // const CustomRowsTemplate: Story = () => {
 //     const rows = generateDataTableRows(20);
 //
@@ -186,71 +234,7 @@ export const CustomCellRenderer = CustomCellRendererTemplate.bind({});
 //     );
 // };
 //
-// const SortingRowsTemplate: Story = () => {
-//     const rows = generateDataTableRows(20);
-//     const [sortingDirection, setSortingDirection] = useState<TTableSortDirection>();
-//     const [sortedRows, setSortedRows] = useState<Array<IDataTableFixture>>(rows);
-//
-//     const countSorter =
-//         (dir: TTableSortDirection) =>
-//         (a: IDataTableFixture, b: IDataTableFixture): number =>
-//             dir === 'asc' ? a.count - b.count : b.count - a.count;
-//
-//     const handlerSortRows = useCallback(
-//         (direction: TTableSortDirection, sortRows: Array<IDataTableFixture>): void => {
-//             if (sortingDirection === 'asc') {
-//                 setSortingDirection('desc');
-//             } else {
-//                 setSortingDirection('asc');
-//             }
-//             setSortedRows(sortRows.sort(countSorter(direction)));
-//         },
-//         [setSortingDirection, sortingDirection, setSortedRows]
-//     );
-//
-//     const columnsSort: Array<IDataTableColumn<IDataTableFixture>> = useMemo(
-//         () => [
-//             {
-//                 label: 'Id',
-//                 key: 'id'
-//             },
-//             {
-//                 label: 'Name',
-//                 key: 'name'
-//             },
-//             {
-//                 label: 'Count',
-//                 key: 'count',
-//                 variant: 'number',
-//                 columnCellRender: () => (
-//                     <HeaderCellButton
-//                         isSortable
-//                         sortingDirection={sortingDirection}
-//                         handleSort={() => handlerSortRows(sortingDirection, sortedRows)}
-//                     >
-//                         Count
-//                     </HeaderCellButton>
-//                 )
-//             },
-//             {
-//                 label: 'Date',
-//                 key: 'date',
-//                 rowCellRender: (row: IDataTableFixture) => row.date.toLocaleDateString()
-//             },
-//             {
-//                 label: 'Status',
-//                 key: 'status',
-//                 rowCellRender: (row: IDataTableFixture) => (
-//                     <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-//                 )
-//             }
-//         ],
-//         [sortingDirection, sortedRows, handlerSortRows]
-//     );
-//
-//     return <DataTable<IDataTableFixture> columns={columnsSort} rows={sortedRows} getRowKey={getRowKey} />;
-// };
+
 //
 // export const CustomRows = CustomRowsTemplate.bind({});
 // export const ClickableRows = ClickableRowTemplate.bind({});
-// export const SortingRows = SortingRowsTemplate.bind({});

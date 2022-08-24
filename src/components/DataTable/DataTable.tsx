@@ -1,5 +1,6 @@
 import React from 'react';
-import Table, { TableBody, TableCell, TableHeader, TableRow, TableHeaderCell } from '../Table';
+import Table, { TableBody, TableHeader, TableRow, TableHeaderCell } from '../Table';
+import { DataTableRow } from './partials';
 import { IDataTableProps } from './DataTable.types';
 
 const defaultRowRendererSelector = (): boolean => false;
@@ -36,18 +37,7 @@ function DataTable<R>({
                         return rowRenderer(row, rowKey);
                     }
 
-                    return (
-                        <TableRow key={`row-${rowKey}`}>
-                            {columns.map(column => (
-                                <TableCell
-                                    key={`row-${rowKey}-column-${column.key as string}`}
-                                    variant={column.variant}
-                                >
-                                    {column.cellRenderer ? column.cellRenderer(row, column.key) : row[column.key]}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    );
+                    return <DataTableRow<R> key={rowKey} rowKey={rowKey} row={row} columns={columns} />;
                 })}
             </TableBody>
         </Table>

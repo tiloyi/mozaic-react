@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 
 [//]: # (import { Basic, SortingRows, CustomRows, ClickableRows, argTypes } from './DataTable.stories';)
 
-import { Basic, Sorting, CustomCellRenderer } from './DataTable.stories';
+import { Basic, Sorting, CustomCellRenderer, CustomRowRenderer } from './DataTable.stories';
 import DataTable from './DataTable';
 
 <Meta title="Components/DataTable" component={DataTable} />
@@ -35,21 +35,17 @@ Example with sorting:
     <Story story={Sorting} />
 </Canvas>
 
-
 Custom cell renderer example:
 
 <Canvas>
     <Story story={CustomCellRenderer} />
 </Canvas>
 
-[//]: # (Custom rows)
+Custom row renderer example:
 
-[//]: # ()
-[//]: # (<Canvas withSource="open">)
-
-[//]: # (    <Story story={CustomRows} />)
-
-[//]: # (</Canvas>)
+<Canvas>
+    <Story story={CustomRowRenderer} />
+</Canvas>
 
 [//]: # ()
 [//]: # (Clickable rows)
@@ -61,15 +57,6 @@ Custom cell renderer example:
 
 [//]: # (</Canvas>)
 
-[//]: # ()
-[//]: # (Sorting rows)
-
-[//]: # ()
-[//]: # (<Canvas withSource="open">)
-
-[//]: # (    <Story story={SortingRows} />)
-
-[//]: # (</Canvas>)
 
 ## Props
 
