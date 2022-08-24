@@ -1,0 +1,64 @@
+import {
+    Meta,
+    Story,
+    Canvas,
+    Source,
+    ArgsTable,
+} from '@storybook/addon-docs';
+import { WithMonoSelection, WithMultiSelection, LeftOpening, Disabled, WithDefaultSelected, WithIcon, argTypes } from './ListBox.stories';
+import ListBox from './ListBox';
+
+<Meta title="Components/ListBox" component={ListBox} argTypes={argTypes}/>
+
+# ListBox
+
+The `ListBox` component is the **React.js** implementation of the **Mozaic ListBox** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/ListBox/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source
+    language="javascript"
+    code="import { ListBox } from '@mozaic-ds/react';"
+/>
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas withSource="open">
+    <Story story={WithMonoSelection}/>
+</Canvas>
+
+Example with multi selection:
+
+<Canvas withSource="open">
+    <Story story={WithMultiSelection} />
+</Canvas>
+
+Example with left opening list box:
+<Canvas withSource="open">
+    <Story story={LeftOpening} />
+</Canvas>
+
+Example with disabled elements:
+<Canvas withSource="open">
+    <Story story={Disabled} />
+</Canvas>
+
+Example with default selected:
+<Canvas withSource="open">
+    <Story story={WithDefaultSelected} />
+</Canvas>
+
+Example with icons:
+<Canvas withSource="open">
+    <Story story={WithIcon} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={ListBox}/>
