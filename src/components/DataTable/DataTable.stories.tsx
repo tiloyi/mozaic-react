@@ -4,7 +4,8 @@ import Badge from '../Badge';
 import { TTableSortDirection } from '../Table';
 import Text from '../Text';
 import { IBasicFixture, generateBasicRows, ICustomCellFixture, generateCustomCellRows } from './DataTable.fixtures';
-import { IDataTableColumn } from './DataTable.types';
+import { DataTableRow } from './partials';
+import { IDataTableColumn, TDataTableRowKey } from './DataTable.types';
 import DataTable from './DataTable';
 
 const BasicTemplate: Story = () => {
@@ -176,40 +177,29 @@ const CustomRowRendererTemplate: Story = () => {
 
     const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
 
+    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
+        <DataTableRow<ICustomCellFixture>
+            key={getRowKey(row)}
+            row={row}
+            getRowKey={getRowKey}
+            columns={columns}
+            isSelected
+        />
+    );
+
     return (
         <DataTable<ICustomCellFixture>
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
             rowRendererSelector={rowRendererSelector}
+            rowRenderer={rowRenderer}
         />
     );
 };
 
 export const CustomRowRenderer = CustomRowRendererTemplate.bind({});
 
-// const CustomRowsTemplate: Story = () => {
-//     const rows = generateDataTableRows(20);
-//
-//     return (
-//         <DataTable<IDataTableFixture>
-//             columns={columns}
-//             rows={rows}
-//             getRowKey={getRowKey}
-//             customRowRender={(row, rowKey) => (
-//                 <TableRow key={`row-${rowKey}`}>
-//                     {columns.map(column => (
-//                         <TableCell key={`row-${rowKey}-cell-${column.key as string}`} variant={column.variant}>
-//                             {column.rowCellRender ? column.rowCellRender(row, column.key) : row[column.key]}
-//                         </TableCell>
-//                     ))}
-//                 </TableRow>
-//             )}
-//             isRowСustomRender={row => row.id % 2 === 0}
-//         />
-//     );
-// };
-//
 // const ClickableRowTemplate: Story = () => {
 //     const rows = generateDataTableRows(20);
 //     const handleClickRow = (name: string): void => {

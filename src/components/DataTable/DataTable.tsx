@@ -37,7 +37,7 @@ function DataTable<R>({
                         return rowRenderer(row, rowKey);
                     }
 
-                    return <DataTableRow<R> key={rowKey} rowKey={rowKey} row={row} columns={columns} />;
+                    return <DataTableRow<R> key={rowKey} getRowKey={getRowKey} row={row} columns={columns} />;
                 })}
             </TableBody>
         </Table>
