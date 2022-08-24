@@ -7,7 +7,7 @@ import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
 import { ILayerContainerProps } from '../Layer.types';
 
 const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
-    const { register, unregister } = useModals();
+    const { register, unregister, close } = useModals();
     const modals = useModalsState();
     const isMounted = useIsMounted();
 
@@ -33,6 +33,10 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClos
         }
     }, [modalState, isMounted, onOpen, onClose]);
 
+    const handleOverlayClick = () => {
+        close(id);
+    };
+
     return (
         <Portal id={`portal-layer-${id}`}>
             <div className="mc-layer" role="dialog" tabIndex={-1}>
@@ -40,7 +44,7 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClos
                     {isOpen && children}
                 </div>
             </div>
-            <Overlay isVisible={isOpen} />
+            <Overlay isVisible={isOpen} onClick={handleOverlayClick} />
         </Portal>
     );
 };
