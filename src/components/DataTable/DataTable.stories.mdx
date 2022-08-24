@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 
 [//]: # (import { Basic, SortingRows, CustomRows, ClickableRows, argTypes } from './DataTable.stories';)
 
-import { Basic, Sorting, CustomCellRenderer, CustomRowRenderer } from './DataTable.stories';
+import { Basic, ClickOnRow, Sorting, CustomCellRenderer, CustomRowRenderer } from './DataTable.stories';
 import DataTable from './DataTable';
 
 <Meta title="Components/DataTable" component={DataTable} />
@@ -27,6 +27,12 @@ Basic example:
 
 <Canvas>
     <Story story={Basic} />
+</Canvas>
+
+Click on row example:
+
+<Canvas>
+    <Story story={ClickOnRow} />
 </Canvas>
 
 Example with sorting:

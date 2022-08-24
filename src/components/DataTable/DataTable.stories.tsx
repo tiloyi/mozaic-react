@@ -1,11 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 import { TTableSortDirection } from '../Table';
 import Text from '../Text';
 import { IBasicFixture, generateBasicRows, ICustomCellFixture, generateCustomCellRows } from './DataTable.fixtures';
 import { DataTableRow } from './partials';
-import { IDataTableColumn, TDataTableRowKey } from './DataTable.types';
+import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 
 const BasicTemplate: Story = () => {
@@ -36,6 +37,37 @@ const BasicTemplate: Story = () => {
 };
 
 export const Basic = BasicTemplate.bind({});
+
+const ClickOnRowTemplate: Story = () => {
+    const rows = generateBasicRows(5);
+
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return (
+        <DataTable<IBasicFixture> columns={columns} rows={rows} getRowKey={getRowKey} onRowClick={action('Click!')} />
+    );
+};
+
+export const ClickOnRow = ClickOnRowTemplate.bind({});
 
 const SortingTemplate: Story = () => {
     const [rows, setRows] = useState<Array<IBasicFixture>>(() => generateBasicRows(10));
@@ -199,32 +231,3 @@ const CustomRowRendererTemplate: Story = () => {
 };
 
 export const CustomRowRenderer = CustomRowRendererTemplate.bind({});
-
-// const ClickableRowTemplate: Story = () => {
-//     const rows = generateDataTableRows(20);
-//     const handleClickRow = (name: string): void => {
-//         alert(`You click ${name} row`);
-//     };
-//     return (
-//         <DataTable<IDataTableFixture>
-//             columns={columns}
-//             rows={rows}
-//             getRowKey={getRowKey}
-//             customRowRender={(row, rowKey) => (
-//                 <TableRow key={`row-${rowKey}`} onClick={() => handleClickRow(row.name)}>
-//                     {columns.map(column => (
-//                         <TableCell key={`row-${rowKey}-cell-${column.key as string}`} variant={column.variant}>
-//                             {column.rowCellRender ? column.rowCellRender(row, column.key) : row[column.key]}
-//                         </TableCell>
-//                     ))}
-//                 </TableRow>
-//             )}
-//             isRowСustomRender={row => row.id % 2 === 0}
-//         />
-//     );
-// };
-//
-
-//
-// export const CustomRows = CustomRowsTemplate.bind({});
-// export const ClickableRows = ClickableRowTemplate.bind({});

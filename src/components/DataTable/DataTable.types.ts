@@ -20,11 +20,12 @@ export interface IDataTableProps<R> {
     getRowKey: (row: R) => TDataTableRowKey;
     rowRenderer?: (row: R, key: TDataTableRowKey) => ReactNode;
     rowRendererSelector?: (row: R, key: TDataTableRowKey) => boolean;
-    onRowClick?: () => void;
+    onRowClick?: (row: R) => void;
 }
 
-export interface IDataTableRowProps<R> extends ITableRowProps {
+export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     columns: Array<IDataTableColumn<R>>;
     row: R;
     getRowKey: (row: R) => TDataTableRowKey;
+    onClick?: (row: R) => void;
 }

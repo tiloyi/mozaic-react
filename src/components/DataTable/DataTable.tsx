@@ -10,7 +10,8 @@ function DataTable<R>({
     rows,
     getRowKey,
     rowRenderer,
-    rowRendererSelector = defaultRowRendererSelector
+    rowRendererSelector = defaultRowRendererSelector,
+    onRowClick
 }: IDataTableProps<R>): JSX.Element {
     return (
         <Table>
@@ -37,7 +38,15 @@ function DataTable<R>({
                         return rowRenderer(row, rowKey);
                     }
 
-                    return <DataTableRow<R> key={rowKey} getRowKey={getRowKey} row={row} columns={columns} />;
+                    return (
+                        <DataTableRow<R>
+                            key={rowKey}
+                            getRowKey={getRowKey}
+                            row={row}
+                            columns={columns}
+                            onClick={onRowClick}
+                        />
+                    );
                 })}
             </TableBody>
         </Table>
