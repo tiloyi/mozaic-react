@@ -1,4 +1,5 @@
 import Table from './Table';
+import './Table.scss';
 
 export * from './partials';
 export {

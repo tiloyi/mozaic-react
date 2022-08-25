@@ -3,6 +3,16 @@ import { ITableCellProps, ITableRowProps, TTableCellVariant, TTableSortDirection
 
 export type TDataTableRowKey = string | number;
 
+export type TDataTableRowSelector<R> = (row: R, key: TDataTableRowKey) => boolean;
+
+export type TDataTableRowRenderer<R> = (row: R, key: TDataTableRowKey) => ReactNode;
+
+export type TDataTableRowClickHandler<R> = (row: R) => void;
+
+export type TDataTableRowExpandHandler<R> = (row: R, isExpanded: boolean) => void;
+
+export type TDataTableRowCheckHandler<R> = (row: R, isChecked: boolean) => void;
+
 export interface IDataTableColumn<R> extends ITableCellProps {
     key: keyof R;
     label: string;
@@ -14,21 +24,42 @@ export interface IDataTableColumn<R> extends ITableCellProps {
     headerCellRenderer?: () => ReactNode;
 }
 
+export interface IDataTableContainerProps<R> {
+    children?: ReactNode;
+    rows: Array<R>;
+    columns: Array<IDataTableColumn<R>>;
+    getRowKey: (row: R) => TDataTableRowKey;
+    getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
+    customRowRenderer?: TDataTableRowRenderer<R>;
+    customRowSelector?: TDataTableRowSelector<R>;
+    expandedRowRenderer?: TDataTableRowRenderer<R>;
+    expandedRowSelector?: TDataTableRowSelector<R>;
+    onRowClick?: TDataTableRowClickHandler<R>;
+    onRowExpand?: TDataTableRowExpandHandler<R>;
+    onRowCheck?: (row: R, isChecked: boolean) => void;
+}
+
 export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => TDataTableRowKey;
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
-    rowRenderer?: (row: R, key: TDataTableRowKey) => ReactNode;
-    rowRendererSelector?: (row: R, key: TDataTableRowKey) => boolean;
-    onRowClick?: (row: R) => void;
+    customRowRenderer?: TDataTableRowRenderer<R>;
+    customRowSelector?: TDataTableRowSelector<R>;
+    expandedRowRenderer?: TDataTableRowRenderer<R>;
+    expandedRowSelector?: TDataTableRowSelector<R>;
+    onRowClick?: TDataTableRowClickHandler<R>;
+    onRowExpand?: TDataTableRowExpandHandler<R>;
+    onRowCheck?: (row: R, isChecked: boolean) => void;
 }
 
 export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     columns: Array<IDataTableColumn<R>>;
     row: R;
     getRowKey: (row: R) => TDataTableRowKey;
-    onClick?: (row: R) => void;
+    onClick?: TDataTableRowClickHandler<R>;
+    onExpand?: TDataTableRowExpandHandler<R>;
+    onCheck?: (row: R, isChecked: boolean) => void;
 }
 
 export interface IDataTableContextProps {

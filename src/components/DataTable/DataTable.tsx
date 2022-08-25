@@ -12,8 +12,8 @@ function DataTable<R>({
     rows,
     getRowKey,
     getRowClassName = getDefaultRowClassName,
-    rowRenderer,
-    rowRendererSelector = defaultRowRendererSelector,
+    customRowRenderer,
+    customRowSelector = defaultRowRendererSelector,
     onRowClick
 }: IDataTableProps<R>): JSX.Element {
     return (
@@ -35,8 +35,8 @@ function DataTable<R>({
                 {rows.map(row => {
                     const rowKey = getRowKey(row);
 
-                    if (rowRendererSelector(row, rowKey) && rowRenderer !== undefined) {
-                        return rowRenderer(row, rowKey);
+                    if (customRowSelector(row, rowKey) && customRowRenderer !== undefined) {
+                        return customRowRenderer(row, rowKey);
                     }
 
                     return (

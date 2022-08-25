@@ -6,6 +6,10 @@
 @import "components/_c.datatable-footer";
 @import "components/_c.datatable-subtable";
 
+.mc-datatable__main {
+    background-color: #ffffff;
+}
+
 th,
 td {
     &.mc-datatable__cell-number {

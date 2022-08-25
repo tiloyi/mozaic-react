@@ -5,7 +5,7 @@ import Badge from '../Badge';
 import { TTableSortDirection } from '../Table';
 import Text from '../Text';
 import { IBasicFixture, generateBasicRows, ICustomCellFixture, generateCustomCellRows } from './DataTable.fixtures';
-import { DataTableRow } from './partials';
+import { DataTableContainer, DataTableHeader, DataTableBody, DataTableFooter, DataTableRow } from './partials';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 
@@ -33,7 +33,12 @@ const BasicTemplate: Story = () => {
 
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
-    return <DataTable<IBasicFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+    return (
+        <DataTableContainer<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey}>
+            <DataTableHeader />
+            <DataTableBody />
+        </DataTableContainer>
+    );
 };
 
 export const Basic = BasicTemplate.bind({});
@@ -185,7 +190,7 @@ const SortingTemplate: Story = () => {
 
 export const Sorting = SortingTemplate.bind({});
 
-const CustomCellRendererTemplate: Story = () => {
+const CustomCellTemplate: Story = () => {
     const rows = generateCustomCellRows(15);
 
     const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
@@ -227,9 +232,9 @@ const CustomCellRendererTemplate: Story = () => {
     return <DataTable<ICustomCellFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
 };
 
-export const CustomCellRenderer = CustomCellRendererTemplate.bind({});
+export const CustomCell = CustomCellTemplate.bind({});
 
-const CustomRowRendererTemplate: Story = () => {
+const CustomRowsTemplate: Story = () => {
     const rows = generateCustomCellRows(15);
 
     const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
@@ -280,13 +285,13 @@ const CustomRowRendererTemplate: Story = () => {
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
-            rowRendererSelector={rowRendererSelector}
-            rowRenderer={rowRenderer}
+            customRowSelector={rowRendererSelector}
+            customRowRenderer={rowRenderer}
         />
     );
 };
 
-export const CustomRowRenderer = CustomRowRendererTemplate.bind({});
+export const CustomRows = CustomRowsTemplate.bind({});
 
 const WithCheckBoxesTemplate: Story = () => {
     const rows = generateCustomCellRows(15);
@@ -339,15 +344,15 @@ const WithCheckBoxesTemplate: Story = () => {
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
-            rowRendererSelector={rowRendererSelector}
-            rowRenderer={rowRenderer}
+            customRowSelector={rowRendererSelector}
+            customRowRenderer={rowRenderer}
         />
     );
 };
 
 export const ToDoWithCheckBoxes = WithCheckBoxesTemplate.bind({});
 
-const WithExpandableRowsTemplate: Story = () => {
+const ExpandedRowsTemplate: Story = () => {
     const rows = generateCustomCellRows(15);
 
     const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
@@ -398,10 +403,10 @@ const WithExpandableRowsTemplate: Story = () => {
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
-            rowRendererSelector={rowRendererSelector}
-            rowRenderer={rowRenderer}
+            customRowSelector={rowRendererSelector}
+            customRowRenderer={rowRenderer}
         />
     );
 };
 
-export const ToDoWithExpandableRows = WithExpandableRowsTemplate.bind({});
+export const ToDoWithExpandableRows = ExpandedRowsTemplate.bind({});

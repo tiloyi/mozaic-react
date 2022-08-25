@@ -8,11 +8,12 @@ export const sizes = ['s', 'l', 'm'] as const;
 
 export type TTableSize = typeof sizes[number];
 
-export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
-    containerClassName?: string;
+export interface ITableContainerProps extends HTMLAttributes<HTMLDivElement> {
     size?: TTableSize;
     withStickyHeader?: boolean;
 }
+
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {}
 
 export interface ISubTableProps extends TableHTMLAttributes<HTMLTableElement> {}
 
