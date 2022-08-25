@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import ListBox from './ListBox';
 import { ListBoxItem } from './index';
 import { IListBoxProps } from './ListBox.types';
+import SVGIcon from '../../../.storybook/assets/SVGIcon';
 
 const setup = (options: IListBoxProps, children?: ReactElement): ReactElement => (
     <ListBox {...options}>{children}</ListBox>
@@ -14,6 +15,14 @@ const TestListBoxItems = (): ReactElement => (
         <ListBoxItem id="test1" isDisabled />
         <ListBoxItem id="test2" />
         <ListBoxItem id="test3" />
+    </>
+);
+
+const TestListBoxItemsWithIcons = (): ReactElement => (
+    <>
+        <ListBoxItem id="test1" icon={<SVGIcon />} />
+        <ListBoxItem id="test2" icon={<SVGIcon />} />
+        <ListBoxItem id="test3" icon={<SVGIcon />} />
     </>
 );
 
@@ -101,5 +110,12 @@ describe('components/ListBox', () => {
 
         const listBoxContainer = screen.getByLabelText('listbox');
         expect(listBoxContainer).toHaveClass('mc-listbox--left');
+    });
+
+    test('with icons', () => {
+        render(setup({ isOpened: true }, <TestListBoxItemsWithIcons />));
+
+        const icons = document.querySelectorAll('.mc-listbox__icon');
+        expect(icons.length).toBe(3);
     });
 });
