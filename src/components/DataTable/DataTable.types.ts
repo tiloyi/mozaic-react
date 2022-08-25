@@ -30,3 +30,7 @@ export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     getRowKey: (row: R) => TDataTableRowKey;
     onClick?: (row: R) => void;
 }
+
+export interface IDataTableContextProps {
+    children?: ReactNode;
+}
