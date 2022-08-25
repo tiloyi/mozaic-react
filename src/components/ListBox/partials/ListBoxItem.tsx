@@ -41,7 +41,7 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
                 )}
                 {...props}
             >
-                {icon}
+                {icon && <span className="mc-listbox__icon">{icon}</span>}
                 <span className="mc-listbox__label">{children}</span>
             </li>
         </button>
