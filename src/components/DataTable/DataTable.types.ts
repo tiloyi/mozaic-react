@@ -11,7 +11,7 @@ export type TDataTableRowClickHandler<R> = (row: R) => void;
 
 export type TDataTableRowExpandHandler<R> = (row: R, isExpanded: boolean) => void;
 
-export type TDataTableRowCheckHandler<R> = (row: R, isChecked: boolean) => void;
+export type TDataTableRowSelectHandler<R> = (row: R, isSelected: boolean) => void;
 
 export interface IDataTableColumn<R> extends ITableCellProps {
     key: keyof R;
@@ -36,7 +36,7 @@ export interface IDataTableContainerProps<R> {
     expandedRowSelector?: TDataTableRowSelector<R>;
     onRowClick?: TDataTableRowClickHandler<R>;
     onRowExpand?: TDataTableRowExpandHandler<R>;
-    onRowCheck?: (row: R, isChecked: boolean) => void;
+    onRowSelect?: TDataTableRowSelectHandler<R>;
 }
 
 export interface IDataTableProps<R> {
@@ -50,16 +50,16 @@ export interface IDataTableProps<R> {
     expandedRowSelector?: TDataTableRowSelector<R>;
     onRowClick?: TDataTableRowClickHandler<R>;
     onRowExpand?: TDataTableRowExpandHandler<R>;
-    onRowCheck?: (row: R, isChecked: boolean) => void;
+    onRowSelect?: TDataTableRowSelectHandler<R>;
 }
 
-export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
-    columns: Array<IDataTableColumn<R>>;
+export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick' | 'onSelect'> {
     row: R;
+    columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => TDataTableRowKey;
     onClick?: TDataTableRowClickHandler<R>;
     onExpand?: TDataTableRowExpandHandler<R>;
-    onCheck?: (row: R, isChecked: boolean) => void;
+    onSelect?: TDataTableRowSelectHandler<R>;
 }
 
 export interface IDataTableContextProps {
