@@ -29,8 +29,10 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
             type="button"
             onFocus={onFocusHandler}
             onBlur={onBlurHandler}
+            aria-label="listbox item button"
         >
             <li
+                aria-label="listbox item"
                 className={cn(
                     'mc-listbox__item',
                     isItemChecked(id) && 'is-checked',

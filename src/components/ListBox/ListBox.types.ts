@@ -1,5 +1,4 @@
 import { HTMLAttributes, ReactElement } from 'react';
-import { IUseListBoxMethods } from './useListBoxState';
 
 export interface IListBoxContainerProps extends HTMLAttributes<HTMLUListElement> {
     leftOpening?: boolean;
@@ -12,7 +11,7 @@ export interface IListBoxProps extends IListBoxContainerProps {
     isOpened: boolean;
 }
 
-export interface IListBoxContextProps extends IUseListBoxMethods {
+export interface IListBoxContextProps extends IUseListBoxStateMethods {
     withMultiSelection?: boolean;
     isOpened: boolean;
 }
@@ -29,4 +28,9 @@ export interface IListBoxItemProps extends HTMLAttributes<HTMLLIElement> {
     id: TListBoxItemId;
     icon?: ReactElement;
     isDisabled?: boolean;
+}
+
+export interface IUseListBoxStateMethods {
+    check: (id: TListBoxItemId) => void;
+    isItemChecked: (id: TListBoxItemId) => boolean;
 }

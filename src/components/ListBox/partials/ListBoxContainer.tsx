@@ -11,7 +11,7 @@ const ListBoxContainer: FC<IListBoxContainerProps> = ({ leftOpening, children })
         <ul
             tabIndex={-1}
             role="listbox"
-            aria-labelledby="listbox"
+            aria-label="listbox"
             className={cn('mc-listbox', leftOpening && 'mc-listbox--left', isOpened && 'is-open')}
         >
             {children}

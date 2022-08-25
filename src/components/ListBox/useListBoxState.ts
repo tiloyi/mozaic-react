@@ -1,10 +1,5 @@
 import { useCallback, useState } from 'react';
-import { TListBoxItemId } from './ListBox.types';
-
-export interface IUseListBoxMethods {
-    check: (id: TListBoxItemId) => void;
-    isItemChecked: (id: TListBoxItemId) => boolean;
-}
+import { IUseListBoxStateMethods, TListBoxItemId } from './ListBox.types';
 
 export type TListBoxItemsChecked = Record<TListBoxItemId, boolean>;
 
@@ -34,7 +29,10 @@ function mapDefaultSelected(
     return output;
 }
 
-export default function useListBoxState({ withMultiSelection, defaultSelected }: IUseListBoxProps): IUseListBoxMethods {
+export default function useListBoxState({
+    withMultiSelection,
+    defaultSelected
+}: IUseListBoxProps): IUseListBoxStateMethods {
     const [checkedOptions, setCheckedOptions] = useState<TListBoxItemsChecked>(
         mapDefaultSelected(defaultSelected, withMultiSelection)
     );
