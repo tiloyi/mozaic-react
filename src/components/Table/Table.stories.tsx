@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import { ICustomCellFixture, generateCustomCellRows } from '../DataTable/DataTable.fixtures';
-import { TableHeader, TableBody, TableRow, TableHeaderCell, TableCell, TableActionButton } from './partials';
+import {
+    TableHeader,
+    TableBody,
+    TableRow,
+    TableHeaderCell,
+    TableCell,
+    TableActionButton,
+    TableExpandButton
+} from './partials';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
 import Link from '../Link';
@@ -262,6 +270,7 @@ const CellsWithButtonsTemplate: Story = () => (
                 <TableHeaderCell>Id</TableHeaderCell>
                 <TableHeaderCell>Name</TableHeaderCell>
                 <TableHeaderCell />
+                <TableHeaderCell />
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -269,6 +278,9 @@ const CellsWithButtonsTemplate: Story = () => (
                 <TableRow key={`row-${row.id}`}>
                     <TableCell>{row.id}</TableCell>
                     <TableCell>{row.name}</TableCell>
+                    <TableCell variant="button">
+                        <TableExpandButton>Expand it</TableExpandButton>
+                    </TableCell>
                     <TableCell variant="button">
                         <TableActionButton>
                             <IconMore />

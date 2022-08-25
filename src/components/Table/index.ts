@@ -1,6 +1,6 @@
 import Table from './Table';
 
-export { TableActionButton, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from './partials';
+export * from './partials';
 export {
     ITableProps,
     ITableActionButtonProps,
