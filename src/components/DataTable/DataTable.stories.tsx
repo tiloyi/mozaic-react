@@ -38,6 +38,62 @@ const BasicTemplate: Story = () => {
 
 export const Basic = BasicTemplate.bind({});
 
+const EmptyTableTemplate: Story = () => {
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return <DataTable<IBasicFixture> columns={columns} rows={[]} getRowKey={getRowKey} />;
+};
+
+export const ToDoEmptyTable = EmptyTableTemplate.bind({});
+
+const PendingTemplate: Story = () => {
+    const rows = generateBasicRows(15);
+
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return <DataTable<IBasicFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+};
+
+export const ToDoPending = PendingTemplate.bind({});
+
 const ClickOnRowTemplate: Story = () => {
     const rows = generateBasicRows(5);
 
@@ -231,3 +287,121 @@ const CustomRowRendererTemplate: Story = () => {
 };
 
 export const CustomRowRenderer = CustomRowRendererTemplate.bind({});
+
+const WithCheckBoxesTemplate: Story = () => {
+    const rows = generateCustomCellRows(15);
+
+    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            },
+            {
+                label: 'Date',
+                key: 'date',
+                cellRenderer: row => row.date.toLocaleDateString()
+            },
+            {
+                label: 'Status',
+                key: 'status',
+                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
+
+    const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
+
+    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
+        <DataTableRow<ICustomCellFixture>
+            key={getRowKey(row)}
+            row={row}
+            getRowKey={getRowKey}
+            columns={columns}
+            isSelected
+        />
+    );
+
+    return (
+        <DataTable<ICustomCellFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            rowRendererSelector={rowRendererSelector}
+            rowRenderer={rowRenderer}
+        />
+    );
+};
+
+export const ToDoWithCheckBoxes = WithCheckBoxesTemplate.bind({});
+
+const WithExpandableRowsTemplate: Story = () => {
+    const rows = generateCustomCellRows(15);
+
+    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            },
+            {
+                label: 'Date',
+                key: 'date',
+                cellRenderer: row => row.date.toLocaleDateString()
+            },
+            {
+                label: 'Status',
+                key: 'status',
+                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
+
+    const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
+
+    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
+        <DataTableRow<ICustomCellFixture>
+            key={getRowKey(row)}
+            row={row}
+            getRowKey={getRowKey}
+            columns={columns}
+            isSelected
+        />
+    );
+
+    return (
+        <DataTable<ICustomCellFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            rowRendererSelector={rowRendererSelector}
+            rowRenderer={rowRenderer}
+        />
+    );
+};
+
+export const ToDoWithExpandableRows = WithExpandableRowsTemplate.bind({});
