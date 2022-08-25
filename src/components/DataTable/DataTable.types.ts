@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { ITableRowProps, TTableCellVariant, TTableSortDirection } from '../Table';
+import { ITableCellProps, ITableRowProps, TTableCellVariant, TTableSortDirection } from '../Table';
 
 export type TDataTableRowKey = string | number;
 
-export interface IDataTableColumn<R> {
+export interface IDataTableColumn<R> extends ITableCellProps {
     key: keyof R;
     label: string;
     variant?: TTableCellVariant;
@@ -18,6 +18,7 @@ export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => TDataTableRowKey;
+    getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
     rowRenderer?: (row: R, key: TDataTableRowKey) => ReactNode;
     rowRendererSelector?: (row: R, key: TDataTableRowKey) => boolean;
     onRowClick?: (row: R) => void;

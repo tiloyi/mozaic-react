@@ -5,10 +5,13 @@ import { IDataTableProps } from './DataTable.types';
 
 const defaultRowRendererSelector = (): boolean => false;
 
+const getDefaultRowClassName = (): string | undefined => undefined;
+
 function DataTable<R>({
     columns,
     rows,
     getRowKey,
+    getRowClassName = getDefaultRowClassName,
     rowRenderer,
     rowRendererSelector = defaultRowRendererSelector,
     onRowClick
@@ -17,17 +20,15 @@ function DataTable<R>({
         <Table>
             <TableHeader>
                 <TableRow>
-                    {columns.map(column => (
-                        <TableHeaderCell
-                            key={`column-${column.key as string}`}
-                            variant={column.variant}
-                            isSortable={column.isSortable}
-                            sortDirection={column.sortDirection}
-                            onSort={column.onSort}
-                        >
-                            {column.headerCellRenderer ? column.headerCellRenderer() : column.label}
-                        </TableHeaderCell>
-                    ))}
+                    {columns.map(column => {
+                        const { key, label, headerCellRenderer, ...props } = column;
+
+                        return (
+                            <TableHeaderCell key={`column-${key as string}`} {...props}>
+                                {headerCellRenderer ? headerCellRenderer() : label}
+                            </TableHeaderCell>
+                        );
+                    })}
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -40,6 +41,7 @@ function DataTable<R>({
 
                     return (
                         <DataTableRow<R>
+                            className={getRowClassName(row, rowKey)}
                             key={rowKey}
                             getRowKey={getRowKey}
                             row={row}
