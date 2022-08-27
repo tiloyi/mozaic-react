@@ -1,13 +1,22 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import CheckBox from '../CheckBox';
 import Badge from '../Badge';
-import { TTableSortDirection } from '../Table';
+import { TableExpandButton, TTableSortDirection } from '../Table';
 import Text from '../Text';
-import { IBasicFixture, generateBasicRows, ICustomCellFixture, generateCustomCellRows } from './DataTable.fixtures';
-import { DataTableContainer, DataTableHeader, DataTableBody, DataTableFooter, DataTableRow } from './partials';
+import {
+    IBasicFixture,
+    generateBasicRows,
+    ICustomCellFixture,
+    generateCustomCellRows,
+    ISelectableFixture,
+    generateSelectableRows
+} from './DataTable.fixtures';
+import { DataTableRow } from './partials';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
+import './DataTable.stories.scss';
 
 const BasicTemplate: Story = () => {
     const rows = generateBasicRows(15);
@@ -33,12 +42,7 @@ const BasicTemplate: Story = () => {
 
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
-    return (
-        <DataTableContainer<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey}>
-            <DataTableHeader />
-            <DataTableBody />
-        </DataTableContainer>
-    );
+    return <DataTable<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey} />;
 };
 
 export const Basic = BasicTemplate.bind({});
@@ -65,7 +69,11 @@ const EmptyTableTemplate: Story = () => {
 
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
-    return <DataTable<IBasicFixture> columns={columns} rows={[]} getRowKey={getRowKey} />;
+    return (
+        <DataTable<IBasicFixture> tableClassName="story-datatable" columns={columns} rows={[]} getRowKey={getRowKey}>
+            Пустая таблица
+        </DataTable>
+    );
 };
 
 export const ToDoEmptyTable = EmptyTableTemplate.bind({});
@@ -209,10 +217,9 @@ const CustomCellTemplate: Story = () => {
                 variant: 'number'
             },
             {
-                label: 'Date',
                 key: 'date',
-                cellRenderer: row => row.date.toLocaleDateString(),
-                headerCellRenderer: () => (
+                render: row => row.date.toLocaleDateString(),
+                renderLabel: () => (
                     <Text theme="warning" size="s">
                         Date
                     </Text>
@@ -221,7 +228,7 @@ const CustomCellTemplate: Story = () => {
             {
                 label: 'Status',
                 key: 'status',
-                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                render: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
             }
         ],
         []
@@ -255,12 +262,12 @@ const CustomRowsTemplate: Story = () => {
             {
                 label: 'Date',
                 key: 'date',
-                cellRenderer: row => row.date.toLocaleDateString()
+                render: row => row.date.toLocaleDateString()
             },
             {
                 label: 'Status',
                 key: 'status',
-                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                render: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
             }
         ],
         []
@@ -270,7 +277,7 @@ const CustomRowsTemplate: Story = () => {
 
     const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
 
-    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
+    const renderRow = (row: ICustomCellFixture): JSX.Element => (
         <DataTableRow<ICustomCellFixture>
             key={getRowKey(row)}
             row={row}
@@ -285,19 +292,83 @@ const CustomRowsTemplate: Story = () => {
             columns={columns}
             rows={rows}
             getRowKey={getRowKey}
-            customRowSelector={rowRendererSelector}
-            customRowRenderer={rowRenderer}
+            selectCustomRow={rowRendererSelector}
+            renderCustomRow={renderRow}
         />
     );
 };
 
 export const CustomRows = CustomRowsTemplate.bind({});
 
-const WithCheckBoxesTemplate: Story = () => {
+const SelectableRowsTemplate: Story = () => {
+    const [rows, setRows] = useState<Array<ISelectableFixture>>(() => generateSelectableRows(10));
+
+    const handleChange = useCallback(
+        (rowId: number) => (event: ChangeEvent<HTMLInputElement>) => {
+            const index = rows.findIndex(r => r.id === rowId);
+            const isSelected = event.target.checked;
+
+            if (index !== -1) {
+                setRows(prevRows => [
+                    ...prevRows.slice(0, index),
+                    {
+                        ...prevRows[index],
+                        isSelected
+                    },
+                    ...prevRows.slice(index + 1)
+                ]);
+            }
+        },
+        [rows]
+    );
+
+    const handleAllRowsChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const isSelected = event.target.checked;
+
+        setRows(prevRows => prevRows.map(r => ({ ...r, isSelected })));
+    }, []);
+
+    const columns: Array<IDataTableColumn<ISelectableFixture>> = useMemo(
+        () => [
+            {
+                render: row => <CheckBox isChecked={row.isSelected} onChange={handleChange(row.id)} />,
+                renderLabel: () => (
+                    <CheckBox isChecked={rows.every(r => r.isSelected)} onChange={handleAllRowsChange} />
+                ),
+                variant: 'checkbox'
+            },
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        [handleChange, rows]
+    );
+
+    const getRowKey = useCallback((row: ISelectableFixture) => row.id, []);
+
+    return <DataTable<ISelectableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+};
+
+export const SelectableRows = SelectableRowsTemplate.bind({});
+
+const ExpandableRowsTemplate: Story = () => {
     const rows = generateCustomCellRows(15);
 
     const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
         () => [
+            {
+                render: () => <TableExpandButton />
+            },
             {
                 label: 'Id',
                 key: 'id'
@@ -314,12 +385,12 @@ const WithCheckBoxesTemplate: Story = () => {
             {
                 label: 'Date',
                 key: 'date',
-                cellRenderer: row => row.date.toLocaleDateString()
+                render: row => row.date.toLocaleDateString()
             },
             {
                 label: 'Status',
                 key: 'status',
-                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
+                render: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
             }
         ],
         []
@@ -327,86 +398,7 @@ const WithCheckBoxesTemplate: Story = () => {
 
     const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
 
-    const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
-
-    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
-        <DataTableRow<ICustomCellFixture>
-            key={getRowKey(row)}
-            row={row}
-            getRowKey={getRowKey}
-            columns={columns}
-            isSelected
-        />
-    );
-
-    return (
-        <DataTable<ICustomCellFixture>
-            columns={columns}
-            rows={rows}
-            getRowKey={getRowKey}
-            customRowSelector={rowRendererSelector}
-            customRowRenderer={rowRenderer}
-        />
-    );
+    return <DataTable<ICustomCellFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
 };
 
-export const ToDoWithCheckBoxes = WithCheckBoxesTemplate.bind({});
-
-const ExpandedRowsTemplate: Story = () => {
-    const rows = generateCustomCellRows(15);
-
-    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
-        () => [
-            {
-                label: 'Id',
-                key: 'id'
-            },
-            {
-                label: 'Name',
-                key: 'name'
-            },
-            {
-                label: 'Count',
-                key: 'count',
-                variant: 'number'
-            },
-            {
-                label: 'Date',
-                key: 'date',
-                cellRenderer: row => row.date.toLocaleDateString()
-            },
-            {
-                label: 'Status',
-                key: 'status',
-                cellRenderer: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-            }
-        ],
-        []
-    );
-
-    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
-
-    const rowRendererSelector = useCallback((row, key) => key % 2 === 0, []);
-
-    const rowRenderer = (row: ICustomCellFixture): JSX.Element => (
-        <DataTableRow<ICustomCellFixture>
-            key={getRowKey(row)}
-            row={row}
-            getRowKey={getRowKey}
-            columns={columns}
-            isSelected
-        />
-    );
-
-    return (
-        <DataTable<ICustomCellFixture>
-            columns={columns}
-            rows={rows}
-            getRowKey={getRowKey}
-            customRowSelector={rowRendererSelector}
-            customRowRenderer={rowRenderer}
-        />
-    );
-};
-
-export const ToDoWithExpandableRows = ExpandedRowsTemplate.bind({});
+export const ExpandableRows = ExpandableRowsTemplate.bind({});

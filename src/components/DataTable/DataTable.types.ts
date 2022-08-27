@@ -11,57 +11,38 @@ export type TDataTableRowClickHandler<R> = (row: R) => void;
 
 export type TDataTableRowExpandHandler<R> = (row: R, isExpanded: boolean) => void;
 
-export type TDataTableRowSelectHandler<R> = (row: R, isSelected: boolean) => void;
-
 export interface IDataTableColumn<R> extends ITableCellProps {
-    key: keyof R;
-    label: string;
+    key?: keyof R;
+    label?: string;
     variant?: TTableCellVariant;
     isSortable?: boolean;
     sortDirection?: TTableSortDirection;
     onSort?: (sortDirection: TTableSortDirection) => void;
-    cellRenderer?: (row: R, key: keyof R) => ReactNode;
-    headerCellRenderer?: () => ReactNode;
-}
-
-export interface IDataTableContainerProps<R> {
-    children?: ReactNode;
-    rows: Array<R>;
-    columns: Array<IDataTableColumn<R>>;
-    getRowKey: (row: R) => TDataTableRowKey;
-    getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
-    customRowRenderer?: TDataTableRowRenderer<R>;
-    customRowSelector?: TDataTableRowSelector<R>;
-    expandedRowRenderer?: TDataTableRowRenderer<R>;
-    expandedRowSelector?: TDataTableRowSelector<R>;
-    onRowClick?: TDataTableRowClickHandler<R>;
-    onRowExpand?: TDataTableRowExpandHandler<R>;
-    onRowSelect?: TDataTableRowSelectHandler<R>;
+    render?: (row: R) => ReactNode;
+    renderLabel?: () => ReactNode;
 }
 
 export interface IDataTableProps<R> {
+    className?: string;
+    tableClassName?: string;
+    children?: ReactNode;
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
+    hasExpandableRows?: boolean;
     getRowKey: (row: R) => TDataTableRowKey;
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
-    customRowRenderer?: TDataTableRowRenderer<R>;
-    customRowSelector?: TDataTableRowSelector<R>;
-    expandedRowRenderer?: TDataTableRowRenderer<R>;
-    expandedRowSelector?: TDataTableRowSelector<R>;
+    renderCustomRow?: TDataTableRowRenderer<R>;
+    selectCustomRow?: TDataTableRowSelector<R>;
+    expandableRowRenderer?: TDataTableRowRenderer<R>;
+    expandableRowSelector?: TDataTableRowSelector<R>;
     onRowClick?: TDataTableRowClickHandler<R>;
     onRowExpand?: TDataTableRowExpandHandler<R>;
-    onRowSelect?: TDataTableRowSelectHandler<R>;
 }
 
-export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick' | 'onSelect'> {
+export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     row: R;
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => TDataTableRowKey;
     onClick?: TDataTableRowClickHandler<R>;
     onExpand?: TDataTableRowExpandHandler<R>;
-    onSelect?: TDataTableRowSelectHandler<R>;
-}
-
-export interface IDataTableContextProps {
-    children?: ReactNode;
 }

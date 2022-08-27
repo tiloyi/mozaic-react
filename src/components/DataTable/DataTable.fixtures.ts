@@ -35,31 +35,19 @@ export function generateCustomCellRows(limit = 10, offset = 0): Array<ICustomCel
     });
 }
 
-//
-// export const columns: Array<IDataTableColumn<IDataTableFixture>> = [
-//     {
-//         label: 'Id',
-//         key: 'id'
-//     },
-//     {
-//         label: 'Name',
-//         key: 'name'
-//     },
-//     {
-//         label: 'Count',
-//         key: 'count'
-//         // variant: 'number'
-//     },
-//     // {
-//     //     label: 'Date',
-//     //     key: 'date'
-//     //     // rowCellRender: (row: IDataTableFixture) => row.date.toLocaleDateString()
-//     // },
-//     {
-//         label: 'Status',
-//         key: 'status'
-//         // rowCellRender: (row: IDataTableFixture) => (
-//         //     <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
-//         // )
-//     }
-// ];
+export interface ISelectableFixture extends IBasicFixture {
+    isSelected: boolean;
+}
+
+export function generateSelectableRows(limit = 10, offset = 0): Array<ISelectableFixture> {
+    return Array.from({ length: limit }).map((_: unknown, index: number) => {
+        const id = index + offset;
+
+        return {
+            id,
+            name: `Name #${id}`,
+            count: 1e6 + id,
+            isSelected: false
+        };
+    });
+}

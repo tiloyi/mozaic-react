@@ -177,8 +177,10 @@ export {
 } from './RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export {
-    default as Table,
+    Table,
+    TableContainer,
     TableActionButton,
+    TableExpandButton,
     TableBody,
     TableCell,
     TableHeader,

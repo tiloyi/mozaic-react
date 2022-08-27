@@ -24,7 +24,7 @@ const rows = generateCustomCellRows(5);
 
 const BasicTemplate: Story<ITableContainerProps> = args => (
     <TableContainer {...args}>
-        <Table className="table">
+        <Table className="story-table">
             <TableHeader>
                 <TableRow>
                     <TableHeaderCell>Id</TableHeaderCell>
@@ -61,7 +61,7 @@ Basic.args = {
 
 const StickyHeaderTemplate: Story = () => (
     <TableContainer withStickyHeader>
-        <Table className="table">
+        <Table className="story-table">
             <TableHeader>
                 <TableRow>
                     <TableHeaderCell>Id</TableHeaderCell>

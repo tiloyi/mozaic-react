@@ -1,4 +1,3 @@
-import Table from './Table';
 import './Table.scss';
 
 export * from './partials';
@@ -16,4 +15,4 @@ export {
     TTableSize
 } from './Table.types';
 export { default as SubTable } from './SubTable';
-export default Table;
+export { default as Table } from './Table';

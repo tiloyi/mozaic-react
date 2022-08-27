@@ -220,8 +220,10 @@ export {
     TTagTheme
 } from './components/Tag';
 export {
-    default as Table,
+    Table,
     TableActionButton,
+    TableContainer,
+    TableExpandButton,
     TableBody,
     TableCell,
     TableHeader,
