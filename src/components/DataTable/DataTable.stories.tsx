@@ -332,9 +332,18 @@ const SelectableRowsTemplate: Story = () => {
         () => [
             {
                 render: row => <CheckBox isChecked={row.isSelected} onChange={handleChange(row.id)} />,
-                renderLabel: () => (
-                    <CheckBox isChecked={rows.every(r => r.isSelected)} onChange={handleAllRowsChange} />
-                ),
+                renderLabel() {
+                    const isChecked = rows.every(r => r.isSelected);
+                    const isIndeterminate = rows.some(r => r.isSelected) && !isChecked;
+
+                    return (
+                        <CheckBox
+                            isChecked={isIndeterminate ? undefined : isChecked}
+                            isIndeterminate={isChecked ? undefined : isIndeterminate}
+                            onChange={handleAllRowsChange}
+                        />
+                    );
+                },
                 variant: 'checkbox'
             },
             {

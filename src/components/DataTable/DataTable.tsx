@@ -32,7 +32,7 @@ function DataTable<R>({
 
                             return (
                                 <TableHeaderCell key={`column-${key as string}`} variant={variant} {...props}>
-                                    {renderLabel ? renderLabel() : label}
+                                    {renderLabel ? renderLabel(rows) : label}
                                 </TableHeaderCell>
                             );
                         })}

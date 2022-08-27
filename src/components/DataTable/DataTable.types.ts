@@ -19,7 +19,7 @@ export interface IDataTableColumn<R> extends ITableCellProps {
     sortDirection?: TTableSortDirection;
     onSort?: (sortDirection: TTableSortDirection) => void;
     render?: (row: R) => ReactNode;
-    renderLabel?: () => ReactNode;
+    renderLabel?: (rows: Array<R>) => ReactNode;
 }
 
 export interface IDataTableProps<R> {
