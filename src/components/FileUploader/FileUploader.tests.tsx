@@ -18,7 +18,7 @@ describe('components/FileUploader', () => {
 
             render(<FileUploaderInput onChange={onChange}>Select file to upload</FileUploaderInput>);
 
-            const input = screen.getByLabelText('Select file to upload') as HTMLInputElement;
+            const input = screen.getByLabelText<HTMLInputElement>('Select file to upload');
             const file = new File(['file'], 'file.png', { type: 'image/png' });
 
             await userEvent.upload(input, file);
