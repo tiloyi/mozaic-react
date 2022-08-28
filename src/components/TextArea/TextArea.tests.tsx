@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { useForm } from 'react-hook-form';
 import userEvent from '@testing-library/user-event';
 import View from '../View';
@@ -76,11 +76,11 @@ describe('components/TextArea', () => {
 
         expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum');
 
-        userEvent.type(screen.getByRole('textbox'), ' dolor sit amet');
+        await userEvent.type(screen.getByRole('textbox'), ' dolor sit amet');
 
         expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum dolor sit amet');
 
-        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
         expect(onSubmit).toHaveBeenCalledWith({ message: 'lorem ipsum dolor sit amet' }, expect.any(Object));
     });

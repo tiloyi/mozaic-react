@@ -87,19 +87,19 @@ describe('components/Tabs', () => {
             expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--selected');
         });
 
-        test('call onClick callback', () => {
+        test('call onClick callback', async () => {
             const onClick = jest.fn();
 
             render(<TabsButton onClick={onClick}>tab</TabsButton>);
 
-            userEvent.click(screen.getByRole('tab', { name: 'tab' }));
+            await userEvent.click(screen.getByRole('tab', { name: 'tab' }));
 
             expect(onClick).toBeCalledTimes(1);
         });
     });
 
     describe('Tabs', () => {
-        test('renders selected tab', () => {
+        test('renders selected tab', async () => {
             render(
                 <Tabs defaultTab="tab1">
                     <TabsList>
@@ -117,7 +117,7 @@ describe('components/Tabs', () => {
             expect(screen.getByRole('tab', { name: 'tab 2' })).not.toHaveClass('mc-tabs__link--selected');
             expect(screen.getByText('Panel 2')).toHaveAttribute('hidden', '');
 
-            userEvent.click(screen.getByRole('tab', { name: 'tab 2' }));
+            await userEvent.click(screen.getByRole('tab', { name: 'tab 2' }));
 
             expect(screen.getByRole('tab', { name: 'tab 1' })).not.toHaveClass('mc-tabs__link--selected');
             expect(screen.getByText('Panel 1')).toHaveAttribute('hidden', '');

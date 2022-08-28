@@ -13,7 +13,7 @@ describe('components/FileUploader', () => {
             expect(screen.getByLabelText('Select file to upload')).toBeDisabled();
         });
 
-        test('calls onChange callback', () => {
+        test('calls onChange callback', async () => {
             const onChange = jest.fn();
 
             render(<FileUploaderInput onChange={onChange}>Select file to upload</FileUploaderInput>);
@@ -21,7 +21,7 @@ describe('components/FileUploader', () => {
             const input = screen.getByLabelText('Select file to upload') as HTMLInputElement;
             const file = new File(['file'], 'file.png', { type: 'image/png' });
 
-            userEvent.upload(input, file);
+            await userEvent.upload(input, file);
 
             expect(input.files).toHaveLength(1);
             expect(input.files?.item(0)).toStrictEqual(file);
@@ -51,12 +51,12 @@ describe('components/FileUploader', () => {
             expect(screen.getByText('Oops, the file is not uploaded')).toBeInTheDocument();
         });
 
-        test('calls onRemove callback', () => {
+        test('calls onRemove callback', async () => {
             const onRemove = jest.fn();
 
             render(<FileUploaderFile name="file.png" onRemove={onRemove} />);
 
-            userEvent.click(screen.getByRole('button'));
+            await userEvent.click(screen.getByRole('button'));
 
             expect(onRemove).toBeCalledWith('file.png');
         });
@@ -78,13 +78,13 @@ describe('components/FileUploader', () => {
             });
         });
 
-        test('call onRemove callback', () => {
+        test('call onRemove callback', async () => {
             const onRemove = jest.fn();
             const files: Array<IFileUploaderFile> = [{ name: 'file.png' }];
 
             render(<FileUploader files={files} onRemove={onRemove} />);
 
-            userEvent.click(screen.getByRole('button'));
+            await userEvent.click(screen.getByRole('button'));
 
             expect(onRemove).toBeCalledWith('file.png');
         });

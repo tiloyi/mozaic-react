@@ -12,12 +12,12 @@ describe('components/Table', () => {
             expect(screen.getByRole('button', { name: 'button' })).toBeInTheDocument();
         });
 
-        test('handles click', () => {
+        test('handles click', async () => {
             const onClick = jest.fn();
 
             render(<TableActionButton onClick={onClick}>button</TableActionButton>);
 
-            userEvent.click(screen.getByRole('button', { name: 'button' }));
+            await userEvent.click(screen.getByRole('button', { name: 'button' }));
 
             expect(onClick).toBeCalledTimes(1);
         });
@@ -130,7 +130,7 @@ describe('components/Table', () => {
             expect(screen.getByRole('button', { name: 'cell' })).toHaveClass('desc');
         });
 
-        test('handles sorting callback', () => {
+        test('handles sorting callback', async () => {
             const onSort = jest.fn();
 
             render(
@@ -139,7 +139,7 @@ describe('components/Table', () => {
                 </TableHeaderCell>
             );
 
-            userEvent.click(screen.getByRole('button', { name: 'cell' }));
+            await userEvent.click(screen.getByRole('button', { name: 'cell' }));
 
             expect(onSort).toBeCalledWith('asc');
         });

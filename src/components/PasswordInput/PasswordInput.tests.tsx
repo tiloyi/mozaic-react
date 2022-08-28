@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 import View from '../View';
@@ -35,14 +35,14 @@ describe('components/PasswordInput', () => {
         expect(screen.getByDisplayValue('password')).toHaveAttribute('type', 'password');
     });
 
-    test('toggles input type', () => {
+    test('toggles input type', async () => {
         render(<PasswordInput defaultValue="password" />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Show' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Show' }));
 
         expect(screen.getByDisplayValue('password')).toHaveAttribute('type', 'text');
 
-        userEvent.click(screen.getByRole('button', { name: 'Hide' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hide' }));
 
         expect(screen.getByDisplayValue('password')).toHaveAttribute('type', 'password');
     });
@@ -64,11 +64,11 @@ describe('components/PasswordInput', () => {
 
         expect(screen.getByLabelText('password')).toHaveDisplayValue('');
 
-        userEvent.type(screen.getByLabelText('password'), 'qwerty');
+        await userEvent.type(screen.getByLabelText('password'), 'qwerty');
 
         expect(screen.getByLabelText('password')).toHaveDisplayValue('qwerty');
 
-        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
         expect(onSubmit).toHaveBeenCalledWith({ password: 'qwerty' }, expect.any(Object));
     });

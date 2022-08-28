@@ -87,11 +87,11 @@ describe('components/CheckBox', () => {
 
         expect(screen.getByRole('checkbox')).toBeChecked();
 
-        userEvent.click(screen.getByRole('checkbox'));
+        await userEvent.click(screen.getByRole('checkbox'));
 
         expect(screen.getByRole('checkbox')).not.toBeChecked();
 
-        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
         expect(onSubmit).toHaveBeenCalledWith({ isChecked: false }, expect.any(Object));
     });

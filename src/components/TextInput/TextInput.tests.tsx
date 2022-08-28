@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { render, screen, waitFor } from '@testing-library/react';
 import SVGIcon from '../../../.storybook/assets/SVGIcon';
 import View from '../View';
 import Button from '../Button';
@@ -89,11 +89,11 @@ describe('components/TextInput', () => {
 
         expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum');
 
-        userEvent.type(screen.getByRole('textbox'), ' dolor sit amet');
+        await userEvent.type(screen.getByRole('textbox'), ' dolor sit amet');
 
         expect(screen.getByRole('textbox')).toHaveDisplayValue('lorem ipsum dolor sit amet');
 
-        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
         expect(onSubmit).toHaveBeenCalledWith({ message: 'lorem ipsum dolor sit amet' }, expect.any(Object));
     });

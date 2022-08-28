@@ -24,7 +24,7 @@ const Scene = ({ onOpen, onClose }: ISceneProps): JSX.Element => {
 };
 
 describe('components/Layer', () => {
-    test('renders correctly', () => {
+    test('renders correctly', async () => {
         render(
             <ModalsProvider>
                 <Scene />
@@ -33,13 +33,13 @@ describe('components/Layer', () => {
 
         expect(screen.getByRole('document')).not.toHaveClass('is-open');
 
-        userEvent.click(screen.getByText(/Open/));
+        await userEvent.click(screen.getByText(/Open/));
 
         expect(screen.getByText('Test')).toBeInTheDocument();
         expect(screen.getByRole('document')).toHaveClass('is-open');
     });
 
-    test('calls `onOpen` callback', () => {
+    test('calls `onOpen` callback', async () => {
         const onOpen = jest.fn();
 
         render(
@@ -48,12 +48,12 @@ describe('components/Layer', () => {
             </ModalsProvider>
         );
 
-        userEvent.click(screen.getByText(/Open/));
+        await userEvent.click(screen.getByText(/Open/));
 
         expect(onOpen).toBeCalledTimes(1);
     });
 
-    test('calls `onClose` callback', () => {
+    test('calls `onClose` callback', async () => {
         const onClose = jest.fn();
 
         render(
@@ -62,11 +62,11 @@ describe('components/Layer', () => {
             </ModalsProvider>
         );
 
-        userEvent.click(screen.getByText(/Open/));
+        await userEvent.click(screen.getByText(/Open/));
 
         expect(screen.getByRole('document')).toHaveClass('is-open');
 
-        userEvent.click(screen.getByRole('button', { name: /Close/ }));
+        await userEvent.click(screen.getByRole('button', { name: /Close/ }));
 
         expect(onClose).toBeCalledTimes(1);
     });
