@@ -21,14 +21,6 @@ WithMonoSelection.args = {
     isOpened: true
 };
 
-export const argTypes = {
-    theme: {
-        control: {
-            type: 'select'
-        }
-    }
-};
-
 export const WithMultiSelectionTemplate: Story<IListBoxProps> = args => (
     <ListBox {...args}>
         <ListBoxItem id="option1">Option #1</ListBoxItem>
@@ -131,4 +123,12 @@ export const WithIcon = WithIconTemplate.bind({});
 
 WithIcon.args = {
     isOpened: true
+};
+
+export const argTypes = {
+    theme: {
+        control: {
+            type: 'select'
+        }
+    }
 };

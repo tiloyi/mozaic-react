@@ -10,6 +10,7 @@ const ListBox: FC<IListBoxProps> = ({
     withMultiSelection = false,
     leftOpening,
     isOpened = false,
+    onChange,
     children,
     ...props
 }) => (
@@ -17,6 +18,7 @@ const ListBox: FC<IListBoxProps> = ({
         isOpened={isOpened}
         withMultiSelection={withMultiSelection}
         defaultSelected={defaultSelected}
+        onChange={onChange}
     >
         <ListBoxContainer {...props} leftOpening={leftOpening}>
             {children}

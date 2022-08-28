@@ -1,11 +1,10 @@
 import { useCallback, useState } from 'react';
-import { IUseListBoxStateMethods, TListBoxItemId } from './ListBox.types';
-
-export type TListBoxItemsChecked = Record<TListBoxItemId, boolean>;
+import { IUseListBoxStateMethods, TListBoxItemId, TListBoxItemsChecked, TListBoxOnChange } from './ListBox.types';
 
 export interface IUseListBoxProps {
     withMultiSelection: boolean;
     defaultSelected?: TListBoxItemId | TListBoxItemId[];
+    onChange?: TListBoxOnChange;
 }
 
 function mapDefaultSelected(
@@ -31,7 +30,8 @@ function mapDefaultSelected(
 
 export default function useListBoxState({
     withMultiSelection,
-    defaultSelected
+    defaultSelected,
+    onChange
 }: IUseListBoxProps): IUseListBoxStateMethods {
     const [checkedOptions, setCheckedOptions] = useState<TListBoxItemsChecked>(
         mapDefaultSelected(defaultSelected, withMultiSelection)
@@ -42,12 +42,22 @@ export default function useListBoxState({
     const checkOption = useCallback(
         (id: TListBoxItemId) => {
             if (withMultiSelection) {
+                const incomingChange = { ...checkedOptions, [id]: !checkedOptions[id] };
+
                 setCheckedOptions(prevState => ({ ...prevState, [id]: !prevState[id] }));
+                if (onChange) {
+                    onChange(incomingChange);
+                }
             } else {
+                const incomingChange = { [id]: !checkedOptions[id] };
+
                 setCheckedOptions(prevState => ({ [id]: !prevState[id] }));
+                if (onChange) {
+                    onChange(incomingChange);
+                }
             }
         },
-        [withMultiSelection]
+        [withMultiSelection, checkedOptions]
     );
 
     return {
