@@ -118,4 +118,14 @@ describe('components/ListBox', () => {
         const icons = document.querySelectorAll('.mc-listbox__icon');
         expect(icons.length).toBe(3);
     });
+
+    test('onChange prop triggers', () => {
+        const onChangeTest = jest.fn(() => {});
+        render(setup({ isOpened: true, onChange: onChangeTest }, <TestListBoxItems />));
+
+        const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
+        userEvent.click(listBoxButtonItems[1]);
+
+        expect(onChangeTest).toBeCalled();
+    });
 });
