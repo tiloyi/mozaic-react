@@ -47,6 +47,19 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
+export {
+    DataTable,
+    DataTableRow,
+    ExpandableDataTableRow,
+    IDataTableProps,
+    IDataTableRowProps,
+    IDataTableColumn,
+    IExpandableDataTableRowProps,
+    TDataTableRowKey,
+    TDataTableRowClickHandler,
+    TDataTableRowRenderer,
+    TDataTableRowSelector
+} from './components/DataTable';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export {
     default as FileUploader,

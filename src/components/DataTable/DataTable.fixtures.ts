@@ -51,3 +51,20 @@ export function generateSelectableRows(limit = 10, offset = 0): Array<ISelectabl
         };
     });
 }
+
+export interface IExpandableFixture extends IBasicFixture {
+    isExpanded: boolean;
+}
+
+export function generateExpandableRows(limit = 10, offset = 0): Array<IExpandableFixture> {
+    return Array.from({ length: limit }).map((_: unknown, index: number) => {
+        const id = index + offset;
+
+        return {
+            id,
+            name: `Name #${id}`,
+            count: 1e6 + id,
+            isExpanded: false
+        };
+    });
+}

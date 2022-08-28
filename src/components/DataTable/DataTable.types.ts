@@ -9,8 +9,6 @@ export type TDataTableRowRenderer<R> = (row: R, key: TDataTableRowKey) => ReactN
 
 export type TDataTableRowClickHandler<R> = (row: R) => void;
 
-export type TDataTableRowExpandHandler<R> = (row: R, isExpanded: boolean) => void;
-
 export interface IDataTableColumn<R> extends ITableCellProps {
     key?: keyof R;
     label?: string;
@@ -33,10 +31,7 @@ export interface IDataTableProps<R> {
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
     renderCustomRow?: TDataTableRowRenderer<R>;
     selectCustomRow?: TDataTableRowSelector<R>;
-    expandableRowRenderer?: TDataTableRowRenderer<R>;
-    expandableRowSelector?: TDataTableRowSelector<R>;
     onRowClick?: TDataTableRowClickHandler<R>;
-    onRowExpand?: TDataTableRowExpandHandler<R>;
 }
 
 export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
@@ -44,5 +39,9 @@ export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     columns: Array<IDataTableColumn<R>>;
     getRowKey: (row: R) => TDataTableRowKey;
     onClick?: TDataTableRowClickHandler<R>;
-    onExpand?: TDataTableRowExpandHandler<R>;
+}
+
+export interface IExpandableDataTableRowProps<R> extends IDataTableRowProps<R> {
+    children?: ReactNode;
+    isExpanded: boolean;
 }

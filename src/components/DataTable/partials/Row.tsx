@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { TableCell, TableRow } from '../../Table';
 import { IDataTableRowProps } from '../DataTable.types';
 
-function DataTableRow<R>({ columns, row, getRowKey, onClick, onExpand, ...props }: IDataTableRowProps<R>): JSX.Element {
+function DataTableRow<R>({ columns, row, getRowKey, onClick, ...props }: IDataTableRowProps<R>): JSX.Element {
     const rowKey = getRowKey(row);
 
     const handleClick = useCallback(() => onClick?.(row), [row, onClick]);

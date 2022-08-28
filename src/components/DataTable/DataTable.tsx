@@ -17,8 +17,6 @@ function DataTable<R>({
     getRowClassName = getDefaultRowClassName,
     renderCustomRow,
     selectCustomRow = defaultRowSelector,
-    expandableRowRenderer,
-    expandableRowSelector = defaultRowSelector,
     onRowClick
 }: IDataTableProps<R>): JSX.Element {
     return (

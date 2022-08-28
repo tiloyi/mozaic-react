@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import CheckBox from '../CheckBox';
 import Badge from '../Badge';
+import CheckBox from '../CheckBox';
+import Flex from '../Flex';
+import Pagination from '../Pagination';
 import { TableExpandButton, TTableSortDirection } from '../Table';
 import Text from '../Text';
 import {
@@ -11,9 +13,11 @@ import {
     ICustomCellFixture,
     generateCustomCellRows,
     ISelectableFixture,
-    generateSelectableRows
+    generateSelectableRows,
+    IExpandableFixture,
+    generateExpandableRows
 } from './DataTable.fixtures';
-import { DataTableRow } from './partials';
+import { DataTableRow, ExpandableDataTableRow } from './partials';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 import './DataTable.stories.scss';
@@ -365,18 +369,48 @@ const SelectableRowsTemplate: Story = () => {
 
     const getRowKey = useCallback((row: ISelectableFixture) => row.id, []);
 
-    return <DataTable<ISelectableFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+    const getRowClassName = useCallback((row: ISelectableFixture) => (row.isSelected ? 'selected' : undefined), []);
+
+    return (
+        <DataTable<ISelectableFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            getRowClassName={getRowClassName}
+        />
+    );
 };
 
 export const SelectableRows = SelectableRowsTemplate.bind({});
 
 const ExpandableRowsTemplate: Story = () => {
-    const rows = generateCustomCellRows(15);
+    const expandableRowIds = [1, 3, 5];
+    const [expandedRowIds, setExpandedRowIds] = useState<Array<number>>([3]);
+    const rows = generateExpandableRows(10);
 
-    const columns: Array<IDataTableColumn<ICustomCellFixture>> = useMemo(
+    const selectCustomRow = useCallback(
+        (row: IExpandableFixture) => expandableRowIds.includes(row.id),
+        [expandableRowIds]
+    );
+
+    const handleExpand = useCallback(
+        (rowId: number) => () => {
+            setExpandedRowIds(prevRowIds => {
+                if (prevRowIds.includes(rowId)) {
+                    return prevRowIds.filter(id => id !== rowId);
+                }
+
+                return [...prevRowIds, rowId];
+            });
+        },
+        []
+    );
+
+    const columns: Array<IDataTableColumn<IExpandableFixture>> = useMemo(
         () => [
             {
-                render: () => <TableExpandButton />
+                className: 'story-action-column',
+                render: row => (selectCustomRow(row) ? <TableExpandButton onClick={handleExpand(row.id)} /> : null)
             },
             {
                 label: 'Id',
@@ -390,24 +424,69 @@ const ExpandableRowsTemplate: Story = () => {
                 label: 'Count',
                 key: 'count',
                 variant: 'number'
-            },
-            {
-                label: 'Date',
-                key: 'date',
-                render: row => row.date.toLocaleDateString()
-            },
-            {
-                label: 'Status',
-                key: 'status',
-                render: row => <Badge theme={row.status === 'success' ? 'success' : 'danger'}>{row.status}</Badge>
             }
         ],
         []
     );
 
-    const getRowKey = useCallback((row: ICustomCellFixture) => row.id, []);
+    const getRowKey = useCallback((row: IExpandableFixture) => row.id, []);
 
-    return <DataTable<ICustomCellFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+    const renderCustomRow = (row: IExpandableFixture): JSX.Element => (
+        <ExpandableDataTableRow<IExpandableFixture>
+            key={getRowKey(row)}
+            row={row}
+            getRowKey={getRowKey}
+            columns={columns}
+            isExpanded={expandedRowIds.includes(row.id)}
+        >
+            <Text theme="warning">Put content here!</Text>
+        </ExpandableDataTableRow>
+    );
+
+    return (
+        <DataTable<IExpandableFixture>
+            columns={columns}
+            rows={rows}
+            getRowKey={getRowKey}
+            selectCustomRow={selectCustomRow}
+            renderCustomRow={renderCustomRow}
+        />
+    );
 };
 
 export const ExpandableRows = ExpandableRowsTemplate.bind({});
+
+const WithPaginationTemplate: Story = () => {
+    const rows = generateBasicRows(10);
+
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return (
+        <DataTable<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey}>
+            <Flex paddingTop="mu075" paddingBottom="mu075" paddingLeft="mu100" paddingRight="mu100">
+                <Pagination currentPage={1} pagesTotal={10} isCompact />
+            </Flex>
+        </DataTable>
+    );
+};
+
+export const WithPagination = WithPaginationTemplate.bind({});
