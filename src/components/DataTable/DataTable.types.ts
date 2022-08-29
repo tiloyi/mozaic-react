@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { ITableCellProps, ITableRowProps, TTableCellVariant, TTableSortDirection } from '../Table';
 
 export type TDataTableRowKey = string | number;
@@ -28,6 +28,7 @@ export interface IDataTableProps<R> {
     columns: Array<IDataTableColumn<R>>;
     isHeaderHidden?: boolean;
     isPending?: boolean;
+    withStickyHeader?: boolean;
     getRowKey: (row: R) => TDataTableRowKey;
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
     renderCustomRow?: TDataTableRowRenderer<R>;
@@ -45,4 +46,8 @@ export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
 export interface IExpandableDataTableRowProps<R> extends IDataTableRowProps<R> {
     children?: ReactNode;
     isExpanded: boolean;
+}
+
+export interface IDataTableFooterProps extends HTMLAttributes<HTMLDivElement> {
+    children?: ReactNode;
 }

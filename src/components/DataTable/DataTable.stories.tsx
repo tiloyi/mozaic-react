@@ -3,7 +3,6 @@ import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
-import Flex from '../Flex';
 import Pagination from '../Pagination';
 import { TableExpandButton, TTableSortDirection } from '../Table';
 import Text from '../Text';
@@ -17,7 +16,7 @@ import {
     IExpandableFixture,
     generateExpandableRows
 } from './DataTable.fixtures';
-import { DataTableRow, ExpandableDataTableRow } from './partials';
+import { DataTableRow, ExpandableDataTableRow, DataTableFooter } from './partials';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 import './DataTable.stories.scss';
@@ -74,7 +73,7 @@ const EmptyTableTemplate: Story = () => {
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
     return (
-        <DataTable<IBasicFixture> tableClassName="story-datatable" columns={columns} rows={[]} getRowKey={getRowKey}>
+        <DataTable<IBasicFixture> className="story-datatable" columns={columns} rows={[]} getRowKey={getRowKey}>
             Пустая таблица
         </DataTable>
     );
@@ -139,6 +138,43 @@ const HiddenHeaderTemplate: Story = () => {
 };
 
 export const HiddenHeader = HiddenHeaderTemplate.bind({});
+
+const StickyHeaderTemplate: Story = () => {
+    const rows = generateBasicRows(15);
+
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return (
+        <DataTable<IBasicFixture>
+            className="story-table"
+            rows={rows}
+            columns={columns}
+            getRowKey={getRowKey}
+            withStickyHeader
+        />
+    );
+};
+
+export const StickyHeader = StickyHeaderTemplate.bind({});
 
 const ClickOnRowTemplate: Story = () => {
     const rows = generateBasicRows(5);
@@ -511,9 +547,9 @@ const WithPaginationTemplate: Story = () => {
 
     return (
         <DataTable<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey}>
-            <Flex paddingTop="mu075" paddingBottom="mu075" paddingLeft="mu100" paddingRight="mu100">
+            <DataTableFooter>
                 <Pagination currentPage={1} pagesTotal={10} isCompact />
-            </Flex>
+            </DataTableFooter>
         </DataTable>
     );
 };

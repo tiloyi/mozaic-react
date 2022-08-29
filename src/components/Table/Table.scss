@@ -8,6 +8,14 @@
 
 .mc-datatable {
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.mc-datatable__container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .mc-datatable__main {

@@ -15,6 +15,7 @@ function DataTable<R>({
     rows,
     isHeaderHidden,
     isPending,
+    withStickyHeader,
     getRowKey,
     getRowClassName = getDefaultRowClassName,
     renderCustomRow,
@@ -22,7 +23,7 @@ function DataTable<R>({
     onRowClick
 }: IDataTableProps<R>): JSX.Element {
     return (
-        <TableContainer className={className}>
+        <TableContainer className={className} withStickyHeader={withStickyHeader}>
             <Table className={tableClassName}>
                 {!isHeaderHidden && (
                     <TableHeader>
