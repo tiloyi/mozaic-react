@@ -1,10 +1,14 @@
-@import 'settings-tools/_all-settings';
+@import "settings-tools/_all-settings";
 
 @import "components/_c.datatable";
 @import "components/_c.datatable-tools";
 @import "components/_c.datatable-header";
 @import "components/_c.datatable-footer";
 @import "components/_c.datatable-subtable";
+
+.mc-datatable {
+    position: relative;
+}
 
 .mc-datatable__main {
     background-color: #ffffff;

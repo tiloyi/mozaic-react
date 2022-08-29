@@ -27,6 +27,7 @@ export interface IDataTableProps<R> {
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
     isHeaderHidden?: boolean;
+    isPending?: boolean;
     getRowKey: (row: R) => TDataTableRowKey;
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
     renderCustomRow?: TDataTableRowRenderer<R>;

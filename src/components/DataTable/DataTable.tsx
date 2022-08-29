@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, TableBody, TableHeader, TableRow, TableHeaderCell, TableContainer } from '../Table';
-import { DataTableRow } from './partials';
+import { DataTableRow, DataTablePendingOverlay } from './partials';
 import { IDataTableProps } from './DataTable.types';
 
 const defaultRowSelector = (): boolean => false;
@@ -14,6 +14,7 @@ function DataTable<R>({
     columns,
     rows,
     isHeaderHidden,
+    isPending,
     getRowKey,
     getRowClassName = getDefaultRowClassName,
     renderCustomRow,
@@ -61,6 +62,7 @@ function DataTable<R>({
                 </TableBody>
             </Table>
             {children}
+            {isPending && <DataTablePendingOverlay />}
         </TableContainer>
     );
 }

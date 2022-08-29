@@ -83,7 +83,7 @@ const EmptyTableTemplate: Story = () => {
 export const ToDoEmptyTable = EmptyTableTemplate.bind({});
 
 const PendingTemplate: Story = () => {
-    const rows = generateBasicRows(15);
+    const rows = generateBasicRows(10);
 
     const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
         () => [
@@ -106,10 +106,10 @@ const PendingTemplate: Story = () => {
 
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
-    return <DataTable<IBasicFixture> columns={columns} rows={rows} getRowKey={getRowKey} />;
+    return <DataTable<IBasicFixture> columns={columns} rows={rows} getRowKey={getRowKey} isPending />;
 };
 
-export const ToDoPending = PendingTemplate.bind({});
+export const Pending = PendingTemplate.bind({});
 
 const HiddenHeaderTemplate: Story = () => {
     const rows = generateBasicRows(15);
