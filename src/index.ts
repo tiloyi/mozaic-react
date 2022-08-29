@@ -47,6 +47,24 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
+export {
+    DataTable,
+    DataTableRow,
+    ExpandableDataTableRow,
+    DataTableFooter,
+    DataTableEmptyView,
+    DataTablePendingOverlay,
+    IDataTableProps,
+    IDataTableRowProps,
+    IDataTableColumn,
+    IExpandableDataTableRowProps,
+    TDataTableRowKey,
+    TDataTableRowClickHandler,
+    TDataTableRowRenderer,
+    TDataTableRowSelector,
+    IDataTableEmptyViewProps,
+    IDataTableFooterProps
+} from './components/DataTable';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export {
     default as FileUploader,
@@ -219,6 +237,29 @@ export {
     TTagSize,
     TTagTheme
 } from './components/Tag';
+export {
+    Table,
+    TableActionButton,
+    TableContainer,
+    TableExpandButton,
+    TableBody,
+    TableCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+    SubTable,
+    ITableProps,
+    ITableActionButtonProps,
+    ITableBodyProps,
+    ITableCellProps,
+    ITableHeaderProps,
+    ITableHeaderCellProps,
+    ITableRowProps,
+    ISubTableProps,
+    TTableCellVariant,
+    TTableSortDirection,
+    TTableSize
+} from './components/Table';
 export {
     default as Text,
     ITextProps,

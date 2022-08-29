@@ -23,12 +23,12 @@ describe('components/RadioGroup', () => {
         expect(screen.getByLabelText(languages[0])).toBeChecked();
     });
 
-    test('calls onChange callback', () => {
+    test('calls onChange callback', async () => {
         const onChange = jest.fn();
 
         setup(languages[0].toLowerCase(), onChange);
 
-        userEvent.click(screen.getByLabelText(languages[1]));
+        await userEvent.click(screen.getByLabelText(languages[1]));
 
         expect(onChange).toBeCalledTimes(1);
     });

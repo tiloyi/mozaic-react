@@ -25,12 +25,12 @@ describe('components/Notification', () => {
         expect(screen.getByTestId('footer')).toBeInTheDocument();
     });
 
-    test('renders with close button', () => {
+    test('renders with close button', async () => {
         const onClose = jest.fn();
 
         render(<Notification title="Title" isClosable onClose={onClose} />);
 
-        userEvent.click(screen.getByRole('button'));
+        await userEvent.click(screen.getByRole('button'));
 
         expect(onClose).toHaveBeenCalledTimes(1);
     });

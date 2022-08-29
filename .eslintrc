@@ -12,6 +12,7 @@
       "rules": {
         "@typescript-eslint/no-magic-numbers": "off",
         "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/await-thenable": "off",
         "react/no-array-index-key": "off"
       }
     }
