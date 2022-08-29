@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 import CheckBox from '../CheckBox';
-import Pagination from '../Pagination';
+import Pagination, { IPaginationOption } from '../Pagination';
 import { TableExpandButton, TTableSortDirection } from '../Table';
 import Text from '../Text';
 import {
@@ -528,7 +528,7 @@ export const ExpandableRows = ExpandableRowsTemplate.bind({});
 
 const WithPaginationTemplate: Story = () => {
     const pageSize = 10;
-    const { currentPage, pagesTotal, fromIndex, goNext, goPrevious } = usePaginationState(1, pageSize, 100);
+    const { currentPage, pagesTotal, fromIndex, goNext, goPrevious, change } = usePaginationState(1, pageSize, 100);
 
     const rows = generateBasicRows(pageSize, fromIndex);
 
@@ -551,6 +551,15 @@ const WithPaginationTemplate: Story = () => {
         []
     );
 
+    const options = useMemo(
+        () =>
+            Array.from({ length: pagesTotal }).map((_: unknown, index: number) => ({
+                value: index + 1,
+                label: `Page ${index + 1} of ${pagesTotal}`
+            })),
+        [pagesTotal]
+    );
+
     const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
 
     return (
@@ -559,7 +568,8 @@ const WithPaginationTemplate: Story = () => {
                 <Pagination
                     currentPage={currentPage}
                     pagesTotal={pagesTotal}
-                    isCompact
+                    options={options}
+                    onChange={change}
                     onNext={goNext}
                     onPrevious={goPrevious}
                 />
