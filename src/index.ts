@@ -51,6 +51,9 @@ export {
     DataTable,
     DataTableRow,
     ExpandableDataTableRow,
+    DataTableFooter,
+    DataTableEmptyView,
+    DataTablePendingOverlay,
     IDataTableProps,
     IDataTableRowProps,
     IDataTableColumn,
@@ -58,7 +61,9 @@ export {
     TDataTableRowKey,
     TDataTableRowClickHandler,
     TDataTableRowRenderer,
-    TDataTableRowSelector
+    TDataTableRowSelector,
+    IDataTableEmptyViewProps,
+    IDataTableFooterProps
 } from './components/DataTable';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export {

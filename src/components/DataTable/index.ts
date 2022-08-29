@@ -8,5 +8,7 @@ export {
     TDataTableRowKey,
     TDataTableRowClickHandler,
     TDataTableRowRenderer,
-    TDataTableRowSelector
+    TDataTableRowSelector,
+    IDataTableEmptyViewProps,
+    IDataTableFooterProps
 } from './DataTable.types';
