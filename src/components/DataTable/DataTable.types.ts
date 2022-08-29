@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import { ITableCellProps, ITableRowProps, TTableCellVariant, TTableSortDirection } from '../Table';
+import { IFlexProps } from '../Flex';
 
 export type TDataTableRowKey = string | number;
 
@@ -51,3 +52,5 @@ export interface IExpandableDataTableRowProps<R> extends IDataTableRowProps<R> {
 export interface IDataTableFooterProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
 }
+
+export interface IDataTableEmptyViewProps extends IFlexProps {}

@@ -16,7 +16,7 @@ import {
     IExpandableFixture,
     generateExpandableRows
 } from './DataTable.fixtures';
-import { DataTableRow, ExpandableDataTableRow, DataTableFooter } from './partials';
+import { DataTableRow, ExpandableDataTableRow, DataTableFooter, DataTableEmptyView } from './partials';
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 import './DataTable.stories.scss';
@@ -74,12 +74,16 @@ const EmptyTableTemplate: Story = () => {
 
     return (
         <DataTable<IBasicFixture> className="story-datatable" columns={columns} rows={[]} getRowKey={getRowKey}>
-            Пустая таблица
+            <DataTableEmptyView>
+                <Text size="l" theme="light">
+                    No items to display
+                </Text>
+            </DataTableEmptyView>
         </DataTable>
     );
 };
 
-export const ToDoEmptyTable = EmptyTableTemplate.bind({});
+export const EmptyTable = EmptyTableTemplate.bind({});
 
 const PendingTemplate: Story = () => {
     const rows = generateBasicRows(10);
