@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
@@ -59,36 +59,36 @@ describe('components/Pagination', () => {
         expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
     });
 
-    test('calls onChange and onPrevious callbacks', () => {
+    test('calls onChange and onPrevious callbacks', async () => {
         const onChange = jest.fn();
         const onPrevious = jest.fn();
 
         setup({ currentPage: 5, pagesTotal: 10, onChange, onPrevious });
 
-        userEvent.click(screen.getByLabelText('Previous page'));
+        await userEvent.click(screen.getByLabelText('Previous page'));
 
         expect(onChange).toBeCalledWith(4);
         expect(onPrevious).toBeCalledTimes(1);
     });
 
-    test('calls onChange and onNext callbacks', () => {
+    test('calls onChange and onNext callbacks', async () => {
         const onChange = jest.fn();
         const onNext = jest.fn();
 
         setup({ currentPage: 5, pagesTotal: 10, onChange, onNext });
 
-        userEvent.click(screen.getByLabelText('Next page'));
+        await userEvent.click(screen.getByLabelText('Next page'));
 
         expect(onChange).toBeCalledWith(6);
         expect(onNext).toBeCalledTimes(1);
     });
 
-    test('handles page selector', () => {
+    test('handles page selector', async () => {
         const onChange = jest.fn();
 
         setup({ currentPage: 1, pagesTotal: 10, onChange });
 
-        userEvent.selectOptions(screen.getByRole('combobox'), '6');
+        await userEvent.selectOptions(screen.getByRole('combobox'), '6');
 
         expect(onChange).toBeCalledWith(6);
     });

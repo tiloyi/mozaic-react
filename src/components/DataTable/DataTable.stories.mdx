@@ -1,0 +1,111 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import {
+    Basic,
+    EmptyTable,
+    Pending,
+    HiddenHeader,
+    StickyHeader,
+    ClickOnRow,
+    Sorting,
+    CustomCell,
+    CustomRows,
+    ExpandableRows,
+    SelectableRows,
+    WithPagination
+} from './DataTable.stories';
+import DataTable from './DataTable';
+
+<Meta title="Components/DataTable" component={DataTable} />
+
+# DataTable
+
+The `DataTable` component is the **React.js** implementation of the **Mozaic DataTable** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/DataTable/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { DataTable } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+Basic example:
+
+<Canvas>
+    <Story story={Basic} />
+</Canvas>
+
+Empty table example:
+
+<Canvas>
+    <Story story={EmptyTable} />
+</Canvas>
+
+Pending example:
+
+<Canvas>
+    <Story story={Pending} />
+</Canvas>
+
+Example with hidden header:
+
+<Canvas>
+    <Story story={HiddenHeader} />
+</Canvas>
+
+Example with sticky header:
+
+<Canvas>
+    <Story story={StickyHeader} />
+</Canvas>
+
+Click on row example:
+
+<Canvas>
+    <Story story={ClickOnRow} />
+</Canvas>
+
+Example with sorting:
+
+<Canvas>
+    <Story story={Sorting} />
+</Canvas>
+
+Custom cell renderer example:
+
+<Canvas>
+    <Story story={CustomCell} />
+</Canvas>
+
+Custom row renderer example:
+
+<Canvas>
+    <Story story={CustomRows} />
+</Canvas>
+
+Example with expandable rows:
+
+<Canvas>
+    <Story story={ExpandableRows} />
+</Canvas>
+
+Example with selectable rows:
+
+<Canvas>
+    <Story story={SelectableRows} />
+</Canvas>
+
+Example with pagination:
+
+<Canvas>
+    <Story story={WithPagination} />
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={DataTable} />

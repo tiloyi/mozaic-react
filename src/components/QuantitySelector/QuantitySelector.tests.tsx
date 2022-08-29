@@ -1,6 +1,6 @@
 import React from 'react';
 import { useController, useForm } from 'react-hook-form';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 import View from '../View';
@@ -62,62 +62,62 @@ describe('components/QuantitySelector', () => {
         expect(screen.getByRole('button', { name: 'Decrement' })).toBeDisabled();
     });
 
-    test('increases the value', () => {
+    test('increases the value', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(6);
     });
 
-    test('decreases the value', () => {
+    test('decreases the value', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={5} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(4);
     });
 
-    test('increases the value with specified step', () => {
+    test('increases the value with specified step', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).toBeCalledWith(10);
     });
 
-    test('does not increase if next value is greater than max value', () => {
+    test('does not increase if next value is greater than max value', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={7} step={5} maxValue={10} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(onChange).not.toBeCalled();
     });
 
-    test('decreases the value with specified step', () => {
+    test('decreases the value with specified step', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={5} step={5} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).toBeCalledWith(0);
     });
 
-    test('does not decrease if next value is less than min value', () => {
+    test('does not decrease if next value is less than min value', async () => {
         const onChange = jest.fn();
 
         render(<QuantitySelector value={3} step={5} minValue={0} onChange={onChange} />);
 
-        userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Decrement' }));
 
         expect(onChange).not.toBeCalled();
     });
@@ -162,11 +162,11 @@ describe('components/QuantitySelector', () => {
 
         expect(screen.getByPlaceholderText('quantity')).toHaveDisplayValue('0');
 
-        userEvent.click(screen.getByRole('button', { name: 'Increment' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Increment' }));
 
         expect(screen.getByPlaceholderText('quantity')).toHaveDisplayValue('1');
 
-        await waitFor(() => userEvent.click(screen.getByRole('button', { name: 'Submit' })));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
         expect(onSubmit).toHaveBeenCalledWith({ value: 1 }, expect.any(Object));
     });

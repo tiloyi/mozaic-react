@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import {
+    Basic,
+    StickyHeader,
+    Sortable,
+    CellsWithNumbers,
+    CellsWithCheckboxes,
+    SelectedRows,
+    CellsWithFields,
+    CellsWithButtons,
+    TableWithSubTable,
+    argTypes
+} from './Table.stories';
+import Table from './Table';
+
+<Meta title="Components/Table" component={Table} argTypes={argTypes} />
+
+# Table
+
+The `Table` component is part of the **React.js** implementation of the **Mozaic DataTable** component.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { Table, TableHeader, TableBody, TableRow, TableCell, TableHeaderCell, SubTable } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas>
+    <Story story={Basic} />
+</Canvas>
+
+Sticky header:
+
+```css
+.table-container {
+    max-height: 600px;
+}
+```
+
+<Canvas>
+    <Story story={StickyHeader} />
+</Canvas>
+
+Sortable table:
+
+<Canvas>
+    <Story story={Sortable} />
+</Canvas>
+
+Cells with checkboxes:
+
+<Canvas>
+    <Story story={CellsWithCheckboxes} />
+</Canvas>
+
+Selected rows example:
+
+<Canvas>
+    <Story story={SelectedRows} />
+</Canvas>
+
+Cells with numbers:
+
+<Canvas>
+    <Story story={CellsWithNumbers} />
+</Canvas>
+
+Cells with inputs:
+
+<Canvas>
+    <Story story={CellsWithFields} />
+</Canvas>
+
+Cells with action buttons:
+
+<Canvas>
+    <Story story={CellsWithButtons} />
+</Canvas>
+
+Table with sub-table:
+
+<Canvas>
+    <Story story={TableWithSubTable} />
+</Canvas>
+
+
+## Props
+
+<ArgsTable of={Table} />

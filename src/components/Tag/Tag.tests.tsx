@@ -98,12 +98,12 @@ describe('components/Tag', () => {
             expect(screen.getByLabelText('selectable tag')).toHaveClass('mc-tag-selectable--dark');
         });
 
-        test('calls onChange callback', () => {
+        test('calls onChange callback', async () => {
             const onChange = jest.fn();
 
             render(<SelectableTag onChange={onChange}>tag</SelectableTag>);
 
-            userEvent.click(screen.getByRole('checkbox'));
+            await userEvent.click(screen.getByRole('checkbox'));
 
             expect(onChange).toBeCalledTimes(1);
         });
@@ -143,12 +143,12 @@ describe('components/Tag', () => {
             expect(screen.getByLabelText('removable tag')).toHaveClass('mc-tag-removable--dark');
         });
 
-        test('calls onRemove callback', () => {
+        test('calls onRemove callback', async () => {
             const onRemove = jest.fn();
 
             render(<RemovableTag onRemove={onRemove}>tag</RemovableTag>);
 
-            userEvent.click(screen.getByRole('button'));
+            await userEvent.click(screen.getByRole('button'));
 
             expect(onRemove).toBeCalledTimes(1);
         });

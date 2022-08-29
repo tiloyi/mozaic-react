@@ -39,7 +39,7 @@ describe('components/Accordion', () => {
         expect(screen.getByRole('button', { name: 'Header' })).toBeDisabled();
     });
 
-    test('opens the content by clicking on the header', () => {
+    test('opens the content by clicking on the header', async () => {
         render(
             <Accordion aria-label="accordion">
                 <AccordionHeader>Header</AccordionHeader>
@@ -49,7 +49,7 @@ describe('components/Accordion', () => {
 
         expect(screen.getByLabelText('accordion')).not.toHaveClass('is-open');
 
-        userEvent.click(screen.getByRole('button', { name: 'Header' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Header' }));
 
         expect(screen.getByLabelText('accordion')).toHaveClass('is-open');
         expect(screen.getByRole('article')).toHaveAttribute('aria-hidden', 'false');
