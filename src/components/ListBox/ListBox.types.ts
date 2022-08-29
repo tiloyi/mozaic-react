@@ -2,7 +2,6 @@ import { HTMLAttributes, ReactElement } from 'react';
 
 export interface IListBoxContainerProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
     leftOpening?: boolean;
-    onChange?: TListBoxOnChange;
 }
 
 export interface IListBoxProps extends IListBoxContainerProps {
@@ -10,6 +9,7 @@ export interface IListBoxProps extends IListBoxContainerProps {
     leftOpening?: boolean;
     withMultiSelection?: boolean;
     isOpened: boolean;
+    onChange?: TListBoxOnChange;
 }
 
 export interface IListBoxContextProps extends IUseListBoxStateMethods {
