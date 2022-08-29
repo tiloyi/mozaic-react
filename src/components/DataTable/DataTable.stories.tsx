@@ -20,6 +20,7 @@ import { DataTableRow, ExpandableDataTableRow, DataTableFooter, DataTableEmptyVi
 import { IDataTableColumn } from './DataTable.types';
 import DataTable from './DataTable';
 import './DataTable.stories.scss';
+import usePaginationState from '../../hooks/usePaginationState';
 
 const BasicTemplate: Story = () => {
     const rows = generateBasicRows(15);
@@ -526,7 +527,10 @@ const ExpandableRowsTemplate: Story = () => {
 export const ExpandableRows = ExpandableRowsTemplate.bind({});
 
 const WithPaginationTemplate: Story = () => {
-    const rows = generateBasicRows(10);
+    const pageSize = 10;
+    const { currentPage, pagesTotal, fromIndex, goNext, goPrevious } = usePaginationState(1, pageSize, 100);
+
+    const rows = generateBasicRows(pageSize, fromIndex);
 
     const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
         () => [
@@ -552,7 +556,13 @@ const WithPaginationTemplate: Story = () => {
     return (
         <DataTable<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey}>
             <DataTableFooter>
-                <Pagination currentPage={1} pagesTotal={10} isCompact />
+                <Pagination
+                    currentPage={currentPage}
+                    pagesTotal={pagesTotal}
+                    isCompact
+                    onNext={goNext}
+                    onPrevious={goPrevious}
+                />
             </DataTableFooter>
         </DataTable>
     );
