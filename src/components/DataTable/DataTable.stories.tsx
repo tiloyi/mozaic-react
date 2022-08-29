@@ -111,6 +111,35 @@ const PendingTemplate: Story = () => {
 
 export const ToDoPending = PendingTemplate.bind({});
 
+const HiddenHeaderTemplate: Story = () => {
+    const rows = generateBasicRows(15);
+
+    const columns: Array<IDataTableColumn<IBasicFixture>> = useMemo(
+        () => [
+            {
+                label: 'Id',
+                key: 'id'
+            },
+            {
+                label: 'Name',
+                key: 'name'
+            },
+            {
+                label: 'Count',
+                key: 'count',
+                variant: 'number'
+            }
+        ],
+        []
+    );
+
+    const getRowKey = useCallback((row: IBasicFixture) => row.id, []);
+
+    return <DataTable<IBasicFixture> rows={rows} columns={columns} getRowKey={getRowKey} isHeaderHidden />;
+};
+
+export const HiddenHeader = HiddenHeaderTemplate.bind({});
+
 const ClickOnRowTemplate: Story = () => {
     const rows = generateBasicRows(5);
 

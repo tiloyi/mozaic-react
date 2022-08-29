@@ -26,7 +26,7 @@ export interface IDataTableProps<R> {
     children?: ReactNode;
     rows: Array<R>;
     columns: Array<IDataTableColumn<R>>;
-    hasExpandableRows?: boolean;
+    isHeaderHidden?: boolean;
     getRowKey: (row: R) => TDataTableRowKey;
     getRowClassName?: (row: R, key: TDataTableRowKey) => string | undefined;
     renderCustomRow?: TDataTableRowRenderer<R>;

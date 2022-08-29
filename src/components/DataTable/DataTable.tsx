@@ -13,6 +13,7 @@ function DataTable<R>({
     children,
     columns,
     rows,
+    isHeaderHidden,
     getRowKey,
     getRowClassName = getDefaultRowClassName,
     renderCustomRow,
@@ -22,20 +23,22 @@ function DataTable<R>({
     return (
         <TableContainer className={className}>
             <Table className={tableClassName}>
-                <TableHeader>
-                    <TableRow>
-                        {columns.map(column => {
-                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                            const { key, label, variant, render, renderLabel, ...props } = column;
+                {!isHeaderHidden && (
+                    <TableHeader>
+                        <TableRow>
+                            {columns.map(column => {
+                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                                const { key, label, variant, render, renderLabel, ...props } = column;
 
-                            return (
-                                <TableHeaderCell key={`column-${key as string}`} variant={variant} {...props}>
-                                    {renderLabel ? renderLabel(rows) : label}
-                                </TableHeaderCell>
-                            );
-                        })}
-                    </TableRow>
-                </TableHeader>
+                                return (
+                                    <TableHeaderCell key={`column-${key as string}`} variant={variant} {...props}>
+                                        {renderLabel ? renderLabel(rows) : label}
+                                    </TableHeaderCell>
+                                );
+                            })}
+                        </TableRow>
+                    </TableHeader>
+                )}
                 <TableBody>
                     {rows.map(row => {
                         const rowKey = getRowKey(row);
