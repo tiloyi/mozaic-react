@@ -11,3 +11,4 @@ export {
 } from './Tabs.types';
 
 export { default as useTabsState, IUseTabsState } from './useTabsState';
+export { default as TabsList } from './TabsList';
