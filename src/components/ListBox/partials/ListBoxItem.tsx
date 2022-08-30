@@ -42,7 +42,7 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
                 aria-label="listbox item"
                 className={cn(
                     'mc-listbox__item',
-                    isItemChecked(id) && 'is-checked',
+                    !withMultiSelection && isItemChecked(id) && 'is-checked',
                     isFocused && 'is-focus',
                     isDisabled && 'is-disabled'
                 )}
@@ -51,11 +51,14 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
                 {icon && <span className="mc-listbox__icon">{icon}</span>}
 
                 {withMultiSelection ? (
-                    <CheckBox
-                        isChecked={isItemChecked(id)}
-                        className="mc-listbox__item-checkbox"
-                        onChange={onCheckHandler}
-                    />
+                    <>
+                        <span className="mc-listbox__label">{children}</span>
+                        <CheckBox
+                            className="mc-listbox__item-checkbox"
+                            onChange={onCheckHandler}
+                            isChecked={isItemChecked(id)}
+                        />
+                    </>
                 ) : (
                     <span className="mc-listbox__label">{children}</span>
                 )}
