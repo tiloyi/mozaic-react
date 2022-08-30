@@ -1,10 +1,15 @@
 @import 'settings-tools/_all-settings';
 
-@import 'components/c.checkbox';
-@import 'components/c.listbox';
+@import "components/c.checkbox";
+@import "components/c.listbox";
 
 .mc-listbox__item-button {
   display:block;
   width:100%;
   background-color:transparent;
+}
+
+.mc-listbox__item-checkbox{
+  position:absolute;
+  right:0;
 }

@@ -3,14 +3,21 @@ import cn from 'classnames';
 
 import { IListBoxItemProps } from '../ListBox.types';
 import { useListBoxContext } from '../ListBoxContext';
+import CheckBox from '../../CheckBox';
 
 const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ...props }) => {
     const [isFocused, setFocused] = useState(false);
-    const { check, isItemChecked } = useListBoxContext();
+    const { check, isItemChecked, withMultiSelection } = useListBoxContext();
 
     const onClickHandler = (): void => {
         if (!isDisabled) {
             check(id);
+        }
+    };
+
+    const onCheckHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        if (withMultiSelection && !isDisabled) {
+            check(e.target.id);
         }
     };
 
@@ -42,7 +49,16 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
                 {...props}
             >
                 {icon && <span className="mc-listbox__icon">{icon}</span>}
-                <span className="mc-listbox__label">{children}</span>
+
+                {withMultiSelection ? (
+                    <CheckBox
+                        isChecked={isItemChecked(id)}
+                        className="mc-listbox__item-checkbox"
+                        onChange={onCheckHandler}
+                    />
+                ) : (
+                    <span className="mc-listbox__label">{children}</span>
+                )}
             </li>
         </button>
     );
