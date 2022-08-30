@@ -66,7 +66,13 @@ export default function useListBoxState({
         [withMultiSelection, checkedOptions]
     );
 
+    const clear = () => {
+        setCheckedOptions({});
+    };
+
     return {
+        checkedOptions,
+        clear,
         check: checkOption,
         isItemChecked
     };

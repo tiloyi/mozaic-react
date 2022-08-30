@@ -6,7 +6,7 @@ import { useListBoxContext } from '../ListBoxContext';
 
 const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ...props }) => {
     const [isFocused, setFocused] = useState(false);
-    const { isItemChecked, check } = useListBoxContext();
+    const { check, isItemChecked } = useListBoxContext();
 
     const onClickHandler = (): void => {
         if (!isDisabled) {

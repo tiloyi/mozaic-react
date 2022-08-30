@@ -38,7 +38,9 @@ export type TListBoxOnChange = (itemsChecked: TListBoxItemsChecked) => void;
 export type TListBoxItemsChecked = Record<TListBoxItemId, boolean>;
 
 export interface IUseListBoxStateMethods {
+    checkedOptions: TListBoxItemsChecked;
     check: (id: TListBoxItemId) => void;
+    clear: () => void;
     isItemChecked: (id: TListBoxItemId) => boolean;
     onChange?: TListBoxOnChange;
 }
