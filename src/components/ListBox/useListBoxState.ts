@@ -1,27 +1,27 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IUseListBoxStateMethods, TListBoxItemId, TListBoxItemsChecked, TListBoxOnChange } from './ListBox.types';
 
 export interface IUseListBoxProps {
     withMultiSelection: boolean;
-    defaultSelected?: TListBoxItemId | TListBoxItemId[];
+    selected?: TListBoxItemId | TListBoxItemId[];
     onChange?: TListBoxOnChange;
 }
 
-function mapDefaultSelected(
-    defaultSelected?: TListBoxItemId | TListBoxItemId[],
+export function mapSelectedListBoxItems(
+    selected?: TListBoxItemId | TListBoxItemId[],
     withMultiSelection?: boolean
 ): TListBoxItemsChecked {
     const output: TListBoxItemsChecked = {};
 
-    if (defaultSelected) {
-        if (Array.isArray(defaultSelected) && withMultiSelection) {
-            defaultSelected.forEach(item => {
+    if (selected) {
+        if (Array.isArray(selected) && withMultiSelection) {
+            selected.forEach(item => {
                 output[item] = true;
             });
-        } else if (Array.isArray(defaultSelected) && !withMultiSelection) {
-            output[defaultSelected[0]] = true;
-        } else if (!Array.isArray(defaultSelected)) {
-            output[defaultSelected] = true;
+        } else if (Array.isArray(selected) && !withMultiSelection) {
+            output[selected[0]] = true;
+        } else if (!Array.isArray(selected)) {
+            output[selected] = true;
         }
     }
 
@@ -30,12 +30,18 @@ function mapDefaultSelected(
 
 export default function useListBoxState({
     withMultiSelection,
-    defaultSelected,
+    selected,
     onChange
 }: IUseListBoxProps): IUseListBoxStateMethods {
-    const [checkedOptions, setCheckedOptions] = useState<TListBoxItemsChecked>(
-        mapDefaultSelected(defaultSelected, withMultiSelection)
-    );
+    const [checkedOptions, setCheckedOptions] = useState<TListBoxItemsChecked>({});
+
+    useEffect(() => {
+        if (selected && checkedOptions) {
+            if (JSON.stringify(selected) !== JSON.stringify(checkedOptions)) {
+                setCheckedOptions(mapSelectedListBoxItems(selected, withMultiSelection));
+            }
+        }
+    }, [selected, withMultiSelection]);
 
     const isItemChecked = useCallback((id: TListBoxItemId) => checkedOptions[id] || false, [checkedOptions]);
 

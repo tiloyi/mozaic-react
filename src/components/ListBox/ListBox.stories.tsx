@@ -98,7 +98,7 @@ export const WithDefaultSelectedTemplate: Story<IListBoxProps> = args => (
 export const WithDefaultSelected = WithDefaultSelectedTemplate.bind({});
 
 WithDefaultSelected.args = {
-    defaultSelected: 'option1',
+    selected: 'option1',
     isOpened: true
 };
 

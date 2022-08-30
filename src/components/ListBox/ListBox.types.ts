@@ -5,7 +5,7 @@ export interface IListBoxContainerProps extends Omit<HTMLAttributes<HTMLUListEle
 }
 
 export interface IListBoxProps extends IListBoxContainerProps {
-    defaultSelected?: TListBoxItemId | TListBoxItemId[];
+    selected?: TListBoxItemId | TListBoxItemId[];
     leftOpening?: boolean;
     withMultiSelection?: boolean;
     isOpened: boolean;
@@ -19,7 +19,7 @@ export interface IListBoxContextProps extends IUseListBoxStateMethods {
 }
 
 export interface IListBoxContextProviderProps {
-    defaultSelected?: TListBoxItemId | TListBoxItemId[];
+    selected?: TListBoxItemId | TListBoxItemId[];
     withMultiSelection?: boolean;
     isOpened: boolean;
     onChange?: TListBoxOnChange;

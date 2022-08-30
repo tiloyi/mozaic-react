@@ -9,13 +9,13 @@ export function useListBoxContext(): IListBoxContextProps {
 }
 
 export const ListBoxContextProvider: FC<IListBoxContextProviderProps> = ({
-    defaultSelected,
+    selected,
     withMultiSelection = false,
     isOpened,
     onChange,
     children
 }) => {
-    const { isItemChecked, check } = useListBoxState({ defaultSelected, withMultiSelection, onChange });
+    const { isItemChecked, check } = useListBoxState({ selected, withMultiSelection, onChange });
 
     const contextValue = useMemo(
         () => ({ isOpened, isItemChecked, withMultiSelection, check }),

@@ -6,7 +6,7 @@ import { ListBoxContextProvider } from './ListBoxContext';
 import ListBoxContainer from './partials/ListBoxContainer';
 
 const ListBox: FC<IListBoxProps> = ({
-    defaultSelected,
+    selected,
     withMultiSelection = false,
     leftOpening,
     isOpened = false,
@@ -17,7 +17,7 @@ const ListBox: FC<IListBoxProps> = ({
     <ListBoxContextProvider
         isOpened={isOpened}
         withMultiSelection={withMultiSelection}
-        defaultSelected={defaultSelected}
+        selected={selected}
         onChange={onChange}
     >
         <ListBoxContainer {...props} leftOpening={leftOpening}>

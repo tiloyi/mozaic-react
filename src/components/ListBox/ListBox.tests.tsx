@@ -38,7 +38,7 @@ describe('components/ListBox', () => {
     });
 
     test('item properties works correctly', () => {
-        render(setup({ defaultSelected: 'test2', isOpened: false }, <TestListBoxItems />));
+        render(setup({ selected: 'test2', isOpened: false }, <TestListBoxItems />));
 
         const listBoxItems = screen.getAllByLabelText('listbox item');
 
