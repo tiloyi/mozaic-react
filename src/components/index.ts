@@ -222,6 +222,7 @@ export {
     TabsLink,
     TabsButton,
     TabsPanel,
+    TabsList,
     useTabsState,
     IUseTabsState,
     ITabsPanelProps,
