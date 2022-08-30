@@ -1,5 +1,12 @@
 
 
+## [1.4.1](https://github.com/adeo/mozaic-react/compare/v1.4.0...v1.4.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* **tabs:** tabs list component export ([5d371b4](https://github.com/adeo/mozaic-react/commit/5d371b4fc7d3c5ea254bf2f5883be5a6b9271a45))
+
 # [1.4.0](https://github.com/adeo/mozaic-react/compare/v1.3.0-beta.12...v1.4.0) (2022-08-29)
 
 
