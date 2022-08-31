@@ -54,6 +54,7 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
                     <>
                         <span className="mc-listbox__label">{children}</span>
                         <CheckBox
+                            aria-label="listbox item checkbox"
                             className="mc-listbox__item-checkbox"
                             onChange={onCheckHandler}
                             isChecked={isItemChecked(id)}

@@ -81,16 +81,16 @@ describe('components/ListBox', () => {
         render(setup({ withMultiSelection: true, isOpened: false }, <TestListBoxItems />));
 
         const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
-        const listBoxItems = screen.getAllByLabelText('listbox item');
+        const listBoxCheckboxes = screen.getAllByLabelText('listbox item checkbox');
 
-        expect(listBoxItems[1]).not.toHaveClass('is-checked');
-        expect(listBoxItems[2]).not.toHaveClass('is-checked');
+        expect(listBoxCheckboxes[1]).not.toBeChecked();
+        expect(listBoxCheckboxes[2]).not.toBeChecked();
 
         userEvent.click(listBoxButtonItems[1]);
         userEvent.click(listBoxButtonItems[2]);
 
-        expect(listBoxItems[2]).toHaveClass('is-checked');
-        expect(listBoxItems[1]).toHaveClass('is-checked');
+        expect(listBoxCheckboxes[1]).toBeChecked();
+        expect(listBoxCheckboxes[2]).toBeChecked();
     });
 
     test('isOpened works', () => {
