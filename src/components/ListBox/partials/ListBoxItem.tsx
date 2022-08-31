@@ -39,14 +39,15 @@ const ListBoxItem: FC<IListBoxItemProps> = ({ id, icon, isDisabled, children, ..
             aria-label="listbox item button"
         >
             <li
+                {...props}
                 aria-label="listbox item"
                 className={cn(
                     'mc-listbox__item',
                     !withMultiSelection && isItemChecked(id) && 'is-checked',
                     isFocused && 'is-focus',
-                    isDisabled && 'is-disabled'
+                    isDisabled && 'is-disabled',
+                    props.className
                 )}
-                {...props}
             >
                 {icon && <span className="mc-listbox__icon">{icon}</span>}
 
