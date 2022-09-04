@@ -1,9 +1,9 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import cn from 'classnames';
 import { useIsMounted } from '../../../hooks';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
-import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
+import { useModalsState, useModals } from '../../ModalsProvider';
 import { ILayerContainerProps } from '../Layer.types';
 
 const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
@@ -33,9 +33,7 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClos
         }
     }, [modalState, isMounted, onOpen, onClose]);
 
-    const handleOverlayClick = () => {
-        close(id);
-    };
+    const handleClick = useCallback(() => close(id), [close, id]);
 
     return (
         <Portal id={`portal-layer-${id}`}>
@@ -44,7 +42,7 @@ const LayerContainer: FC<ILayerContainerProps> = ({ children, id, onOpen, onClos
                     {isOpen && children}
                 </div>
             </div>
-            <Overlay isVisible={isOpen} onClick={handleOverlayClick} />
+            <Overlay isVisible={isOpen} onClick={handleClick} />
         </Portal>
     );
 };

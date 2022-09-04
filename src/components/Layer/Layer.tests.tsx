@@ -53,7 +53,7 @@ describe('components/Layer', () => {
         expect(onOpen).toBeCalledTimes(1);
     });
 
-    test('calls `onClose` callback', async () => {
+    test('calls `onClose` callback by button click', async () => {
         const onClose = jest.fn();
 
         render(
@@ -67,6 +67,24 @@ describe('components/Layer', () => {
         expect(screen.getByRole('document')).toHaveClass('is-open');
 
         await userEvent.click(screen.getByRole('button', { name: /Close/ }));
+
+        expect(onClose).toBeCalledTimes(1);
+    });
+
+    test('calls `onClose` callback by overlay click', async () => {
+        const onClose = jest.fn();
+
+        render(
+            <ModalsProvider>
+                <Scene onClose={onClose} />
+            </ModalsProvider>
+        );
+
+        await userEvent.click(screen.getByText(/Open/));
+
+        expect(screen.getByRole('document')).toHaveClass('is-open');
+
+        await userEvent.click(screen.getAllByRole('dialog')[1]);
 
         expect(onClose).toBeCalledTimes(1);
     });
