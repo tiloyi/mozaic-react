@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { IOverlayProps } from './Overlay.types';
 import './Overlay.scss';
 
-const Overlay: FC<IOverlayProps> = ({ children, className, isVisible, onClick }): JSX.Element => {
+const Overlay: FC<IOverlayProps> = ({ children, className, isVisible, ...props }): JSX.Element => {
     useEffect(() => {
         if (isVisible) {
             document.body.style.overflow = 'hidden';
@@ -21,13 +21,7 @@ const Overlay: FC<IOverlayProps> = ({ children, className, isVisible, onClick })
 
     return (
         <>
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-            <div
-                className={cn('mc-overlay', isVisible && 'is-visible')}
-                role="dialog"
-                tabIndex={-1}
-                onClick={onClick}
-            />
+            <div className={cn('mc-overlay', isVisible && 'is-visible')} role="dialog" tabIndex={-1} {...props} />
             {isVisible && children && <div className={className}>{children}</div>}
         </>
     );
