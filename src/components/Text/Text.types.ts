@@ -48,6 +48,10 @@ export const weights = ['light', 'regular', 'semi-bold'] as const;
 
 export type TTextWeight = typeof weights[number];
 
+export const lineHeights = ['l', 'm', 's', 'xs'] as const;
+
+export type TTextLineHeight = typeof lineHeights[number];
+
 export interface ITextProps {
     className?: string;
     as?: TTextTag;
@@ -55,4 +59,5 @@ export interface ITextProps {
     theme?: TTextTheme;
     size?: TTextSize;
     weight?: TTextWeight;
+    lineHeight?: TTextLineHeight;
 }

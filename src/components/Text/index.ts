@@ -1,4 +1,2 @@
-import Text from './Text';
-
-export { ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text.types';
-export default Text;
+export { ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight, TTextLineHeight } from './Text.types';
+export { default as Text } from './Text';

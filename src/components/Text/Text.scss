@@ -18,16 +18,52 @@ $alignments: left, center, right;
         }
     }
 
-    &--l {
-        @include set-font-scale("06");
+    &--l-l {
+        @include set-font-scale("06", "l");
     }
 
-    &--m {
-        @include set-font-scale("05");
+    &--m-l {
+        @include set-font-scale("05", "l");
     }
 
-    &--s {
-        @include set-font-scale("04");
+    &--s-l {
+        @include set-font-scale("04", "l");
+    }
+
+    &--l-m {
+        @include set-font-scale("06", "m");
+    }
+
+    &--m-m {
+        @include set-font-scale("05", "m");
+    }
+
+    &--s-m {
+        @include set-font-scale("04", "m");
+    }
+
+    &--l-s {
+        @include set-font-scale("06", "s");
+    }
+
+    &--m-s {
+        @include set-font-scale("05", "s");
+    }
+
+    &--s-s {
+        @include set-font-scale("04", "s");
+    }
+
+    &--l-xs {
+        @include set-font-scale("06", "xs");
+    }
+
+    &--m-xs {
+        @include set-font-scale("05", "xs");
+    }
+
+    &--s-xs {
+        @include set-font-scale("04", "xs");
     }
 
     &--light {

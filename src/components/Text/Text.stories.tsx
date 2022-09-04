@@ -11,7 +11,8 @@ Controls.args = {
     as: 'p',
     theme: 'primary-01',
     size: 'm',
-    weight: 'regular'
+    weight: 'regular',
+    lineHeight: 'l'
 };
 
 export const argTypes = {
@@ -25,12 +26,17 @@ export const argTypes = {
             type: 'select'
         }
     },
-    align: {
+    textAlign: {
         control: {
             type: 'select'
         }
     },
     weight: {
+        control: {
+            type: 'select'
+        }
+    },
+    lineHeight: {
         control: {
             type: 'select'
         }
