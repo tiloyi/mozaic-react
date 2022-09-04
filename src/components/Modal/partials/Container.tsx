@@ -1,13 +1,13 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import cn from 'classnames';
 import { useIsMounted } from '../../../hooks';
-import { useModalsState, useModals } from '../../ModalsProvider/ModalsContext';
+import { useModalsState, useModals } from '../../ModalsProvider';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
 import { IModalContainerProps } from '../Modal.types';
 
 const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
-    const { register, unregister } = useModals();
+    const { register, unregister, close } = useModals();
     const modals = useModalsState();
     const isMounted = useIsMounted();
 
@@ -33,6 +33,8 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClos
         }
     }, [modalState, isMounted, onOpen, onClose]);
 
+    const handleClick = useCallback(() => close(id), [close, id]);
+
     return (
         <Portal id={`portal-modal-${id}`}>
             <div className="mc-modal" role="dialog" tabIndex={-1}>
@@ -40,7 +42,7 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClos
                     {isOpen && children}
                 </div>
             </div>
-            <Overlay isVisible={isOpen} />
+            <Overlay isVisible={isOpen} onClick={handleClick} />
         </Portal>
     );
 };

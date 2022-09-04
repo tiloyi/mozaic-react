@@ -7,7 +7,7 @@ import Text from '../Text';
 import { ModalBody, ModalFooter, ModalHeader, ModalHeading, ModalTitle } from './partials';
 import Modal from './Modal';
 
-const ShortBodyExample = (): JSX.Element => {
+const ShortBodyTemplate: Story = () => {
     const { open } = useModals();
 
     return (
@@ -35,15 +35,17 @@ const ShortBodyExample = (): JSX.Element => {
     );
 };
 
-const ShortBodyTemplate: Story = () => (
-    <ModalsProvider>
-        <ShortBodyExample />
-    </ModalsProvider>
-);
-
 export const ShortBody = ShortBodyTemplate.bind({});
 
-const LongBodyExample = (): JSX.Element => {
+ShortBody.decorators = [
+    StoryComponent => (
+        <ModalsProvider>
+            <StoryComponent />
+        </ModalsProvider>
+    )
+];
+
+const LongBodyTemplate: Story = () => {
     const { open } = useModals();
 
     return (
@@ -113,10 +115,12 @@ const LongBodyExample = (): JSX.Element => {
     );
 };
 
-const LongBodyTemplate: Story = () => (
-    <ModalsProvider>
-        <LongBodyExample />
-    </ModalsProvider>
-);
-
 export const LongBody = LongBodyTemplate.bind({});
+
+LongBody.decorators = [
+    StoryComponent => (
+        <ModalsProvider>
+            <StoryComponent />
+        </ModalsProvider>
+    )
+];

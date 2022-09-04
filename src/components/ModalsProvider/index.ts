@@ -1,4 +1,4 @@
-import { useModals, ModalsProvider } from './ModalsContext';
+import { useModals, useModalsState, ModalsProvider } from './ModalsContext';
 
-export { useModals };
+export { useModals, useModalsState };
 export default ModalsProvider;
