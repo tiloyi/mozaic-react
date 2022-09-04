@@ -6,7 +6,7 @@ import { IModalCloseButtonProps } from '../Modal.types';
 const ModalCloseButton = ({ className, id, title = 'Close', ...props }: IModalCloseButtonProps): JSX.Element => {
     const { close } = useModals();
 
-    const handleClick = useCallback(() => close(id), [id, close]);
+    const handleClick = useCallback(() => close(id), [close, id]);
 
     return (
         <button type="button" className={cn('mc-modal__close', className)} {...props} onClick={handleClick}>
