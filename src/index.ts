@@ -261,15 +261,7 @@ export {
     TTableSortDirection,
     TTableSize
 } from './components/Table';
-export {
-    default as Text,
-    ITextProps,
-    TTextTag,
-    TTextTheme,
-    TTextAlign,
-    TTextSize,
-    TTextWeight
-} from './components/Text';
+export * from './components/Text';
 export { default as TextArea, ITextAreaProps } from './components/TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './components/TextInput';
 export {

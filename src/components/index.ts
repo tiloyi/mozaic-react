@@ -245,7 +245,7 @@ export {
     TTagSize,
     TTagTheme
 } from './Tag';
-export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
+export * from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';
 export {
