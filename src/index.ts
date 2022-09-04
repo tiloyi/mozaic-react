@@ -47,6 +47,24 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './components/CheckBox';
+export {
+    DataTable,
+    DataTableRow,
+    ExpandableDataTableRow,
+    DataTableFooter,
+    DataTableEmptyView,
+    DataTablePendingOverlay,
+    IDataTableProps,
+    IDataTableRowProps,
+    IDataTableColumn,
+    IExpandableDataTableRowProps,
+    TDataTableRowKey,
+    TDataTableRowClickHandler,
+    TDataTableRowRenderer,
+    TDataTableRowSelector,
+    IDataTableEmptyViewProps,
+    IDataTableFooterProps
+} from './components/DataTable';
 export { default as DateInput, IDateInputProps } from './components/DateInput';
 export {
     default as FileUploader,
@@ -197,6 +215,7 @@ export {
     TabsLink,
     TabsButton,
     TabsPanel,
+    TabsList,
     useTabsState,
     IUseTabsState,
     ITabsPanelProps,
@@ -220,14 +239,29 @@ export {
     TTagTheme
 } from './components/Tag';
 export {
-    default as Text,
-    ITextProps,
-    TTextTag,
-    TTextTheme,
-    TTextAlign,
-    TTextSize,
-    TTextWeight
-} from './components/Text';
+    Table,
+    TableActionButton,
+    TableContainer,
+    TableExpandButton,
+    TableBody,
+    TableCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+    SubTable,
+    ITableProps,
+    ITableActionButtonProps,
+    ITableBodyProps,
+    ITableCellProps,
+    ITableHeaderProps,
+    ITableHeaderCellProps,
+    ITableRowProps,
+    ISubTableProps,
+    TTableCellVariant,
+    TTableSortDirection,
+    TTableSize
+} from './components/Table';
+export * from './components/Text';
 export { default as TextArea, ITextAreaProps } from './components/TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './components/TextInput';
 export {

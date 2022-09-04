@@ -63,6 +63,24 @@ export {
     ICheckBoxProps,
     ICheckBoxPartialProps
 } from './CheckBox';
+export {
+    DataTable,
+    DataTableRow,
+    ExpandableDataTableRow,
+    DataTableEmptyView,
+    DataTableFooter,
+    DataTablePendingOverlay,
+    IDataTableProps,
+    IDataTableRowProps,
+    IDataTableColumn,
+    IExpandableDataTableRowProps,
+    TDataTableRowKey,
+    TDataTableRowClickHandler,
+    TDataTableRowRenderer,
+    TDataTableRowSelector,
+    IDataTableFooterProps,
+    IDataTableEmptyViewProps
+} from './DataTable';
 export { default as DateInput, IDateInputProps } from './DateInput';
 export {
     default as FileUploader,
@@ -193,10 +211,34 @@ export {
 } from './RatingStars';
 export { default as Select, ISelectProps, ISelectOption, ISelectOptionGroup, TSelectSize } from './Select';
 export {
+    Table,
+    TableContainer,
+    TableActionButton,
+    TableExpandButton,
+    TableBody,
+    TableCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+    SubTable,
+    ITableProps,
+    ITableActionButtonProps,
+    ITableBodyProps,
+    ITableCellProps,
+    ITableHeaderProps,
+    ITableHeaderCellProps,
+    ITableRowProps,
+    ISubTableProps,
+    TTableCellVariant,
+    TTableSortDirection,
+    TTableSize
+} from './Table';
+export {
     Tabs,
     TabsLink,
     TabsButton,
     TabsPanel,
+    TabsList,
     useTabsState,
     IUseTabsState,
     ITabsPanelProps,
@@ -219,7 +261,7 @@ export {
     TTagSize,
     TTagTheme
 } from './Tag';
-export { default as Text, ITextProps, TTextTag, TTextTheme, TTextAlign, TTextSize, TTextWeight } from './Text';
+export * from './Text';
 export { default as TextArea, ITextAreaProps } from './TextArea';
 export { default as TextInput, ITextInputProps, TTextInputSize } from './TextInput';
 export {

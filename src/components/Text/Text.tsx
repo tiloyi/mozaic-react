@@ -5,12 +5,22 @@ import './Text.scss';
 
 const blockClassName = 'mt-text';
 
-const Text: FC<ITextProps> = ({ className, children, as = 'span', textAlign, theme, size = 'm', weight, ...props }) => {
+const Text: FC<ITextProps> = ({
+    className,
+    children,
+    as = 'span',
+    textAlign,
+    theme,
+    size = 'm',
+    weight,
+    lineHeight = 'l',
+    ...props
+}) => {
     const elementClassName = cn(
         blockClassName,
         className,
         textAlign && `${blockClassName}--${textAlign}`,
-        `${blockClassName}--${size}`,
+        `${blockClassName}--${size}-${lineHeight}`,
         theme && `${blockClassName}--color-${theme}`,
         weight && `${blockClassName}--${weight}`
     );

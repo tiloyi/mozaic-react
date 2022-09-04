@@ -34,69 +34,69 @@ const setup = (): RenderResult =>
     );
 
 describe('components/NotificationsProvider', () => {
-    test('adds notification', () => {
+    test('adds notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
         expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    test('updates notification', () => {
+    test('updates notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
         expect(screen.getByRole('heading')).toHaveTextContent('Title');
 
-        userEvent.click(screen.getByRole('button', { name: 'Update title' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Update title' }));
 
         expect(screen.getByRole('heading')).toHaveTextContent('New title');
     });
 
-    test('removes notification', () => {
+    test('removes notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
         expect(screen.getByRole('status')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'Remove notification' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Remove notification' }));
 
         expect(screen.queryByRole('status')).not.toBeInTheDocument();
     });
 
-    test('adds `info` notification', () => {
+    test('adds `info` notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add info' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add info' }));
 
         expect(screen.getByRole('status')).toBeInTheDocument();
         expect(screen.getByRole('heading')).toHaveTextContent('Info');
     });
 
-    test('adds `success` notification', () => {
+    test('adds `success` notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add success' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add success' }));
 
         expect(screen.getByRole('status')).toBeInTheDocument();
         expect(screen.getByRole('heading')).toHaveTextContent('Success');
     });
 
-    test('adds `warning` notification', () => {
+    test('adds `warning` notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add warning' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add warning' }));
 
         expect(screen.getByRole('status')).toBeInTheDocument();
         expect(screen.getByRole('heading')).toHaveTextContent('Warning');
     });
 
-    test('adds `danger` notification', () => {
+    test('adds `danger` notification', async () => {
         setup();
 
-        userEvent.click(screen.getByRole('button', { name: 'Add danger' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Add danger' }));
 
         expect(screen.getByRole('alert')).toBeInTheDocument();
         expect(screen.getByRole('heading')).toHaveTextContent('Danger');

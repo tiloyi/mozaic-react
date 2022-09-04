@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Text from './Text';
-import { tags, textAligns, sizes, weights, themes } from './Text.types';
+import { tags, textAligns, sizes, lineHeights, weights, themes, TTextSize, TTextLineHeight } from './Text.types';
 
 describe('components/Text', () => {
     test.each(tags)('renders as `%s` tag correctly', tag => {
@@ -22,16 +22,26 @@ describe('components/Text', () => {
         expect(screen.getByText('text')).toHaveClass(`mt-text--color-${theme}`);
     });
 
-    test('renders with default size correctly', () => {
+    test('renders with default font size and line height correctly', () => {
         render(<Text>text</Text>);
 
-        expect(screen.getByText('text')).toHaveClass(`mt-text--m`);
+        expect(screen.getByText('text')).toHaveClass(`mt-text--m-l`);
     });
 
-    test.each(sizes)('renders with `%s` size correctly', size => {
-        render(<Text size={size}>text</Text>);
+    const sizeCases = sizes.reduce((acc: Array<[TTextSize, TTextLineHeight]>, size: TTextSize) => {
+        const piece: Array<[TTextSize, TTextLineHeight]> = lineHeights.map(lineHeight => [size, lineHeight]);
 
-        expect(screen.getByText('text')).toHaveClass(`mt-text--${size}`);
+        return [...acc, ...piece];
+    }, []);
+
+    test.each(sizeCases)('renders with `%s` font size and `%s` line height correctly', (size, lineHeight) => {
+        render(
+            <Text size={size} lineHeight={lineHeight}>
+                text
+            </Text>
+        );
+
+        expect(screen.getByText('text')).toHaveClass(`mt-text--${size}-${lineHeight}`);
     });
 
     test.each(weights)('renders with `%s` weight correctly', weight => {

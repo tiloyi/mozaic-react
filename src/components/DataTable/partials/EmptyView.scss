@@ -1,0 +1,6 @@
+@import "settings-tools/_all-settings";
+
+.mc-datatable__empty-view {
+    flex-grow: 1;
+    background-color: $color-grey-000;
+}
