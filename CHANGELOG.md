@@ -1,5 +1,17 @@
 
 
+## [1.4.2](https://github.com/adeo/mozaic-react/compare/v1.4.1...v1.4.2) (2022-09-04)
+
+
+### Features
+
+* **component/layer:** close layer by overlay click ([9a47531](https://github.com/adeo/mozaic-react/commit/9a475313926827a088e70c25360811185acafed7))
+* **layer:** extends basic html div tag, handles click ([b87c468](https://github.com/adeo/mozaic-react/commit/b87c468dda8210e907fccb3eecbfd70372e0148e))
+* **modal:** closes by click on overlay ([af8cba2](https://github.com/adeo/mozaic-react/commit/af8cba26b81b3f8dafcfc5d25617e8861b0e37b0))
+* **modal:** improve storybook examples ([9d76ec4](https://github.com/adeo/mozaic-react/commit/9d76ec4e50691a169c3aa0b20837aa1954dcc97c))
+* **overlay:** extends basic html div tag, handles click ([af100a7](https://github.com/adeo/mozaic-react/commit/af100a7024cac8f99ff85fb2b39fa81a448cc2e9))
+* **text:** add line height property ([1e61829](https://github.com/adeo/mozaic-react/commit/1e618290cd8fbdea7727f579c187d4110f051f8f))
+
 ## [1.4.1](https://github.com/adeo/mozaic-react/compare/v1.4.0...v1.4.1) (2022-08-30)
 
 
