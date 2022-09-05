@@ -5,7 +5,7 @@ import Badge from '../Badge';
 import CheckBox from '../CheckBox';
 import Pagination from '../Pagination';
 import { TableExpandButton, TTableSortDirection } from '../Table';
-import Text from '../Text';
+import { Text } from '../Text';
 import {
     IBasicFixture,
     generateBasicRows,
