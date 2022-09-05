@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import CheckBox from '../CheckBox';
-import Text from '../Text';
+import { Text } from '../Text';
 import Toggle from '../Toggle';
 import { AccordionHeader, AccordionContent, AccordionHeading } from './partials';
 import Accordion from './Accordion';

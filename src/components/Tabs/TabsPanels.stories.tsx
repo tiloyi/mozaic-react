@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Text from '../Text';
+import { Text } from '../Text';
 import { TabsButton, TabsPanel } from './partials';
 import { TabsContextProvider as Tabs } from './TabsContext';
 import TabsList from './TabsList';

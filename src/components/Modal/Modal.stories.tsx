@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
-import Text from '../Text';
+import { Text } from '../Text';
 import { ModalBody, ModalFooter, ModalHeader, ModalHeading, ModalTitle } from './partials';
 import Modal from './Modal';
 
