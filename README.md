@@ -29,11 +29,11 @@
 
 **Mozaic** is an inner-source design system built by [Adeo](https://www.adeo.com/), to reinforce team's delivery time, improve quality of deliverables and thus help set up a coherent customer experience within the digital interfaces of the group's brands.
 
-You can learn more about **Mozaic** vision and guidelines by visiting our documentation website [ here](https://mozaic.adeo.cloud/).
+You can learn more about **Mozaic** vision and guidelines by visiting our documentation website [here](https://mozaic.adeo.cloud/).
 
 ## Contributing
 
-Developers interested in contributing should read the [Code of Conduct](https://github.com/adeo/mozaic-design-system/blob/master/CODE_OF_CONDUCT.md) and the Contribution Guide (coming soon).
+Developers interested in contributing should read the [Code of Conduct](https://github.com/adeo/mozaic-design-system/blob/master/CODE_OF_CONDUCT.md) and the [Contribution Guide](https://mozaic.adeo.cloud/Contributing/).
 
 ### Getting started
 
