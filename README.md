@@ -3,7 +3,7 @@
 <p align="center">
   Mozaic-React is the <a href="https://reactjs.org/">React</a> implementation of <a href="https://mozaic.adeo.cloud/">Mozaic Design System</a>.
   <br>
-  <a href="https://mv-storybook-next.surge.sh/"><strong>Explore Mozaic-React Storybook »</strong></a>
+  <a href="https://adeo.github.io/mozaic-react/"><strong>Explore Mozaic-React Storybook »</strong></a>
 </p>
 
 <p align="center">
@@ -31,35 +31,35 @@
 
 You can learn more about **Mozaic** vision and guidelines by visiting our documentation website [ here](https://mozaic.adeo.cloud/).
 
-## This repository
+## Contributing
 
-This repository contains the following elements:
+Developers interested in contributing should read the [Code of Conduct](https://github.com/adeo/mozaic-design-system/blob/master/CODE_OF_CONDUCT.md) and the Contribution Guide (coming soon).
 
--   In the `storybook` folder, all the configuration of our **Storybook** documentation
--   In `src`, the code, test and stories of the **Mozaic-React components** and the associated configuration
-
-### Documentation
-
-**Mozaic-react**'s documentation, included in this repository is built with [Storybook](https://storybook.js.org/docs/vue/get-started/introduction) and publicly hosted on **GitHub Pages** at [Mozaic-React](https://musical-happiness-538039b4.pages.github.io/). The docs may also be run locally.
-
-#### Running documentation locally
+### Getting started
 
 To run the documentation locally, you can do the following:
 
-1. Clone this repository
-2. Run `npm install` to install the **Node.js** dependencies, including Storybook
-3. Run `npm run start` to launch **Storybook** and activate hot-reloads for development
-4. Open [http://localhost:6006/](http://localhost:6006/) in your browser and start explore! :rocket:
+```shell
+npm install
+npm run start
+```
+
+Congratulations, `Storybook` is running on [http://localhost:6006/](http://localhost:6006/). :rocket:
+
+[Storybook](https://storybook.js.org/docs/vue/get-started/introduction) acts as our documentation. Furthermore, it is really useful during development. It allows to play with props and see how our components react to it.
+
+#### This repository
+
+This repository contains the following elements:
+
+-   In the `.storybook` folder, all the **Storybook** configuration.
+-   In `src`, the code, test and stories of the **Mozaic-React components** and the associated configuration
 
 ### Bugs and feature requests
 
 Have a bug or a feature request? Please let us know by [opening a new issue](https://github.com/adeo/mozaic-react/issues/new/choose) and using the correct template associated with your request.
 
 However if you are ever able to contribute to help us fix bugs, build new features, or help us improve the project documentation, feel free to do it! _(more information below)_
-
-### Contributing
-
-Developers interested in contributing should read the [Code of Conduct](https://github.com/adeo/mozaic-design-system/blob/master/CODE_OF_CONDUCT.md) and the Contribution Guide (coming soon)
 
 ### Stay in touch
 
