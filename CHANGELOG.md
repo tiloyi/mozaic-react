@@ -1,5 +1,14 @@
 
 
+## [1.4.3](https://github.com/adeo/mozaic-react/compare/v1.4.2...v1.4.3) (2022-09-07)
+
+
+### Bug Fixes
+
+* children type on Text Component ([505cadf](https://github.com/adeo/mozaic-react/commit/505cadf182bdc7de25de02d2a86ce26a35fe946c))
+* **select:** use empty value for select placeholder option ([bb4a62e](https://github.com/adeo/mozaic-react/commit/bb4a62eeb9936e0f37c218a6534e7e2b74e44e7f))
+* **text:** fixed broken imports ([e720eb5](https://github.com/adeo/mozaic-react/commit/e720eb5f64dffecbc038bfcc022ad7b48a873c6f))
+
 ## [1.4.2](https://github.com/adeo/mozaic-react/compare/v1.4.1...v1.4.2) (2022-09-04)
 
 
