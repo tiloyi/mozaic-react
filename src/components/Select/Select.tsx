@@ -33,7 +33,7 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
         /* eslint-disable react/no-array-index-key */
         return (
             <select ref={ref} className={selectClassName} name={name} {...props} aria-invalid={isInvalid} disabled={isDisabled}>
-                {placeholder.length > 0 && <option>-- {placeholder} --</option>}
+                {placeholder.length > 0 && <option value="">-- {placeholder} --</option>}
                 {options.map((option, index) => {
                     if ((option as ISelectOptionGroup).options) {
                         return (
