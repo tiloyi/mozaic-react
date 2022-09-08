@@ -54,6 +54,25 @@ export function generateSelectableRows(limit = 10, offset = 0): Array<ISelectabl
 
 export interface IExpandableFixture extends IBasicFixture {
     isExpanded: boolean;
+    products: IExpandableSubtable[];
+}
+
+export interface IExpandableSubtable {
+    id: number;
+    label: string;
+    quantity: number;
+}
+
+export function generateSubtable(limit = 10, offset = 0): Array<IExpandableSubtable> {
+    return Array.from({ length: limit }).map((_: unknown, index: number) => {
+        const id = index + offset;
+
+        return {
+            id,
+            label: `Label: ${id}`,
+            quantity: 10 + id
+        };
+    });
 }
 
 export function generateExpandableRows(limit = 10, offset = 0): Array<IExpandableFixture> {
@@ -64,7 +83,8 @@ export function generateExpandableRows(limit = 10, offset = 0): Array<IExpandabl
             id,
             name: `Name #${id}`,
             count: 1e6 + id,
-            isExpanded: false
+            isExpanded: false,
+            products: generateSubtable(3)
         };
     });
 }
