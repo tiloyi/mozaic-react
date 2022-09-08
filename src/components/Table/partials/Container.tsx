@@ -15,19 +15,26 @@ const Table: FC<ITableContainerProps> = ({
     children,
     size = 'm',
     withStickyHeader,
+    isSubtable,
     ...props
-}): JSX.Element => (
-    <div
-        className={cn(
-            'mc-datatable',
-            className,
-            getSizeModifier(size),
-            withStickyHeader && 'mc-datatable--sticky-header'
-        )}
-        {...props}
-    >
-        <div className="mc-datatable__container">{children}</div>
-    </div>
-);
+}): JSX.Element => {
+    if (isSubtable) {
+        return <div className="mc-datatable__row-inner">{children}</div>;
+    }
+
+    return (
+        <div
+            className={cn(
+                'mc-datatable',
+                className,
+                getSizeModifier(size),
+                withStickyHeader && 'mc-datatable--sticky-header'
+            )}
+            {...props}
+        >
+            <div className="mc-datatable__container">{children}</div>
+        </div>
+    );
+};
 
 export default Table;

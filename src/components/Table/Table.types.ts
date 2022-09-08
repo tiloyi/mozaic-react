@@ -11,9 +11,12 @@ export type TTableSize = typeof sizes[number];
 export interface ITableContainerProps extends HTMLAttributes<HTMLDivElement> {
     size?: TTableSize;
     withStickyHeader?: boolean;
+    isSubtable?: boolean;
 }
 
-export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {}
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
+    isSubtable?: boolean;
+}
 
 export interface ISubTableProps extends TableHTMLAttributes<HTMLTableElement> {}
 
