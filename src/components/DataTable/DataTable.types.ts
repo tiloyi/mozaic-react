@@ -45,9 +45,12 @@ export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {
     onClick?: TDataTableRowClickHandler<R>;
 }
 
+export type TExpandableDataTableRowOffset = 1 | 2;
+
 export interface IExpandableDataTableRowProps<R> extends IDataTableRowProps<R> {
     children?: ReactNode;
     isExpanded: boolean;
+    offset?: TExpandableDataTableRowOffset;
 }
 
 export interface IDataTableFooterProps extends HTMLAttributes<HTMLDivElement> {
