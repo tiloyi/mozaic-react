@@ -1,134 +1,155 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Story } from '@storybook/react';
-import ListBox, { ListBoxItem } from './index';
-import { IListBoxProps } from './ListBox.types';
-
+import { action } from '@storybook/addon-actions';
+import { ReactComponent as IconBlink } from '@mozaic-ds/icons/svg/Navigation_Display_Blink_24px.svg';
+import logo from './assets/logo.png';
+import { ListBoxItem } from './partials';
+import useListBoxValues from './useListBoxValues';
+import ListBox from './ListBox';
+import { TListBoxValue } from './ListBox.types';
 import './ListBox.stories.scss';
-import SVGIcon from '../../../.storybook/assets/SVGIcon';
 
-const Template: Story<IListBoxProps> = args => (
-    <ListBox {...args}>
-        <ListBoxItem id="option1">Option #1</ListBoxItem>
-        <ListBoxItem id="option2">Option #2</ListBoxItem>
-        <ListBoxItem id="option3">Option #3</ListBoxItem>
-        <ListBoxItem id="option4">Option #4</ListBoxItem>
+const ListTemplate: Story = () => (
+    <ListBox onClick={action('Click')}>
+        <ListBoxItem>List box item #1</ListBoxItem>
+        <ListBoxItem>List box item #2</ListBoxItem>
+        <ListBoxItem>List box item #3</ListBoxItem>
+        <ListBoxItem>List box item #4</ListBoxItem>
+        <ListBoxItem>List box item #5</ListBoxItem>
+        <ListBoxItem>List box item #6</ListBoxItem>
+        <ListBoxItem>List box item #7</ListBoxItem>
+        <ListBoxItem>List box item #8</ListBoxItem>
+        <ListBoxItem>List box item #9</ListBoxItem>
     </ListBox>
 );
 
-export const WithMonoSelection = Template.bind({});
+export const List = ListTemplate.bind({});
 
-WithMonoSelection.args = {
-    isOpened: true
-};
+const SingleSelectedItemTemplate: Story = () => {
+    const [value, setValue] = useState('item1');
 
-export const WithMultiSelectionTemplate: Story<IListBoxProps> = args => (
-    <ListBox {...args}>
-        <ListBoxItem id="option1">Option #1</ListBoxItem>
-        <ListBoxItem id="option2">Option #2</ListBoxItem>
-        <ListBoxItem id="option3">Option #3</ListBoxItem>
-        <ListBoxItem id="option4">Option #4</ListBoxItem>
-    </ListBox>
-);
-
-export const WithMultiSelection = WithMultiSelectionTemplate.bind({});
-
-WithMultiSelection.args = {
-    isOpened: true,
-    withMultiSelection: true
-};
-
-export const LeftOpeningTemplate: Story<IListBoxProps> = args => {
-    const [isOpened, setOpened] = useState(false);
+    const handleClick = useCallback((nextValue: TListBoxValue) => setValue(nextValue), []);
 
     return (
-        <div className="listBoxLeftOpeningContainer">
-            <button
-                className="listBoxLeftOpeningButton"
-                type="button"
-                onClick={() => setOpened(prevState => !prevState)}
-            >
-                Open ListBox
-            </button>
-            <ListBox {...args} isOpened={isOpened} leftOpening>
-                <ListBoxItem id="option1">Option #1</ListBoxItem>
-                <ListBoxItem id="option2">Option #2</ListBoxItem>
-                <ListBoxItem id="option3">Option #3</ListBoxItem>
-                <ListBoxItem id="option4">Option #4</ListBoxItem>
-            </ListBox>
-        </div>
+        <ListBox value={value} mode="single" onClick={handleClick}>
+            <ListBoxItem value="item1">List box item #1</ListBoxItem>
+            <ListBoxItem value="item2">List box item #2</ListBoxItem>
+            <ListBoxItem value="item3">List box item #3</ListBoxItem>
+            <ListBoxItem value="item4">List box item #4</ListBoxItem>
+            <ListBoxItem value="item5">List box item #5</ListBoxItem>
+            <ListBoxItem value="item6">List box item #6</ListBoxItem>
+            <ListBoxItem value="item7">List box item #7</ListBoxItem>
+            <ListBoxItem value="item8">List box item #8</ListBoxItem>
+            <ListBoxItem value="item9">List box item #9</ListBoxItem>
+        </ListBox>
     );
 };
 
-export const LeftOpening = LeftOpeningTemplate.bind({});
+export const SingleSelectedItem = SingleSelectedItemTemplate.bind({});
 
-LeftOpening.args = {
-    isOpened: false
+const MultipleSelectedItemsTemplate: Story = () => {
+    const [values, { add, remove }] = useListBoxValues();
+
+    const handleClick = useCallback(
+        (value: TListBoxValue) => {
+            if (values.includes(value)) {
+                remove(value);
+            } else {
+                add(value);
+            }
+        },
+        [add, remove, values]
+    );
+
+    return (
+        <ListBox values={values} mode="multi" onClick={handleClick}>
+            <ListBoxItem value="item1">List box item #1</ListBoxItem>
+            <ListBoxItem value="item2">List box item #2</ListBoxItem>
+            <ListBoxItem value="item3">List box item #3</ListBoxItem>
+            <ListBoxItem value="item4">List box item #4</ListBoxItem>
+            <ListBoxItem value="item5">List box item #5</ListBoxItem>
+            <ListBoxItem value="item6">List box item #6</ListBoxItem>
+            <ListBoxItem value="item7">List box item #7</ListBoxItem>
+            <ListBoxItem value="item8">List box item #8</ListBoxItem>
+            <ListBoxItem value="item9">List box item #9</ListBoxItem>
+        </ListBox>
+    );
 };
 
-export const DisabledTemplate: Story<IListBoxProps> = args => (
-    <ListBox {...args}>
-        <ListBoxItem id="option1" isDisabled>
-            Option #1
-        </ListBoxItem>
-        <ListBoxItem id="option2" isDisabled>
-            Option #2
-        </ListBoxItem>
-        <ListBoxItem id="option3">Option #3</ListBoxItem>
-        <ListBoxItem id="option4" isDisabled>
-            Option #4
-        </ListBoxItem>
+export const MultipleSelectedItems = MultipleSelectedItemsTemplate.bind({});
+
+const DisabledItemsTemplate: Story = () => (
+    <ListBox>
+        <ListBoxItem>List box item #1</ListBoxItem>
+        <ListBoxItem isDisabled>List box item #2</ListBoxItem>
+        <ListBoxItem>List box item #3</ListBoxItem>
+        <ListBoxItem isDisabled>List box item #4</ListBoxItem>
+        <ListBoxItem>List box item #5</ListBoxItem>
+        <ListBoxItem isDisabled>List box item #6</ListBoxItem>
+        <ListBoxItem>List box item #7</ListBoxItem>
+        <ListBoxItem isDisabled>List box item #8</ListBoxItem>
+        <ListBoxItem>List box item #9</ListBoxItem>
     </ListBox>
 );
 
-export const Disabled = DisabledTemplate.bind({});
+export const DisabledItems = DisabledItemsTemplate.bind({});
 
-Disabled.args = {
-    isOpened: true
+const ItemsWithIconTemplate: Story = () => {
+    const icon = <IconBlink width="24px" height="24px" />;
+
+    return (
+        <ListBox>
+            <ListBoxItem icon={icon}>List box item #1</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #2</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #3</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #4</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #5</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #6</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #7</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #8</ListBoxItem>
+            <ListBoxItem icon={icon}>List box item #9</ListBoxItem>
+        </ListBox>
+    );
 };
 
-export const WithDefaultSelectedTemplate: Story<IListBoxProps> = args => (
-    <ListBox {...args}>
-        <ListBoxItem id="option1">Option #1</ListBoxItem>
-        <ListBoxItem id="option2">Option #2</ListBoxItem>
-        <ListBoxItem id="option3">Option #3</ListBoxItem>
-        <ListBoxItem id="option4">Option #4</ListBoxItem>
-    </ListBox>
-);
+export const ItemsWithIcon = ItemsWithIconTemplate.bind({});
 
-export const WithDefaultSelected = WithDefaultSelectedTemplate.bind({});
+const ItemsWithEmojiTemplate: Story = () => {
+    const emoji = <span>😜</span>;
 
-WithDefaultSelected.args = {
-    selected: 'option1',
-    isOpened: true
+    return (
+        <ListBox>
+            <ListBoxItem icon={emoji}>List box item #1</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #2</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #3</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #4</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #5</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #6</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #7</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #8</ListBoxItem>
+            <ListBoxItem icon={emoji}>List box item #9</ListBoxItem>
+        </ListBox>
+    );
 };
 
-export const WithIconTemplate: Story<IListBoxProps> = args => (
-    <ListBox {...args}>
-        <ListBoxItem id="option1" icon={<SVGIcon />}>
-            Option #1
-        </ListBoxItem>
-        <ListBoxItem id="option2" icon={<SVGIcon />}>
-            Option #2
-        </ListBoxItem>
-        <ListBoxItem id="option3" icon={<SVGIcon />}>
-            Option #3
-        </ListBoxItem>
-        <ListBoxItem id="option4" icon={<SVGIcon />}>
-            Option #4
-        </ListBoxItem>
-    </ListBox>
-);
+export const ItemsWithEmoji = ItemsWithEmojiTemplate.bind({});
 
-export const WithIcon = WithIconTemplate.bind({});
+const ItemsWithImageTemplate: Story = () => {
+    const image = <img src={logo as string} className="list-box-image" alt="Mozaic" />;
 
-WithIcon.args = {
-    isOpened: true
+    return (
+        <ListBox>
+            <ListBoxItem icon={image}>List box item #1</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #2</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #3</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #4</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #5</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #6</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #7</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #8</ListBoxItem>
+            <ListBoxItem icon={image}>List box item #9</ListBoxItem>
+        </ListBox>
+    );
 };
 
-export const argTypes = {
-    theme: {
-        control: {
-            type: 'select'
-        }
-    }
-};
+export const ItemsWithImage = ItemsWithImageTemplate.bind({});

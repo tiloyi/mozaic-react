@@ -1,15 +1,19 @@
 @import 'settings-tools/_all-settings';
 
-@import "components/c.checkbox";
 @import "components/c.listbox";
 
-.mc-listbox__item-button {
-  display:block;
-  width:100%;
-  background-color:transparent;
+.mc-listbox {
+    position: unset !important;
+    margin-top: unset !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-.mc-listbox__item-checkbox{
-  position:absolute;
-  right:0;
+.mc-listbox__content {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.mc-listbox__item {
+    padding-right: $mu050;
 }

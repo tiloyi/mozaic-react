@@ -1,16 +1,15 @@
-.listBoxLeftOpeningContainer {
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  min-height: 300px;
-  padding: 1rem;
+@import "settings-tools/all-settings";
+
+.list-box-story {
+    height: 20rem;
 }
 
-.listBoxLeftOpeningButton {
-  border:1px solid #000;
-  padding: 5px 10px;
-  cursor:pointer;
+.list-box-image {
+    width: $mu200;
+    height: $mu200;
+}
+
+.list-box-flag {
+    width: $mu200;
+    height: $mu200;
 }

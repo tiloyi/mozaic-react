@@ -1,26 +1,14 @@
 import React, { FC, createContext, useContext, useMemo } from 'react';
-import { IListBoxContextProps, IListBoxContextProviderProps } from './ListBox.types';
-import useListBoxState from './useListBoxState';
+import { IListBoxContextValue } from './ListBox.types';
 
-const ListBoxContext = createContext<IListBoxContextProps>({} as IListBoxContextProps);
+const ListBoxContext = createContext<IListBoxContextValue>({} as IListBoxContextValue);
 
-export function useListBoxContext(): IListBoxContextProps {
+export function useListBoxContext(): IListBoxContextValue {
     return useContext(ListBoxContext);
 }
 
-export const ListBoxContextProvider: FC<IListBoxContextProviderProps> = ({
-    selected,
-    withMultiSelection = false,
-    isOpened,
-    onChange,
-    children
-}) => {
-    const { checkedOptions, check, clear, isItemChecked } = useListBoxState({ selected, withMultiSelection, onChange });
-
-    const contextValue = useMemo(
-        () => ({ isOpened, isItemChecked, withMultiSelection, check, clear, checkedOptions }),
-        [isOpened, isItemChecked, withMultiSelection, check, clear, checkedOptions]
-    );
+export const ListBoxContextProvider: FC<IListBoxContextValue> = ({ mode, value, values, onClick, children }) => {
+    const contextValue = useMemo(() => ({ value, mode, values, onClick }), [value, mode, values, onClick]);
 
     return <ListBoxContext.Provider value={contextValue}>{children}</ListBoxContext.Provider>;
 };
