@@ -526,7 +526,6 @@ const ExpandableRowsTemplate: Story = () => {
                 getRowKey={getRowKey}
                 columns={columns}
                 isExpanded={expandedRowIds.includes(row.id)}
-                offset={2}
             >
                 <DataTable isSubtable rows={row.products} columns={subTableColumns} getRowKey={subRow => subRow.id} />
             </ExpandableDataTableRow>
