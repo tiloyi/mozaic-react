@@ -1,3 +1,5 @@
+import React from "react";
+
 export const tags = [
     'div',
     'p',
@@ -60,4 +62,5 @@ export interface ITextProps {
     size?: TTextSize;
     weight?: TTextWeight;
     lineHeight?: TTextLineHeight;
+    children: React.ReactNode;
 }

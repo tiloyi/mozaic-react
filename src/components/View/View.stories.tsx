@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import Text from '../Text';
+import { Text } from '../Text';
 import { IViewProps } from './View.types';
 import View from './View';
 import './View.stories.scss';
