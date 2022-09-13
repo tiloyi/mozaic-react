@@ -1,5 +1,15 @@
 
 
+## [1.4.4](https://github.com/adeo/mozaic-react/compare/v1.4.3...v1.4.4) (2022-09-13)
+
+
+### Features
+
+* **datatable:** rename sub table prop ([4236ed5](https://github.com/adeo/mozaic-react/commit/4236ed5c166c59720ae20d3c8353e985ea66cda8))
+* offset option in ExpandableRow component ([1d571cf](https://github.com/adeo/mozaic-react/commit/1d571cf96a67640d9583daafc2c08406174fd63c))
+* removed ExpandableDataTableRow offset ([5d23440](https://github.com/adeo/mozaic-react/commit/5d23440bb585991dd82ee37ef34dcf85566c8a66))
+* subtable option ([4b62ea9](https://github.com/adeo/mozaic-react/commit/4b62ea913c54674ad06a3d744d6e26ac737c462d))
+
 ## [1.4.3](https://github.com/adeo/mozaic-react/compare/v1.4.2...v1.4.3) (2022-09-07)
 
 

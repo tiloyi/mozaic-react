@@ -35,6 +35,7 @@ export interface IDataTableProps<R> {
     renderCustomRow?: TDataTableRowRenderer<R>;
     selectCustomRow?: TDataTableRowSelector<R>;
     onRowClick?: TDataTableRowClickHandler<R>;
+    isSubTable?: boolean;
 }
 
 export interface IDataTableRowProps<R> extends Omit<ITableRowProps, 'onClick'> {

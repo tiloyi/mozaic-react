@@ -13,7 +13,7 @@ function ExpandableDataTableRow<R>({
         <>
             <DataTableRow<R> {...props} columns={columns} />
             {isExpanded && (
-                <TableRow>
+                <TableRow className="mc-datatable__row-expandable">
                     <TableCell colSpan={columns.length}>{children}</TableCell>
                 </TableRow>
             )}
