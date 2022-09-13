@@ -1,131 +1,77 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ListBox from './ListBox';
-import { ListBoxItem } from './index';
-import { IListBoxProps } from './ListBox.types';
-import SVGIcon from '../../../.storybook/assets/SVGIcon';
-
-const setup = (options: IListBoxProps, children?: ReactElement): ReactElement => (
-    <ListBox {...options}>{children}</ListBox>
-);
-
-const TestListBoxItems = (): ReactElement => (
-    <>
-        <ListBoxItem id="test1" isDisabled />
-        <ListBoxItem id="test2" />
-        <ListBoxItem id="test3" />
-    </>
-);
-
-const TestListBoxItemsWithIcons = (): ReactElement => (
-    <>
-        <ListBoxItem id="test1" icon={<SVGIcon />} />
-        <ListBoxItem id="test2" icon={<SVGIcon />} />
-        <ListBoxItem id="test3" icon={<SVGIcon />} />
-    </>
-);
+import { ListBoxItem } from './partials';
 
 describe('components/ListBox', () => {
-    test('aria labels defined', () => {
-        render(setup({ isOpened: false }, <TestListBoxItems />));
+    test('renders item', () => {
+        render(
+            <ListBox>
+                <ListBoxItem>List box item</ListBoxItem>
+            </ListBox>
+        );
 
-        const listBoxContainer = screen.getByLabelText('listbox');
-        const listBoxItems = screen.getAllByLabelText('listbox item');
-
-        expect(listBoxContainer).toBeInTheDocument();
-        expect(listBoxItems.length).toBe(3);
+        expect(screen.getByRole('option', { name: 'List box item' })).toBeInTheDocument();
     });
 
-    test('item properties works correctly', () => {
-        render(setup({ selected: 'test2', isOpened: false }, <TestListBoxItems />));
+    test('calls onClick', async () => {
+        const onClick = jest.fn();
 
-        const listBoxItems = screen.getAllByLabelText('listbox item');
+        render(
+            <ListBox onClick={onClick}>
+                <ListBoxItem value="item1">List box item #1</ListBoxItem>
+                <ListBoxItem value="item2">List box item #2</ListBoxItem>
+            </ListBox>
+        );
 
-        expect(listBoxItems.length).toBe(3);
+        await userEvent.click(screen.getByRole('option', { name: 'List box item #1' }));
 
-        expect(listBoxItems[0]).toHaveClass('is-disabled');
-        expect(listBoxItems[1]).toHaveClass('is-checked');
+        expect(onClick).toBeCalledWith('item1');
     });
 
-    test('cannot check disabled item', () => {
-        render(setup({ isOpened: false }, <TestListBoxItems />));
+    test('renders disabled item', () => {
+        render(
+            <ListBox>
+                <ListBoxItem isDisabled>List box item #1</ListBoxItem>
+                <ListBoxItem>List box item #2</ListBoxItem>
+                <ListBoxItem>List box item #3</ListBoxItem>
+            </ListBox>
+        );
 
-        const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
-        const listBoxItems = screen.getAllByLabelText('listbox item');
-
-        expect(listBoxItems.length).toBe(3);
-
-        expect(listBoxItems[0]).toHaveClass('is-disabled');
-        expect(listBoxItems[0]).not.toHaveClass('is-checked');
-
-        userEvent.click(listBoxButtonItems[0]);
-
-        expect(listBoxItems[0]).not.toHaveClass('is-checked');
+        expect(screen.getByRole('option', { name: 'List box item #1' })).toHaveClass('is-disabled');
     });
 
-    test('check item works correctly', () => {
-        render(setup({ isOpened: false }, <TestListBoxItems />));
+    test('renders item with icon', () => {
+        render(
+            <ListBox>
+                <ListBoxItem icon={<div aria-label="icon" />}>List box item</ListBoxItem>
+            </ListBox>
+        );
 
-        const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
-        const listBoxItems = screen.getAllByLabelText('listbox item');
-
-        expect(listBoxItems[2]).not.toHaveClass('is-checked');
-
-        userEvent.click(listBoxButtonItems[2]);
-
-        expect(listBoxItems[2]).toHaveClass('is-checked');
+        expect(screen.getByLabelText('icon')).toBeInTheDocument();
     });
 
-    test('check multiple items work correctly', () => {
-        render(setup({ withMultiSelection: true, isOpened: false }, <TestListBoxItems />));
+    test('renders checked item in single mode', () => {
+        render(
+            <ListBox value="item" mode="single">
+                <ListBoxItem value="item">List box item</ListBoxItem>
+            </ListBox>
+        );
 
-        const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
-        const listBoxCheckboxes = screen.getAllByLabelText('listbox item checkbox');
-
-        expect(listBoxCheckboxes[1]).not.toBeChecked();
-        expect(listBoxCheckboxes[2]).not.toBeChecked();
-
-        userEvent.click(listBoxButtonItems[1]);
-        userEvent.click(listBoxButtonItems[2]);
-
-        expect(listBoxCheckboxes[1]).toBeChecked();
-        expect(listBoxCheckboxes[2]).toBeChecked();
+        expect(screen.getByRole('option', { name: 'List box item' })).toHaveClass('is-checked');
     });
 
-    test('isOpened works', () => {
-        const { rerender } = render(setup({ isOpened: false }, <TestListBoxItems />));
+    test('renders checked item in multi mode', () => {
+        render(
+            <ListBox values={['item1', 'item3']} mode="multi">
+                <ListBoxItem value="item1">List box item #1</ListBoxItem>
+                <ListBoxItem value="item2">List box item #2</ListBoxItem>
+                <ListBoxItem value="item3">List box item #3</ListBoxItem>
+            </ListBox>
+        );
 
-        const listBoxContainer = screen.getByLabelText('listbox');
-
-        expect(listBoxContainer).not.toHaveClass('is-open');
-
-        rerender(setup({ isOpened: true }, <TestListBoxItems />));
-
-        expect(listBoxContainer).toHaveClass('is-open');
-    });
-
-    test('with left opening', () => {
-        render(setup({ leftOpening: true, isOpened: true }, <TestListBoxItems />));
-
-        const listBoxContainer = screen.getByLabelText('listbox');
-        expect(listBoxContainer).toHaveClass('mc-listbox--left');
-    });
-
-    test('with icons', () => {
-        render(setup({ isOpened: true }, <TestListBoxItemsWithIcons />));
-
-        const icons = document.querySelectorAll('.mc-listbox__icon');
-        expect(icons.length).toBe(3);
-    });
-
-    test('onChange prop triggers', () => {
-        const onChangeTest = jest.fn(() => {});
-        render(setup({ isOpened: true, onChange: onChangeTest }, <TestListBoxItems />));
-
-        const listBoxButtonItems = screen.getAllByLabelText('listbox item button');
-        userEvent.click(listBoxButtonItems[1]);
-
-        expect(onChangeTest).toBeCalled();
+        expect(screen.getByRole('checkbox', { name: 'List box item #1' })).toBeChecked();
+        expect(screen.getByRole('checkbox', { name: 'List box item #3' })).toBeChecked();
     });
 });

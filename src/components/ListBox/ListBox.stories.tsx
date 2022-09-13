@@ -26,21 +26,40 @@ const ListTemplate: Story = () => (
 export const List = ListTemplate.bind({});
 
 const SingleSelectedItemTemplate: Story = () => {
-    const [value, setValue] = useState('item1');
+    const icon = <IconBlink width="24px" height="24px" />;
+    const [value, setValue] = useState<TListBoxValue | undefined>('item1');
 
-    const handleClick = useCallback((nextValue: TListBoxValue) => setValue(nextValue), []);
+    const handleClick = useCallback((nextValue?: TListBoxValue) => setValue(nextValue), []);
 
     return (
         <ListBox value={value} mode="single" onClick={handleClick}>
-            <ListBoxItem value="item1">List box item #1</ListBoxItem>
-            <ListBoxItem value="item2">List box item #2</ListBoxItem>
-            <ListBoxItem value="item3">List box item #3</ListBoxItem>
-            <ListBoxItem value="item4">List box item #4</ListBoxItem>
-            <ListBoxItem value="item5">List box item #5</ListBoxItem>
-            <ListBoxItem value="item6">List box item #6</ListBoxItem>
-            <ListBoxItem value="item7">List box item #7</ListBoxItem>
-            <ListBoxItem value="item8">List box item #8</ListBoxItem>
-            <ListBoxItem value="item9">List box item #9</ListBoxItem>
+            <ListBoxItem icon={icon} value="item1">
+                List box item #1
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item2">
+                List box item #2
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item3">
+                List box item #3
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item4">
+                List box item #4
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item5">
+                List box item #5
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item6">
+                List box item #6
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item7">
+                List box item #7
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item8">
+                List box item #8
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item9">
+                List box item #9
+            </ListBoxItem>
         </ListBox>
     );
 };
@@ -48,14 +67,17 @@ const SingleSelectedItemTemplate: Story = () => {
 export const SingleSelectedItem = SingleSelectedItemTemplate.bind({});
 
 const MultipleSelectedItemsTemplate: Story = () => {
+    const icon = <IconBlink width="24px" height="24px" />;
     const [values, { add, remove }] = useListBoxValues();
 
     const handleClick = useCallback(
-        (value: TListBoxValue) => {
-            if (values.includes(value)) {
-                remove(value);
-            } else {
-                add(value);
+        (value?: TListBoxValue) => {
+            if (value) {
+                if (values.includes(value)) {
+                    remove(value);
+                } else {
+                    add(value);
+                }
             }
         },
         [add, remove, values]
@@ -63,15 +85,33 @@ const MultipleSelectedItemsTemplate: Story = () => {
 
     return (
         <ListBox values={values} mode="multi" onClick={handleClick}>
-            <ListBoxItem value="item1">List box item #1</ListBoxItem>
-            <ListBoxItem value="item2">List box item #2</ListBoxItem>
-            <ListBoxItem value="item3">List box item #3</ListBoxItem>
-            <ListBoxItem value="item4">List box item #4</ListBoxItem>
-            <ListBoxItem value="item5">List box item #5</ListBoxItem>
-            <ListBoxItem value="item6">List box item #6</ListBoxItem>
-            <ListBoxItem value="item7">List box item #7</ListBoxItem>
-            <ListBoxItem value="item8">List box item #8</ListBoxItem>
-            <ListBoxItem value="item9">List box item #9</ListBoxItem>
+            <ListBoxItem icon={icon} value="item1">
+                List box item #1
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item2">
+                List box item #2
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item3">
+                List box item #3
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item4">
+                List box item #4
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item5">
+                List box item #5
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item6">
+                List box item #6
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item7">
+                List box item #7
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item8">
+                List box item #8
+            </ListBoxItem>
+            <ListBoxItem icon={icon} value="item9">
+                List box item #9
+            </ListBoxItem>
         </ListBox>
     );
 };
@@ -115,7 +155,11 @@ const ItemsWithIconTemplate: Story = () => {
 export const ItemsWithIcon = ItemsWithIconTemplate.bind({});
 
 const ItemsWithEmojiTemplate: Story = () => {
-    const emoji = <span>😜</span>;
+    const emoji = (
+        <span role="img" aria-label="emoji">
+            😜
+        </span>
+    );
 
     return (
         <ListBox>

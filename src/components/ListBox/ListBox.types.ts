@@ -18,7 +18,7 @@ export interface IListBoxContextValue {
     value?: TListBoxValue;
     values?: Array<TListBoxValue>;
     mode?: TListBoxMode;
-    onClick?: (value: TListBoxValue) => void;
+    onClick?: (value?: TListBoxValue) => void;
 }
 
 export interface IListBoxProps extends IListBoxContainerProps, IListBoxContextValue {}

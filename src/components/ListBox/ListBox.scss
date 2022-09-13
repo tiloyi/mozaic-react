@@ -17,3 +17,18 @@
 .mc-listbox__item {
     padding-right: $mu050;
 }
+
+.mc-listbox__item .mc-checkbox {
+    flex: 1;
+    padding-right: $mu025;
+}
+
+.mc-listbox__item .mc-checkbox__label {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: $mu300;
+    margin-left: 0;
+    padding-right: $mu050;
+}
