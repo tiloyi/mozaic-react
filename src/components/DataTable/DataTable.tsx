@@ -21,11 +21,11 @@ function DataTable<R>({
     renderCustomRow,
     selectCustomRow = defaultRowSelector,
     onRowClick,
-    isSubtable
+    isSubTable
 }: IDataTableProps<R>): JSX.Element {
     return (
-        <TableContainer className={className} withStickyHeader={withStickyHeader} isSubtable={isSubtable}>
-            <Table className={tableClassName} isSubtable={isSubtable}>
+        <TableContainer className={className} withStickyHeader={withStickyHeader} isSubTable={isSubTable}>
+            <Table className={tableClassName} isSubTable={isSubTable}>
                 {!isHeaderHidden && (
                     <TableHeader>
                         <TableRow>

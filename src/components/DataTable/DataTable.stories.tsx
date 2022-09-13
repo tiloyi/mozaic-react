@@ -15,7 +15,7 @@ import {
     generateSelectableRows,
     IExpandableFixture,
     generateExpandableRows,
-    IExpandableSubtable
+    IExpandableSubTableFixture
 } from './DataTable.fixtures';
 import { DataTableRow, ExpandableDataTableRow, DataTableFooter, DataTableEmptyView } from './partials';
 import { IDataTableColumn } from './DataTable.types';
@@ -503,7 +503,7 @@ const ExpandableRowsTemplate: Story = () => {
     const getRowKey = useCallback((row: IExpandableFixture) => row.id, []);
 
     const renderCustomRow = (row: IExpandableFixture): JSX.Element => {
-        const subTableColumns: IDataTableColumn<IExpandableSubtable>[] = [
+        const subTableColumns: IDataTableColumn<IExpandableSubTableFixture>[] = [
             {
                 key: 'id',
                 label: 'ID'
@@ -527,7 +527,7 @@ const ExpandableRowsTemplate: Story = () => {
                 columns={columns}
                 isExpanded={expandedRowIds.includes(row.id)}
             >
-                <DataTable isSubtable rows={row.products} columns={subTableColumns} getRowKey={subRow => subRow.id} />
+                <DataTable isSubTable rows={row.products} columns={subTableColumns} getRowKey={subRow => subRow.id} />
             </ExpandableDataTableRow>
         );
     };

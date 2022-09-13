@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { ITableProps } from './Table.types';
 
-const Table: FC<ITableProps> = ({ className, children, isSubtable, ...props }): JSX.Element => {
-    if (isSubtable) {
+const Table: FC<ITableProps> = ({ className, children, isSubTable, ...props }): JSX.Element => {
+    if (isSubTable) {
         return (
             <table className="mc-datatable__subtable" {...props}>
                 {children}

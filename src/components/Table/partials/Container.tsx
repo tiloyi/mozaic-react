@@ -15,10 +15,10 @@ const Table: FC<ITableContainerProps> = ({
     children,
     size = 'm',
     withStickyHeader,
-    isSubtable,
+    isSubTable,
     ...props
 }): JSX.Element => {
-    if (isSubtable) {
+    if (isSubTable) {
         return <div className="mc-datatable__row-inner">{children}</div>;
     }
 
