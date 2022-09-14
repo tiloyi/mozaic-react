@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+
+[//]: # "import { WithMonoSelection, WithMultiSelection, LeftOpening, Disabled, WithDefaultSelected, WithIcon, argTypes } from './ListBox.stories';"
+
+import {
+    List,
+    SingleSelectedItem,
+    MultipleSelectedItems,
+    DisabledItems,
+    ItemsWithIcon,
+    ItemsWithEmoji,
+    ItemsWithImage
+} from './ListBox.stories';
+
+import ListBox from './ListBox';
+
+<Meta title="Components/ListBox" component={ListBox} />
+
+# ListBox
+
+The `ListBox` component is the **React.js** implementation of the **Mozaic ListBox** component.
+
+You can find all the characteristics of this component by going to [the associated documentation](https://mozaic.adeo.cloud/Components/ListBox/).
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { ListBox, ListBoxItem } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas>
+    <Story story={List} />
+</Canvas>
+
+Disabled items example:
+
+<Canvas>
+    <Story story={DisabledItems} />
+</Canvas>
+
+Items with icon example:
+
+<Canvas>
+    <Story story={ItemsWithIcon} />
+</Canvas>
+
+Items with emoji example:
+
+<Canvas>
+    <Story story={ItemsWithEmoji} />
+</Canvas>
+
+Items with image example:
+
+<Canvas>
+    <Story story={ItemsWithImage} />
+</Canvas>
+
+Single selected item example:
+
+<Canvas>
+    <Story story={SingleSelectedItem} />
+</Canvas>
+
+Multiple selected items example:
+
+<Canvas>
+    <Story story={MultipleSelectedItems} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={ListBox} />
