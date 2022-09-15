@@ -1,5 +1,30 @@
 
 
+# [1.5.0](https://github.com/adeo/mozaic-react/compare/v1.4.4...v1.5.0) (2022-09-15)
+
+
+### Bug Fixes
+
+* lint import/cycle repaired ([fe98e14](https://github.com/adeo/mozaic-react/commit/fe98e140b094b92d74b6fba20cedb62a99c68088))
+* proper display label for multi select mode ([bbc3ce1](https://github.com/adeo/mozaic-react/commit/bbc3ce1b1ed860519617a875fe325651168ad706))
+* **text:** fix import ([d86b287](https://github.com/adeo/mozaic-react/commit/d86b28754119c1f51b3b38ea08d3d0cd25dda879))
+
+
+### Features
+
+* add icon classname if icon property was defined ([7b4b716](https://github.com/adeo/mozaic-react/commit/7b4b7162a01d2e14cee2b6bce80ba6de12e0d4b9))
+* added ListBox component ([b3a685a](https://github.com/adeo/mozaic-react/commit/b3a685abbdf9a6cfebbb49b45f1f6da4d00b3420))
+* checked options and clearing options method added to context ([909d4ef](https://github.com/adeo/mozaic-react/commit/909d4eff7e2574dea4fa54da79679dda83e10f85))
+* inherit ListBox container props; moved onChange prop to proper interface ([486c28d](https://github.com/adeo/mozaic-react/commit/486c28df5fc87d583b612998f8ef9e2a6fd2449a))
+* listbox item joined classname passed via props ([a6f7659](https://github.com/adeo/mozaic-react/commit/a6f765924e8c570e71e3cc8d2ae16a6b226794db))
+* listbox reexport configured ([0bd2182](https://github.com/adeo/mozaic-react/commit/0bd2182dc3dc2e7d17f33b80464bdd31b4c28a8b))
+* **listbox:** add exports ([5453e24](https://github.com/adeo/mozaic-react/commit/5453e24caf817d587a70a9792dd9823fe5fe8ade))
+* **listbox:** add tests, fix implementation with checkbox ([324e541](https://github.com/adeo/mozaic-react/commit/324e541b51ecc6af6e0e165f222903dd294cf2fd))
+* **listbox:** update implementation ([2da88b1](https://github.com/adeo/mozaic-react/commit/2da88b149058e7fd1d23560a239358d135587607))
+* multi selection adds checkboxes ([458d491](https://github.com/adeo/mozaic-react/commit/458d491d531530e227a5b8285cd50517b574ce2c))
+* onChange prop added ([452d1d1](https://github.com/adeo/mozaic-react/commit/452d1d109cd9f469182cf0901cbedfb91c25c3bb))
+* renamed defaultSelected to selected with useEffect to change it if new prop passed ([7dcea9f](https://github.com/adeo/mozaic-react/commit/7dcea9f25081c2c75e085998ca25a4d3020d6a55))
+
 ## [1.4.4](https://github.com/adeo/mozaic-react/compare/v1.4.3...v1.4.4) (2022-09-13)
 
 
