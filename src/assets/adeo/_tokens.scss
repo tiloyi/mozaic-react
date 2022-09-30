@@ -73,24 +73,24 @@ $color-secondary-purple-600: #4b4a8c !default;
 $color-secondary-purple-700: #393879 !default;
 $color-secondary-purple-800: #282863 !default;
 $color-secondary-purple-900: #1a1a4b !default;
-$color-secondary-red-100: #feedee !default;
-$color-secondary-red-200: #fab9bc !default;
-$color-secondary-red-300: #f38789 !default;
-$color-secondary-red-400: #ea5d58 !default;
-$color-secondary-red-500: #df382b !default;
-$color-secondary-red-600: #b42a27 !default;
-$color-secondary-red-700: #8b2226 !default;
-$color-secondary-red-800: #641b21 !default;
-$color-secondary-red-900: #3e1219 !default;
-$color-secondary-orange-100: #fff5eb !default;
-$color-secondary-orange-200: #ffdab2 !default;
-$color-secondary-orange-300: #ffc17d !default;
-$color-secondary-orange-400: #ffab4b !default;
-$color-secondary-orange-500: #fc961e !default;
-$color-secondary-orange-600: #c86f21 !default;
-$color-secondary-orange-700: #974f20 !default;
-$color-secondary-orange-800: #6a351c !default;
-$color-secondary-orange-900: #401f15 !default;
+$color-secondary-red-100: #fdeaea !default;
+$color-secondary-red-200: #f8bcbb !default;
+$color-secondary-red-300: #f38d8c !default;
+$color-secondary-red-400: #ef5f5c !default;
+$color-secondary-red-500: #ea302d !default;
+$color-secondary-red-600: #c61112 !default;
+$color-secondary-red-700: #8c0003 !default;
+$color-secondary-red-800: #530000 !default;
+$color-secondary-red-900: #2d0000 !default;
+$color-secondary-orange-100: #fdf1e8 !default;
+$color-secondary-orange-200: #f8d2b3 !default;
+$color-secondary-orange-300: #f4b27e !default;
+$color-secondary-orange-400: #ef934a !default;
+$color-secondary-orange-500: #ea7315 !default;
+$color-secondary-orange-600: #c65200 !default;
+$color-secondary-orange-700: #8c3500 !default;
+$color-secondary-orange-800: #531b00 !default;
+$color-secondary-orange-900: #360e00 !default;
 $color-secondary-yellow-100: #fff8e2 !default;
 $color-secondary-yellow-200: #ffebaf !default;
 $color-secondary-yellow-300: #fee07d !default;
@@ -162,7 +162,7 @@ $color-button-solid-neutral-disabled-font: #666666 !default;
 $color-button-solid-neutral-active-background: #333333 !default;
 $color-button-solid-neutral-hover-background: #191919 !default;
 $color-button-solid-neutral-hover-font: #ffffff !default;
-$color-button-solid-danger-background: #b42a27 !default;
+$color-button-solid-danger-background: #c61112 !default;
 $color-button-solid-danger-font: #ffffff !default;
 $color-button-solid-danger-focus-border: #8c0003 !default;
 $color-button-solid-danger-disabled-background: #cccccc !default;
@@ -195,13 +195,13 @@ $color-button-bordered-neutral-disabled-font: #666666 !default;
 $color-button-bordered-neutral-active-background: #cccccc !default;
 $color-button-bordered-neutral-hover-background: #e6e6e6 !default;
 $color-button-bordered-danger-background: #ffffff !default;
-$color-button-bordered-danger-border: #b42a27 !default;
-$color-button-bordered-danger-font: #b42a27 !default;
-$color-button-bordered-danger-focus-border: #8b2226 !default;
+$color-button-bordered-danger-border: #c61112 !default;
+$color-button-bordered-danger-font: #c61112 !default;
+$color-button-bordered-danger-focus-border: #8c0003 !default;
 $color-button-bordered-danger-disabled-background: #cccccc !default;
 $color-button-bordered-danger-disabled-font: #666666 !default;
-$color-button-bordered-danger-active-background: #fab9bc !default;
-$color-button-bordered-danger-hover-background: #feedee !default;
+$color-button-bordered-danger-active-background: #f8bcbb !default;
+$color-button-bordered-danger-hover-background: #fdeaea !default;
 $color-card-bordered-background: #ffffff !default;
 $color-card-bordered-border: #808080 !default;
 $color-dialog-background: #ffffff !default;
@@ -233,8 +233,8 @@ $color-flag-solid-dark-text: #ffffff !default;
 $color-flag-solid-light-background: #ffffff !default;
 $color-flag-solid-light-border: #ffffff !default;
 $color-flag-solid-light-text: #000000 !default;
-$color-flag-solid-danger-background: #b42a27 !default;
-$color-flag-solid-danger-border: #b42a27 !default;
+$color-flag-solid-danger-background: #c61112 !default;
+$color-flag-solid-danger-border: #c61112 !default;
 $color-flag-solid-danger-text: #ffffff !default;
 $color-flag-bordered-background: #ffffff !default;
 $color-flag-bordered-border: #007f8c !default;
@@ -249,11 +249,11 @@ $color-flag-bordered-light-background: #000000 !default;
 $color-flag-bordered-light-border: #ffffff !default;
 $color-flag-bordered-light-text: #ffffff !default;
 $color-flag-bordered-danger-background: #ffffff !default;
-$color-flag-bordered-danger-border: #b42a27 !default;
-$color-flag-bordered-danger-text: #b42a27 !default;
+$color-flag-bordered-danger-border: #c61112 !default;
+$color-flag-bordered-danger-text: #c61112 !default;
 $color-focus-gap: #ffffff !default;
 $color-focus-border: #758992 !default;
-$color-font-primary-01: #00919f !default;
+$color-font-primary-01: #007f8c !default;
 $color-font-primary-02: #6a7081 !default;
 $color-font-darkest: #000000 !default;
 $color-font-darker: #191919 !default;
@@ -298,26 +298,36 @@ $color-link-primary-base: #007f8c !default;
 $color-link-primary-visited: #006974 !default;
 $color-link-primary-active: #006974 !default;
 $color-link-primary-disabled: #e6e6e6 !default;
-$color-link-primary-hover: #002e33 !default;
+$color-link-primary-hover: #004e57 !default;
 $color-link-primary-02-base: #494f60 !default;
 $color-link-primary-02-visited: #343b4c !default;
 $color-link-primary-02-active: #343b4c !default;
 $color-link-primary-02-disabled: #e6e6e6 !default;
 $color-link-primary-02-hover: #171b26 !default;
-$color-link-danger-base: #b42a27 !default;
-$color-link-danger-visited: #8b2226 !default;
-$color-link-danger-active: #8b2226 !default;
+$color-link-danger-base: #c61112 !default;
+$color-link-danger-visited: #8c0003 !default;
+$color-link-danger-active: #8c0003 !default;
 $color-link-danger-disabled: #e6e6e6 !default;
-$color-link-danger-hover: #3e1219 !default;
+$color-link-danger-hover: #530000 !default;
+$color-listbox-background: #ffffff !default;
+$color-listbox-border: #666666 !default;
+$color-listbox-tile-border: #b3b3b3 !default;
+$color-listbox-tile-shadow: #191919 !default;
+$color-listbox-tile-hover-background: #e6e6e6 !default;
+$color-listbox-disabled-background: #cccccc !default;
 $color-notification-font: #000000 !default;
 $color-notification-information-background: #daeff7 !default;
 $color-notification-information-border: #0b96cc !default;
+$color-notification-information-icon: #007bb4 !default;
 $color-notification-success-background: #ebf5de !default;
 $color-notification-success-border: #46a610 !default;
+$color-notification-success-icon: #188803 !default;
 $color-notification-warning-background: #fdf1e8 !default;
 $color-notification-warning-border: #ea7315 !default;
+$color-notification-warning-icon: #c65200 !default;
 $color-notification-danger-background: #fdeaea !default;
 $color-notification-danger-border: #ea302d !default;
+$color-notification-danger-icon: #c61112 !default;
 $color-option-button-label-shadow: #b3b3b3 !default;
 $color-option-button-hover-label-shadow: #333333 !default;
 $color-option-button-checked-label-border: #00919f !default;
@@ -342,22 +352,22 @@ $color-progress-branded-indicator: #00919f !default;
 $color-star-empty: #ffffff !default;
 $color-star-focus: #758992 !default;
 $color-star-full: #ea7315 !default;
-$color-star-hover: #ffc17d !default;
+$color-star-hover: #f4b27e !default;
 $color-stepper-item-background: #999999 !default;
-$color-stepper-item-current-background: #009eac !default;
-$color-stepper-link-hover-text: #009eac !default;
+$color-stepper-item-current-background: #00919f !default;
+$color-stepper-link-hover-text: #00919f !default;
 $color-stepper-indicator-background: #ffffff !default;
 $color-stepper-indicator-border: #999999 !default;
-$color-stepper-indicator-current-background: #009eac !default;
-$color-stepper-indicator-current-border: #009eac !default;
-$color-stepper-icon: #009eac !default;
-$color-stepper-title: #009eac !default;
+$color-stepper-indicator-current-background: #00919f !default;
+$color-stepper-indicator-current-border: #00919f !default;
+$color-stepper-icon: #00919f !default;
+$color-stepper-title: #00919f !default;
 $color-tabs-background: #ffffff !default;
 $color-tabs-shadow: #000000 !default;
 $color-tabs-default: #191919 !default;
-$color-tabs-hover: #007f8c !default;
+$color-tabs-hover: #004e57 !default;
 $color-tabs-disabled: #666666 !default;
-$color-tabs-active: #00919f !default;
+$color-tabs-active: #007f8c !default;
 $color-tabs-active-disabled: #91d5db !default;
 $color-tag-text-light-background: #ffffff !default;
 $color-tag-text-light-border: #808080 !default;
@@ -1044,23 +1054,41 @@ $tokens: (
         'hover': $color-link-danger-hover
       )
     ),
+    'listbox': (
+      'background': $color-listbox-background,
+      'border': $color-listbox-border,
+      'tile': (
+        'border': $color-listbox-tile-border,
+        'shadow': $color-listbox-tile-shadow,
+        'hover': (
+          'background': $color-listbox-tile-hover-background
+        )
+      ),
+      'disabled': (
+        'background': $color-listbox-disabled-background
+      )
+    ),
     'notification': (
       'font': $color-notification-font,
       'information': (
         'background': $color-notification-information-background,
-        'border': $color-notification-information-border
+        'border': $color-notification-information-border,
+        'icon': $color-notification-information-icon
       ),
       'success': (
         'background': $color-notification-success-background,
-        'border': $color-notification-success-border
+        'border': $color-notification-success-border,
+        'icon': $color-notification-success-icon
       ),
       'warning': (
         'background': $color-notification-warning-background,
-        'border': $color-notification-warning-border
+        'border': $color-notification-warning-border,
+        'icon': $color-notification-warning-icon
       ),
       'danger': (
         'background': $color-notification-danger-background,
-        'border': $color-notification-danger-border
+        'border': $color-notification-danger-border,
+        'icon': $color-notification-danger-icon
       )
     ),
     'option-button': (
