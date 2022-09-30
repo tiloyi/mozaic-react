@@ -99,8 +99,7 @@
   "dependencies": {
     "@mozaic-ds/css-dev-tools": "^1.38.0",
     "@mozaic-ds/icons": "^1.41.0",
-    "@mozaic-ds/styles": "^1.42.0",
-    "@mozaic-ds/tokens": "^1.42.0",
+    "@mozaic-ds/styles": "^1.43.1",
     "@mozaic-ds/web-fonts": "^1.22.0",
     "classnames": ">=2.3",
     "react-merge-refs": "^1.1.0",
