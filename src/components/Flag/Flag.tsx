@@ -4,6 +4,7 @@ import { IFlagProps, TFlagTheme, TFlagVariant } from './Flag.types';
 import './Flag.scss';
 
 const blockClassName = 'mc-flag';
+const labelClassName = 'mc-flag__label';
 
 function getFlagModifier(theme: TFlagTheme, variant: TFlagVariant): string {
     const parts = [`${blockClassName}-`];
@@ -19,7 +20,9 @@ function getFlagModifier(theme: TFlagTheme, variant: TFlagVariant): string {
 
 const Flag: FC<IFlagProps> = ({ className, children, theme = 'primary', variant = 'solid', ...props }) => (
     <div className={cn(blockClassName, className, getFlagModifier(theme, variant))} {...props}>
-        {children}
+        <span className={labelClassName}>
+            {children}
+        </span>
     </div>
 );
 
