@@ -17,7 +17,8 @@ Controls.args = {
     maxValue: 10,
     minValue: 0,
     placeholder: 'Placeholder text',
-    isDisabled: false
+    isDisabled: false,
+    theme: 'primary'
 };
 
 export const Values = Template.bind({});
@@ -93,6 +94,9 @@ export const ReactHookForm = ReactHookFormTemplate.bind({});
 
 export const argTypes = {
     size: {
+        control: 'select'
+    },
+    theme: {
         control: 'select'
     }
 };

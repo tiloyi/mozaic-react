@@ -9,13 +9,13 @@ import { IconMinus, IconPlus } from './assets';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import './QuantitySelector.scss';
 
-const QuantitySelector = forwardRef<HTMLInputElement, IQuantitySelectorProps>(({ size = 'm', ...props }, ref) => (
+const QuantitySelector = forwardRef<HTMLInputElement, IQuantitySelectorProps>(({ size = 'm', theme = 'primary', ...props }, ref) => (
     <QuantitySelectorContainer size={size} {...props}>
-        <QuantitySelectorDecrement theme="primary" variant="bordered" aria-label="Decrement">
+        <QuantitySelectorDecrement theme={theme} variant="bordered" aria-label="Decrement">
             <IconMinus />
         </QuantitySelectorDecrement>
         <QuantitySelectorInput ref={ref} />
-        <QuantitySelectorIncrement theme="primary" variant="bordered" aria-label="Increment">
+        <QuantitySelectorIncrement theme={theme} variant="bordered" aria-label="Increment">
             <IconPlus />
         </QuantitySelectorIncrement>
     </QuantitySelectorContainer>
