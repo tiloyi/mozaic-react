@@ -18,7 +18,8 @@ Controls.args = {
     minValue: 0,
     placeholder: 'Placeholder text',
     isDisabled: false,
-    theme: 'primary'
+    theme: 'primary',
+    variant: 'bordered'
 };
 
 export const Values = Template.bind({});
@@ -97,6 +98,9 @@ export const argTypes = {
         control: 'select'
     },
     theme: {
+        control: 'select'
+    },
+    variant: {
         control: 'select'
     }
 };

@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { IIconButtonProps, TButtonTheme } from '../Button';
+import { IIconButtonProps, TButtonTheme, TButtonVariant } from '../Button';
 
 export const sizes = ['s', 'm'] as const;
 
@@ -22,6 +22,7 @@ export interface IQuantitySelectorProps extends Omit<InputHTMLAttributes<HTMLInp
     isDisabled?: boolean;
     onChange?: (value?: number) => void;
     theme?: TButtonTheme;
+    variant?: TButtonVariant;
 }
 
 export interface IQuantitySelectorContextProviderProps extends Omit<IQuantitySelectorProps, 'className'> {}
