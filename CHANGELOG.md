@@ -1,5 +1,15 @@
 
 
+## [1.5.1](https://github.com/adeo/mozaic-react/compare/v1.5.0...v1.5.1) (2022-10-03)
+
+
+### Features
+
+* **component/flag:** implement the new HTML Flags structure ([a7b3e8b](https://github.com/adeo/mozaic-react/commit/a7b3e8bb448e154749bc88f3bdc7d41ff2f820ba))
+* **deps/mozaic:** upgrade @mozaic-ds/styles to make available the new accessible LM colours ([1807a59](https://github.com/adeo/mozaic-react/commit/1807a597571c755a02217b3870f8b0221729204a))
+* **quantitySelector:** add theme prop ([f1343a7](https://github.com/adeo/mozaic-react/commit/f1343a7f7f4ac4bd0f58abfd4f5eb3bee0287cae))
+* **quantitySelector:** add variant prop ([138741a](https://github.com/adeo/mozaic-react/commit/138741ac80e61b46316ceda476dc3a575f78cc88))
+
 # [1.5.0](https://github.com/adeo/mozaic-react/compare/v1.4.4...v1.5.0) (2022-09-15)
 
 
