@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import OptionButton from '../OptionButton';
@@ -16,7 +16,7 @@ const setup = (value: string, onClick: (value?: string) => void): RenderResult =
         </OptionGroup>
     );
 
-describe('components/OptionButtonGroup', () => {
+describe('components/OptionGroup', () => {
     test('renders with checked Option button', () => {
         const onClick = jest.fn();
 
