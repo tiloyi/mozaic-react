@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { IOptionCardPartialProps } from '../OptionCard.types';
+import { IOptionCardContainer } from '../OptionCard.types';
 
-const OptionCardContainer: FC<IOptionCardPartialProps> = ({ className, positionLabel = 'top', children }) => (
+const OptionCardContainer: FC<IOptionCardContainer> = ({ className, children }) => (
     <label
         className={cn(
             'mc-option-card',
             'mc-option-card--no-padding',
-            positionLabel === 'center' && 'mc-option-card--centered',
             className
         )}
     >

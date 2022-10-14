@@ -3,8 +3,15 @@ import cn from 'classnames';
 import { useOptionGroup } from '../../OptionGroup';
 import { IOptionCardIndicator } from '../OptionCard.types';
 
+const getIndicatorPosition = (indicatorPosition?: string): string => {
+    if (indicatorPosition) {
+        return `mc-option-card__indicator--${indicatorPosition}`;
+    }
+    return '';
+};
+
 const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
-    ({ className, isChecked: isCheckedByProps, name, onClick, type, value, ...props }, ref) => {
+    ({ className, indicatorPosition, isChecked: isCheckedByProps, name, onClick, type, value, ...props }, ref) => {
         const optionGroupContext = useOptionGroup();
 
         const handleClick = useCallback(() => {
@@ -27,6 +34,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
             const inputClassName = cn(
                 optionGroupContext.mode === 'single' ? 'mc-radio__input' : 'mc-checkbox__input',
                 'mc-option-card__input',
+                getIndicatorPosition(indicatorPosition),
                 className
             );
 
@@ -46,6 +54,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
         const inputClassName = cn(
             type === 'radio' ? 'mc-radio__input' : 'mc-checkbox__input',
             'mc-option-card__input',
+            getIndicatorPosition(indicatorPosition),
             className
         );
 

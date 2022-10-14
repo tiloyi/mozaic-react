@@ -10,10 +10,10 @@ describe('components/OptionCard', () => {
     });
 
     test('renders checked correctly', () => {
-        const onChange = jest.fn();
+        const onClick = jest.fn();
 
         render(
-            <OptionCard isChecked onChange={onChange}>
+            <OptionCard isChecked onClick={onClick}>
                 Option card label
             </OptionCard>
         );
@@ -22,10 +22,10 @@ describe('components/OptionCard', () => {
     });
 
     test('renders unchecked correctly', () => {
-        const onChange = jest.fn();
+        const onClick = jest.fn();
 
         render(
-            <OptionCard isChecked={false} onChange={onChange}>
+            <OptionCard isChecked={false} onClick={onClick}>
                 Option card label
             </OptionCard>
         );
