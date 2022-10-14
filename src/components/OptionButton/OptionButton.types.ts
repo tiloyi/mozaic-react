@@ -3,27 +3,27 @@ import { TOptionGroupValue } from '../OptionGroup/OptionGroup.types';
 
 type TOmittedProps = 'checked' | 'disabled' | 'width' | 'value' | 'onClick' | 'type';
 
-export const widths = ['fit', 'full'] as const;
+const widths = ['fit', 'full'] as const;
 
-export type TButtonWidth = typeof widths[number];
+export type TOptionButtonWidth = typeof widths[number];
 
-export const typeOptionButton = ['radio', 'checkbox'] as const;
+const types = ['radio', 'checkbox'] as const;
 
-export type TTypeOptionButton = typeof typeOptionButton[number];
+export type TOptionButtonType = typeof types[number];
 
 export interface IOptionButtonIndicator extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     isChecked?: boolean;
     isDisabled?: boolean;
     onClick?: (value?: TOptionGroupValue) => void;
-    type?: TTypeOptionButton;
+    type?: TOptionButtonType;
     value?: TOptionGroupValue;
 }
 
 export interface IOptionButtonProps extends IOptionButtonIndicator {
-    width?: TButtonWidth;
+    width?: TOptionButtonWidth;
 }
 
 export interface IOptionButtonPartialProps {
     className?: string;
-    width?: TButtonWidth;
+    width?: TOptionButtonWidth;
 }
