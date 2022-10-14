@@ -32,7 +32,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
 
             const optionCardType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
             const inputClassName = cn(
-                optionGroupContext.mode === 'single' ? 'mc-radio__input' : 'mc-checkbox__input',
+                optionCardType === 'radio' ? 'mc-radio__input' : 'mc-checkbox__input',
                 'mc-option-card__input',
                 getIndicatorPosition(indicatorPosition),
                 className
