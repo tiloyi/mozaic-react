@@ -4,13 +4,13 @@
 
 // Custom theme
 .mc-tabs--primary-02 {
-    .mc-tabs__link:focus,
-    .mc-tabs__link:hover,
-    .mc-tabs__link--selected {
+    .mc-tabs__element:focus,
+    .mc-tabs__element:hover,
+    .mc-tabs__element--selected {
         color: $color-primary-02-500;
     }
 
-    .mc-tabs__link--selected {
+    .mc-tabs__element--selected {
         color: $color-primary-02-500;
         border-bottom-color: $color-primary-02-500;
     }
