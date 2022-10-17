@@ -35,9 +35,9 @@ const TabsButton: FC<ITabsButtonProps> = ({
             <button
                 type="button"
                 className={cn(
-                    'mc-tabs__link',
-                    isDisabled && 'mc-tabs__link--disabled',
-                    isSelected && 'mc-tabs__link--selected'
+                    'mc-tabs__element',
+                    isDisabled && 'mc-tabs__element--disabled',
+                    isSelected && 'mc-tabs__element--selected'
                 )}
                 role="tab"
                 disabled={isDisabled}
@@ -45,7 +45,7 @@ const TabsButton: FC<ITabsButtonProps> = ({
                 onClick={handleClick}
                 aria-selected={isSelected}
             >
-                {children}
+                <span className="mc-tabs__text">{children}</span>
             </button>
         </li>
     );

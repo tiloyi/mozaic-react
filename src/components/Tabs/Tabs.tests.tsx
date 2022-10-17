@@ -50,20 +50,20 @@ describe('components/Tabs', () => {
         test('renders correctly with default props', () => {
             render(<TabsLink>tab</TabsLink>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element');
             expect(screen.getByRole('tab')).toHaveTextContent('tab');
         });
 
         test('renders correctly with disabled state', () => {
             render(<TabsLink isDisabled>tab</TabsLink>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--disabled');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element--disabled');
         });
 
         test('renders correctly with selected state', () => {
             render(<TabsLink isSelected>tab</TabsLink>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element--selected');
         });
     });
 
@@ -71,20 +71,20 @@ describe('components/Tabs', () => {
         test('renders correctly with default props', () => {
             render(<TabsButton>tab</TabsButton>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element');
             expect(screen.getByRole('tab')).toHaveTextContent('tab');
         });
 
         test('renders correctly with disabled state', () => {
             render(<TabsButton isDisabled>tab</TabsButton>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--disabled');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element--disabled');
         });
 
         test('renders correctly with selected state', () => {
             render(<TabsButton isSelected>tab</TabsButton>);
 
-            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab')).toHaveClass('mc-tabs__element--selected');
         });
 
         test('call onClick callback', async () => {
@@ -111,18 +111,18 @@ describe('components/Tabs', () => {
                 </Tabs>
             );
 
-            expect(screen.getByRole('tab', { name: 'tab 1' })).toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab', { name: 'tab 1' })).toHaveClass('mc-tabs__element--selected');
             expect(screen.getByText('Panel 1')).not.toHaveAttribute('hidden', '');
 
-            expect(screen.getByRole('tab', { name: 'tab 2' })).not.toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab', { name: 'tab 2' })).not.toHaveClass('mc-tabs__element--selected');
             expect(screen.getByText('Panel 2')).toHaveAttribute('hidden', '');
 
             await userEvent.click(screen.getByRole('tab', { name: 'tab 2' }));
 
-            expect(screen.getByRole('tab', { name: 'tab 1' })).not.toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab', { name: 'tab 1' })).not.toHaveClass('mc-tabs__element--selected');
             expect(screen.getByText('Panel 1')).toHaveAttribute('hidden', '');
 
-            expect(screen.getByRole('tab', { name: 'tab 2' })).toHaveClass('mc-tabs__link--selected');
+            expect(screen.getByRole('tab', { name: 'tab 2' })).toHaveClass('mc-tabs__element--selected');
             expect(screen.getByText('Panel 2')).not.toHaveAttribute('hidden', '');
         });
     });
