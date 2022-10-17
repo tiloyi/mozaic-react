@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import {
+    Controls,
+    ExampleOptionButton,
+    MultipleSelectedOptionButton,
+    ExampleOptionCard,
+    MultipleSelectedOptionCard
+} from './OptionGroup.stories';
+import OptionGroup from './OptionGroup';
+
+<Meta title="Components/OptionGroup" component={OptionGroup} />
+
+# OptionGroup
+
+A component that implements the logic of a group of analog radio buttons `OptionButton'.
+
+## Usage
+
+To use the component in your project you must:
+
+1. Import the component where you need it:
+
+<Source language="javascript" code="import { OptionGroup } from '@mozaic-ds/react';" />
+
+2. Call the component and give it the desired props, for example:
+
+<Canvas>
+    <Story story={Controls} />
+</Canvas>
+
+or controlled option buttons example:
+
+<Canvas withSource="open">
+    <Story story={ExampleOptionButton} />
+</Canvas>
+
+or controlled multiple option buttons example:
+
+<Canvas withSource="open">
+    <Story story={MultipleSelectedOptionButton} />
+</Canvas>
+
+or controlled option cards example:
+
+<Canvas withSource="open">
+      <Story story={ExampleOptionCard} />
+</Canvas>
+
+or controlled multiple option cards example:
+
+<Canvas withSource="open">
+      <Story story={MultipleSelectedOptionCard} />
+</Canvas>
+
+## Props
+
+<ArgsTable of={OptionGroup} />
