@@ -18,6 +18,7 @@ export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
     isChecked: false,
+    isDisabled: false,
     type: 'radio',
     indicatorPosition: 'top-right'
 };

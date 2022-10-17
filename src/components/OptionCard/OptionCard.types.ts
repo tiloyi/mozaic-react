@@ -23,6 +23,7 @@ export type TOptionCardIndicatorPosition = typeof indicatorPosition[number];
 export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     indicatorPosition?: TOptionCardIndicatorPosition;
     isChecked?: boolean;
+    isDisabled?: boolean;
     onClick?: (value: TOptionGroupValue | undefined) => void;
     value?: TOptionGroupValue;
     type?: TOptionCardType;
