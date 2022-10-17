@@ -10,7 +10,7 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
         const handleClick = useCallback(() => {
             onClick?.(value);
             optionGroupContext?.onClick?.(value);
-        }, [onClick, optionGroupContext?.onClick, value]);
+        }, [value, onClick, optionGroupContext?.onClick]);
 
         const inputClassName = cn('mc-option-button__input', className);
 

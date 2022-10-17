@@ -18,7 +18,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
         const handleClick = useCallback(() => {
             optionGroupContext?.onClick?.(value);
             onClick?.(value);
-        }, [optionGroupContext?.onClick, value]);
+        }, [value, onClick, optionGroupContext?.onClick]);
 
         if (optionGroupContext) {
             let isChecked = false;
