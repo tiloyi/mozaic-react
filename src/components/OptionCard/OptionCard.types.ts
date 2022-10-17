@@ -28,8 +28,8 @@ export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInput
     type?: TOptionCardType;
 }
 
-export interface IOptionCardContainer {
+export interface IOptionCardPartialProps {
     className?: string;
 }
 
-export interface IOptionCard extends IOptionCardContainer, IOptionCardIndicator {}
+export interface IOptionCard extends IOptionCardPartialProps, IOptionCardIndicator {}
