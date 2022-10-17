@@ -1,37 +1,49 @@
 import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import OptionButton from '../OptionButton';
+import { OptionButton } from '../OptionButton';
+import { OptionCard } from '../OptionCard';
 import OptionGroup from './OptionGroup';
+import { IOptionGroupProps, TOptionGroupMode } from './OptionGroup.types';
 import { languages } from './OptionGroup.fixtures';
 
-const setup = (value: string, onClick: (value?: string) => void): RenderResult =>
-    render(
-        <OptionGroup name="languages" value={value} onClick={onClick}>
-            {languages.map(language => (
-                <OptionButton key={language.toLowerCase()} value={language.toLowerCase()}>
-                    {language}
-                </OptionButton>
-            ))}
-        </OptionGroup>
-    );
-
 describe('components/OptionGroup', () => {
-    test('renders with checked Option button', () => {
-        const onClick = jest.fn();
+    describe('With OptionButton', () => {
+        const setup = (props: Partial<IOptionGroupProps>): RenderResult =>
+            render(
+                <OptionGroup name="languages" {...props}>
+                    {languages.map(language => (
+                        <OptionButton key={language.toLowerCase()} value={language.toLowerCase()}>
+                            {language}
+                        </OptionButton>
+                    ))}
+                </OptionGroup>
+            );
 
-        setup(languages[0].toLowerCase(), onClick);
+        test('renders checked item in single mode', () => {
+            setup({ value: languages[2], mode: 'single' });
 
-        expect(screen.getByLabelText(languages[0])).toBeChecked();
+            screen.debug(screen.getByRole('radio', { name: languages[2] }));
+            // expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
+        });
+
+        test('renders checked items in multi mode', () => {
+            setup({ values: [languages[0], languages[2]] });
+
+            screen.debug();
+        });
     });
 
-    test('calls onChange callback', async () => {
-        const onClick = jest.fn();
-
-        setup(languages[0].toLowerCase(), onClick);
-
-        await userEvent.click(screen.getByLabelText(languages[1]));
-
-        expect(onClick).toBeCalledTimes(1);
+    describe('With OptionCard', () => {
+        const setup = (props: Partial<IOptionGroupProps>): RenderResult =>
+            render(
+                <OptionGroup name="languages" {...props}>
+                    {languages.map(language => (
+                        <OptionCard key={language.toLowerCase()} value={language.toLowerCase()}>
+                            {language}
+                        </OptionCard>
+                    ))}
+                </OptionGroup>
+            );
     });
 });
