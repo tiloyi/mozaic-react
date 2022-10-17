@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { OptionButton } from '../OptionButton';
 import { OptionCard } from '../OptionCard';
 import OptionGroup from './OptionGroup';
-import { IOptionGroupProps, TOptionGroupMode } from './OptionGroup.types';
+import { IOptionGroupProps } from './OptionGroup.types';
 import { languages } from './OptionGroup.fixtures';
 
 describe('components/OptionGroup', () => {
@@ -13,7 +13,7 @@ describe('components/OptionGroup', () => {
             render(
                 <OptionGroup name="languages" {...props}>
                     {languages.map(language => (
-                        <OptionButton key={language.toLowerCase()} value={language.toLowerCase()}>
+                        <OptionButton key={language} value={language}>
                             {language}
                         </OptionButton>
                     ))}
@@ -23,14 +23,14 @@ describe('components/OptionGroup', () => {
         test('renders checked item in single mode', () => {
             setup({ value: languages[2], mode: 'single' });
 
-            screen.debug(screen.getByRole('radio', { name: languages[2] }));
-            // expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
+            expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
         });
 
         test('renders checked items in multi mode', () => {
-            setup({ values: [languages[0], languages[2]] });
+            setup({ values: [languages[0], languages[2]], mode: 'multi' });
 
-            screen.debug();
+            expect(screen.getByRole('checkbox', { name: languages[0] })).toBeChecked();
+            expect(screen.getByRole('checkbox', { name: languages[2] })).toBeChecked();
         });
     });
 
@@ -39,11 +39,24 @@ describe('components/OptionGroup', () => {
             render(
                 <OptionGroup name="languages" {...props}>
                     {languages.map(language => (
-                        <OptionCard key={language.toLowerCase()} value={language.toLowerCase()}>
+                        <OptionCard key={language} value={language}>
                             {language}
                         </OptionCard>
                     ))}
                 </OptionGroup>
             );
+
+        test('renders checked item in single mode', () => {
+            setup({ value: languages[2], mode: 'single' });
+
+            expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
+        });
+
+        test('renders checked items in multi mode', () => {
+            setup({ values: [languages[0], languages[2]], mode: 'multi' });
+
+            expect(screen.getByRole('checkbox', { name: languages[0] })).toBeChecked();
+            expect(screen.getByRole('checkbox', { name: languages[2] })).toBeChecked();
+        });
     });
 });
