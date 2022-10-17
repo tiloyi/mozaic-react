@@ -25,14 +25,14 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
                 isChecked = (optionGroupContext.values ?? []).includes(value);
             }
 
-            const optionCardType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
+            const type = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
 
             return (
                 <input
                     className={inputClassName}
                     {...props}
                     ref={ref}
-                    type={optionCardType}
+                    type={type}
                     name={optionGroupContext.name}
                     checked={isChecked}
                     disabled={isDisabled}
@@ -55,6 +55,6 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
     }
 );
 
-OptionButtonIndicator.displayName = 'RadioIndicator';
+OptionButtonIndicator.displayName = 'OptionButtonIndicator';
 
 export default OptionButtonIndicator;
