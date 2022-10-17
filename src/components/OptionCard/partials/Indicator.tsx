@@ -32,6 +32,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
             }
 
             const optionCardType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
+
             const inputClassName = cn(
                 optionCardType === 'radio' ? 'mc-radio__input' : 'mc-checkbox__input',
                 'mc-option-card__input',
@@ -41,13 +42,13 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
 
             return (
                 <input
-                    checked={isChecked}
+                    {...props}
+                    ref={ref}
                     className={inputClassName}
                     name={optionGroupContext.name}
-                    onClick={handleClick}
-                    ref={ref}
                     type={optionCardType}
-                    {...props}
+                    checked={isChecked}
+                    onClick={handleClick}
                 />
             );
         }
@@ -61,13 +62,13 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
 
         return (
             <input
-                checked={isCheckedByProps}
+                {...props}
+                ref={ref}
                 className={inputClassName}
                 name={name}
-                onClick={handleClick}
-                ref={ref}
                 type={type}
-                {...props}
+                checked={isCheckedByProps}
+                onClick={handleClick}
             />
         );
     }

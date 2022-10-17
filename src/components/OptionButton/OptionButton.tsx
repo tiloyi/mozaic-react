@@ -4,9 +4,9 @@ import { IOptionButtonProps } from './OptionButton.types';
 import './OptionButton.scss';
 
 const OptionButton = forwardRef<HTMLInputElement, IOptionButtonProps>(
-    ({ className, children, width = 'fit', ...props }, ref) => (
+    ({ className, children, width = 'fit', type = 'radio', ...props }, ref) => (
         <OptionButtonContainer className={className} width={width}>
-            <OptionButtonIndicator {...props} ref={ref} />
+            <OptionButtonIndicator {...props} ref={ref} type={type} />
             <OptionButtonLabel>{children}</OptionButtonLabel>
         </OptionButtonContainer>
     )

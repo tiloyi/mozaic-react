@@ -4,7 +4,7 @@ import { useOptionGroup } from '../../OptionGroup';
 import { IOptionButtonIndicator } from '../OptionButton.types';
 
 const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicator>(
-    ({ className, isChecked: isCheckedByProps, isDisabled, onClick, value, ...props }, ref) => {
+    ({ className, isChecked: isCheckedByProps, isDisabled, onClick, type, value, ...props }, ref) => {
         const optionGroupContext = useOptionGroup();
 
         const handleClick = useCallback(() => {
@@ -25,14 +25,14 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
                 isChecked = (optionGroupContext.values ?? []).includes(value);
             }
 
-            const type = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
+            const optionButtonType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
 
             return (
                 <input
-                    className={inputClassName}
                     {...props}
                     ref={ref}
-                    type={type}
+                    className={inputClassName}
+                    type={optionButtonType}
                     name={optionGroupContext.name}
                     checked={isChecked}
                     disabled={isDisabled}
@@ -43,10 +43,10 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
 
         return (
             <input
-                className={inputClassName}
                 {...props}
                 ref={ref}
-                type="radio"
+                className={inputClassName}
+                type={type}
                 checked={isCheckedByProps}
                 disabled={isDisabled}
                 onChange={handleClick}
