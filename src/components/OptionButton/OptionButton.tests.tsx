@@ -64,6 +64,6 @@ describe('components/OptionButton', () => {
     test('renders full width correctly', () => {
         render(<OptionButton width="full">Full width option button label</OptionButton>);
 
-        expect(screen.getByRole('radio')).toHaveClass('mc-option-button--full');
+        expect(screen.getByRole('radio').parentNode).toHaveClass('mc-option-button--full');
     });
 });
