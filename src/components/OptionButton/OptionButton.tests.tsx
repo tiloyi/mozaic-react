@@ -9,7 +9,7 @@ describe('components/OptionButton', () => {
         expect(screen.getByText('Option button label')).toBeInTheDocument();
     });
 
-    test('renders checked correctly', () => {
+    test('renders as checked radio correctly', () => {
         const onClick = jest.fn();
 
         render(
@@ -21,7 +21,7 @@ describe('components/OptionButton', () => {
         expect(screen.getByRole('radio')).toBeChecked();
     });
 
-    test('renders checked correctly', () => {
+    test('renders as checked checkbox correctly', () => {
         const onClick = jest.fn();
 
         render(
@@ -33,7 +33,7 @@ describe('components/OptionButton', () => {
         expect(screen.getByRole('checkbox')).toBeChecked();
     });
 
-    test('renders unchecked correctly', () => {
+    test('renders as unchecked radio correctly', () => {
         const onClick = jest.fn();
 
         render(
@@ -45,13 +45,13 @@ describe('components/OptionButton', () => {
         expect(screen.getByRole('radio')).not.toBeChecked();
     });
 
-    test('renders disabled correctly', () => {
+    test('renders as disabled radio correctly', () => {
         render(<OptionButton isDisabled>Option button label</OptionButton>);
 
         expect(screen.getByRole('radio')).toBeDisabled();
     });
 
-    test('renders disabled checkbox correctly', () => {
+    test('renders as disabled checkbox correctly', () => {
         render(
             <OptionButton isDisabled type="checkbox">
                 Option button label
