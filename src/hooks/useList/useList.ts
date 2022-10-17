@@ -19,7 +19,7 @@ export default function useList<T>(initialItems: Array<T> = []): TUseList<T> {
     const clear = useCallback(() => setValues([]), []);
 
     const toggle = useCallback(
-        value => {
+        (value: T) => {
             if (values.includes(value)) {
                 remove(value);
             } else {
