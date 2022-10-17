@@ -68,19 +68,15 @@ export const SingleSelectedItem = SingleSelectedItemTemplate.bind({});
 
 const MultipleSelectedItemsTemplate: Story = () => {
     const icon = <IconBlink width="24px" height="24px" />;
-    const [values, { add, remove }] = useListBoxValues();
+    const [values, { toggle }] = useListBoxValues();
 
     const handleClick = useCallback(
         (value?: TListBoxValue) => {
             if (value) {
-                if (values.includes(value)) {
-                    remove(value);
-                } else {
-                    add(value);
-                }
+                toggle(value);
             }
         },
-        [add, remove, values]
+        [toggle]
     );
 
     return (

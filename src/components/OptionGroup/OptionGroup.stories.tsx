@@ -73,19 +73,15 @@ ExampleOptionButton.args = {
 };
 
 const MultipleSelectedOptionButtonTemplate: Story = () => {
-    const [values, { add, remove }] = useOptionGroupValues();
+    const [values, { toggle }] = useOptionGroupValues();
 
     const handleClick = useCallback(
         (value?: TOptionGroupValue) => {
             if (value) {
-                if (values.includes(value)) {
-                    remove(value);
-                } else {
-                    add(value);
-                }
+                toggle(value);
             }
         },
-        [add, remove, values]
+        [toggle]
     );
 
     return (
@@ -169,16 +165,16 @@ const MultipleSelectedOptionCardTemplate: Story = () => {
     const [values, { add, remove }] = useOptionGroupValues();
 
     const handleClick = useCallback(
-      (value?: TOptionGroupValue) => {
-          if (value) {
-              if (values.includes(value)) {
-                  remove(value);
-              } else {
-                  add(value);
-              }
-          }
-      },
-      [add, remove, values]
+        (value?: TOptionGroupValue) => {
+            if (value) {
+                if (values.includes(value)) {
+                    remove(value);
+                } else {
+                    add(value);
+                }
+            }
+        },
+        [add, remove, values]
     );
 
     return (
@@ -213,4 +209,3 @@ MultipleSelectedOptionCard.argTypes = {
         }
     }
 };
-

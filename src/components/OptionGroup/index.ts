@@ -1,5 +1,3 @@
-import OptionGroup, { useOptionGroup } from './OptionGroup';
-
-export { useOptionGroup };
+export { default as OptionGroup, useOptionGroup } from './OptionGroup';
 export { IOptionGroupProps } from './OptionGroup.types';
-export default OptionGroup;
+export { default as useOptionGroupValues } from './useOptionGroupValues';
