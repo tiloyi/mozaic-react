@@ -4,9 +4,9 @@ import OptionCard from './OptionCard';
 
 describe('components/OptionCard', () => {
     test('renders children correctly', () => {
-        render(<OptionCard>Option button label</OptionCard>);
+        render(<OptionCard>Option card label</OptionCard>);
 
-        expect(screen.getByText('Option button label')).toBeInTheDocument();
+        expect(screen.getByText('Option card label')).toBeInTheDocument();
     });
 
     test('renders as checked radio correctly', () => {
@@ -14,7 +14,7 @@ describe('components/OptionCard', () => {
 
         render(
             <OptionCard isChecked onClick={onClick}>
-                Option button label
+                Option card label
             </OptionCard>
         );
 
@@ -26,7 +26,7 @@ describe('components/OptionCard', () => {
 
         render(
             <OptionCard isChecked type="checkbox" onClick={onClick}>
-                Option button label
+                Option card label
             </OptionCard>
         );
 
@@ -38,7 +38,7 @@ describe('components/OptionCard', () => {
 
         render(
             <OptionCard isChecked={false} onClick={onClick}>
-                Option button label
+                Option card label
             </OptionCard>
         );
 
@@ -46,7 +46,7 @@ describe('components/OptionCard', () => {
     });
 
     test('renders as disabled radio correctly', () => {
-        render(<OptionCard isDisabled>Option button label</OptionCard>);
+        render(<OptionCard isDisabled>Option card label</OptionCard>);
 
         expect(screen.getByRole('radio')).toBeDisabled();
     });
@@ -54,7 +54,7 @@ describe('components/OptionCard', () => {
     test('renders as disabled checkbox correctly', () => {
         render(
             <OptionCard isDisabled type="checkbox">
-                Option button label
+                Option card label
             </OptionCard>
         );
 
