@@ -4,6 +4,7 @@ export interface IUseListMethods<T> {
     clear: () => void;
     add: (value: T) => void;
     remove: (value: T) => void;
+    toggle: (value: T) => void;
 }
 
 export type TUseList<T> = [Array<T>, IUseListMethods<T>];
@@ -17,7 +18,18 @@ export default function useList<T>(initialItems: Array<T> = []): TUseList<T> {
 
     const clear = useCallback(() => setValues([]), []);
 
-    const methods = useMemo(() => ({ add, remove, clear }), [add, remove, clear]);
+    const toggle = useCallback(
+        value => {
+            if (values.includes(value)) {
+                remove(value);
+            } else {
+                add(value);
+            }
+        },
+        [add, remove, values]
+    );
+
+    const methods = useMemo(() => ({ add, remove, clear, toggle }), [add, remove, clear, toggle]);
 
     return [values, methods];
 }
