@@ -10,22 +10,14 @@ describe('components/OptionCard', () => {
     });
 
     test('renders as checked radio correctly', () => {
-        const onClick = jest.fn();
-
-        render(
-            <OptionCard isChecked onClick={onClick}>
-                Option card label
-            </OptionCard>
-        );
+        render(<OptionCard isChecked>Option card label</OptionCard>);
 
         expect(screen.getByRole('radio')).toBeChecked();
     });
 
     test('renders as checked checkbox correctly', () => {
-        const onClick = jest.fn();
-
         render(
-            <OptionCard isChecked type="checkbox" onClick={onClick}>
+            <OptionCard isChecked type="checkbox">
                 Option card label
             </OptionCard>
         );
@@ -34,13 +26,7 @@ describe('components/OptionCard', () => {
     });
 
     test('renders as unchecked radio correctly', () => {
-        const onClick = jest.fn();
-
-        render(
-            <OptionCard isChecked={false} onClick={onClick}>
-                Option card label
-            </OptionCard>
-        );
+        render(<OptionCard isChecked={false}>Option card label</OptionCard>);
 
         expect(screen.getByRole('radio')).not.toBeChecked();
     });

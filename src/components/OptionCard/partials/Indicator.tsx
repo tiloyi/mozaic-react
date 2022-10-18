@@ -13,15 +13,25 @@ const getIndicatorPositionModifier = (indicatorPosition?: string): string => {
 
 const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
     (
-        { className, indicatorPosition, isChecked: isCheckedByProps, isDisabled, name, onClick, type, value, ...props },
+        {
+            className,
+            indicatorPosition,
+            isChecked: isCheckedByProps,
+            isDisabled,
+            name,
+            onChange,
+            type,
+            value,
+            ...props
+        },
         ref
     ) => {
         const optionGroupContext = useOptionGroup();
 
-        const handleClick = useCallback(() => {
-            optionGroupContext?.onClick?.(value);
-            onClick?.(value);
-        }, [value, onClick, optionGroupContext?.onClick]);
+        const handleChange = useCallback(() => {
+            optionGroupContext?.onChange?.(value);
+            onChange?.(value);
+        }, [value, onChange, optionGroupContext?.onChange]);
 
         if (optionGroupContext) {
             let isChecked = false;
@@ -52,7 +62,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
                     type={optionCardType}
                     checked={isChecked}
                     disabled={isDisabled}
-                    onClick={handleClick}
+                    onChange={handleChange}
                 />
             );
         }
@@ -73,7 +83,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
                 type={type}
                 checked={isCheckedByProps}
                 disabled={isDisabled}
-                onClick={handleClick}
+                onChange={handleChange}
             />
         );
     }
