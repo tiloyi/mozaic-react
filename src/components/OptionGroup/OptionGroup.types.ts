@@ -8,5 +8,5 @@ export interface IOptionGroupProps {
     name?: string;
     value?: TOptionGroupValue;
     values?: Array<TOptionGroupValue>;
-    onClick?: (value?: TOptionGroupValue) => void;
+    onChange?: (value?: TOptionGroupValue) => void;
 }

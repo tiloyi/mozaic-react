@@ -11,7 +11,7 @@ import useOptionGroupValues from './useOptionGroupValues';
 import './OptionGroup.stories.scss';
 
 const ControlsTemplate: Story<IOptionGroupProps> = args => (
-    <OptionGroup {...args} onClick={action('Click')}>
+    <OptionGroup {...args} onChange={action('Change')}>
         <div className="mc-option-group">
             {languages.map(language => (
                 <OptionButton key={language.toLowerCase()} value={language.toLowerCase()}>
@@ -36,7 +36,7 @@ const ExampleTemplateOptionButton: Story = () => {
     }, []);
 
     return (
-        <OptionGroup value={language} onClick={handleChange}>
+        <OptionGroup value={language} onChange={handleChange}>
             <div className="mc-option-group">
                 {languages.map(lang => (
                     <OptionButton
@@ -65,7 +65,7 @@ ExampleOptionButton.args = {
             disable: true
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }
@@ -75,7 +75,7 @@ ExampleOptionButton.args = {
 const MultipleSelectedOptionButtonTemplate: Story = () => {
     const [values, { toggle }] = useOptionGroupValues();
 
-    const handleClick = useCallback(
+    const handleChange = useCallback(
         (value?: TOptionGroupValue) => {
             if (value) {
                 toggle(value);
@@ -85,7 +85,7 @@ const MultipleSelectedOptionButtonTemplate: Story = () => {
     );
 
     return (
-        <OptionGroup mode="multi" onClick={handleClick} values={values}>
+        <OptionGroup mode="multi" onChange={handleChange} values={values}>
             <div className="mc-option-group">
                 {languages.map(lang => (
                     <OptionButton
@@ -114,7 +114,7 @@ MultipleSelectedOptionButton.argTypes = {
             disable: true
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }
@@ -124,12 +124,12 @@ MultipleSelectedOptionButton.argTypes = {
 const ExampleOptionCardTemplate: Story = () => {
     const [language, setLanguage] = useState<TOptionGroupValue | undefined>(languages[0].toLowerCase());
 
-    const handleClick = useCallback((nextValue?: TOptionGroupValue): void => {
+    const handleChange = useCallback((nextValue?: TOptionGroupValue): void => {
         setLanguage(nextValue);
     }, []);
 
     return (
-        <OptionGroup value={language} onClick={handleClick} mode="single">
+        <OptionGroup value={language} onChange={handleChange} mode="single">
             <div className="mc-option-group">
                 {languages.map(lang => (
                     <OptionCard className="story-option-card" key={lang.toLowerCase()} value={lang.toLowerCase()}>
@@ -154,7 +154,7 @@ ExampleOptionCard.argTypes = {
             disable: true
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }
@@ -164,7 +164,7 @@ ExampleOptionCard.argTypes = {
 const MultipleSelectedOptionCardTemplate: Story = () => {
     const [values, { toggle }] = useOptionGroupValues();
 
-    const handleClick = useCallback(
+    const handleChange = useCallback(
         (value?: TOptionGroupValue) => {
             if (value) {
                 toggle(value);
@@ -174,7 +174,7 @@ const MultipleSelectedOptionCardTemplate: Story = () => {
     );
 
     return (
-        <OptionGroup mode="multi" onClick={handleClick} values={values}>
+        <OptionGroup mode="multi" onChange={handleChange} values={values}>
             <div className="mc-option-group">
                 {languages.map(lang => (
                     <OptionCard className="story-option-card" key={lang.toLowerCase()} value={lang.toLowerCase()}>
@@ -199,7 +199,7 @@ MultipleSelectedOptionCard.argTypes = {
             disable: true
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }
