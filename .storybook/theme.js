@@ -6,6 +6,6 @@ export default create({
     appBg: '#eeeef0',
     appContentBg: 'white',
     brandTitle: 'React implementation of the Mozaic Design System',
-    brandUrl: 'https://mozaic-react-master-supchain-stage.apps.lmru.tech/',
+    brandUrl: 'https://adeo.github.io/mozaic-react/',
     brandImage: logo
 });
