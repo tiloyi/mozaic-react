@@ -1,5 +1,42 @@
 
 
+# [1.6.0](https://github.com/adeo/mozaic-react/compare/v1.5.1...v1.6.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* fixed bugs in `OptionCard.stories.tsx` and in `Indicator.tsx` of `OptionCard` ([1054516](https://github.com/adeo/mozaic-react/commit/10545167f5f89d58100c6eed69a18af8ef0c0f17))
+* fixed describe for test the component `OptionGroup` ([5488290](https://github.com/adeo/mozaic-react/commit/5488290646901bac28a98bca65b4d41bcf1b41ab))
+* fixed description for stories in `OptionButton.stories.mdx` ([e9b94eb](https://github.com/adeo/mozaic-react/commit/e9b94eb9e216d77048d79d7e88e685e713429654))
+* fixed description for stories in `OptionButton.stories.mdx` ([860f2a3](https://github.com/adeo/mozaic-react/commit/860f2a34239c257acfcc37baae517b38ca742ed4))
+* fixed names for interface components `OptionButton`, `OptionCard` ([2f0883c](https://github.com/adeo/mozaic-react/commit/2f0883c9dcbb482a22de4de30db1323fefffbfb7))
+* updated name the component `OptionGroup` in `OptionGroup.stories.mdx` ([ebf7a4a](https://github.com/adeo/mozaic-react/commit/ebf7a4a40295a4b18647d58a9b62d5e21da9304c))
+* updated names for added components in `Status.stories.mdx` ([d2c4be9](https://github.com/adeo/mozaic-react/commit/d2c4be985a39dba305921404d7794892cbc06b7d))
+* updated the component `OptionCard` changed property `indicatorPosition` ([b8c1ae2](https://github.com/adeo/mozaic-react/commit/b8c1ae2529a3973d53cc48a002a956d883a3da0e))
+
+
+### Features
+
+* added components `OptionButton`, `OptionCard`, `OptionGroup` ([a079d21](https://github.com/adeo/mozaic-react/commit/a079d21c0373c5e15b2b458cd05d23619df651d6))
+* **component/tabs:** update Tabs HTML structure ([98f3bd7](https://github.com/adeo/mozaic-react/commit/98f3bd7ef21b5a195116a473055c87ef8658716d))
+* **ListBox:** apply useList ([a947e50](https://github.com/adeo/mozaic-react/commit/a947e505a1c37ca97bab452c8eb3ae18816d4f35))
+* **OptionButton:** fix dependencies ([fa1d3f2](https://github.com/adeo/mozaic-react/commit/fa1d3f2e0ed02028083defed3b0932960f839e6e))
+* **OptionButton:** fix exports ([cbabf06](https://github.com/adeo/mozaic-react/commit/cbabf0608bb828ab81ec1f6a88386e21a82810f5))
+* **OptionButton:** onClick => onChange ([2639d82](https://github.com/adeo/mozaic-react/commit/2639d822f0b88cf43a64c4655796e6e960d3bad2))
+* **OptionButton:** rename variable ([2538fc2](https://github.com/adeo/mozaic-react/commit/2538fc2e629d878cadcea68a5a2d229cac40cbce))
+* **OptionCard:** add isDisabled property ([b6e5990](https://github.com/adeo/mozaic-react/commit/b6e5990428c79e78beb2f629415eb3edfb536138))
+* **OptionCard:** onClick => onChange ([74832f9](https://github.com/adeo/mozaic-react/commit/74832f90e63e4c61b1d260b0cbac95449c05f27a))
+* **OptionCard:** onClick => onChange ([ebeacf1](https://github.com/adeo/mozaic-react/commit/ebeacf15c41ffce3215217a3221d183e25e4b775))
+* **OptionGroup:** add exports ([90184d6](https://github.com/adeo/mozaic-react/commit/90184d60e3145769e155b529f3c285c13a523d1d))
+* **OptionGroup:** add tests ([ef1d711](https://github.com/adeo/mozaic-react/commit/ef1d7112308a6748f46039491bb3e39664f4b26c))
+* **OptionGroup:** apply useList ([08781fe](https://github.com/adeo/mozaic-react/commit/08781feda6abb186eae78d2a86bd7c0cbf567479))
+* **OptionGroup:** onClick => onChange ([f5ecadd](https://github.com/adeo/mozaic-react/commit/f5ecadd95da3d8360f56e7980453a86d2fdf4b22))
+* **use-list:** add implementation ([8045929](https://github.com/adeo/mozaic-react/commit/8045929aecb85482d292e074a9a8ba23261a50bf))
+* **useList:** add tests ([ad45143](https://github.com/adeo/mozaic-react/commit/ad45143f72da73d967e9fcd85f2ce4bdcbe2ffd0))
+* **useList:** add toggle method ([c485d8f](https://github.com/adeo/mozaic-react/commit/c485d8fcf2c1534d8dfa8471e774164b09751e0f))
+* **useList:** add type ([3ecc76c](https://github.com/adeo/mozaic-react/commit/3ecc76c9e54d2c4c62ed04aece5f70d2920482ad))
+* **useList:** apply toggle method ([ce7b0fa](https://github.com/adeo/mozaic-react/commit/ce7b0fa6c75cabd28e14171651acb5dad354eb25))
+
 ## [1.5.1](https://github.com/adeo/mozaic-react/compare/v1.5.0...v1.5.1) (2022-10-03)
 
 
