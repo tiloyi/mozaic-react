@@ -20,17 +20,37 @@ describe('components/OptionGroup', () => {
                 </OptionGroup>
             );
 
-        test('renders checked item in single mode', () => {
-            setup({ value: languages[2], mode: 'single' });
+        test('checks button in single mode', async () => {
+            const onChange = jest.fn();
+
+            setup({ value: languages[2], mode: 'single', onChange });
 
             expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
+
+            await userEvent.click(screen.getByLabelText(languages[1]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[1]);
+
+            await userEvent.click(screen.getByLabelText(languages[3]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[3]);
         });
 
-        test('renders checked items in multi mode', () => {
-            setup({ values: [languages[0], languages[2]], mode: 'multi' });
+        test('checks button in multi mode', async () => {
+            const onChange = jest.fn();
+
+            setup({ values: [languages[0], languages[2]], mode: 'multi', onChange });
 
             expect(screen.getByRole('checkbox', { name: languages[0] })).toBeChecked();
             expect(screen.getByRole('checkbox', { name: languages[2] })).toBeChecked();
+
+            await userEvent.click(screen.getByLabelText(languages[1]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[1]);
+
+            await userEvent.click(screen.getByLabelText(languages[2]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[2]);
         });
     });
 
@@ -46,17 +66,37 @@ describe('components/OptionGroup', () => {
                 </OptionGroup>
             );
 
-        test('renders checked item in single mode', () => {
-            setup({ value: languages[2], mode: 'single' });
+        test('checks card in single mode', async () => {
+            const onChange = jest.fn();
+
+            setup({ value: languages[2], mode: 'single', onChange });
 
             expect(screen.getByRole('radio', { name: languages[2] })).toBeChecked();
+
+            await userEvent.click(screen.getByLabelText(languages[1]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[1]);
+
+            await userEvent.click(screen.getByLabelText(languages[3]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[3]);
         });
 
-        test('renders checked items in multi mode', () => {
-            setup({ values: [languages[0], languages[2]], mode: 'multi' });
+        test('checks card in multi mode', async () => {
+            const onChange = jest.fn();
+
+            setup({ values: [languages[0], languages[2]], mode: 'multi', onChange });
 
             expect(screen.getByRole('checkbox', { name: languages[0] })).toBeChecked();
             expect(screen.getByRole('checkbox', { name: languages[2] })).toBeChecked();
+
+            await userEvent.click(screen.getByLabelText(languages[1]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[1]);
+
+            await userEvent.click(screen.getByLabelText(languages[2]));
+
+            expect(onChange).toHaveBeenCalledWith(languages[2]);
         });
     });
 });
