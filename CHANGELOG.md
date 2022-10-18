@@ -1,5 +1,13 @@
 
 
+## [1.6.1](https://github.com/adeo/mozaic-react/compare/v1.6.0...v1.6.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* **optioncard:** remove unnecessary import ([4e5a616](https://github.com/adeo/mozaic-react/commit/4e5a616fd67ff800ef875901296f47f89caecc0f))
+* **storybook:** brand url ([1b9cd79](https://github.com/adeo/mozaic-react/commit/1b9cd794308e80e7d75d9931ac7f1a56967a57bd))
+
 # [1.6.0](https://github.com/adeo/mozaic-react/compare/v1.5.1...v1.6.0) (2022-10-18)
 
 
