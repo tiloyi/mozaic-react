@@ -39,7 +39,7 @@ export const argTypes = {
             disable: true
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }
