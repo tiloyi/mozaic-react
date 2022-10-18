@@ -1,9 +1,10 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import Flex from '../Flex';
+import View from '../View';
 import { IOptionCard } from './OptionCard.types';
 import OptionCard from './OptionCard';
 import './OptionCard.stories.scss';
-import { Flex, View } from '../index';
 
 const ControlsTemplate: Story<IOptionCard> = args => (
     <Flex>
@@ -17,19 +18,30 @@ export const Controls = ControlsTemplate.bind({});
 
 Controls.args = {
     isChecked: false,
+    isDisabled: false,
     type: 'radio',
     indicatorPosition: 'top-right'
 };
 
 export const argTypes = {
+    indicatorPosition: {
+        control: {
+            type: 'select'
+        }
+    },
     type: {
         control: {
             type: 'select'
         }
     },
-    isChecked: {
-        control: {
-            type: 'select'
+    value: {
+        table: {
+            disable: true
+        }
+    },
+    onChange: {
+        table: {
+            disable: true
         }
     }
 };

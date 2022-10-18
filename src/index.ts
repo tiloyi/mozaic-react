@@ -149,6 +149,9 @@ export {
     NotificationsRenderer,
     useNotifications
 } from './components/NotificationsProvider';
+export * from './components/OptionButton';
+export * from './components/OptionCard';
+export * from './components/OptionGroup';
 export { default as Overlay, IOverlayProps } from './components/Overlay';
 export {
     default as Pagination,

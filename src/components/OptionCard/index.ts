@@ -1,5 +1,3 @@
-import OptionCard from './OptionCard';
-
-export { OptionCardContainer, OptionCardIndicator } from './partials';
-export { IOptionCardContainer } from './OptionCard.types';
-export default OptionCard;
+export * from './partials';
+export { IOptionCardIndicator, IOptionCard, TOptionCardType, TOptionCardIndicatorPosition } from './OptionCard.types';
+export { default as OptionCard } from './OptionCard';

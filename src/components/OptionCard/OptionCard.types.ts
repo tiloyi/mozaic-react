@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 import { TOptionGroupValue } from '../OptionGroup/OptionGroup.types';
 
-type TOmittedProps = 'checked' | 'disabled' | 'onClick' | 'type';
+type TOmittedProps = 'checked' | 'disabled' | 'onChange' | 'type';
 
 const types = ['radio', 'checkbox'] as const;
 
@@ -23,13 +23,14 @@ export type TOptionCardIndicatorPosition = typeof indicatorPosition[number];
 export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     indicatorPosition?: TOptionCardIndicatorPosition;
     isChecked?: boolean;
-    onClick?: (value: TOptionGroupValue | undefined) => void;
+    isDisabled?: boolean;
+    onChange?: (value: TOptionGroupValue | undefined) => void;
     value?: TOptionGroupValue;
     type?: TOptionCardType;
 }
 
-export interface IOptionCardContainer {
+export interface IOptionCardPartialProps {
     className?: string;
 }
 
-export interface IOptionCard extends IOptionCardContainer, IOptionCardIndicator {}
+export interface IOptionCard extends IOptionCardPartialProps, IOptionCardIndicator {}

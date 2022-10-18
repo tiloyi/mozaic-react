@@ -1,14 +1,13 @@
 import React, { forwardRef } from 'react';
-import { OptionCardContainer, OptionCardIndicator } from './partials';
+import { OptionCardContainer, OptionCardIndicator, OptionCardLabel } from './partials';
 import { IOptionCard } from './OptionCard.types';
 import './OptionCard.scss';
 
 const OptionCard = forwardRef<HTMLInputElement, IOptionCard>(
     ({ className, indicatorPosition = 'top-right', type = 'radio', children, ...props }, ref) => (
         <OptionCardContainer className={className}>
-            <OptionCardIndicator {...props} ref={ref} type={type} indicatorPosition={indicatorPosition}/>
-            <div className="mc-option-card__label" />
-            <div className="mc-option-card__content">{children}</div>
+            <OptionCardIndicator {...props} ref={ref} type={type} indicatorPosition={indicatorPosition} />
+            <OptionCardLabel>{children}</OptionCardLabel>
         </OptionCardContainer>
     )
 );

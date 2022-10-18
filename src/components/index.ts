@@ -145,6 +145,9 @@ export {
     TNotificationTheme
 } from './Notification';
 export { default as NotificationsProvider, NotificationsRenderer, useNotifications } from './NotificationsProvider';
+export * from './OptionButton';
+export * from './OptionCard';
+export * from './OptionGroup';
 export { default as Overlay, IOverlayProps } from './Overlay';
 export {
     default as Pagination,

@@ -9,23 +9,15 @@ describe('components/OptionButton', () => {
         expect(screen.getByText('Option button label')).toBeInTheDocument();
     });
 
-    test('renders checked correctly', () => {
-        const onClick = jest.fn();
-
-        render(
-            <OptionButton isChecked onClick={onClick}>
-                Option button label
-            </OptionButton>
-        );
+    test('renders as checked radio correctly', () => {
+        render(<OptionButton isChecked>Option button label</OptionButton>);
 
         expect(screen.getByRole('radio')).toBeChecked();
     });
 
-    test('renders checked correctly', () => {
-        const onClick = jest.fn();
-
+    test('renders as checked checkbox correctly', () => {
         render(
-            <OptionButton isChecked type="checkbox" onClick={onClick}>
+            <OptionButton isChecked type="checkbox">
                 Option button label
             </OptionButton>
         );
@@ -33,25 +25,19 @@ describe('components/OptionButton', () => {
         expect(screen.getByRole('checkbox')).toBeChecked();
     });
 
-    test('renders unchecked correctly', () => {
-        const onClick = jest.fn();
-
-        render(
-            <OptionButton isChecked={false} onClick={onClick}>
-                Option button label
-            </OptionButton>
-        );
+    test('renders as unchecked radio correctly', () => {
+        render(<OptionButton isChecked={false}>Option button label</OptionButton>);
 
         expect(screen.getByRole('radio')).not.toBeChecked();
     });
 
-    test('renders disabled correctly', () => {
+    test('renders as disabled radio correctly', () => {
         render(<OptionButton isDisabled>Option button label</OptionButton>);
 
         expect(screen.getByRole('radio')).toBeDisabled();
     });
 
-    test('renders disabled checkbox correctly', () => {
+    test('renders as disabled checkbox correctly', () => {
         render(
             <OptionButton isDisabled type="checkbox">
                 Option button label
@@ -64,6 +50,6 @@ describe('components/OptionButton', () => {
     test('renders full width correctly', () => {
         render(<OptionButton width="full">Full width option button label</OptionButton>);
 
-        expect(screen.getByRole('radio')).toHaveClass('mc-option-button--full');
+        expect(screen.getByRole('radio').parentNode).toHaveClass('mc-option-button--full');
     });
 });

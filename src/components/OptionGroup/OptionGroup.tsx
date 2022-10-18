@@ -7,8 +7,11 @@ export function useOptionGroup(): IOptionGroupProps | null {
     return useContext(OptionGroupContext);
 }
 
-const OptionGroup: FC<IOptionGroupProps> = ({ children, mode = 'single', name, onClick, value, values }) => {
-    const contextValue = useMemo(() => ({ mode, name, onClick, value, values }), [mode, name, onClick, value, values]);
+const OptionGroup: FC<IOptionGroupProps> = ({ children, mode = 'single', name, onChange, value, values }) => {
+    const contextValue = useMemo(
+        () => ({ mode, name, onChange, value, values }),
+        [mode, name, onChange, value, values]
+    );
 
     return <OptionGroupContext.Provider value={contextValue}>{children}</OptionGroupContext.Provider>;
 };

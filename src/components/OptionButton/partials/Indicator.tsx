@@ -4,13 +4,13 @@ import { useOptionGroup } from '../../OptionGroup';
 import { IOptionButtonIndicator } from '../OptionButton.types';
 
 const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicator>(
-    ({ className, isChecked: isCheckedByProps, isDisabled, onClick, value, ...props }, ref) => {
+    ({ className, isChecked: isCheckedByProps, isDisabled, onChange, type, value, ...props }, ref) => {
         const optionGroupContext = useOptionGroup();
 
-        const handleClick = useCallback(() => {
-            onClick?.(value);
-            optionGroupContext?.onClick?.(value);
-        }, [onClick, optionGroupContext?.onClick, value]);
+        const handleChange = useCallback(() => {
+            onChange?.(value);
+            optionGroupContext?.onChange?.(value);
+        }, [value, onChange, optionGroupContext?.onChange]);
 
         const inputClassName = cn('mc-option-button__input', className);
 
@@ -25,36 +25,36 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
                 isChecked = (optionGroupContext.values ?? []).includes(value);
             }
 
-            const optionCardType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
+            const optionButtonType = optionGroupContext.mode === 'single' ? 'radio' : 'checkbox';
 
             return (
                 <input
-                    className={inputClassName}
                     {...props}
                     ref={ref}
-                    type={optionCardType}
+                    className={inputClassName}
+                    type={optionButtonType}
                     name={optionGroupContext.name}
                     checked={isChecked}
                     disabled={isDisabled}
-                    onChange={handleClick}
+                    onChange={handleChange}
                 />
             );
         }
 
         return (
             <input
-                className={inputClassName}
                 {...props}
                 ref={ref}
-                type="radio"
+                className={inputClassName}
+                type={type}
                 checked={isCheckedByProps}
                 disabled={isDisabled}
-                onChange={handleClick}
+                onChange={handleChange}
             />
         );
     }
 );
 
-OptionButtonIndicator.displayName = 'RadioIndicator';
+OptionButtonIndicator.displayName = 'OptionButtonIndicator';
 
 export default OptionButtonIndicator;
