@@ -25,7 +25,7 @@ export const argTypes = {
             type: 'select'
         }
     },
-    onClick: {
+    onChange: {
         table: {
             disable: true
         }

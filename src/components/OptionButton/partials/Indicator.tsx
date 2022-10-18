@@ -4,13 +4,13 @@ import { useOptionGroup } from '../../OptionGroup';
 import { IOptionButtonIndicator } from '../OptionButton.types';
 
 const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicator>(
-    ({ className, isChecked: isCheckedByProps, isDisabled, onClick, type, value, ...props }, ref) => {
+    ({ className, isChecked: isCheckedByProps, isDisabled, onChange, type, value, ...props }, ref) => {
         const optionGroupContext = useOptionGroup();
 
-        const handleClick = useCallback(() => {
-            onClick?.(value);
-            optionGroupContext?.onClick?.(value);
-        }, [value, onClick, optionGroupContext?.onClick]);
+        const handleChange = useCallback(() => {
+            onChange?.(value);
+            optionGroupContext?.onChange?.(value);
+        }, [value, onChange, optionGroupContext?.onChange]);
 
         const inputClassName = cn('mc-option-button__input', className);
 
@@ -36,7 +36,7 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
                     name={optionGroupContext.name}
                     checked={isChecked}
                     disabled={isDisabled}
-                    onChange={handleClick}
+                    onChange={handleChange}
                 />
             );
         }
@@ -49,7 +49,7 @@ const OptionButtonIndicator = forwardRef<HTMLInputElement, IOptionButtonIndicato
                 type={type}
                 checked={isCheckedByProps}
                 disabled={isDisabled}
-                onChange={handleClick}
+                onChange={handleChange}
             />
         );
     }
