@@ -32,6 +32,7 @@ const TextInput = forwardRef<HTMLInputElement, ITextInputProps>(
                 type={type}
                 aria-invalid={isInvalid}
                 disabled={isDisabled}
+                spellCheck={false}
             />
         );
 
