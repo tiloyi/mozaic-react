@@ -3,48 +3,143 @@
 @import "components/c.option-card";
 
 .mc-option-card__indicator--top {
-    top: $mu100;
     left: 50%;
     transform: translateX(-50%);
+    top: 0 !important;
+
+    &--mu050 {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0 !important;
+    }
+
+    &--mu100 {
+        left: 50%;
+        transform: translateX(-50%);
+        top: $mu100;
+    }
 }
 
 .mc-option-card__indicator--top-right {
-    top: $mu100;
-    right: $mu100;
+    top: 0 !important;
+    right: 0 !important;
+
+    &--mu050 {
+        top: $mu050 !important;
+        right: $mu050 !important;
+    }
+
+    &--mu100 {
+        top: $mu100;
+        right: $mu100;
+    }
 }
 
 .mc-option-card__indicator--right {
     top: 50% !important;
     transform: translateY(-50%);
-    right: $mu100;
+    right: 0 !important;
+
+    &--mu050 {
+        top: 50% !important;
+        transform: translateY(-50%);
+        right: $mu050 !important;
+    }
+
+    &--mu100 {
+        top: 50% !important;
+        transform: translateY(-50%);
+        right: $mu100;
+    }
 }
 
 .mc-option-card__indicator--bottom-right {
     top: auto !important;
-    bottom: $mu100;
-    right: $mu100;
+    bottom: 0;
+    right: 0 !important;
+
+    &--mu050 {
+        top: auto !important;
+        bottom: $mu050;
+        right: $mu050 !important;
+    }
+
+    &--mu100 {
+        top: auto !important;
+        bottom: $mu100;
+        right: $mu100;
+    }
 }
 
 .mc-option-card__indicator--bottom {
     top: auto !important;
-    bottom: $mu100;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 0;
+
+    &--mu050 {
+        top: auto !important;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: $mu050;
+    }
+
+    &--mu100 {
+        top: auto !important;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: $mu100;
+    }
 }
 
 .mc-option-card__indicator--bottom-left {
     top: auto !important;
-    bottom: $mu100;
-    left: $mu100;
+    bottom: 0;
+    left: 0;
+
+    &--mu050 {
+        top: auto !important;
+        bottom: $mu050;
+        left: $mu050;
+    }
+
+    &--mu100 {
+        top: auto !important;
+        bottom: $mu100;
+        left: $mu100;
+    }
 }
 
 .mc-option-card__indicator--left {
     top: 50% !important;
     transform: translateY(-50%);
-    left: $mu100;
+    left: 0;
+
+    &--mu050 {
+        top: 50% !important;
+        transform: translateY(-50%);
+        left: $mu050;
+    }
+
+    &--mu100 {
+        top: 50% !important;
+        transform: translateY(-50%);
+        left: $mu100;
+    }
+
 }
 
 .mc-option-card__indicator--top-left {
-    top: $mu100;
-    left: $mu100;
+    top: 0 !important;
+    left: 0;
+
+    &--mu050 {
+        top: $mu050 !important;
+        left: $mu050;
+    }
+
+    &--mu100 {
+        top: $mu100;
+        left: $mu100;
+    }
 }

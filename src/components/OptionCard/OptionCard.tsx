@@ -4,9 +4,15 @@ import { IOptionCard } from './OptionCard.types';
 import './OptionCard.scss';
 
 const OptionCard = forwardRef<HTMLInputElement, IOptionCard>(
-    ({ className, indicatorPosition = 'top-right', type = 'radio', children, ...props }, ref) => (
-        <OptionCardContainer className={className}>
-            <OptionCardIndicator {...props} ref={ref} type={type} indicatorPosition={indicatorPosition} />
+    ({ className, indicatorPosition = 'top-right', type = 'radio', padding, children, ...props }, ref) => (
+        <OptionCardContainer className={className} padding={padding}>
+            <OptionCardIndicator
+                {...props}
+                ref={ref}
+                type={type}
+                padding={padding}
+                indicatorPosition={indicatorPosition}
+            />
             <OptionCardLabel>{children}</OptionCardLabel>
         </OptionCardContainer>
     )
