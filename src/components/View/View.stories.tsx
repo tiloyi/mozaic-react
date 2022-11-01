@@ -79,6 +79,16 @@ ShadowsAndBorders.argTypes = {
             disable: true
         }
     },
+    marginVertical: {
+        table: {
+            disable: true
+        }
+    },
+    marginHorizontal: {
+        table: {
+            disable: true
+        }
+    },
     padding: {
         table: {
             disable: true
@@ -100,6 +110,16 @@ ShadowsAndBorders.argTypes = {
         }
     },
     paddingLeft: {
+        table: {
+            disable: true
+        }
+    },
+    paddingVertical: {
+        table: {
+            disable: true
+        }
+    },
+    paddingHorizontal: {
         table: {
             disable: true
         }
