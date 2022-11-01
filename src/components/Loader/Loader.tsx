@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import View from '../View';
+import { View } from '../View';
 import { ILoaderProps, ILoaderSvgProperties, TLoaderSize, TLoaderTheme } from './Loader.types';
 import './Loader.scss';
 

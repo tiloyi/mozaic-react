@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Flex from '../Flex';
-import View from '../View';
+import { View } from '../View';
 import { IOptionCard } from './OptionCard.types';
 import OptionCard from './OptionCard';
 import './OptionCard.stories.scss';

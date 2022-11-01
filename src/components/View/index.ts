@@ -1,4 +1,2 @@
-import View from './View';
-
-export { IViewProps, TMagicUnit, TRadius, TShadow } from './View.types';
-export default View;
+export { IViewProps, TMagicUnit, TRadius, TShadow, magicUnits } from './View.types';
+export { default as View } from './View';

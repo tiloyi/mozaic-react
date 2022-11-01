@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import View from '../View';
+import { View } from '../View';
 import Button from '../Button';
 import { IDateInputProps } from './DateInput.types';
 import DateInput from './DateInput';

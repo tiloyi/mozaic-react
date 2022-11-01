@@ -3,7 +3,7 @@ import { useForm, useController } from 'react-hook-form';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import { IQuantitySelectorProps } from './QuantitySelector.types';
 import QuantitySelector from './QuantitySelector';
 

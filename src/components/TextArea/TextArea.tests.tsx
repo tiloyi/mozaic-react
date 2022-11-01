@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useForm } from 'react-hook-form';
 import userEvent from '@testing-library/user-event';
-import View from '../View';
+import { View } from '../View';
 import Button from '../Button';
 import TextArea from './TextArea';
 
