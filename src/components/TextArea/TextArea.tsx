@@ -18,6 +18,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
                 ref={ref}
                 aria-invalid={isInvalid}
                 disabled={isDisabled}
+                spellCheck={false}
             />
         );
     }
