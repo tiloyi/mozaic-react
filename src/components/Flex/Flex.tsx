@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import cn from 'classnames';
-import View from '../View';
+import { sanitizeMagicUnit, TMagicUnit, View } from '../View';
 import { IFlexProps, TAlignContent, TAlignItems, TFlexDirection, TFlexWrap, TJustifyContent } from './Flex.types';
 import './Flex.scss';
 
@@ -46,6 +46,28 @@ export function getJustifyContentModifier(justifyContent?: TJustifyContent): str
     return '';
 }
 
+export function getGapModifier(gap?: TMagicUnit, rowGap?: TMagicUnit, columnGap?: TMagicUnit): string | Array<string> {
+    if (gap) {
+        return `${blockClassName}--g-${sanitizeMagicUnit(gap)}`;
+    }
+
+    if (rowGap === columnGap && columnGap !== undefined) {
+        return `${blockClassName}--g-${sanitizeMagicUnit(columnGap)}`;
+    }
+
+    const classNames: Array<string> = [];
+
+    if (rowGap) {
+        classNames.push(`${blockClassName}--rg-${sanitizeMagicUnit(rowGap)}`);
+    }
+
+    if (columnGap) {
+        classNames.push(`${blockClassName}--cg-${sanitizeMagicUnit(columnGap)}`);
+    }
+
+    return classNames;
+}
+
 const Flex: FC<IFlexProps> = ({
     className,
     children,
@@ -54,6 +76,9 @@ const Flex: FC<IFlexProps> = ({
     alignContent,
     alignItems,
     justifyContent,
+    gap,
+    columnGap,
+    rowGap,
     ...props
 }): JSX.Element => {
     const flexClassName = useMemo(
@@ -65,9 +90,10 @@ const Flex: FC<IFlexProps> = ({
                 getWrapModifier(wrap),
                 getAlignContentModifier(alignContent),
                 getAlignItemsModifier(alignItems),
-                getJustifyContentModifier(justifyContent)
+                getJustifyContentModifier(justifyContent),
+                getGapModifier(gap, rowGap, columnGap)
             ),
-        [className, direction, wrap, alignContent, alignItems, justifyContent]
+        [className, direction, wrap, alignContent, alignItems, justifyContent, gap, rowGap, columnGap]
     );
 
     return (

@@ -1,4 +1,24 @@
-@import 'settings-tools/_all-settings';
+@import "settings-tools/_all-settings";
+
+$gapSizes: (
+    "025": $mu025,
+    "050": $mu050,
+    "075": $mu075,
+    "100": $mu100,
+    "125": $mu125,
+    "150": $mu150,
+    "200": $mu200,
+    "250": $mu250,
+    "300": $mu300,
+    "350": $mu350,
+    "400": $mu400,
+    "500": $mu500,
+    "600": $mu600,
+    "700": $mu700,
+    "800": $mu800,
+    "900": $mu900,
+    "1000": $mu1000
+);
 
 .ml-flex {
     display: flex;
@@ -110,6 +130,20 @@
 
         &-stretch {
             align-items: stretch;
+        }
+    }
+
+    @each $gapSizeName, $gapSizeValue in $gapSizes {
+        &--g-#{$gapSizeName} {
+            gap: $gapSizeValue;
+        }
+
+        &--rg-#{$gapSizeName} {
+            row-gap: $gapSizeValue;
+        }
+
+        &--cg-#{$gapSizeName} {
+            column-gap: $gapSizeValue;
         }
     }
 }

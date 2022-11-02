@@ -1,4 +1,4 @@
-@import 'settings-tools/all-settings';
+@import "settings-tools/all-settings";
 
 .flex-container {
     background-color: $color-success-100;
@@ -7,7 +7,6 @@
 .flex-inner {
     height: $mu500;
     min-width: $mu500;
-    margin: $mu100;
     background-color: $color-success-400;
     color: $color-success-100;
     text-align: center;
