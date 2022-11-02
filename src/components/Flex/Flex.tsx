@@ -46,13 +46,13 @@ export function getJustifyContentModifier(justifyContent?: TJustifyContent): str
     return '';
 }
 
-export function getGapModifier(gap?: TMagicUnit, rowGap?: TMagicUnit, columnGap?: TMagicUnit): string | Array<string> {
+export function getGapModifiers(gap?: TMagicUnit, rowGap?: TMagicUnit, columnGap?: TMagicUnit): Array<string> {
     if (gap) {
-        return `${blockClassName}--g-${sanitizeMagicUnit(gap)}`;
+        return [`${blockClassName}--g-${sanitizeMagicUnit(gap)}`];
     }
 
     if (rowGap === columnGap && columnGap !== undefined) {
-        return `${blockClassName}--g-${sanitizeMagicUnit(columnGap)}`;
+        return [`${blockClassName}--g-${sanitizeMagicUnit(columnGap)}`];
     }
 
     const classNames: Array<string> = [];
@@ -91,7 +91,7 @@ const Flex: FC<IFlexProps> = ({
                 getAlignContentModifier(alignContent),
                 getAlignItemsModifier(alignItems),
                 getJustifyContentModifier(justifyContent),
-                getGapModifier(gap, rowGap, columnGap)
+                ...getGapModifiers(gap, rowGap, columnGap)
             ),
         [className, direction, wrap, alignContent, alignItems, justifyContent, gap, rowGap, columnGap]
     );
