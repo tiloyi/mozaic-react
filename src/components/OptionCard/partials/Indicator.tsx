@@ -3,7 +3,11 @@ import cn from 'classnames';
 import { useOptionGroup } from '../../OptionGroup';
 import { IOptionCardIndicator } from '../OptionCard.types';
 
-const getIndicatorPositionModifier = (indicatorPosition?: string): string => {
+const getIndicatorPositionModifier = (indicatorPosition?: string, padding?: string): string => {
+    if (indicatorPosition && padding) {
+        return `mc-option-card__indicator--${indicatorPosition}--${padding}`;
+    }
+
     if (indicatorPosition) {
         return `mc-option-card__indicator--${indicatorPosition}`;
     }
@@ -16,6 +20,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
         {
             className,
             indicatorPosition,
+            padding,
             isChecked: isCheckedByProps,
             isDisabled,
             name,
@@ -49,7 +54,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
             const inputClassName = cn(
                 optionCardType === 'radio' ? 'mc-radio__input' : 'mc-checkbox__input',
                 'mc-option-card__input',
-                getIndicatorPositionModifier(indicatorPosition),
+                getIndicatorPositionModifier(indicatorPosition, padding),
                 className
             );
 
@@ -70,7 +75,7 @@ const OptionCardIndicator = forwardRef<HTMLInputElement, IOptionCardIndicator>(
         const inputClassName = cn(
             type === 'radio' ? 'mc-radio__input' : 'mc-checkbox__input',
             'mc-option-card__input',
-            getIndicatorPositionModifier(indicatorPosition),
+            getIndicatorPositionModifier(indicatorPosition, padding),
             className
         );
 

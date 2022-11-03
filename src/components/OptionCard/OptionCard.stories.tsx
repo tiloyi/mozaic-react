@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Flex from '../Flex';
-import { View } from '../View';
+import { Text } from '../Text';
 import { IOptionCard } from './OptionCard.types';
 import OptionCard from './OptionCard';
 import './OptionCard.stories.scss';
@@ -9,7 +9,7 @@ import './OptionCard.stories.scss';
 const ControlsTemplate: Story<IOptionCard> = args => (
     <Flex>
         <OptionCard className="story-option-card" {...args}>
-            <View padding="mu100">Option card</View>
+            <Text>Option card</Text>
         </OptionCard>
     </Flex>
 );
@@ -25,6 +25,11 @@ Controls.args = {
 
 export const argTypes = {
     indicatorPosition: {
+        control: {
+            type: 'select'
+        }
+    },
+    padding: {
         control: {
             type: 'select'
         }

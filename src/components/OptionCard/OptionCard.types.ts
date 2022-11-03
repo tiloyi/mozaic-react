@@ -7,6 +7,10 @@ const types = ['radio', 'checkbox'] as const;
 
 export type TOptionCardType = typeof types[number];
 
+const cardPadding = ['mu050', 'mu100'] as const;
+
+export type TOptionPadding = typeof cardPadding[number];
+
 const indicatorPosition = [
     'top',
     'top-right',
@@ -22,6 +26,7 @@ export type TOptionCardIndicatorPosition = typeof indicatorPosition[number];
 
 export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     indicatorPosition?: TOptionCardIndicatorPosition;
+    padding?: TOptionPadding;
     isChecked?: boolean;
     isDisabled?: boolean;
     onChange?: (value: TOptionGroupValue | undefined) => void;
@@ -30,6 +35,7 @@ export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInput
 }
 
 export interface IOptionCardPartialProps {
+    padding?: TOptionPadding;
     className?: string;
 }
 
