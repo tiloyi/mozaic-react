@@ -1,5 +1,5 @@
 import React from 'react';
-import View from '../../View';
+import { View } from '../../View';
 import { IFileUploaderFilesListProps } from '../FileUploader.types';
 import FileUploaderFile from './File';
 

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import View from '../../View';
+import { View } from '../../View';
 import { ITabsPanelProps } from '../Tabs.types';
 import { useTabsContext } from '../TabsContext';
 

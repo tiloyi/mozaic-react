@@ -3,7 +3,7 @@ import { useController, useForm } from 'react-hook-form';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import QuantitySelector from './QuantitySelector';
 
 interface IFormValues {

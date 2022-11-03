@@ -280,6 +280,6 @@ export {
     TToggleSize
 } from './components/Toggle';
 export { default as Tooltip, ITooltipProps, TTooltipPlacement } from './components/Tooltip';
-export { default as View, IViewProps, TMagicUnit, TRadius, TShadow } from './components/View';
+export * from './components/View';
 
 export * from './hooks';
