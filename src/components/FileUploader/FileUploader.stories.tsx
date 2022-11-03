@@ -20,19 +20,6 @@ Input.args = {
     isDisabled: false
 };
 
-Input.argTypes = {
-    onRemove: {
-        table: {
-            disable: true
-        }
-    },
-    files: {
-        table: {
-            disable: true
-        }
-    }
-};
-
 const FileTemplate: Story<IFileUploaderFileProps> = args => <FileUploaderFile {...args} />;
 
 export const File = FileTemplate.bind({});
@@ -46,16 +33,6 @@ File.args = {
 
 File.argTypes = {
     onRemove: {
-        table: {
-            disable: true
-        }
-    },
-    files: {
-        table: {
-            disable: true
-        }
-    },
-    isDisabled: {
         table: {
             disable: true
         }
