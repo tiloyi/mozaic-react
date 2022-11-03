@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { useForm } from 'react-hook-form';
 import SVGIcon from '../../../.storybook/assets/SVGIcon';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import TextInput from './TextInput';
 import { ITextInputProps } from './TextInput.types';
 

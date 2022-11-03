@@ -42,7 +42,7 @@ export const themes = [
 
 export type TTextTheme = typeof themes[number];
 
-export const sizes = ['s', 'm', 'l'] as const;
+export const sizes = ['s', 'm', 'l', 'xl', 'xxl'] as const;
 
 export type TTextSize = typeof sizes[number];
 

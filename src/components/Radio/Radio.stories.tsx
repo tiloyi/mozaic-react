@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import { languages } from '../RadioGroup/RadioGroup.fixtures';
 import { IRadioProps } from './Radio.types';
 import Radio from './Radio';

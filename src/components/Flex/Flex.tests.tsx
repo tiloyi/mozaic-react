@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { magicUnits, sanitizeMagicUnit } from '../View';
 import { directions, flexWraps, alignItemsVariants, alignContentVariants, justifyContentVariants } from './Flex.types';
 import Flex, {
     getDirectionModifier,
@@ -38,5 +39,33 @@ describe('components/Flex', () => {
         render(<Flex justifyContent={justifyContent}>Flex</Flex>);
 
         expect(screen.getByText('Flex')).toHaveClass(getJustifyContentModifier(justifyContent));
+    });
+
+    test.each(magicUnits)('renders with gap: %s', gap => {
+        render(<Flex gap={gap}>Flex</Flex>);
+
+        expect(screen.getByText('Flex')).toHaveClass(`ml-flex--g-${sanitizeMagicUnit(gap)}`);
+    });
+
+    test.each(magicUnits)('renders with row gap: %s', gap => {
+        render(<Flex rowGap={gap}>Flex</Flex>);
+
+        expect(screen.getByText('Flex')).toHaveClass(`ml-flex--rg-${sanitizeMagicUnit(gap)}`);
+    });
+
+    test.each(magicUnits)('renders with column gap: %s', gap => {
+        render(<Flex columnGap={gap}>Flex</Flex>);
+
+        expect(screen.getByText('Flex')).toHaveClass(`ml-flex--cg-${sanitizeMagicUnit(gap)}`);
+    });
+
+    test.each(magicUnits)('treats equal row gap and column gap as gap: %s', gap => {
+        render(
+            <Flex rowGap={gap} columnGap={gap}>
+                Flex
+            </Flex>
+        );
+
+        expect(screen.getByText('Flex')).toHaveClass(`ml-flex--g-${sanitizeMagicUnit(gap)}`);
     });
 });

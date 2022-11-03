@@ -18,6 +18,14 @@ $alignments: left, center, right;
         }
     }
 
+    &--xxl-l {
+        @include set-font-scale("08", "l");
+    }
+
+    &--xl-l {
+        @include set-font-scale("07", "l");
+    }
+
     &--l-l {
         @include set-font-scale("06", "l");
     }
@@ -28,6 +36,14 @@ $alignments: left, center, right;
 
     &--s-l {
         @include set-font-scale("04", "l");
+    }
+
+    &--xxl-m {
+        @include set-font-scale("08", "m");
+    }
+
+    &--xl-m {
+        @include set-font-scale("07", "m");
     }
 
     &--l-m {
@@ -42,6 +58,14 @@ $alignments: left, center, right;
         @include set-font-scale("04", "m");
     }
 
+    &--xxl-s {
+        @include set-font-scale("08", "s");
+    }
+
+    &--xl-s {
+        @include set-font-scale("07", "s");
+    }
+
     &--l-s {
         @include set-font-scale("06", "s");
     }
@@ -52,6 +76,14 @@ $alignments: left, center, right;
 
     &--s-s {
         @include set-font-scale("04", "s");
+    }
+
+    &--xxl-xs {
+        @include set-font-scale("08", "xs");
+    }
+
+    &--xl-xs {
+        @include set-font-scale("07", "xs");
     }
 
     &--l-xs {

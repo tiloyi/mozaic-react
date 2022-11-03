@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import View from '../View';
+import { View } from '../View';
 import { OptionButton } from '../OptionButton';
 import { OptionCard } from '../OptionCard';
 import OptionGroup from './OptionGroup';

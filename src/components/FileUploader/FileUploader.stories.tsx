@@ -6,7 +6,7 @@ import FileUploaderInput from './partials/Input';
 import FileUploaderFile from './partials/File';
 import FileUploader from './FileUploader';
 import { IFileUploaderInputProps, IFileUploaderFileProps, IFileUploaderFile } from './FileUploader.types';
-import View from '../View';
+import { View } from '../View';
 import Button from '../Button';
 
 const InputTemplate: Story<IFileUploaderInputProps> = args => (

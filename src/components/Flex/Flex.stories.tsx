@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import { IFlexProps } from './Flex.types';
 import Flex from './Flex';
 import './Flex.stories.scss';

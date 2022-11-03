@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { useForm } from 'react-hook-form';
 import Button from '../Button';
-import View from '../View';
+import { View } from '../View';
 import Toggle from './Toggle';
 import { IToggleProps } from './Toggle.types';
 

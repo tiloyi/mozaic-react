@@ -1,4 +1,4 @@
-import { IViewProps } from '../View/View.types';
+import { IViewProps, TMagicUnit } from '../View';
 
 export const directions = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
 
@@ -41,4 +41,7 @@ export interface IFlexProps extends IViewProps {
     direction?: TFlexDirection;
     justifyContent?: TJustifyContent;
     wrap?: TFlexWrap;
+    gap?: TMagicUnit;
+    rowGap?: TMagicUnit;
+    columnGap?: TMagicUnit;
 }

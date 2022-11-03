@@ -1,115 +1,85 @@
-@import 'settings-tools/_all-settings';
+@import "settings-tools/_all-settings";
+
+$gapSizes: (
+    "025": $mu025,
+    "050": $mu050,
+    "075": $mu075,
+    "100": $mu100,
+    "125": $mu125,
+    "150": $mu150,
+    "200": $mu200,
+    "250": $mu250,
+    "300": $mu300,
+    "350": $mu350,
+    "400": $mu400,
+    "500": $mu500,
+    "600": $mu600,
+    "700": $mu700,
+    "800": $mu800,
+    "900": $mu900,
+    "1000": $mu1000
+);
+
+$flexDirections: row, row-reverse, column, column-reverse;
+$flexWraps: nowrap, wrap, wrap-reverse;
+$justifyContentVariants: flex-start, flex-end, center, space-between, space-around, space-evenly;
+$alignContentVariants: flex-start, flex-end, center, space-between, space-around, space-evenly, stretch;
+$alignItemsVariants: flex-start, flex-end, center, baseline, stretch;
 
 .ml-flex {
     display: flex;
 
     &--fd {
-        &-row {
-            flex-direction: row;
-        }
-
-        &-row-reverse {
-            flex-direction: row-reverse;
-        }
-
-        &-column {
-            flex-direction: column;
-        }
-
-        &-column-reverse {
-            flex-direction: column-reverse;
+        @each $direction in $flexDirections {
+            &-#{$direction} {
+                flex-direction: $direction;
+            }
         }
     }
 
     &--fw {
-        &-nowrap {
-            flex-wrap: nowrap;
-        }
-
-        &-wrap {
-            flex-wrap: wrap;
-        }
-
-        &-wrap-reverse {
-            flex-wrap: wrap-reverse;
+        @each $wrap in $flexWraps {
+            &-#{$wrap} {
+                flex-wrap: $wrap;
+            }
         }
     }
 
     &--jc {
-        &-flex-start {
-            justify-content: flex-start;
-        }
-
-        &-flex-end {
-            justify-content: flex-end;
-        }
-
-        &-center {
-            justify-content: center;
-        }
-
-        &-space-between {
-            justify-content: space-between;
-        }
-
-        &-space-around {
-            justify-content: space-around;
-        }
-
-        &-space-evenly {
-            justify-content: space-evenly;
+        @each $variant in $justifyContentVariants {
+            &-#{$variant} {
+                justify-content: $variant;
+            }
         }
     }
 
     &--ac {
-        &-flex-start {
-            align-content: flex-start;
-        }
-
-        &-flex-end {
-            align-content: flex-end;
-        }
-
-        &-center {
-            align-content: center;
-        }
-
-        &-space-between {
-            align-content: space-between;
-        }
-
-        &-space-around {
-            align-content: space-around;
-        }
-
-        &-space-evenly {
-            align-content: space-evenly;
-        }
-
-        &-stretch {
-            align-content: stretch;
+        @each $variant in $alignContentVariants {
+            &-#{$variant} {
+                align-content: $variant;
+            }
         }
     }
 
     &--ai {
-        &-flex-start {
-            align-items: flex-start;
+        @each $variant in $alignItemsVariants {
+            &-#{$variant} {
+                align-items: $variant;
+            }
+        }
+    }
+
+    @each $gapSizeName, $gapSizeValue in $gapSizes {
+        &--g-#{$gapSizeName} {
+            gap: $gapSizeValue;
         }
 
-        &-flex-end {
-            align-items: flex-end;
+        &--rg-#{$gapSizeName} {
+            row-gap: $gapSizeValue;
         }
 
-        &-center {
-            align-items: center;
-        }
-
-        &-baseline {
-            align-items: baseline;
-        }
-
-        &-stretch {
-            align-items: stretch;
+        &--cg-#{$gapSizeName} {
+            column-gap: $gapSizeValue;
         }
     }
 }
