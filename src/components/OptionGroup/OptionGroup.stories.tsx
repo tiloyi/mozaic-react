@@ -132,8 +132,13 @@ const ExampleOptionCardTemplate: Story = () => {
         <OptionGroup value={language} onChange={handleChange} mode="single">
             <div className="mc-option-group">
                 {languages.map(lang => (
-                    <OptionCard className="story-option-card" key={lang.toLowerCase()} value={lang.toLowerCase()}>
-                        <View margin="mu100">{lang}</View>
+                    <OptionCard
+                        className="story-option-card"
+                        key={lang.toLowerCase()}
+                        value={lang.toLowerCase()}
+                        padding="mu050"
+                    >
+                        {lang}
                     </OptionCard>
                 ))}
             </div>
@@ -177,8 +182,13 @@ const MultipleSelectedOptionCardTemplate: Story = () => {
         <OptionGroup mode="multi" onChange={handleChange} values={values}>
             <div className="mc-option-group">
                 {languages.map(lang => (
-                    <OptionCard className="story-option-card" key={lang.toLowerCase()} value={lang.toLowerCase()}>
-                        <View margin="mu100">{lang}</View>
+                    <OptionCard
+                        className="story-option-card"
+                        key={lang.toLowerCase()}
+                        value={lang.toLowerCase()}
+                        padding="mu050"
+                    >
+                        {lang}
                     </OptionCard>
                 ))}
             </div>
