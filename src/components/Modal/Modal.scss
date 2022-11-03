@@ -8,10 +8,14 @@
     }
 }
 
+.mc-modal__header {
+    min-height: $mu350;
+}
+
 .mc-modal__close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: $mu075;
+    right: $mu075;
 }
 
 .mc-modal__body {
