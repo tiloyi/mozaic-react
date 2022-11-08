@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { TOptionGroupValue } from '../OptionGroup/OptionGroup.types';
+import { TOptionGroupValue } from '../OptionGroup';
 
 type TOmittedProps = 'checked' | 'disabled' | 'width' | 'value' | 'onChange' | 'type';
 
