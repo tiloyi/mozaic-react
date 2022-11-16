@@ -15,17 +15,6 @@ const SpacingTemplate: Story<IViewProps> = args => (
 
 export const Spacings = SpacingTemplate.bind({});
 
-Spacings.args = {
-    marginTop: 'mu200',
-    marginRight: 'mu200',
-    marginBottom: 'mu200',
-    marginLeft: 'mu200',
-    paddingTop: 'mu100',
-    paddingRight: 'mu100',
-    paddingBottom: 'mu100',
-    paddingLeft: 'mu100'
-};
-
 Spacings.argTypes = {
     shadow: {
         table: {
