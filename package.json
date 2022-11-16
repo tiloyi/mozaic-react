@@ -97,9 +97,9 @@
     "react-dom": ">=17"
   },
   "dependencies": {
-    "@mozaic-ds/css-dev-tools": "^1.44.0",
-    "@mozaic-ds/icons": "^1.44.0",
-    "@mozaic-ds/styles": "^1.44.0",
+    "@mozaic-ds/css-dev-tools": "^1.47.0",
+    "@mozaic-ds/icons": "^1.47.1",
+    "@mozaic-ds/styles": "^1.47.0",
     "@mozaic-ds/web-fonts": "^1.22.0",
     "classnames": ">=2.3",
     "react-merge-refs": "^1.1.0",
