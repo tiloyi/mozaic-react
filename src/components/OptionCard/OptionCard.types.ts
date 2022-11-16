@@ -7,11 +7,11 @@ const types = ['radio', 'checkbox'] as const;
 
 export type TOptionCardType = typeof types[number];
 
-const cardPadding = ['mu050', 'mu100'] as const;
+const paddings = ['mu050', 'mu100'] as const;
 
-export type TOptionPadding = typeof cardPadding[number];
+export type TOptionPadding = typeof paddings[number];
 
-const indicatorPosition = [
+const indicatorPositions = [
     'top',
     'top-right',
     'right',
@@ -22,7 +22,7 @@ const indicatorPosition = [
     'top-left'
 ] as const;
 
-export type TOptionCardIndicatorPosition = typeof indicatorPosition[number];
+export type TOptionCardIndicatorPosition = typeof indicatorPositions[number];
 
 export interface IOptionCardIndicator extends Omit<InputHTMLAttributes<HTMLInputElement>, TOmittedProps> {
     indicatorPosition?: TOptionCardIndicatorPosition;
@@ -39,4 +39,4 @@ export interface IOptionCardPartialProps {
     className?: string;
 }
 
-export interface IOptionCard extends IOptionCardPartialProps, IOptionCardIndicator {}
+export interface IOptionCardProps extends IOptionCardPartialProps, IOptionCardIndicator {}

@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import { OptionCardContainer, OptionCardIndicator, OptionCardLabel } from './partials';
-import { IOptionCard } from './OptionCard.types';
+import { IOptionCardProps } from './OptionCard.types';
 import './OptionCard.scss';
 
-const OptionCard = forwardRef<HTMLInputElement, IOptionCard>(
+const OptionCard = forwardRef<HTMLInputElement, IOptionCardProps>(
     ({ className, indicatorPosition = 'top-right', type = 'radio', padding, children, ...props }, ref) => (
         <OptionCardContainer className={className} padding={padding}>
             <OptionCardIndicator

@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import Flex from '../Flex';
 import { Text } from '../Text';
-import { IOptionCard } from './OptionCard.types';
+import { IOptionCardProps } from './OptionCard.types';
 import OptionCard from './OptionCard';
 import './OptionCard.stories.scss';
 
-const ControlsTemplate: Story<IOptionCard> = args => (
+const ControlsTemplate: Story<IOptionCardProps> = args => (
     <Flex>
         <OptionCard className="story-option-card" {...args}>
             <Text>Option card</Text>
