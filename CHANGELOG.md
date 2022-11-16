@@ -1,5 +1,33 @@
 
 
+## [1.6.2](https://github.com/adeo/mozaic-react/compare/v1.6.1...v1.6.2) (2022-11-16)
+
+
+### Bug Fixes
+
+* added export interface `TOptionGroupValue` for `OptionGroup` ([5493ef0](https://github.com/adeo/mozaic-react/commit/5493ef082f649faf39b0d88dbf2c974bc98f6e1c))
+* **FileUploader:** delete argTypes ([59c9974](https://github.com/adeo/mozaic-react/commit/59c99742478fd58bfb6f5dcc19d293ecb420859f))
+* **modal:** fix header height and close button position ([ea2fd8d](https://github.com/adeo/mozaic-react/commit/ea2fd8da8a27267d6a10ec93dd17564bd8f539b1))
+* **OptionGroup:** delete import ([75c7101](https://github.com/adeo/mozaic-react/commit/75c710116d4f932dd85b510579538755870160ff))
+* **OptionGroup:** fix stories ([da83638](https://github.com/adeo/mozaic-react/commit/da836384ec4afdf8cd0f2186d0cdaca6d3596be6))
+
+
+### Features
+
+* **components:** set spellcheck attribute to false on form elements ([5f4ef62](https://github.com/adeo/mozaic-react/commit/5f4ef6222dcae307f836868d94b66fde10059961))
+* **Flex:** add gaps to type ([e6727dd](https://github.com/adeo/mozaic-react/commit/e6727dd29bb792185b13ccbe3c8fcc697cd10c15))
+* **Flex:** add implementation ([541f8b1](https://github.com/adeo/mozaic-react/commit/541f8b1dcaab7f9610dd53985db90e7156099060))
+* **Flex:** add tests ([3d94814](https://github.com/adeo/mozaic-react/commit/3d94814c6fff05ff219a9eb8da2f9c2f48b8dcfe))
+* **Flex:** refactoring ([41066d0](https://github.com/adeo/mozaic-react/commit/41066d085bf25e78b0bfbea606eb9cc3c9dcb1ec))
+* **OptionCard:** add padding prop ([bf0b05a](https://github.com/adeo/mozaic-react/commit/bf0b05ad7db351ba1523758f3afc7508fa2152c7))
+* **OptionCard:** refactoring ([e2988ab](https://github.com/adeo/mozaic-react/commit/e2988ab10cd3b41365ccff8c5f04bd7652f8c5d1))
+* **Text:** add additional sizes ([89a9d91](https://github.com/adeo/mozaic-react/commit/89a9d91ec25adb28249a0f44c729db3d19c3bb3c))
+* **View:** add tests ([23a7cfc](https://github.com/adeo/mozaic-react/commit/23a7cfcc9574ab06cc0b1aaf9e6d0fc4311789ed))
+* **View:** delete default args ([79bcc3b](https://github.com/adeo/mozaic-react/commit/79bcc3b6829076cb0dd94afc0ae22bcdcc2368bb))
+* **View:** fix imports ([641b0d4](https://github.com/adeo/mozaic-react/commit/641b0d45eb6f8667d298de80449e00070c8d5d33))
+* **View:** fix stories ([98be9c5](https://github.com/adeo/mozaic-react/commit/98be9c526e6a61f6f28977e05d42dc660b1f1671))
+* **View:** implement new spaces ([16a132e](https://github.com/adeo/mozaic-react/commit/16a132eef6da453019a8ecfe998b419c8025a8c8))
+
 ## [1.6.1](https://github.com/adeo/mozaic-react/compare/v1.6.0...v1.6.1) (2022-10-18)
 
 
