@@ -16,6 +16,26 @@ describe('components/View', () => {
         expect(screen.getByText('Test')).toHaveClass(`mu-p-${sanitize(padding)}`);
     });
 
+    test.each(magicUnits)('treats all equal paddings as padding %s', padding => {
+        render(
+            <View paddingTop={padding} paddingRight={padding} paddingBottom={padding} paddingLeft={padding}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-p-${sanitize(padding)}`);
+    });
+
+    test.each(magicUnits)('treats vertical padding %s and horizontal padding %s as padding %s', padding => {
+        render(
+            <View paddingVertical={padding} paddingHorizontal={padding}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-p-${sanitize(padding)}`);
+    });
+
     test.each(magicUnits)('renders with padding-top=%s', paddingTop => {
         render(<View paddingTop={paddingTop}>Test</View>);
 
@@ -40,8 +60,60 @@ describe('components/View', () => {
         expect(screen.getByText('Test')).toHaveClass(`mu-pl-${sanitize(paddingLeft)}`);
     });
 
+    test.each(magicUnits)('renders with vertical padding %s', padding => {
+        render(<View paddingVertical={padding}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-pv-${sanitize(padding)}`);
+    });
+
+    test.each(magicUnits)('treats padding-top=%s and padding-bottom=%s as vertical padding %s', padding => {
+        render(
+            <View paddingTop={padding} paddingBottom={padding}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-pv-${sanitize(padding)}`);
+    });
+
+    test.each(magicUnits)('renders with horizontal padding %s', padding => {
+        render(<View paddingHorizontal={padding}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-ph-${sanitize(padding)}`);
+    });
+
+    test.each(magicUnits)('treats padding-right=%s and padding-left=%s as horizontal padding %s', padding => {
+        render(
+            <View paddingRight={padding} paddingLeft={padding}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-ph-${sanitize(padding)}`);
+    });
+
     test.each(magicUnits)('renders with margin=%s', margin => {
         render(<View margin={margin}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-m-${sanitize(margin)}`);
+    });
+
+    test.each(magicUnits)('treats all equal margins as margin %s', margin => {
+        render(
+            <View marginTop={margin} marginRight={margin} marginBottom={margin} marginLeft={margin}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-m-${sanitize(margin)}`);
+    });
+
+    test.each(magicUnits)('treats vertical margin %s and horizontal margin %s as margin %s', margin => {
+        render(
+            <View marginVertical={margin} marginHorizontal={margin}>
+                Test
+            </View>
+        );
 
         expect(screen.getByText('Test')).toHaveClass(`mu-m-${sanitize(margin)}`);
     });
@@ -68,6 +140,38 @@ describe('components/View', () => {
         render(<View marginLeft={marginLeft}>Test</View>);
 
         expect(screen.getByText('Test')).toHaveClass(`mu-ml-${sanitize(marginLeft)}`);
+    });
+
+    test.each(magicUnits)('renders with vertical margin %s', margin => {
+        render(<View marginVertical={margin}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-mv-${sanitize(margin)}`);
+    });
+
+    test.each(magicUnits)('treats margin-top=%s and margin-bottom=%s as vertical margin %s', margin => {
+        render(
+            <View marginTop={margin} marginBottom={margin}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-mv-${sanitize(margin)}`);
+    });
+
+    test.each(magicUnits)('renders with horizontal margin %s', margin => {
+        render(<View marginHorizontal={margin}>Test</View>);
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-mh-${sanitize(margin)}`);
+    });
+
+    test.each(magicUnits)('treats margin-right=%s and margin-left=%s as horizontal margin %s', margin => {
+        render(
+            <View marginRight={margin} marginLeft={margin}>
+                Test
+            </View>
+        );
+
+        expect(screen.getByText('Test')).toHaveClass(`mu-mh-${sanitize(margin)}`);
     });
 
     test.each(shadows)('renders with shadow=%s', shadow => {

@@ -38,11 +38,15 @@ export interface IViewProps extends Omit<HTMLAttributes<HTMLElement>, 'style'> {
     marginRight?: TMagicUnit;
     marginBottom?: TMagicUnit;
     marginLeft?: TMagicUnit;
+    marginHorizontal?: TMagicUnit;
+    marginVertical?: TMagicUnit;
     padding?: TMagicUnit;
     paddingTop?: TMagicUnit;
     paddingRight?: TMagicUnit;
     paddingBottom?: TMagicUnit;
     paddingLeft?: TMagicUnit;
+    paddingHorizontal?: TMagicUnit;
+    paddingVertical?: TMagicUnit;
     shadow?: TShadow;
     radius?: TRadius;
 }
