@@ -2,11 +2,16 @@ import { INotification } from '../Notification';
 
 export type TNotificationItemId = string;
 
+export const positions = ['top', 'bottom'] as const;
+
+export type TNotificationPosition = typeof positions[number];
+
 export interface INotificationsItem extends INotification {
     id: TNotificationItemId;
     duration: number;
     isClosable?: boolean;
     isAutoClosable?: boolean;
+    position: TNotificationPosition;
 }
 
 export interface INotificationItemProps {
@@ -17,9 +22,15 @@ export interface INotificationItemProps {
 
 export type TThemedNotificationParams = Omit<Partial<INotificationsItem>, 'theme'>;
 
-export type TNotificationAddAction = (notification: Partial<INotificationsItem>) => TNotificationItemId;
+export type TNotificationAddAction = (
+    notification: Partial<INotificationsItem>,
+    position?: TNotificationPosition
+) => TNotificationItemId;
 
-export type TThemedNotificationAction = (params: TThemedNotificationParams) => TNotificationItemId;
+export type TThemedNotificationAction = (
+    params: TThemedNotificationParams,
+    position?: TNotificationPosition
+) => TNotificationItemId;
 
 export type TNotificationRemoveAction = (notificationId: TNotificationItemId) => void;
 
@@ -43,4 +54,8 @@ export interface INotificationsActions {
 
 export interface INotificationsItems {
     notifications: Array<INotificationsItem>;
+}
+
+export interface INotificationsRendererProps {
+    position?: TNotificationPosition;
 }

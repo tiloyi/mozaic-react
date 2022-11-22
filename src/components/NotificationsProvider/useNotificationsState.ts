@@ -1,21 +1,30 @@
 import { useCallback, useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { INotificationsActions, INotificationsItem, TThemedNotificationParams } from './NotificationsProvider.types';
+import {
+    INotificationsActions,
+    INotificationsItem,
+    TNotificationPosition,
+    TThemedNotificationParams
+} from './NotificationsProvider.types';
 
-const NOTIFICATION_DURATION = 5000;
+const DEFAULT_NOTIFICATION_DURATION = 5000;
+const DEFAULT_NOTIFICATION_POSITION = 'bottom';
 
 export type TUseNotificationsState = [Array<INotificationsItem>, INotificationsActions];
 
 export default function useNotificationsState(): TUseNotificationsState {
     const [notifications, setNotifications] = useState<Array<INotificationsItem>>([]);
 
-    const add = useCallback((partial: Partial<INotificationsItem>) => {
+    const add = useCallback((partial: Partial<INotificationsItem>, position?: TNotificationPosition) => {
+        const notificationPosition = position === undefined ? DEFAULT_NOTIFICATION_POSITION : position;
+
         const notification: INotificationsItem = {
             ...partial,
             id: partial.id ? partial.id : nanoid(),
-            duration: partial.duration === undefined ? NOTIFICATION_DURATION : partial.duration,
+            duration: partial.duration === undefined ? DEFAULT_NOTIFICATION_DURATION : partial.duration,
             isClosable: partial.isClosable === undefined ? true : partial.isClosable,
-            isAutoClosable: partial.isAutoClosable === undefined ? true : partial.isAutoClosable
+            isAutoClosable: partial.isAutoClosable === undefined ? true : partial.isAutoClosable,
+            position: notificationPosition
         };
 
         setNotifications(prevNotifications => [...prevNotifications, notification]);
@@ -23,13 +32,25 @@ export default function useNotificationsState(): TUseNotificationsState {
         return notification.id;
     }, []);
 
-    const info = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'info' }), [add]);
+    const info = useCallback(
+        (params: TThemedNotificationParams, position = 'bottom') => add({ ...params, theme: 'info' }, position),
+        [add]
+    );
 
-    const success = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'success' }), [add]);
+    const success = useCallback(
+        (params: TThemedNotificationParams, position = 'bottom') => add({ ...params, theme: 'success' }, position),
+        [add]
+    );
 
-    const warning = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'warning' }), [add]);
+    const warning = useCallback(
+        (params: TThemedNotificationParams, position = 'bottom') => add({ ...params, theme: 'warning' }, position),
+        [add]
+    );
 
-    const danger = useCallback((params: TThemedNotificationParams) => add({ ...params, theme: 'danger' }), [add]);
+    const danger = useCallback(
+        (params: TThemedNotificationParams, position = 'bottom') => add({ ...params, theme: 'danger' }, position),
+        [add]
+    );
 
     const remove = useCallback((notificationId: string) => {
         setNotifications(prevNotifications =>

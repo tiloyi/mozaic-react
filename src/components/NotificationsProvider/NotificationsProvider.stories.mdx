@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
-import { Notifications } from './NotificationsProvider.stories';
+import { BottomNotifications, TopNotifications } from './NotificationsProvider.stories';
 import { NotificationsProvider } from './NotificationsContext';
 
 <Meta title="Components/NotificationsProvider" component={NotificationsProvider} />
@@ -16,8 +16,16 @@ To use the component in your project you must:
 
 <Source language="javascript" code="import { NotificationsProvider } from '@mozaic-ds/react';" />
 
-2. Call the component and give it the desired props, for example:
+2. Call the component and give it the desired props.
+
+Bottom notifications:
 
 <Canvas withSource="open">
-    <Story story={Notifications} />
+    <Story story={BottomNotifications} />
+</Canvas>
+
+Top notifications:
+
+<Canvas withSource="open">
+    <Story story={TopNotifications} />
 </Canvas>

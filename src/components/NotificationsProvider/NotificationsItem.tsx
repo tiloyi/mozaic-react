@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { INotificationItemProps } from './NotificationsProvider.types';
-import './NotificationsItem.scss';
 import { useNotifications } from './NotificationsContext';
+import './NotificationsItem.scss';
 
 const NotificationsItem: FC<INotificationItemProps> = ({ children, id, duration, isAutoClosable }) => {
     const { remove } = useNotifications();

@@ -1,11 +1,13 @@
 import React from 'react';
+import cls from 'classnames';
 import Portal from '../Portal';
 import { useNotifications, useNotificationsItems } from './NotificationsContext';
-import './NotificationsRenderer.scss';
 import NotificationsItem from './NotificationsItem';
 import Notification from '../Notification';
+import { INotificationsRendererProps } from './NotificationsProvider.types';
+import './NotificationsRenderer.scss';
 
-const NotificationsRenderer = (): JSX.Element | null => {
+const NotificationsRenderer = ({ position = 'bottom' }: INotificationsRendererProps): JSX.Element | null => {
     const { notifications } = useNotificationsItems();
     const { remove } = useNotifications();
 
@@ -13,24 +15,30 @@ const NotificationsRenderer = (): JSX.Element | null => {
         return null;
     }
 
+    const items = notifications.filter(n => n.position === position);
+
+    if (items.length === 0) {
+        return null;
+    }
+
     return (
-        <Portal id="notifications">
-            <div className="mc-notifications-renderer">
-                {notifications.map(notification => (
+        <Portal id={`${position}-notifications`}>
+            <div className={cls('mc-notifications-renderer', `mc-notifications-renderer--${position}`)}>
+                {(position === 'top' ? items.reverse() : items).map(item => (
                     <NotificationsItem
-                        key={`notification-${notification.id}`}
-                        id={notification.id}
-                        duration={notification.duration}
-                        isAutoClosable={notification.isAutoClosable}
+                        key={`notification-${item.id}`}
+                        id={item.id}
+                        duration={item.duration}
+                        isAutoClosable={item.isAutoClosable}
                     >
                         <Notification
-                            theme={notification.theme}
-                            size={notification.size}
-                            title={notification.title}
-                            message={notification.message}
-                            footer={notification.footer}
-                            isClosable={notification.isClosable}
-                            onClose={() => remove(notification.id)}
+                            theme={item.theme}
+                            size={item.size}
+                            title={item.title}
+                            message={item.message}
+                            footer={item.footer}
+                            isClosable={item.isClosable}
+                            onClose={() => remove(item.id)}
                         />
                     </NotificationsItem>
                 ))}

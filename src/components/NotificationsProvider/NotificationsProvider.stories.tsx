@@ -4,46 +4,62 @@ import Button from '../Button';
 import { NotificationsProvider, useNotifications } from './NotificationsContext';
 import NotificationsRenderer from './NotificationsRenderer';
 import './NotificationsProvider.stories.scss';
+import { INotificationsRendererProps } from './NotificationsProvider.types';
 
-const Example = (): JSX.Element => {
+const Example = ({ position }: INotificationsRendererProps): JSX.Element => {
     const { add, info, success, warning, danger, update, remove, clear } = useNotifications();
 
     const addInfoNotification = (): void => {
-        const notificationId = info({
-            title: 'Info notification',
-            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-        });
+        const notificationId = info(
+            {
+                title: 'Info notification',
+                message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            },
+            position
+        );
 
         // eslint-disable-next-line no-console
         console.log('Add notifications with id', notificationId);
     };
 
     const addSuccessNotification = (): string =>
-        success({
-            title: 'Success notification',
-            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-        });
+        success(
+            {
+                title: 'Success notification',
+                message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            },
+            position
+        );
 
     const addDangerNotification = (): string =>
-        danger({
-            title: 'Danger notification',
-            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-        });
+        danger(
+            {
+                title: 'Danger notification',
+                message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            },
+            position
+        );
 
     const addWarningNotification = (): string =>
-        warning({
-            title: 'Warning notification',
-            message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-        });
+        warning(
+            {
+                title: 'Warning notification',
+                message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            },
+            position
+        );
 
     const addHelloNotification = (): string =>
-        add({
-            id: 'hello',
-            theme: 'warning',
-            title: 'Hello!',
-            isClosable: false,
-            isAutoClosable: false
-        });
+        add(
+            {
+                id: 'hello',
+                theme: 'warning',
+                title: 'Hello!',
+                isClosable: false,
+                isAutoClosable: false
+            },
+            position
+        );
 
     const updateHelloNotification = (): void =>
         update('hello', {
@@ -124,11 +140,20 @@ const Example = (): JSX.Element => {
     );
 };
 
-const Template: Story = () => (
+const BottomNotificationsTemplate: Story = () => (
     <NotificationsProvider>
-        <Example />
-        <NotificationsRenderer />
+        <Example position="bottom" />
+        <NotificationsRenderer position="bottom" />
     </NotificationsProvider>
 );
 
-export const Notifications = Template.bind({});
+export const BottomNotifications = BottomNotificationsTemplate.bind({});
+
+const TopNotificationsTemplate: Story = () => (
+    <NotificationsProvider>
+        <Example position="top" />
+        <NotificationsRenderer position="top" />
+    </NotificationsProvider>
+);
+
+export const TopNotifications = TopNotificationsTemplate.bind({});
