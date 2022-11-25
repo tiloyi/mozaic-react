@@ -1,6 +1,7 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import cn from 'classnames';
 import { useIsMounted } from '../../../hooks';
+import { FocusTrap } from '../../FocusTrap';
 import { useModalsState, useModals } from '../../ModalsProvider';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
@@ -37,11 +38,16 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClos
 
     return (
         <Portal id={`portal-modal-${id}`}>
-            <div className="mc-modal" role="dialog" tabIndex={-1}>
-                <div {...props} className={cn('mc-modal__dialog', isOpen && 'is-open')} role="document">
+            <section className="mc-modal" role="dialog" tabIndex={-1}>
+                <FocusTrap
+                    {...props}
+                    className={cn('mc-modal__dialog', isOpen && 'is-open')}
+                    role="document"
+                    isActive={isOpen}
+                >
                     {isOpen && children}
-                </div>
-            </div>
+                </FocusTrap>
+            </section>
             <Overlay isVisible={isOpen} onClick={handleClick} />
         </Portal>
     );

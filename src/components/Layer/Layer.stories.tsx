@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import { Text } from '../Text';
+import TextInput from '../TextInput';
+import { View } from '../View';
 import { LayerBody, LayerFooter, LayerHeader, LayerTitle } from './partials';
 import Layer from './Layer';
 
@@ -20,6 +22,9 @@ const ShortBodyTemplate: Story = () => {
                     <LayerTitle>Layer title</LayerTitle>
                 </LayerHeader>
                 <LayerBody>
+                    <View paddingBottom="mu100" paddingTop="mu050">
+                        <TextInput size="s" />
+                    </View>
                     <Text as="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
                         magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae

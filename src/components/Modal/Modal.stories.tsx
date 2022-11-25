@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ModalsProvider, { useModals } from '../ModalsProvider';
 import { Text } from '../Text';
+import TextInput from '../TextInput';
+import { View } from '../View';
 import { ModalBody, ModalFooter, ModalHeader, ModalHeading, ModalTitle } from './partials';
 import Modal from './Modal';
 
@@ -21,6 +23,9 @@ const ShortBodyTemplate: Story = () => {
                 </ModalHeader>
                 <ModalBody>
                     <ModalHeading>Modal heading</ModalHeading>
+                    <View paddingBottom="mu100" paddingTop="mu050">
+                        <TextInput size="s" />
+                    </View>
                     <Text as="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum erat odio, et lacinia
                         magna blandit ut. Nullam sagittis tristique magna, vel congue lorem convallis eu. Aenean vitae
