@@ -14,7 +14,7 @@ const FOCUSABLE_ELEMENTS_SELECTORS = [
 
 const KEY_CODE_TAB = 9;
 
-const FocusTrap: FC<IFocusTrapProps> = ({ children, isActive = false, ...props }) => {
+const FocusTrap: FC<IFocusTrapProps> = ({ children, isActive = false, focusedElementIndex = 0, ...props }) => {
     const ref = useRef<HTMLDivElement>(null);
     const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
@@ -30,7 +30,9 @@ const FocusTrap: FC<IFocusTrapProps> = ({ children, isActive = false, ...props }
                 const [firstFocusableElement] = focusableElements;
                 const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-                firstFocusableElement.focus();
+                if (focusedElementIndex >= 0 && focusedElementIndex < focusableElements.length) {
+                    focusableElements[focusedElementIndex].focus();
+                }
 
                 const eventHandler = (event: KeyboardEvent): void => {
                     const isTabPressed = event.key === 'Tab' || event.keyCode === KEY_CODE_TAB;
@@ -61,7 +63,7 @@ const FocusTrap: FC<IFocusTrapProps> = ({ children, isActive = false, ...props }
         } else {
             lastActiveElementRef.current?.focus();
         }
-    }, [isActive]);
+    }, [isActive, focusedElementIndex]);
 
     return (
         <div {...props} ref={ref}>

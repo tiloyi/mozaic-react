@@ -12,6 +12,7 @@ export interface IModalCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonE
 
 export interface IModalContainerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'role' | 'className'> {
     id: string;
+    focusedElementIndex?: number;
     onOpen?: () => void;
     onClose?: () => void;
 }

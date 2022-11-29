@@ -17,11 +17,14 @@ const ShortBodyTemplate: Story = () => {
             <Button size="s" onClick={() => open('shortBodyLayer')}>
                 Open layer
             </Button>
-            <Layer id="shortBodyLayer" onOpen={action('Open')} onClose={action('Close')}>
+            <Layer id="shortBodyLayer" focusedElementIndex={1} onOpen={action('Open')} onClose={action('Close')}>
                 <LayerHeader>
                     <LayerTitle>Layer title</LayerTitle>
                 </LayerHeader>
                 <LayerBody>
+                    <View paddingBottom="mu100" paddingTop="mu050">
+                        <TextInput size="s" />
+                    </View>
                     <View paddingBottom="mu100" paddingTop="mu050">
                         <TextInput size="s" />
                     </View>
