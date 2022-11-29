@@ -1,11 +1,14 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import cn from 'classnames';
+import useEventListener from '@byndyusoft-ui/use-event-listener';
 import { useIsMounted } from '../../../hooks';
 import { FocusTrap } from '../../FocusTrap';
 import { useModalsState, useModals } from '../../ModalsProvider';
 import Overlay from '../../Overlay';
 import Portal from '../../Portal';
 import { IModalContainerProps } from '../Modal.types';
+
+const KEY_CODE_ESC = 27;
 
 const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClose, ...props }): JSX.Element => {
     const { register, unregister, close } = useModals();
@@ -33,6 +36,17 @@ const ModalContainer: FC<IModalContainerProps> = ({ children, id, onOpen, onClos
             }
         }
     }, [modalState, isMounted, onOpen, onClose]);
+
+    const eventListener = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Escape' || event.keyCode === KEY_CODE_ESC) {
+                close(id);
+            }
+        },
+        [close, id]
+    );
+
+    useEventListener('keydown', eventListener, document);
 
     const handleClick = useCallback(() => close(id), [close, id]);
 

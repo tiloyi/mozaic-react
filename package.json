@@ -97,6 +97,7 @@
     "react-dom": ">=17"
   },
   "dependencies": {
+    "@byndyusoft-ui/use-event-listener": "^0.1.0",
     "@mozaic-ds/css-dev-tools": "^1.47.0",
     "@mozaic-ds/icons": "^1.47.1",
     "@mozaic-ds/styles": "^1.47.0",

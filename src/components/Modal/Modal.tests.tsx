@@ -88,4 +88,22 @@ describe('components/Modal', () => {
 
         expect(onClose).toBeCalledTimes(1);
     });
+
+    test('calls `onClose` callback by escape button press', async () => {
+        const onClose = jest.fn();
+
+        render(
+            <ModalsProvider>
+                <Scene onClose={onClose} />
+            </ModalsProvider>
+        );
+
+        await userEvent.click(screen.getByText(/Open/));
+
+        expect(screen.getByRole('document')).toHaveClass('is-open');
+
+        await userEvent.keyboard('[Escape]');
+
+        expect(onClose).toBeCalledTimes(1);
+    });
 });
