@@ -1,5 +1,7 @@
 
 
+## [1.6.4](https://github.com/adeo/mozaic-react/compare/v1.6.3...v1.6.4) (2022-11-29)
+
 ## [1.6.3](https://github.com/adeo/mozaic-react/compare/v1.6.2...v1.6.3) (2022-11-22)
 
 ## [1.6.2](https://github.com/adeo/mozaic-react/compare/v1.6.1...v1.6.2) (2022-11-16)
