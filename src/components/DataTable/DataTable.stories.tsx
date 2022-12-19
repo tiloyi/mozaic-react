@@ -435,7 +435,7 @@ const SelectableRowsTemplate: Story = () => {
                 variant: 'number'
             }
         ],
-        [handleChange, rows]
+        [handleAllRowsChange, handleChange, rows]
     );
 
     const getRowKey = useCallback((row: ISelectableFixture) => row.id, []);
@@ -454,15 +454,13 @@ const SelectableRowsTemplate: Story = () => {
 
 export const SelectableRows = SelectableRowsTemplate.bind({});
 
+const expandableRowIds = [1, 3, 5];
+
 const ExpandableRowsTemplate: Story = () => {
-    const expandableRowIds = [1, 3, 5];
     const [expandedRowIds, setExpandedRowIds] = useState<Array<number>>([3]);
     const rows = generateExpandableRows(10);
 
-    const selectCustomRow = useCallback(
-        (row: IExpandableFixture) => expandableRowIds.includes(row.id),
-        [expandableRowIds]
-    );
+    const selectCustomRow = useCallback((row: IExpandableFixture) => expandableRowIds.includes(row.id), []);
 
     const handleExpand = useCallback(
         (rowId: number) => () => {
@@ -503,7 +501,7 @@ const ExpandableRowsTemplate: Story = () => {
                 variant: 'number'
             }
         ],
-        [expandedRowIds]
+        [expandedRowIds, handleExpand, selectCustomRow]
     );
 
     const getRowKey = useCallback((row: IExpandableFixture) => row.id, []);
