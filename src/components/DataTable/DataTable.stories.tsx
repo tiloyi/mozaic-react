@@ -481,7 +481,13 @@ const ExpandableRowsTemplate: Story = () => {
         () => [
             {
                 className: 'story-action-column',
-                render: row => (selectCustomRow(row) ? <TableExpandButton onClick={handleExpand(row.id)} /> : null)
+                render: row =>
+                    selectCustomRow(row) ? (
+                        <TableExpandButton
+                            isExpanded={expandedRowIds.includes(row.id)}
+                            onClick={handleExpand(row.id)}
+                        />
+                    ) : null
             },
             {
                 label: 'Id',
@@ -497,7 +503,7 @@ const ExpandableRowsTemplate: Story = () => {
                 variant: 'number'
             }
         ],
-        []
+        [expandedRowIds]
     );
 
     const getRowKey = useCallback((row: IExpandableFixture) => row.id, []);
