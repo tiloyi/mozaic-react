@@ -41,3 +41,7 @@ export interface ITableHeaderProps extends HTMLAttributes<HTMLTableSectionElemen
 export interface ITableBodyProps extends HTMLAttributes<HTMLTableSectionElement> {}
 
 export interface ITableActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export interface ITableExpandButtonProps extends ITableActionButtonProps {
+    isExpanded?: boolean;
+}
